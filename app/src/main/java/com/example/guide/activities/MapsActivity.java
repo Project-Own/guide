@@ -1,9 +1,10 @@
-package com.example.guide;
+package com.example.guide.activities;
 
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
 
+import com.example.guide.R;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
