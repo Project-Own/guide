@@ -23,7 +23,6 @@ import com.example.guide.fragments.OneFragment;
 import com.example.guide.fragments.TwoFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void openMapActivity(){
-        Intent intent = new Intent(getApplicationContext(),MapsActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
         startActivity(intent);
     }
     private void setupViewPager(){

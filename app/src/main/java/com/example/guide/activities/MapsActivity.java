@@ -1,21 +1,22 @@
 package com.example.guide.activities;
 
-import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
 
+import androidx.fragment.app.FragmentActivity;
+
 import com.example.guide.R;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.LatLngBounds;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +41,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.setMinZoomPreference(12.0f); // Set a preference for minimum zoom (Zoom out).
-        mMap.setMaxZoomPreference(14.0f); // Set a preference for maximum zoom (Zoom In).
+//        mMap.setMinZoomPreference(10.0f); // Set a preference for minimum zoom (Zoom out).
+//        mMap.setMaxZoomPreference(14.0f); // Set a preference for maximum zoom (Zoom In).
 
         // Add a marker in Sydney and move the camera
-        LatLng origin = new LatLng(27.678889, 85.411077);
-        CameraUpdate panToOrigin = CameraUpdateFactory.newLatLng(origin);
-        mMap.moveCamera(panToOrigin);
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(14), 400, null);
+//        LatLng origin = new LatLng(27.678889, 85.411077);
+//        CameraUpdate panToOrigin = CameraUpdateFactory.newLatLng(origin);
+//        mMap.moveCamera(panToOrigin);
 
-//        mMap.addMarker(new MarkerOptions().position(bhaktapur).title("Marker in bhaktapur"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bhaktapur,10f ));
+        LatLngBounds ADELAIDE=new LatLngBounds(new LatLng(27.672154,85.423061),new LatLng(27.673424,85.438341));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15f),null);
+
+
+
+        mMap.setLatLngBoundsForCameraTarget(ADELAIDE);
+
+
+
+
     }
+
+
+
+
 }
