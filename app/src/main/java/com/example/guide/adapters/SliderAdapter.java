@@ -57,12 +57,15 @@ public class SliderAdapter extends PagerAdapter {
         slideImageView.setImageResource(slide_images[position]);
         slideTextView.setText(slide_headings[position]);
         slideTextView1.setText(slide_desc[position]);
+
         container.addView(view);
+
         return view;
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+
         container.removeView((View) object);
 
     }

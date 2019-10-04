@@ -21,6 +21,7 @@ import com.example.guide.R;
 import com.example.guide.adapters.SelectionPagerAdapter;
 import com.example.guide.fragments.OneFragment;
 import com.example.guide.fragments.TwoFragment;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity
                  //       .setAction("Action", null).show();
             }
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -63,6 +64,12 @@ public class MainActivity extends AppCompatActivity
         // adapter for viewPager
         FragmentManager fm = getSupportFragmentManager();
         SelectionPagerAdapter adapter = new SelectionPagerAdapter(getSupportFragmentManager());
+
+        /*Map Fragment */
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+
+        /*Map Fragment */
+
 
         adapter.addFragment(new OneFragment());
         adapter.addFragment(new TwoFragment());
@@ -116,7 +123,7 @@ public class MainActivity extends AppCompatActivity
     }
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -155,18 +162,18 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            openMapActivity();
         } else if (id == R.id.nav_slideshow) {
-
+            openMapActivity();
         } else if (id == R.id.nav_tools) {
-
+            openMapActivity();
         } else if (id == R.id.nav_share) {
-
+            openMapActivity();
         } else if (id == R.id.nav_send) {
-
+            openMapActivity();
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

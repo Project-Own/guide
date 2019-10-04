@@ -2,9 +2,11 @@ package com.example.guide.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MotionEvent;
 import android.widget.VideoView;
 
@@ -44,7 +46,22 @@ public class SplashScreenActivity extends Activity {
     private void jump() {
         if (isFinishing())
             return;
-        startActivity(new Intent(this, MainActivity.class));
+
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean previouslyStarted = prefs.getBoolean(getString(R.string.pref_previously_started), false);
+        if(!previouslyStarted) {
+            SharedPreferences.Editor edit = prefs.edit();
+            edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
+            edit.commit();
+            startActivity(new Intent(this, LandingActivity.class));
+
+        }else{
+            startActivity(new Intent(this, MainActivity.class));
+
+        }
         finish();
+
+
     }
 }

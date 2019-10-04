@@ -37,5 +37,7 @@
         android:layout_marginBottom="200dp"
         android:text="landing page"
         android:textColor="@color/tabUnselectedIconColor"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+
+        />
 </RelativeLayout>
