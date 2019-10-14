@@ -73,11 +73,10 @@ public class MainActivity extends AppCompatActivity
 
         adapter.addFragment(new OneFragment());
         adapter.addFragment(new TwoFragment());
-        adapter.addFragment(new OneFragment());
+        adapter.addFragment(new TwoFragment());
         adapter.addFragment(new TwoFragment());
         ViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
-
         TabLayout tabLayout = findViewById(R.id.tabs);
 
         tabLayout.setupWithViewPager(viewPager);
