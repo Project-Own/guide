@@ -54,7 +54,7 @@
         app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.016" />
 
     <Button
         android:id="@+id/placebutton"
@@ -130,7 +130,7 @@
         android:fontFamily="@font/regular"
         android:textColor="@color/white"
         android:gravity="bottom|center"
-        android:text="Food"
+        android:text="Foodie"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
