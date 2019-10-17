@@ -40,9 +40,10 @@
 
     <LinearLayout
         android:id="@+id/line2"
-        android:layout_width="158dp"
-        android:layout_height="420dp"
+        android:layout_width="152dp"
+        android:layout_height="404dp"
         android:layout_below="@+id/line1"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="13dp"
         android:orientation="vertical">
 
@@ -86,14 +87,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="145dp"
-        android:layout_height="417dp"
+        android:layout_width="155dp"
+        android:layout_height="399dp"
         android:layout_below="@+id/line1"
         android:layout_alignRight="@+id/line2"
         android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="13dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="-252dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="-203dp"
         android:orientation="vertical">
 
 
