@@ -116,7 +116,7 @@
             android:background="@drawable/navigation_logo"
             android:fontFamily="@font/regular"
             android:gravity="bottom|center"
-            android:text="Foodie"
+            android:text="Food"
             android:textColor="@color/white" />
 
 
