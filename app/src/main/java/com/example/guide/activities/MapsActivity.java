@@ -15,18 +15,14 @@ import com.google.android.gms.maps.model.Dot;
 import com.google.android.gms.maps.model.Gap;
 import com.google.android.gms.maps.model.JointType;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.Arrays;
 
-import static android.icu.lang.UProperty.DASH;
-
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
+        {
 
     private GoogleMap mMap;
 
@@ -53,7 +49,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-    /**
+
+
+
+
+            /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
      * This is where we can add markers or lines, add listeners or move the camera. In this case,
@@ -65,23 +65,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMyLocationEnabled(true);
+
 
         int fillColorArgb = Color.HSVToColor(100,new float[]{360,1,1});
 
         int strokeColorArgb = Color.HSVToColor(200,new float[]{0,1,1});
 
         polygonOptions = new PolygonOptions()
-                .addAll(
-                        Arrays.asList(
-                                new LatLng(27.655094,85.391622), // Leftmost bottom corner
-                                new LatLng(27.655094,85.458424), //Rightmost bottom corner
-                                new LatLng(27.700547,85.458424), // Righmost Top
-                                new LatLng(27.700547,85.391622),//Leftmost top
-                                new LatLng(27.655094,85.391622)
 
-                        )
-                )
-                .addHole(
+                .addAll(
                         Arrays.asList(
                                 new LatLng(27.691212,85.447988), // Top rightmost
 
@@ -127,16 +120,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMutalbePolygon = mMap.addPolygon(polygonOptions);
 
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(27.668311, 85.431090), 12));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(27.668311, 85.431090), 15));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15),null);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(13), 2000, null);
 
 
-        mMap.setMinZoomPreference(10.0f); // Set a preference for minimum zoom (Zoom out).
-        mMap.setMaxZoomPreference(14.0f); // Set a preference for maximum zoom (Zoom In).
-        LatLngBounds BHAKTAPUR = new LatLngBounds(new LatLng(27.672154,85.423061),new LatLng(27.673424,85.438341));
-        mMap.setLatLngBoundsForCameraTarget(BHAKTAPUR);
+        mMap.setMinZoomPreference(0.0f); // Set a preference for minimum zoom (Zoom out).
+        mMap.setMaxZoomPreference(20.0f); // Set a preference for maximum zoom (Zoom In).
 
     }
+
+
+
+
+
 
 }
