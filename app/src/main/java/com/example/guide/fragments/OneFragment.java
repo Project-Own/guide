@@ -30,7 +30,7 @@ public class OneFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_one, container, false);
       //  setupViewPager();
 
-        nav =v.findViewById(R.id.navButton);
+        nav =v.findViewById(R.id.navbutton);
        nav.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
