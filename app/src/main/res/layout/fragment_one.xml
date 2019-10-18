@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/regular"
         android:text="Welcome to"
-       android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
         android:textColor="@color/white"
         android:textSize="22sp"
         android:textStyle="bold" />
@@ -33,17 +33,16 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/semibold"
         android:text="Bhaktapur"
-        android:layout_gravity="center"
         android:textColor="@color/white"
-        android:textSize="22dp" />
+        android:textSize="35sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/line2"
-        android:layout_width="158dp"
-        android:layout_height="420dp"
+        android:layout_width="191dp"
+        android:layout_height="415dp"
         android:layout_below="@+id/line1"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="45dp"
         android:orientation="vertical">
 
 
@@ -62,7 +61,7 @@
             android:id="@+id/place"
             android:layout_width="match_parent"
             android:layout_height="127dp"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="20dp"
 
             android:background="@drawable/navigation_logo"
             android:fontFamily="@font/regular"
@@ -74,7 +73,7 @@
         <Button
             android:id="@+id/calendarbutton"
             android:layout_width="match_parent"
-            android:layout_height="134dp"
+            android:layout_height="130dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/navigation_logo"
             android:fontFamily="@font/regular"
@@ -86,14 +85,12 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="145dp"
-        android:layout_height="417dp"
+        android:layout_width="182dp"
+        android:layout_height="415dp"
         android:layout_below="@+id/line1"
         android:layout_alignRight="@+id/line2"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="-252dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="-220dp"
         android:orientation="vertical">
 
 
@@ -114,7 +111,7 @@
             android:id="@+id/foodbutton"
             android:layout_width="match_parent"
             android:layout_height="123dp"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="20dp"
 
             android:background="@drawable/navigation_logo"
             android:fontFamily="@font/regular"
@@ -126,7 +123,7 @@
         <Button
             android:id="@+id/currencybutton"
             android:layout_width="match_parent"
-            android:layout_height="128dp"
+            android:layout_height="131dp"
             android:background="@drawable/navigation_logo"
             android:fontFamily="@font/regular"
             android:gravity="bottom|center"
