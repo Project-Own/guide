@@ -8,12 +8,10 @@ import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.guide.Modal.Weather.WeatherData;
 import com.example.guide.R;
 
 import java.util.List;
@@ -87,25 +85,6 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
             //     photo = itemView.findViewById(R.id.textImage);
         }
 
-        public void bind(final WeatherData forexPairTextView) {
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-//                if(listner != null){
-//                    int position = getAdapterPosition();
-//                    if(position != RecyclerView.NO_POSITION){
-//                        listner.onItemClick();
-//                    }
-
-//                }
-
-                    Toast.makeText(itemView.getContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
-
-
-                }
-            });
-        }
     }
 
 }
