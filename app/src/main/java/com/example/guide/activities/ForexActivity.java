@@ -63,7 +63,7 @@ public class ForexActivity extends AppCompatActivity {
 
     private String searchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + LOCATION + "&radius=" + RADIUS + "&type=" + TYPE + "&keyword=" + KEYWORD + "&key=" + searchApiKey;
 
-    private Context context;
+    private Context context = this;
     private RecyclerView recyclerView;
     private FrameLayout forexFrameLayout;
     private ProgressBar forexProgressBar;
@@ -165,6 +165,7 @@ public class ForexActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 TextView textView = new TextView(context);
                 textView.setText("Oops!! Please retry");
+
                 textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT));
                 forexFrameLayout.addView(textView);
 
