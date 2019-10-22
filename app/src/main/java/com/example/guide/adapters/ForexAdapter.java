@@ -21,6 +21,9 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
     private List<Object> forexList;
     private List<String> pairList;
 
+    public ForexAdapter() {
+    }
+
     private FrameLayout frame;
     private AdapterView.OnItemClickListener listner;
 

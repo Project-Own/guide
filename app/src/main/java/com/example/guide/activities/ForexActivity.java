@@ -33,7 +33,6 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,6 +81,7 @@ public class ForexActivity extends AppCompatActivity {
         forexProgressBar = findViewById(R.id.forexProgressBar);
         forexProgressBar.setVisibility(View.VISIBLE);
 
+
         getForexData();
 
     }
@@ -94,61 +94,7 @@ public class ForexActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(JSONObject response) {
-                ForexData forexData = new Gson().fromJson(response.toString(), ForexData.class);
 
-                forexList = new ArrayList<Object>();
-                pairList = new ArrayList<String>();
-
-                Rates rates;
-
-                Method ratesMethod = null;
-                try {
-                    ratesMethod = ForexData.class.getMethod("getRates");
-
-                    Method execRatesMethod = forexData.getClass().getMethod(ratesMethod.getName());
-                    rates = (Rates) execRatesMethod.invoke(forexData);
-
-                    Method[] methods = Rates.class.getMethods();
-                    Object obj;
-                    for (Method method : methods) {
-                        String name = method.getName();
-                        if (name.startsWith("get") && !name.endsWith("Class")) {
-                            Method execMethod = rates.getClass().getMethod(name);
-                            String className = "com.example.guide.Modal.Forex.";
-                            String classNameAdd = name.substring(3);
-                            className += classNameAdd;
-
-                            Class<?> c = Class.forName(className);
-
-                            obj = c.cast(execMethod.invoke(rates));
-
-                            if (obj != null) {
-                                //   message += obj.toString() + "\n\n";
-
-//                                message += name +" " +name.substring(3)+" "+ obj.toString() +" "+execMethod.getReturnType()+ "\n\n";
-                                Method[] objMethods = obj.getClass().getMethods();
-                                for (Method objMethod : objMethods) {
-                                    String objMethodName = objMethod.getName();
-                                    if (objMethodName.equals("getRate")) {
-                                        pairList.add(classNameAdd);
-                                        forexList.add(objMethod.invoke(obj));
-
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-
-                } catch (NoSuchMethodException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
 
                 forexAdapter = new ForexAdapter(pairList, forexList, context);
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
@@ -163,6 +109,7 @@ public class ForexActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+
                 TextView textView = new TextView(context);
                 textView.setText("Oops!! Please retry");
 
@@ -201,6 +148,68 @@ public class ForexActivity extends AppCompatActivity {
                     cacheEntry.responseHeaders = response.headers;
                     final String jsonString = new String(response.data,
                             HttpHeaderParser.parseCharset(response.headers));
+
+                    /********************************/
+                    // parseNetworkResponse works on background thread and doesnot slow down UI Thread so parsing of data is done here for performance
+                    // Here JsonString contains Json data
+                    ForexData forexData = new Gson().fromJson(jsonString, ForexData.class);
+
+                    forexList = new ArrayList<Object>();
+                    pairList = new ArrayList<String>();
+
+                    Rates rates;
+
+                    java.lang.reflect.Method ratesMethod = null;
+                    try {
+                        ratesMethod = ForexData.class.getMethod("getRates");
+
+                        java.lang.reflect.Method execRatesMethod = forexData.getClass().getMethod(ratesMethod.getName());
+                        rates = (Rates) execRatesMethod.invoke(forexData);
+
+                        java.lang.reflect.Method[] methods = Rates.class.getMethods();
+                        Object obj;
+                        for (java.lang.reflect.Method method : methods) {
+                            String name = method.getName();
+                            if (name.startsWith("get") && !name.endsWith("Class")) {
+                                java.lang.reflect.Method execMethod = rates.getClass().getMethod(name);
+                                String className = "com.example.guide.Modal.Forex.";
+                                String classNameAdd = name.substring(3);
+                                className += classNameAdd;
+
+                                Class<?> c = Class.forName(className);
+
+                                obj = c.cast(execMethod.invoke(rates));
+
+                                if (obj != null) {
+                                    //   message += obj.toString() + "\n\n";
+
+//                                message += name +" " +name.substring(3)+" "+ obj.toString() +" "+execMethod.getReturnType()+ "\n\n";
+                                    java.lang.reflect.Method[] objMethods = obj.getClass().getMethods();
+                                    for (java.lang.reflect.Method objMethod : objMethods) {
+                                        String objMethodName = objMethod.getName();
+                                        if (objMethodName.equals("getRate")) {
+                                            pairList.add(classNameAdd);
+                                            forexList.add(objMethod.invoke(obj));
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+                    } catch (NoSuchMethodException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
+                        e.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                    /********************************/
+
                     return Response.success(new JSONObject(jsonString), cacheEntry);
                 } catch (UnsupportedEncodingException | JSONException e) {
                     return Response.error(new ParseError(e));
