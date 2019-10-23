@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.guide.Modal.Currency.CurrencyData;
 import com.example.guide.Modal.Forex.ForexData;
 import com.example.guide.Modal.Forex.Rates;
 import com.example.guide.R;
@@ -34,7 +35,9 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class ForexActivity extends AppCompatActivity {
@@ -70,6 +73,9 @@ public class ForexActivity extends AppCompatActivity {
     private List<Object> forexList;
     private List<String> pairList;
 
+    private Map<String, String> countryNameMap;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +87,10 @@ public class ForexActivity extends AppCompatActivity {
         forexProgressBar = findViewById(R.id.forexProgressBar);
         forexProgressBar.setVisibility(View.VISIBLE);
 
+        countryNameMap = new HashMap<String, String>();
 
-        getForexData();
+
+        getCurrencyData();
 
     }
 
@@ -96,7 +104,8 @@ public class ForexActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
 
 
-                forexAdapter = new ForexAdapter(pairList, forexList, context);
+//                Log.i("Forex Data Function", countryNameMap.toString());
+                forexAdapter = new ForexAdapter(forexList, pairList, countryNameMap, context);
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
                 recyclerView.setLayoutManager(mLayoutManager);
                 recyclerView.setAdapter(forexAdapter);
@@ -172,6 +181,7 @@ public class ForexActivity extends AppCompatActivity {
                             String name = method.getName();
                             if (name.startsWith("get") && !name.endsWith("Class")) {
                                 java.lang.reflect.Method execMethod = rates.getClass().getMethod(name);
+                                //  String className = "" + execMethod.getClass().getSimpleName();
                                 String className = "com.example.guide.Modal.Forex.";
                                 String classNameAdd = name.substring(3);
                                 className += classNameAdd;
@@ -232,12 +242,167 @@ public class ForexActivity extends AppCompatActivity {
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(jsonObjectRequest);
     }
 
 
-    /************** FOREX Data Function************/
+    /************** FOREX Data Function END************/
+
+
+    /******************************Currency Function*******************************/
+
+    /* Currency Data function*/
+    public void getCurrencyData() {
+
+
+        forexProgressBar.setVisibility(View.VISIBLE);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, currencyUrl, null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                getForexData();
+                //    Log.i("ForexActivity.class",response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("ForexActivity", error.toString());
+            }
+        }) {
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                    if (cacheEntry == null) {
+                        cacheEntry = new Cache.Entry();
+                    }
+                    final long cacheHitButRefreshed = 3 * 60 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                    long now = System.currentTimeMillis();
+                    final long softExpire = now + cacheHitButRefreshed;
+                    final long ttl = now + cacheExpired;
+                    cacheEntry.data = response.data;
+                    cacheEntry.softTtl = softExpire;
+                    cacheEntry.ttl = ttl;
+                    String headerValue;
+                    headerValue = response.headers.get("Date");
+                    if (headerValue != null) {
+                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    headerValue = response.headers.get("Last-Modified");
+                    if (headerValue != null) {
+                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    cacheEntry.responseHeaders = response.headers;
+                    final String jsonString = new String(response.data,
+                            HttpHeaderParser.parseCharset(response.headers));
+
+                    /*********************************/
+
+                    CurrencyData currencyData = new Gson().fromJson(jsonString, CurrencyData.class);
+
+                    com.example.guide.Modal.Currency.Results results;
+
+                    ArrayList<Object> forexList = new ArrayList<>();
+
+
+                    java.lang.reflect.Method resultsMethod = null;
+                    try {
+                        resultsMethod = CurrencyData.class.getMethod("getResults");
+
+                        java.lang.reflect.Method execRatesMethod = currencyData.getClass().getMethod(resultsMethod.getName());
+                        results = (com.example.guide.Modal.Currency.Results) execRatesMethod.invoke(currencyData);
+
+                        //  message += results.toString() + " ";
+                        java.lang.reflect.Method[] methods = com.example.guide.Modal.Currency.Results.class.getMethods();
+                        Object obj;
+                        for (java.lang.reflect.Method method : methods) {
+                            String name = method.getName();
+                            if (name.startsWith("get") && !name.endsWith("Class")) {
+                                java.lang.reflect.Method execMethod = results.getClass().getMethod(name);
+                                //String className = "" + execMethod.getClass().getSimpleName();
+                                String className = "com.example.guide.Modal.Currency.";
+                                className += name.substring(3);
+//                                Log.i("TorpeCurrency",className);
+                                Class<?> c = Class.forName(className);
+
+                                obj = c.cast(execMethod.invoke(results));
+
+                                if (obj != null) {
+                                    //    message += obj.toString() + "\n\n";
+
+                                    //   message += name +" " +name.substring(3)+" "+ obj.toString() +" "+execMethod.getReturnType()+ "\n\n";
+                                    String currencyName = "";
+                                    String currencyId = "";
+                                    java.lang.reflect.Method[] objMethods = obj.getClass().getMethods();
+                                    for (java.lang.reflect.Method objMethod : objMethods) {
+                                        String objMethodName = objMethod.getName();
+                                        if (objMethodName.startsWith("get") && !objMethodName.endsWith("Class")) {
+                                            if (objMethodName.equals("getCurrencyName")) {
+                                                currencyName = (String) objMethod.invoke(obj);
+                                            } else if (objMethodName.equals("getId")) {
+                                                currencyId = (String) objMethod.invoke(obj);
+                                            }
+                                            //  message += objMethodName + ": "+ objMethod.invoke(obj).toString() + " " ;
+                                        }
+                                    }
+                                    countryNameMap.put(currencyId, currencyName);
+//                                   message += currencyId + " " + countryNameMap.get(currencyId) + "\n\n";
+//                                   Log.i("ForexActivity",message);
+//                                    message = "";
+                                }
+                            }
+                        }
+
+
+                    } catch (NoSuchMethodException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
+                        e.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    //   Log.i("Torpe","" + currencyData);
+
+
+                    /*********************************/
+
+
+                    return Response.success(new JSONObject(jsonString), cacheEntry);
+                } catch (UnsupportedEncodingException | JSONException e) {
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            @Override
+            protected void deliverResponse(JSONObject response) {
+                super.deliverResponse(response);
+            }
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError) {
+                return super.parseNetworkError(volleyError);
+            }
+
+            @Override
+            public void deliverError(VolleyError error) {
+                super.deliverError(error);
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(jsonObjectRequest);
+    }
+/******************************Currency Function END*******************************/
+
+
+
+
+
+
 
 
 }

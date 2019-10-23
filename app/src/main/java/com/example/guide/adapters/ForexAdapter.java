@@ -15,13 +15,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.guide.R;
 
 import java.util.List;
+import java.util.Map;
 
 public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewHolder> {
 
     private List<Object> forexList;
     private List<String> pairList;
 
-    public ForexAdapter() {
+    private Map<String, String> countryNameMap;
+
+
+    public ForexAdapter(List<Object> forexList, List<String> pairList, Map<String, String> countryNameMap, Context context) {
+        this.forexList = forexList;
+        this.pairList = pairList;
+        this.countryNameMap = countryNameMap;
+        this.context = context;
     }
 
     private FrameLayout frame;
@@ -30,16 +38,6 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
     private Context context;
 
 
-    public ForexAdapter(List<String> pairList, List<Object> forexList, Context context) {
-        this.forexList = forexList;
-        this.pairList = pairList;
-        this.context = context;
-    }
-
-    public ForexAdapter(List<String> pairList, List<Object> forexList) {
-        this.forexList = forexList;
-        this.pairList = pairList;
-    }
 
     public void setListner(AdapterView.OnItemClickListener listner) {
         this.listner = listner;
@@ -60,7 +58,10 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
 
 
-        holder.forexPairTextView.setText(pairList.get(position));
+        String from = pairList.get(position).substring(3);
+        String to = pairList.get(position).substring(0, 3);
+        holder.forexPairTextView.setText(countryNameMap.get(from)
+                + " ---> " + countryNameMap.get(to) + " :");
         holder.forexRateTextView.setText(forexList.get(position).toString());
         //     Glide.with(holder.itemView).load(weatherData.get(position).getThumbnailUrl()).into(holder.photo);
         //     holder.bind(weatherData.get(position));
