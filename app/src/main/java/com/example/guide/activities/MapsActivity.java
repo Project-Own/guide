@@ -2,9 +2,22 @@ package com.example.guide.activities;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.fragment.app.FragmentActivity;
 
+import com.android.volley.Cache;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.guide.Modal.NearbySearch.NearbySearchData;
+import com.example.guide.Modal.NearbySearch.Result;
 import com.example.guide.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -15,11 +28,19 @@ import com.google.android.gms.maps.model.Dot;
 import com.google.android.gms.maps.model.Gap;
 import com.google.android.gms.maps.model.JointType;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.gson.Gson;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         {
@@ -49,9 +70,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
+            private String searchApiKey = "AIzaSyDktfztr-u1kXk81mLP1_ZZkVzAMJLyizE";
 
 
-
+            /* NearbySearchData*/
+            // View2
+            private String LOCATION = "27.671298,85.408142";
+            private String RADIUS = "1500";
+            private String TYPE = "restaurant";
+            private String searchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + LOCATION + "&radius=" + RADIUS + "&type=" + TYPE + /*"&keyword=" + KEYWORD +*/ "&key=" + searchApiKey;
+            //private String KEYWORD = "cruise";
+            private Marker nearbyMarker;
 
             /**
      * Manipulates the map once available.
@@ -124,15 +153,108 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15),null);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(13), 2000, null);
 
+        /***********************/
+        getNearbySearchData();
+        /***********************/
+
 
         mMap.setMinZoomPreference(0.0f); // Set a preference for minimum zoom (Zoom out).
         mMap.setMaxZoomPreference(20.0f); // Set a preference for maximum zoom (Zoom In).
 
     }
 
+            public void getNearbySearchData() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, searchUrl, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
 
 
+                        Log.i("MainActivity", "" + response);
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("Volley", error.toString());
+                    }
+                }) {
+                    @Override
+                    protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                        try {
+                            Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                            if (cacheEntry == null) {
+                                cacheEntry = new Cache.Entry();
+                            }
+                            final long cacheHitButRefreshed = 3 * 60 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                            final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                            long now = System.currentTimeMillis();
+                            final long softExpire = now + cacheHitButRefreshed;
+                            final long ttl = now + cacheExpired;
+                            cacheEntry.data = response.data;
+                            cacheEntry.softTtl = softExpire;
+                            cacheEntry.ttl = ttl;
+                            String headerValue;
+                            headerValue = response.headers.get("Date");
+                            if (headerValue != null) {
+                                cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                            }
+                            headerValue = response.headers.get("Last-Modified");
+                            if (headerValue != null) {
+                                cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                            }
+                            cacheEntry.responseHeaders = response.headers;
+                            final String jsonString = new String(response.data,
+                                    HttpHeaderParser.parseCharset(response.headers));
 
 
+                            /***************************************/
+                            NearbySearchData nearbySearchData = new Gson().fromJson(jsonString, NearbySearchData.class);
 
-}
+                            List<Result> result = nearbySearchData.getResults();
+
+                            String message = "Total list: " + result.size() + "\n\n";
+                            for (Result results : result) {
+
+                                nearbyMarker = mMap.addMarker(new MarkerOptions()
+                                        .position(new LatLng(results.getGeometry().getLocation().getLat(),
+                                                results.getGeometry().getLocation().getLng()))
+                                        .title("You")
+                                );
+//                                message += "Name: "+ results.getName()
+//                                        +"Longitude: " + results.getGeometry().getLocation().getLng()
+//                                        +"Latitude: " + results.getGeometry().getLocation().getLat()
+//                                        +"\n\n"
+//                                ;
+                            }
+                            /***************************************/
+
+
+                            return Response.success(new JSONObject(jsonString), cacheEntry);
+                        } catch (UnsupportedEncodingException | JSONException e) {
+                            return Response.error(new ParseError(e));
+                        }
+                    }
+
+                    @Override
+                    protected void deliverResponse(JSONObject response) {
+                        super.deliverResponse(response);
+                    }
+
+                    @Override
+                    protected VolleyError parseNetworkError(VolleyError volleyError) {
+                        return super.parseNetworkError(volleyError);
+                    }
+
+                    @Override
+                    public void deliverError(VolleyError error) {
+                        super.deliverError(error);
+                    }
+                };
+
+                RequestQueue requestQueue = Volley.newRequestQueue(this);
+                requestQueue.add(jsonObjectRequest);
+            }
+
+
+        }

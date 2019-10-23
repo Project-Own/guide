@@ -55,16 +55,6 @@ public class ForexActivity extends AppCompatActivity {
     String currencyConversionUserChoice = "USD_NPR";
     String currencyConversionUrl = "https://free.currconv.com/api/v7/convert?apiKey=de548f61b8d4321b60ed&q=" + currencyConversionUserChoice;
 
-
-    private String searchApiKey = "AIzaSyDktfztr-u1kXk81mLP1_ZZkVzAMJLyizE";
-
-    private String LOCATION = "-33.8670522,151.1957362";
-    private String RADIUS = "1500";
-    private String TYPE = "restaurant";
-    private String KEYWORD = "cruise";
-
-    private String searchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + LOCATION + "&radius=" + RADIUS + "&type=" + TYPE + "&keyword=" + KEYWORD + "&key=" + searchApiKey;
-
     private Context context = this;
     private RecyclerView recyclerView;
     private FrameLayout forexFrameLayout;
