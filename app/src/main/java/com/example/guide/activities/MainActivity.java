@@ -1,6 +1,5 @@
 package com.example.guide.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,10 +21,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.guide.R;
 import com.example.guide.adapters.SelectionPagerAdapter;
+import com.example.guide.fragments.AboutFragment;
 import com.example.guide.fragments.OneFragment;
 import com.example.guide.fragments.TwoFragment;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         if (Build.VERSION.SDK_INT >= 23) {
             String[] PERMISSIONS = {android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION};
             if (!hasPermissions(this, PERMISSIONS)) {
-                ActivityCompat.requestPermissions((Activity)this, PERMISSIONS, 112);
+                ActivityCompat.requestPermissions(this, PERMISSIONS, 112);
             } else {
 
             }
@@ -88,7 +86,7 @@ public class MainActivity extends AppCompatActivity
 
 
         adapter.addFragment(new OneFragment());
-        adapter.addFragment(new TwoFragment());
+        adapter.addFragment(new AboutFragment());
         adapter.addFragment(new TwoFragment());
         adapter.addFragment(new TwoFragment());
         ViewPager viewPager = findViewById(R.id.viewPager);

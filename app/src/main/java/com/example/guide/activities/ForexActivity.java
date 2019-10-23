@@ -1,6 +1,7 @@
 package com.example.guide.activities;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Cache;
 import com.android.volley.NetworkResponse;
@@ -39,7 +41,6 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -70,6 +71,7 @@ public class ForexActivity extends AppCompatActivity {
 
     private Map<String, String> countryNameMap;
 
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
     @Override
@@ -83,7 +85,16 @@ public class ForexActivity extends AppCompatActivity {
         forexProgressBar.setVisibility(View.VISIBLE);
         editText=findViewById(R.id.Edit);
 
-        countryNameMap = new HashMap<String, String>();
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+
+        swipeRefreshLayout.setColorSchemeColors(Color.CYAN, Color.RED, Color.BLUE, Color.BLACK);
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            getCurrencyData();
+            swipeRefreshLayout.setRefreshing(false);
+        });
+
+
+        countryNameMap = new HashMap<>();
 
 
         getCurrencyData();
@@ -96,15 +107,13 @@ public class ForexActivity extends AppCompatActivity {
     private void filter(String text){
         filteredListPair.clear();
         filteredListForex.clear();
-        Iterator iterator = countryNameMap.entrySet().iterator();
 
-        while(iterator.hasNext()){
-            Map.Entry pair  = (Map.Entry)iterator.next();
+        for (Map.Entry<String, String> stringStringEntry : countryNameMap.entrySet()) {
 
-            if (pair.getValue().toString().toLowerCase().contains(text.toLowerCase())) {
+            if (((Map.Entry) stringStringEntry).getValue().toString().toLowerCase().contains(text.toLowerCase())) {
 
-                for(String forexPair: pairList){
-                    if(forexPair.contains(pair.getKey().toString())){
+                for (String forexPair : pairList) {
+                    if (forexPair.contains(((Map.Entry) stringStringEntry).getKey().toString())) {
                         int index = pairList.indexOf(forexPair);
                         filteredListForex.add(forexList.get(index));
                         filteredListPair.add(pairList.get(index));
@@ -128,57 +137,50 @@ public class ForexActivity extends AppCompatActivity {
 
     public void getForexData() {
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, forexUrl, null, new Response.Listener<JSONObject>() {
-
-            @Override
-            public void onResponse(JSONObject response) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, forexUrl, null, response -> {
 
 
 //                Log.i("Forex Data Function", countryNameMap.toString());
-                forexAdapter = new ForexAdapter(forexList, pairList, countryNameMap, context);
-                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
-                recyclerView.setLayoutManager(mLayoutManager);
-                recyclerView.setAdapter(forexAdapter);
+            forexAdapter = new ForexAdapter(forexList, pairList, countryNameMap, context);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setAdapter(forexAdapter);
 
 
-                editText.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            editText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                    }
+                }
 
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                    }
+                }
 
-                    @Override
-                    public void afterTextChanged(Editable s) {
-                        filter(s.toString());
+                @Override
+                public void afterTextChanged(Editable s) {
+                    filter(s.toString());
 
 
-                    }
-                });
+                }
+            });
 
-                forexProgressBar.setVisibility(View.INVISIBLE);
+            forexProgressBar.setVisibility(View.INVISIBLE);
 
-             //   Log.i("ForexApiDataCall", response.toString());
+            //   Log.i("ForexApiDataCall", response.toString());
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
+        }, error -> {
 
-                TextView textView = new TextView(context);
-                textView.setText("Oops!! Please retry");
+            TextView textView = new TextView(context);
+            textView.setText(R.string.errorMessage);
 
-                textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT));
-                forexFrameLayout.addView(textView);
+            textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT));
+            forexFrameLayout.addView(textView);
 
-                forexProgressBar.setVisibility(View.INVISIBLE);
+            forexProgressBar.setVisibility(View.INVISIBLE);
 
-                Log.e("ForexApiDataCall", error.toString());
-            }
+            Log.e("ForexApiDataCall", error.toString());
         }) {
             @Override
             protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
@@ -208,17 +210,17 @@ public class ForexActivity extends AppCompatActivity {
                     final String jsonString = new String(response.data,
                             HttpHeaderParser.parseCharset(response.headers));
 
-                    /********************************/
+                    /******************************/
                     // parseNetworkResponse works on background thread and doesnot slow down UI Thread so parsing of data is done here for performance
                     // Here JsonString contains Json data
                     ForexData forexData = new Gson().fromJson(jsonString, ForexData.class);
 
-                    forexList = new ArrayList<Object>();
-                    pairList = new ArrayList<String>();
+                    forexList = new ArrayList<>();
+                    pairList = new ArrayList<>();
 
                     Rates rates;
 
-                    java.lang.reflect.Method ratesMethod = null;
+                    java.lang.reflect.Method ratesMethod;
                     try {
                         ratesMethod = ForexData.class.getMethod("getRates");
 
@@ -258,17 +260,11 @@ public class ForexActivity extends AppCompatActivity {
                         }
 
 
-                    } catch (NoSuchMethodException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    } catch (ClassNotFoundException e) {
+                    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | ClassNotFoundException e) {
                         e.printStackTrace();
                     }
 
-                    /********************************/
+                    /*******************************/
 
                     return Response.success(new JSONObject(jsonString), cacheEntry);
                 } catch (UnsupportedEncodingException | JSONException e) {
@@ -307,19 +303,10 @@ public class ForexActivity extends AppCompatActivity {
 
 
         forexProgressBar.setVisibility(View.VISIBLE);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, currencyUrl, null, new Response.Listener<JSONObject>() {
-
-            @Override
-            public void onResponse(JSONObject response) {
-                getForexData();
-                //    Log.i("ForexActivity.class",response.toString());
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("ForexActivity", error.toString());
-            }
-        }) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, currencyUrl, null, response -> {
+            getForexData();
+            //    Log.i("ForexActivity.class",response.toString());
+        }, error -> Log.e("ForexActivity", error.toString())) {
             @Override
             protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
                 try {
@@ -348,7 +335,7 @@ public class ForexActivity extends AppCompatActivity {
                     final String jsonString = new String(response.data,
                             HttpHeaderParser.parseCharset(response.headers));
 
-                    /*********************************/
+                    /*******************************/
 
                     CurrencyData currencyData = new Gson().fromJson(jsonString, CurrencyData.class);
 
@@ -357,7 +344,7 @@ public class ForexActivity extends AppCompatActivity {
                     ArrayList<Object> forexList = new ArrayList<>();
 
 
-                    java.lang.reflect.Method resultsMethod = null;
+                    java.lang.reflect.Method resultsMethod;
                     try {
                         resultsMethod = CurrencyData.class.getMethod("getResults");
 
@@ -370,6 +357,7 @@ public class ForexActivity extends AppCompatActivity {
                         for (java.lang.reflect.Method method : methods) {
                             String name = method.getName();
                             if (name.startsWith("get") && !name.endsWith("Class")) {
+                                assert results != null;
                                 java.lang.reflect.Method execMethod = results.getClass().getMethod(name);
                                 //String className = "" + execMethod.getClass().getSimpleName();
                                 String className = "com.example.guide.Modal.Currency.";
@@ -406,19 +394,13 @@ public class ForexActivity extends AppCompatActivity {
                         }
 
 
-                    } catch (NoSuchMethodException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    } catch (ClassNotFoundException e) {
+                    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | ClassNotFoundException e) {
                         e.printStackTrace();
                     }
                     //   Log.i("Torpe","" + currencyData);
 
 
-                    /*********************************/
+                    /********************************/
 
 
                     return Response.success(new JSONObject(jsonString), cacheEntry);
@@ -446,7 +428,7 @@ public class ForexActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(jsonObjectRequest);
     }
-/******************************Currency Function END*******************************/
+/*****************************Currency Function END*******************************/
 
 
 
