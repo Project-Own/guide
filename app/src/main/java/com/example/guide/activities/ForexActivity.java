@@ -2,8 +2,11 @@ package com.example.guide.activities;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -36,6 +39,7 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -62,6 +66,7 @@ public class ForexActivity extends AppCompatActivity {
     private ForexAdapter forexAdapter;
     private List<Object> forexList;
     private List<String> pairList;
+    private EditText editText;
 
     private Map<String, String> countryNameMap;
 
@@ -76,6 +81,7 @@ public class ForexActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.forexRecyclerView);
         forexProgressBar = findViewById(R.id.forexProgressBar);
         forexProgressBar.setVisibility(View.VISIBLE);
+        editText=findViewById(R.id.Edit);
 
         countryNameMap = new HashMap<String, String>();
 
@@ -83,6 +89,40 @@ public class ForexActivity extends AppCompatActivity {
         getCurrencyData();
 
     }
+
+    private List<String> filteredListPair = new ArrayList<>();
+    private List<Object> filteredListForex = new ArrayList<>();
+
+    private void filter(String text){
+        filteredListPair.clear();
+        filteredListForex.clear();
+        Iterator iterator = countryNameMap.entrySet().iterator();
+
+        while(iterator.hasNext()){
+            Map.Entry pair  = (Map.Entry)iterator.next();
+
+            if (pair.getValue().toString().toLowerCase().contains(text.toLowerCase())) {
+
+                for(String forexPair: pairList){
+                    if(forexPair.contains(pair.getKey().toString())){
+                        int index = pairList.indexOf(forexPair);
+                        filteredListForex.add(forexList.get(index));
+                        filteredListPair.add(pairList.get(index));
+                    }
+                }
+            }
+
+        }
+
+        Log.i("Errororor",filteredListForex.toString());
+        Log.i("ErrorororPair",filteredListPair.toString());
+        Log.i("ErrorororPair",countryNameMap.toString());
+
+
+        forexAdapter.filterList(filteredListForex,filteredListPair);
+
+    }
+
 
     /************** FOREX Data Function************/
 
@@ -100,9 +140,29 @@ public class ForexActivity extends AppCompatActivity {
                 recyclerView.setLayoutManager(mLayoutManager);
                 recyclerView.setAdapter(forexAdapter);
 
+
+                editText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        filter(s.toString());
+
+
+                    }
+                });
+
                 forexProgressBar.setVisibility(View.INVISIBLE);
 
-                Log.i("ForexApiDataCall", response.toString());
+             //   Log.i("ForexApiDataCall", response.toString());
 
             }
         }, new Response.ErrorListener() {
