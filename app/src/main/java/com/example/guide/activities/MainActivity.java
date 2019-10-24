@@ -22,8 +22,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.guide.R;
 import com.example.guide.adapters.SelectionPagerAdapter;
 import com.example.guide.fragments.AboutFragment;
-import com.example.guide.fragments.OneFragment;
-import com.example.guide.fragments.TwoFragment;
+import com.example.guide.fragments.HomeFragment;
+import com.example.guide.fragments.ContactFragment;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -85,10 +85,10 @@ public class MainActivity extends AppCompatActivity
         /*Map Fragment */
 
 
-        adapter.addFragment(new OneFragment());
+        adapter.addFragment(new HomeFragment());
+        adapter.addFragment(new ContactFragment());
+        adapter.addFragment(new ContactFragment());
         adapter.addFragment(new AboutFragment());
-        adapter.addFragment(new TwoFragment());
-        adapter.addFragment(new TwoFragment());
         ViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = findViewById(R.id.tabs);
@@ -121,10 +121,10 @@ public class MainActivity extends AppCompatActivity
         // For color text
         //tabLayout.setTabTextColors(getResources().getColor(R.color.black),getResources().getColor(R.color.white));
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_menu_camera);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_menu_camera);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_menu_camera);
-        tabLayout.getTabAt(3).setIcon(R.drawable.ic_menu_camera);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_black_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_phone_black_24dp);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_star_black_24dp);
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_info_outline_black_24dp);
         // Set initial color of icons
         tabLayout.getTabAt(0).getIcon().setColorFilter(getResources().getColor(R.color.tabSelectedIconColor), PorterDuff.Mode.SRC_IN);
         tabLayout.getTabAt(1).getIcon().setColorFilter(getResources().getColor(R.color.tabUnselectedIconColor), PorterDuff.Mode.SRC_IN);
