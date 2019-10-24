@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
@@ -81,8 +80,8 @@ public class ForexActivity extends AppCompatActivity {
 
         forexFrameLayout = findViewById(R.id.forexFrameLayout);
         recyclerView = findViewById(R.id.forexRecyclerView);
-        forexProgressBar = findViewById(R.id.forexProgressBar);
-        forexProgressBar.setVisibility(View.VISIBLE);
+        //   forexProgressBar = findViewById(R.id.forexProgressBar);
+        //   forexProgressBar.setVisibility(View.VISIBLE);
         editText=findViewById(R.id.Edit);
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
@@ -98,6 +97,7 @@ public class ForexActivity extends AppCompatActivity {
 
 
         getCurrencyData();
+
 
     }
 
@@ -165,8 +165,8 @@ public class ForexActivity extends AppCompatActivity {
 
                 }
             });
-
-            forexProgressBar.setVisibility(View.INVISIBLE);
+            swipeRefreshLayout.setRefreshing(false);
+            //forexProgressBar.setVisibility(View.INVISIBLE);
 
             //   Log.i("ForexApiDataCall", response.toString());
 
@@ -178,7 +178,8 @@ public class ForexActivity extends AppCompatActivity {
             textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT));
             forexFrameLayout.addView(textView);
 
-            forexProgressBar.setVisibility(View.INVISIBLE);
+            swipeRefreshLayout.setRefreshing(false);
+            // forexProgressBar.setVisibility(View.INVISIBLE);
 
             Log.e("ForexApiDataCall", error.toString());
         }) {
@@ -232,6 +233,7 @@ public class ForexActivity extends AppCompatActivity {
                         for (java.lang.reflect.Method method : methods) {
                             String name = method.getName();
                             if (name.startsWith("get") && !name.endsWith("Class")) {
+                                assert rates != null;
                                 java.lang.reflect.Method execMethod = rates.getClass().getMethod(name);
                                 //  String className = "" + execMethod.getClass().getSimpleName();
                                 String className = "com.example.guide.Modal.Forex.";
@@ -301,8 +303,8 @@ public class ForexActivity extends AppCompatActivity {
     /* Currency Data function*/
     public void getCurrencyData() {
 
-
-        forexProgressBar.setVisibility(View.VISIBLE);
+        swipeRefreshLayout.setRefreshing(true);
+        //forexProgressBar.setVisibility(View.VISIBLE);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, currencyUrl, null, response -> {
             getForexData();
             //    Log.i("ForexActivity.class",response.toString());

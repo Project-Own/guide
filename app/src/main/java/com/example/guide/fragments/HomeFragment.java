@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.example.guide.R;
 import com.example.guide.activities.ForexActivity;
 import com.example.guide.activities.MapsActivity;
+import com.example.guide.activities.PlacesActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +21,7 @@ import com.example.guide.activities.MapsActivity;
 public class HomeFragment extends Fragment {
     private Button nav;
     private Button currencyBtn;
+    private Button placeBtn;
 
 
     public HomeFragment() {
@@ -35,20 +37,12 @@ public class HomeFragment extends Fragment {
       //  setupViewPager();
 
         nav =v.findViewById(R.id.navButton);
-       nav.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               startActivity(new Intent(getActivity(), MapsActivity.class));
-           }
-       });
+        nav.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), MapsActivity.class)));
 
         currencyBtn = v.findViewById(R.id.currencybutton);
-        currencyBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), ForexActivity.class));
-            }
-        });
+        currencyBtn.setOnClickListener(v12 -> startActivity(new Intent(getActivity(), ForexActivity.class)));
+        placeBtn = v.findViewById(R.id.placeButton);
+        placeBtn.setOnClickListener(v13 -> startActivity(new Intent(getActivity(), PlacesActivity.class)));
 
 
        return  v;

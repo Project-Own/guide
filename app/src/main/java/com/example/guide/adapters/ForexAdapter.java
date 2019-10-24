@@ -56,13 +56,18 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
 
     @Override
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
-
-
         String from = pairList.get(position).substring(3);
         String to = pairList.get(position).substring(0, 3);
-        holder.forexPairTextView.setText(countryNameMap.get(from) +from
-                + " ---> " + countryNameMap.get(to) +to+ " :");
-        holder.forexRateTextView.setText(forexList.get(position).toString());
+
+        if (countryNameMap != null) {
+            holder.forexPairTextView.setText(String.format("%s ---> %s :", countryNameMap.get(from), countryNameMap.get(to)));
+            holder.forexRateTextView.setText(forexList.get(position).toString());
+
+        } else {
+            holder.forexPairTextView.setText(String.format("%s ---> %s :", from, to));
+            holder.forexRateTextView.setText(forexList.get(position).toString());
+
+        }
         //     Glide.with(holder.itemView).load(weatherData.get(position).getThumbnailUrl()).into(holder.photo);
         //     holder.bind(weatherData.get(position));
     }
@@ -83,12 +88,12 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
         notifyDataSetChanged();
     }
 
-    public class StudentViewHolder extends RecyclerView.ViewHolder {
+    class StudentViewHolder extends RecyclerView.ViewHolder {
         private TextView forexPairTextView;
         private TextView forexRateTextView;
         private ImageView photo;
 
-        public StudentViewHolder(@NonNull View itemView) {
+        StudentViewHolder(@NonNull View itemView) {
             super(itemView);
             forexPairTextView = itemView.findViewById(R.id.forexPairTextView);
             forexRateTextView = itemView.findViewById(R.id.forexRateTextView);

@@ -10,18 +10,16 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:fullBackupContent="true"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
-        android:name=".OfflineCapabiliy"
-
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ForexActivity">
-
-        </activity>
+        <activity android:name=".activities.PlacesActivity" />
+        <activity android:name=".activities.PlacesDetail" />
+        <activity android:name=".activities.ForexActivity" />
         <activity android:name=".activities.LandingActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -37,10 +35,10 @@
         <activity
             android:name=".activities.SplashScreenActivity"
             android:label="@string/app_name">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
