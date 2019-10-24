@@ -89,7 +89,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.AboutViewH
 
 //                }
                 Intent myanim = new Intent(context, PlacesDetail.class);
-
+                myanim.putExtra("description", description.getText());
 
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, cardView, "image_this");
 

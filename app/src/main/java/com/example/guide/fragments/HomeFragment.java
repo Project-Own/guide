@@ -14,6 +14,7 @@ import com.example.guide.R;
 import com.example.guide.activities.ForexActivity;
 import com.example.guide.activities.MapsActivity;
 import com.example.guide.activities.PlacesActivity;
+import com.example.guide.activities.WeatherActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +23,7 @@ public class HomeFragment extends Fragment {
     private Button nav;
     private Button currencyBtn;
     private Button placeBtn;
+    private Button weatherBtn;
 
 
     public HomeFragment() {
@@ -43,6 +45,8 @@ public class HomeFragment extends Fragment {
         currencyBtn.setOnClickListener(v12 -> startActivity(new Intent(getActivity(), ForexActivity.class)));
         placeBtn = v.findViewById(R.id.placeButton);
         placeBtn.setOnClickListener(v13 -> startActivity(new Intent(getActivity(), PlacesActivity.class)));
+        weatherBtn = v.findViewById(R.id.weatherButton);
+        weatherBtn.setOnClickListener(v13 -> startActivity(new Intent(getActivity(), WeatherActivity.class)));
 
 
        return  v;

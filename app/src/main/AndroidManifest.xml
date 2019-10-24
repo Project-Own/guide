@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
+        android:name=".OfflineCapabiliy"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@drawable/logo"
@@ -17,6 +18,7 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activities.WeatherActivity"></activity>
         <activity android:name=".activities.PlacesActivity" />
         <activity android:name=".activities.PlacesDetail" />
         <activity android:name=".activities.ForexActivity" />

@@ -1,5 +1,6 @@
 package com.example.guide.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -25,7 +26,11 @@ public class PlacesDetail extends AppCompatActivity {
         motionLayout = findViewById(R.id.motionLayout);
 
         view = findViewById(R.id.bgView);
-
+        textView = findViewById(R.id.contentText);
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+        String description = b.getString("description", "");
+        textView.setText(description);
 
         motionLayout.setTransitionListener(new MotionLayout.TransitionListener() {
             @Override

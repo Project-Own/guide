@@ -97,14 +97,14 @@
 
 
         <Button
-            android:id="@+id/acombutton"
+            android:id="@+id/weatherButton"
             android:layout_width="match_parent"
             android:layout_height="123dp"
 
             android:background="@drawable/navigation_logo"
             android:fontFamily="@font/regular"
             android:gravity="bottom|center"
-            android:text="hotel"
+            android:text="Weather"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
