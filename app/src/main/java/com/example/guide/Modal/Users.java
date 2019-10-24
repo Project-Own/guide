@@ -1,51 +1,11 @@
 package com.example.guide.Modal;
 
+import android.widget.TextView;
+
 public class Users {
-    private String name;
-    private String description;
-    private String link;
-    private int image;
-
-    public Users(String name, String description, String link) {
-        this.name = name;
-        this.description = description;
-        this.link = link;
-    }
-
-    public Users(String name, String description, String link, int image) {
-        this.name = name;
-        this.description = description;
-        this.link = link;
-        this.image = image;
-    }
-
-    public Users(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
+ private String name;
+ private String roll;
+ private  String email;
 
     public String getName() {
         return name;
@@ -53,5 +13,27 @@ public class Users {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getRoll() {
+        return roll;
+    }
+
+    public void setRoll(String roll) {
+        this.roll = roll;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Users(String name, String roll, String email) {
+        this.name = name;
+        this.roll = roll;
+        this.email = email;
     }
 }

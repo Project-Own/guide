@@ -1,16 +1,12 @@
 package com.example.guide.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.guide.Modal.Users;
@@ -18,86 +14,54 @@ import com.example.guide.R;
 
 import java.util.List;
 
-public class AboutAdapter extends RecyclerView.Adapter<AboutAdapter.StudentViewHolder> {
-    private List<Users> tilte;
-    private FragmentManager fragmentManager;
-    private FrameLayout frame;
-    private AdapterView.OnItemClickListener listner;
+public class AboutAdapter extends RecyclerView.Adapter<AboutAdapter.AboutViewHolder>  {
+    private List<Users> usersList;
+    private Context context;
 
+    public AboutAdapter(List<Users> usersList, Context context) {
+        this.context=context;
+        this.usersList = usersList;
 
-    public AboutAdapter(List<Users> tilte, FragmentManager fragmentManager) {
-        this.tilte = tilte;
-        this.fragmentManager = fragmentManager;
     }
 
-    public AboutAdapter(List<Users> tilte) {
-        this.tilte = tilte;
-    }
-
-    public void setListner(AdapterView.OnItemClickListener listner) {
-        this.listner = listner;
-    }
 
     @NonNull
     @Override
-
-    public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // inflate Layout
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_about_recyler_view_list, parent, false);
-
-        //fragment
-        return new StudentViewHolder(itemView);
+    public AboutViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater=LayoutInflater.from(parent.getContext());
+        View view=layoutInflater.inflate(R.layout.fragment_about_recyler_view_list,parent,false);
+        return new AboutViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
-        holder.title.setText(tilte.get(position).getName());
-        holder.bind(tilte.get(position));
+    public void onBindViewHolder(@NonNull AboutViewHolder holder, int position) {
+        holder.name.setText(usersList.get(position).getName().toString());
+        holder.roll.setText(usersList.get(position).getRoll().toString());
+        holder.email.setText(usersList.get(position).getEmail().toString());
+
+
     }
 
     @Override
     public int getItemCount() {
-        return tilte.size();
+        return usersList.size() ;
     }
 
-    public interface OnItemClickListener {
-        void onItemClick();
-        //void onName(String id);
-    }
+    public  class AboutViewHolder extends RecyclerView.ViewHolder {
+        TextView name;
+        TextView roll;
+        TextView email;
 
-    class StudentViewHolder extends RecyclerView.ViewHolder {
-        private CardView recyclerId;
-        private TextView title;
 
-        StudentViewHolder(@NonNull View itemView) {
+        public AboutViewHolder(@NonNull View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.textTitle);
-            recyclerId = itemView.findViewById(R.id.recyclerId);
+            name=itemView.findViewById(R.id.name);
+            roll=itemView.findViewById(R.id.roll);
+            email=itemView.findViewById(R.id.email);
 
-        }
-
-        void bind(final Users users) {
-
-            itemView.setOnClickListener(view -> {
-//                if(listner != null){
-//                    int position = getAdapterPosition();
-//                    if(position != RecyclerView.NO_POSITION){
-//                        listner.onItemClick();
-//                    }
-
-//                }
-
-                Toast.makeText(itemView.getContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
-
-
-//                    fragmentManager.beginTransaction()
-//
-//                            .replace(R.id.frame, new ProjectsRecyclerFragment(users))
-//                            .addToBackStack("true")
-//                            .commit();
-
-            });
         }
     }
+
+
 
 }
