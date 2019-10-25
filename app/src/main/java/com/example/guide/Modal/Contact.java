@@ -2,8 +2,12 @@ package com.example.guide.Modal;
 
 public class Contact {
  private String name;
- private String roll;
- private  String email;
+ private String number;
+
+    public Contact(String name, String number) {
+        this.name = name;
+        this.number = number;
+    }
 
     public String getName() {
         return name;
@@ -13,25 +17,11 @@ public class Contact {
         this.name = name;
     }
 
-    public String getRoll() {
-        return roll;
+    public String getNumber() {
+        return number;
     }
 
-    public void setRoll(String roll) {
-        this.roll = roll;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Contact(String name, String roll, String email) {
-        this.name = name;
-        this.roll = roll;
-        this.email = email;
+    public void setNumber(String number) {
+        this.number = number;
     }
 }

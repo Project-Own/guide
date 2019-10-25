@@ -56,7 +56,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.AboutViewH
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
 
                 .into(holder.imageView);
-        holder.bind();
+        holder.bind(placesList.get(position));
 
     }
 
@@ -78,7 +78,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.AboutViewH
             cardView = itemView.findViewById(R.id.places_recycler_list_cardview);
         }
 
-        void bind() {
+        void bind(Places places) {
 
             itemView.setOnClickListener(view -> {
 //                if(listner != null){
@@ -90,6 +90,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.AboutViewH
 //                }
                 Intent myanim = new Intent(context, PlacesDetail.class);
                 myanim.putExtra("description", description.getText());
+                myanim.putExtra("image", places.getImage());
 
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, cardView, "image_this");
 

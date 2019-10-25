@@ -6,6 +6,18 @@ public class Users {
  private String name;
  private String roll;
  private  String email;
+ private String image;
+
+    public Users(String name, String roll, String email, String image) {
+        this.name = name;
+        this.roll = roll;
+        this.email = email;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
 
     public String getName() {
         return name;

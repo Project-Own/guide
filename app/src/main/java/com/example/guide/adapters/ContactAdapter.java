@@ -30,15 +30,15 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.AboutVie
     @Override
     public AboutViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater=LayoutInflater.from(parent.getContext());
-        View view=layoutInflater.inflate(R.layout.fragment_about_recyler_view_list,parent,false);
+        View view=layoutInflater.inflate(R.layout.fragment_contact_list,parent,false);
         return new AboutViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AboutViewHolder holder, int position) {
-        holder.name.setText(contact.get(position).getName().toString());
-        holder.roll.setText(contact.get(position).getRoll().toString());
-        holder.email.setText(contact.get(position).getEmail().toString());
+        holder.name.setText(contact.get(position).getName());
+        holder.number.setText(contact.get(position).getNumber());
+
 
 
     }
@@ -50,15 +50,14 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.AboutVie
 
     public  class AboutViewHolder extends RecyclerView.ViewHolder {
         TextView name;
-        TextView roll;
-        TextView email;
+        TextView number;
+
 
 
         public AboutViewHolder(@NonNull View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.name);
-            roll=itemView.findViewById(R.id.roll);
-            email=itemView.findViewById(R.id.email);
+            number=itemView.findViewById(R.id.number);
 
         }
     }

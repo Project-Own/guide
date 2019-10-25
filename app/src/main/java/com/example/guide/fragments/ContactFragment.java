@@ -42,10 +42,15 @@ public class ContactFragment extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recycleView.setLayoutManager(mLayoutManager);
         recycleView.setAdapter(adapter);
-        contacts.add(new Contact("NIRAJAN PRJAPATI","KHCE074BCT024","prajapatinirajan0@gmail.com"));
-        contacts.add(new Contact("NIRJAL PRAJAPATI","KHCE074BCT026","nirjalprajapati@gmail.com"));
-        contacts.add(new Contact("ROHIT PRAJAPATI","KHCE074BCT033","prajapatinirajan0@gmail.com"));
-        contacts.add(new Contact("SAHAS PRAJAPATI","KHCE074BCT037","sahas_1999@hotmail.com"));
+        contacts.add(new Contact("chinese Embassy","01-4440286"));
+        contacts.add(new Contact("Indian Embassy","01-4410900"));
+        contacts.add(new Contact("Australian Embassy","01-4371678"));
+        contacts.add(new Contact("Us Embassy","01-4234000"));
+        contacts.add(new Contact("German Embassy","01-4217200"));
+        contacts.add(new Contact("France Embassy","01-4412332"));
+        contacts.add(new Contact("Korean Embassy","01-4270172"));
+        contacts.add(new Contact("Saudi Embassy","01-4720891"));
+        contacts.add(new Contact("Japan Embassy","01-4426680"));
         return view;
 
     }
