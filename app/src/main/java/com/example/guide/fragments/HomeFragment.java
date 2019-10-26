@@ -32,8 +32,8 @@ public class HomeFragment extends Fragment {
                 // Required empty public constructor
     }
 
-    RecyclerView recyclerView;
-    List<Home> homeList;
+    private RecyclerView recyclerView;
+    private List<Home> homeList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,12 +44,12 @@ public class HomeFragment extends Fragment {
 
         recyclerView = v.findViewById(R.id.homeRecyclerView);
         homeList = new ArrayList<>();
-        homeList.add(new Home("Navigation", "logo"));
-        homeList.add(new Home("Weather", "logo"));
-        homeList.add(new Home("Places", "logo"));
-        homeList.add(new Home("Food", "logo"));
-        homeList.add(new Home("Calendar", "logo"));
-        homeList.add(new Home("Currency", "logo"));
+        homeList.add(new Home("Navigation", "navigation_logo"));
+        homeList.add(new Home("Weather", "navigation_logo"));
+        homeList.add(new Home("Places", "navigation_logo"));
+        homeList.add(new Home("Food", "navigation_logo"));
+        homeList.add(new Home("Calendar", "navigation_logo"));
+        homeList.add(new Home("Currency", "navigation_logo"));
 
         HomeAdapter adapter = new HomeAdapter(homeList, getContext());
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
