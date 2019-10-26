@@ -47,6 +47,12 @@
         <activity
             android:name=".activities.MainActivity"
             android:label="Home Screen" />
+        <activity
+            android:name=".activities.CalendarActivity"
+            android:label="Calendar Screen" />
+        <activity
+            android:name=".activities.EventActivity"
+            android:label="Event Screen" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

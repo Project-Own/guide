@@ -1,12 +1,18 @@
 package com.example.guide.activities;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
+import android.graphics.Paint;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,8 +21,11 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Cache;
 import com.android.volley.NetworkResponse;
@@ -28,10 +37,18 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
+import com.example.guide.CustomRenderer;
 import com.example.guide.Modal.Geofence.MyLatLng;
+import com.example.guide.Modal.MapsButton;
+import com.example.guide.Modal.MarkerItem;
 import com.example.guide.Modal.NearbySearch.NearbySearchData;
 import com.example.guide.Modal.NearbySearch.Result;
 import com.example.guide.R;
+import com.example.guide.adapters.MapsButtonAdapter;
 import com.example.guide.interfaces.IOnLoadLocationListener;
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
@@ -46,6 +63,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.Dash;
 import com.google.android.gms.maps.model.Dot;
@@ -66,6 +84,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
+import com.google.maps.android.clustering.ClusterManager;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -77,8 +96,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -98,8 +115,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private DatabaseReference myLocationRef;
     private GeoFire geoFire;
     private GeoQuery geoQuery;
-    private float GEOFENCE_RADIUS = 0.5f; // 0.5 = 500mf
-    private List<LatLng> dangerousArea;
+    TagsListInterface tagsListInterface;
+    ClusterManager<MarkerItem> mClusterManager;
 
     private PolygonOptions polygonOptions;
 
@@ -120,6 +137,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private String RADIUS = "1000";
     private String TYPE = "restaurant";
     private String searchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + LOCATION + "&radius=" + RADIUS + "&type=" + TYPE + /*"&keyword=" + KEYWORD +*/ "&key=" + searchApiKey;
+    CustomRenderer customRenderer;
+    int i = 0;
+    private float GEOFENCE_RADIUS = 0.009f; // 0.5 = 500mf
+    private List<LatLng> heritageArea;
+    private RecyclerView recyclerView;
+    private List<MapsButton> mapsButtonList;
+    private Context context;
+    private Activity activity;
+    private List<Marker> nearbyMarkerList = new ArrayList<>();
+
+    public static Bitmap changeBitmapColor(Bitmap sourceBitmap, int color) {
+        Bitmap resultBitmap = sourceBitmap.copy(sourceBitmap.getConfig(), true);
+        Paint paint = new Paint();
+        ColorFilter filter = new LightingColorFilter(color, 1);
+        paint.setColorFilter(filter);
+        Canvas canvas = new Canvas(resultBitmap);
+        canvas.drawBitmap(resultBitmap, 0, 0, paint);
+        return resultBitmap;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,15 +171,51 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     public void onPermissionGranted(PermissionGrantedResponse response) {
                         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
 
+                        recyclerView = findViewById(R.id.maps_recycler);
+                        mapsButtonList = new ArrayList<>();
+
+                        mapsButtonList.add(new MapsButton("ATM"));
+                        mapsButtonList.add(new MapsButton("Restaurant"));
+                        mapsButtonList.add(new MapsButton("Police"));
+                        mapsButtonList.add(new MapsButton("Taxi Stand"));
+                        mapsButtonList.add(new MapsButton("Cafe"));
+                        mapsButtonList.add(new MapsButton("Lodging"));
+                        mapsButtonList.add(new MapsButton("Museum"));
+                        mapsButtonList.add(new MapsButton("Pharmacy"));
+                        mapsButtonList.add(new MapsButton("Hospital"));
+                        mapsButtonList.add(new MapsButton("Hindu Temple"));
+                        mapsButtonList.add(new MapsButton("Bank"));
+                        mapsButtonList.add(new MapsButton("Travel Agency"));
+
+
+                        tagsListInterface = new TagsListInterface() {
+                            @Override
+                            public void onTagClicked(String tagName, int position) {
+                                if (mMap != null) {
+                                    getNearbySearchData(position);
+
+                                }
+                            }
+                        };
+
+                        MapsButtonAdapter adapter = new MapsButtonAdapter(mapsButtonList, context, activity, tagsListInterface);
+                        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                        recyclerView.setLayoutManager(mLayoutManager);
+                        recyclerView.setAdapter(adapter);
+
+
+
+
                         buildLocationRequest();
                         buildLocationCallback();
                         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getApplicationContext());
 
-                        //Called after dangerousarea loaded fromm database
+                        //Called after heritageArea loaded fromm database
                     /*    SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                                 .findFragmentById(R.id.map);
                         mapFragment.getMapAsync(MapsActivity.this);
 */
+                        addGeoPointToFirebaseDatabase();
                         initArea();
                         settingGeoFire();
 
@@ -167,17 +239,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
+        mClusterManager = new ClusterManager<MarkerItem>(getApplicationContext(), mMap);
+        customRenderer = new CustomRenderer(getApplicationContext(), mMap, mClusterManager);
+
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.setMyLocationEnabled(true);
 
 
-        int fillColorArgb = Color.HSVToColor(100,new float[]{360,1,1});
+        int fillColorArgb = Color.HSVToColor(50, new float[]{0, 0, 0});
 
-        int strokeColorArgb = Color.HSVToColor(200,new float[]{0,1,1});
+        int strokeColorArgb = Color.HSVToColor(90, new float[]{0, 0, 0});
 
         polygonOptions = new PolygonOptions()
-
                 .addAll(
+                        Arrays.asList(
+                                new LatLng(26.591212, 86.47988), // Top rightmost
+                                new LatLng(26.591212, 84.247988), // Top rightmost
+                                new LatLng(28.791212, 84.247988), // Top rightmost
+                                new LatLng(28.791212, 86.47988)// Top rightmost
+
+                        )
+                )
+                .addHole(
                         Arrays.asList(
                                 new LatLng(27.691212,85.447988), // Top rightmost
 
@@ -235,14 +319,57 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add Circle for dangerous area
         addCircleArea();
 
-        getNearbySearchData();
+
+    }
+
+    private void addUserMarker() {
+        geoFire.setLocation("You", new GeoLocation(lastLocation.getLatitude(),
+                lastLocation.getLongitude()), new GeoFire.CompletionListener() {
+            @Override
+            public void onComplete(String key, DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void settingGeoFire() {
+
+        myLocationRef = FirebaseDatabase.getInstance().getReference("MyLocation");
+        geoFire = new GeoFire(myLocationRef);
+    }
+
+    private void buildLocationCallback() {
+        locationCallback = new LocationCallback() {
+            @Override
+            public void onLocationResult(final LocationResult locationResult) {
+                if (mMap != null) {
+
+                    lastLocation = locationResult.getLastLocation();
+
+                    addUserMarker();
+
+
+                }
+            }
+        };
+
+    }
+
+    private void buildLocationRequest() {
+        locationRequest = new LocationRequest();
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                .setInterval(50000)
+                .setFastestInterval(3000)
+                .setSmallestDisplacement(10f)
+        ;
+
     }
 
     private void initArea() {
 
         // Referencing firebase database
         myCity = FirebaseDatabase.getInstance()
-                .getReference("DangerousArea")
+                .getReference("HeritageArea")
                 .child("MyCity");
         // Sync with firebase database when online
         myCity.keepSynced(true);
@@ -288,16 +415,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Toast.makeText(getApplicationContext(), "" + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-        /*dangerousArea = new ArrayList<>();
-        dangerousArea.add(new LatLng(37.422,-122.044));
-        dangerousArea.add(new LatLng(37.422,-122.144));
-        dangerousArea.add(new LatLng(37.422,-122.244));
+        /*heritageArea = new ArrayList<>();
+        heritageArea.add(new LatLng(37.422,-122.044));
+        heritageArea.add(new LatLng(37.422,-122.144));
+        heritageArea.add(new LatLng(37.422,-122.244));
 
         //Comment After execution
         FirebaseDatabase.getInstance()
-                .getReference("DangerousArea")
+                .getReference("heritageArea")
                 .child("MyCity")
-                .setValue(dangerousArea)
+                .setValue(heritageArea)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -311,116 +438,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
 */
-    }
-
-    private void addGeoPointToFirebaseDatabase() {
-        dangerousArea = new ArrayList<>();
-        dangerousArea.add(new LatLng(37.422, -122.044));
-        dangerousArea.add(new LatLng(37.422, -122.144));
-        dangerousArea.add(new LatLng(37.422, -122.244));
-
-        //Comment After execution
-        FirebaseDatabase.getInstance()
-                .getReference("DangerousArea")
-                .child("MyCity")
-                .setValue(dangerousArea)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-    private void addUserMarker() {
-        geoFire.setLocation("You", new GeoLocation(lastLocation.getLatitude(),
-                lastLocation.getLongitude()), new GeoFire.CompletionListener() {
-            @Override
-            public void onComplete(String key, DatabaseError error) {
-                if (currentUser != null) {
-                    currentUser.remove();
-                }
-                currentUser = mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(lastLocation.getLatitude(),
-                                lastLocation.getLongitude()))
-                        .title("You")
-                );
-                //Animate Camera
-                mMap.animateCamera(CameraUpdateFactory
-                        .newLatLngZoom(currentUser.getPosition(), 12.0f));
-
-
-            }
-        });
-    }
-
-    private void settingGeoFire() {
-
-        myLocationRef = FirebaseDatabase.getInstance().getReference("MyLocation");
-        geoFire = new GeoFire(myLocationRef);
-    }
-
-    private void buildLocationCallback() {
-        locationCallback = new LocationCallback() {
-            @Override
-            public void onLocationResult(final LocationResult locationResult) {
-                if (mMap != null) {
-
-                    lastLocation = locationResult.getLastLocation();
-
-                    addUserMarker();
-
-
-                }
-            }
-        };
-
-    }
-
-    private void buildLocationRequest() {
-        locationRequest = new LocationRequest();
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                .setInterval(50000)
-                .setFastestInterval(3000)
-                .setSmallestDisplacement(10f)
-        ;
-
-    }
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
-
-    public void addCircleArea() {
-        if (geoQuery != null) {
-            geoQuery.removeGeoQueryEventListener(this);
-            geoQuery.removeAllListeners();
-
-        }
-        // Add Circle for dangerous area
-        for (LatLng latlng : dangerousArea) {
-            mMap.addCircle(new CircleOptions().center(latlng)
-                    .radius(GEOFENCE_RADIUS * 1000) // GEOFENCE_RADIUS : 0.5f * 1000 = 500m
-                    .strokeColor(Color.BLUE)
-                    .fillColor(0x220000ff)
-                    .strokeWidth(5.0f)
-            );
-
-            // Create GeoQuery when user is in dangerous location
-            geoQuery = geoFire.queryAtLocation(new GeoLocation(latlng.latitude, latlng.longitude), GEOFENCE_RADIUS); //500m
-            geoQuery.addGeoQueryEventListener(this);
-        }
     }
 
     @Override
@@ -485,12 +502,92 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Toast.makeText(this, "" + error.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
+    private void addGeoPointToFirebaseDatabase() {
+        heritageArea = new ArrayList<>();
+//        Dattatry:27.672275, 85.429280
+//        Bhaktapur durbar square:27.672378, 85.428124
+//        55 Window Palace:27.672393, 85.428578
+//
+//        Golden gate:27.672476, 85.428464
+//        Bhairav nath:27.671359, 85.429517
+//
+//        Pashupati nath:27.671834, 85.428458
+//        Kedar nath:27.672037, 85.427865
+//        navadurga:27.675410, 85.435734
+//        wakupati narayan:27.673746, 85.437095
+//        pottery square:27.670156, 85.427781
+        heritageArea.add(new LatLng(27.672275, 85.429280)); //Dattatray
+        heritageArea.add(new LatLng(27.672378, 85.428124)); //Bhaktapur Durbar
+        heritageArea.add(new LatLng(27.672355, 85.428546)); // Window Palace
+        heritageArea.add(new LatLng(27.672476, 85.428464)); // Golden Gate
+        heritageArea.add(new LatLng(27.671359, 85.429517)); // Bhairav nath
+        heritageArea.add(new LatLng(27.671834, 85.428458)); // PashupatiNath
+        heritageArea.add(new LatLng(27.672037, 85.427865)); // KedarNath
+        heritageArea.add(new LatLng(27.675410, 85.435734)); // NavaDurga
+        heritageArea.add(new LatLng(27.673746, 85.437095)); // Wakupati Narayan
+        heritageArea.add(new LatLng(27.670156, 85.427781)); // Pottery Square
+
+        //Comment After execution
+        FirebaseDatabase.getInstance()
+                .getReference("HeritageArea")
+                .child("MyCity")
+                .setValue(heritageArea)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
+
+    public void addCircleArea() {
+        if (geoQuery != null) {
+            geoQuery.removeGeoQueryEventListener(this);
+            geoQuery.removeAllListeners();
+
+        }
+        // Add Circle for dangerous area
+        for (LatLng latlng : heritageArea) {
+            mMap.addCircle(new CircleOptions().center(latlng)
+                    .radius(GEOFENCE_RADIUS * 1000) // GEOFENCE_RADIUS : 0.5f * 1000 = 500m
+                    .strokeColor(Color.BLUE)
+                    .fillColor(0x220000ff)
+                    .strokeWidth(5.0f)
+            );
+
+            // Create GeoQuery when user is in dangerous location
+            geoQuery = geoFire.queryAtLocation(new GeoLocation(latlng.latitude, latlng.longitude), GEOFENCE_RADIUS); //500m
+            geoQuery.addGeoQueryEventListener(this);
+        }
+    }
+
+    @Override
+    public void onLoadLocationFailed(String message) {
+        Toast.makeText(this, "" + message, Toast.LENGTH_SHORT).show();
+    }
+    //private String KEYWORD = "cruise";
+
     @Override
     public void onLoadLocationSucess(List<MyLatLng> latLngs) {
-        dangerousArea = new ArrayList<>();
+        heritageArea = new ArrayList<>();
         for (MyLatLng myLatLng : latLngs) {
             LatLng convert = new LatLng(myLatLng.getLatitude(), myLatLng.getLongitude());
-            dangerousArea.add(convert);
+            heritageArea.add(convert);
         }
         //Afer dangerous area loaded
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -508,13 +605,47 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    @Override
-    public void onLoadLocationFailed(String message) {
-        Toast.makeText(this, "" + message, Toast.LENGTH_SHORT).show();
-    }
-    //private String KEYWORD = "cruise";
+    public void getNearbySearchData(int position) {
+        switch (position) {
+            case 0:
+                TYPE = "atm";
+                break;
+            case 1:
+                TYPE = "restaurant";
+                break;
+            case 2:
+                TYPE = "police";
+                break;
+            case 3:
+                TYPE = "taxi_stand";
+            case 4:
+                TYPE = "cafe";
+                break;
+            case 5:
+                TYPE = "lodging";
+                break;
+            case 6:
+                TYPE = "museum";
+                break;
+            case 7:
+                TYPE = "pharmacy";
+                break;
+            case 8:
+                TYPE = "hospital";
+                break;
+            case 9:
+                TYPE = "hindu_temple";
+                break;
+            case 10:
+                TYPE = "bank";
+                break;
+            case 11:
+                TYPE = "travel_agency";
+                break;
+            default:
+                TYPE = "hindu_temple";
 
-    public void getNearbySearchData() {
+        }
         searchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + LOCATION + "&radius=" + RADIUS + "&type=" + TYPE + /*"&keyword=" + KEYWORD +*/ "&key=" + searchApiKey;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, searchUrl, null, new Response.Listener<JSONObject>() {
@@ -522,25 +653,51 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onResponse(JSONObject response) {
 
+                mClusterManager.clearItems();
+                mClusterManager.getClusterMarkerCollection().clear();
+                mClusterManager.cluster();
+                // Initialize the manager with the context and the map.
+                // (Activity extends context, so we can pass 'this' in the constructor.)
+                mClusterManager = new ClusterManager<MarkerItem>(getApplicationContext(), mMap);
+                CustomRenderer clusterRenderer = new CustomRenderer(getApplicationContext(), mMap, mClusterManager);
+                // Point the map's listeners at the listeners implemented by the cluster
+                // manager.
+                mMap.setOnCameraIdleListener(mClusterManager);
+                mMap.setOnMarkerClickListener(mClusterManager);
+                mClusterManager.setRenderer(clusterRenderer);
                 /***************************************/
                 NearbySearchData nearbySearchData = new Gson().fromJson(response.toString(), NearbySearchData.class);
 
                 List<Result> results = nearbySearchData.getResults();
-
-                String message = "Total list: " + results.size() + "\n\n";
                 for (Result result : results) {
-                    URL url = null;
-                    try {
-                        url = new URL(result.getIcon());
-                    } catch (MalformedURLException e) {
-                        e.printStackTrace();
-                    }
-                    nearbyMarker = mMap.addMarker(new MarkerOptions()
-                            .position(new LatLng(result.getGeometry().getLocation().getLat(),
-                                    result.getGeometry().getLocation().getLng()))
+
+                    double lat = result.getGeometry().getLocation().getLat();
+                    double lng = result.getGeometry().getLocation().getLng();
+
+                    String url = result.getIcon();
+
+                    MarkerOptions markerOptions = new MarkerOptions()
+                            .position(new LatLng(lat, lng))
                             .title(result.getName())
-                            .snippet("Vicinity :" + result.getVicinity())
-                    );
+                            .snippet("Vicinity :" + result.getVicinity());
+                    Glide.with(getApplicationContext()).asBitmap().load(url)
+                            .fitCenter().diskCacheStrategy(DiskCacheStrategy.ALL).into(new SimpleTarget<Bitmap>() {
+                        @Override
+                        public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                            if (resource != null) {
+                                //  Bitmap circularBitmap = getRoundedCornerBitmap(bitmap, 150);
+                                //   BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(changeBitmapColor(resource,i));
+                                markerOptions.icon(BitmapDescriptorFactory.fromBitmap(resource));
+                            }
+                        }
+
+                    });
+
+// Create a cluster item for the marker and set the title and snippet using the constructor.
+                    MarkerItem infoWindowItem = new MarkerItem(markerOptions);
+                    mClusterManager.addItem(infoWindowItem);
+                    mClusterManager.cluster();
+
                 }
                 /***************************************/
 
@@ -609,6 +766,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         requestQueue.add(jsonObjectRequest);
     }
 
-
 /****************************************************************************************************/
+
+
 }

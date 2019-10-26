@@ -1,7 +1,6 @@
 package com.example.guide.fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,12 +8,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.guide.Modal.Home;
 import com.example.guide.R;
-import com.example.guide.activities.ForexActivity;
-import com.example.guide.activities.MapsActivity;
-import com.example.guide.activities.PlacesActivity;
-import com.example.guide.activities.WeatherActivity;
+import com.example.guide.adapters.HomeAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +32,8 @@ public class HomeFragment extends Fragment {
                 // Required empty public constructor
     }
 
-
+    RecyclerView recyclerView;
+    List<Home> homeList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,15 +41,20 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
       //  setupViewPager();
 
-        nav =v.findViewById(R.id.navButton);
-        nav.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), MapsActivity.class)));
 
-        currencyBtn = v.findViewById(R.id.currencybutton);
-        currencyBtn.setOnClickListener(v12 -> startActivity(new Intent(getActivity(), ForexActivity.class)));
-        placeBtn = v.findViewById(R.id.placeButton);
-        placeBtn.setOnClickListener(v13 -> startActivity(new Intent(getActivity(), PlacesActivity.class)));
-        weatherBtn = v.findViewById(R.id.weatherButton);
-        weatherBtn.setOnClickListener(v13 -> startActivity(new Intent(getActivity(), WeatherActivity.class)));
+        recyclerView = v.findViewById(R.id.homeRecyclerView);
+        homeList = new ArrayList<>();
+        homeList.add(new Home("Navigation", "logo"));
+        homeList.add(new Home("Weather", "logo"));
+        homeList.add(new Home("Places", "logo"));
+        homeList.add(new Home("Food", "logo"));
+        homeList.add(new Home("Calendar", "logo"));
+        homeList.add(new Home("Currency", "logo"));
+
+        HomeAdapter adapter = new HomeAdapter(homeList, getContext());
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setAdapter(adapter);
 
 
        return  v;
