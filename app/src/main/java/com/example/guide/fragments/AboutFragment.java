@@ -40,10 +40,10 @@ public class AboutFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_about_recycler, container, false);
         recycleView = v.findViewById(R.id.recycleView);
         users = new ArrayList<>();
-        users.add(new Users("NIRAJAN PRJAPATI","KHCE074BCT  024","prajapatinirajan0@gmail.com","nirajan"));
-        users.add(new Users("NIRJAL PRAJAPATI","KHCE074BCT026","nirjalprajapati@gmail.com"));
-        users.add(new Users("ROHIT PRAJAPATI","KHCE074BCT033","roht.praz@gmail.com"));
-        users.add(new Users("SAHAS PRAJAPATI","KHCE074BCT037","sahas_1999@hotmail.com"));
+        users.add(new Users("NIRAJAN PRJAPATI","KHCE 074 BCT 024","prajapatinirajan0@gmail.com","nirajan"));
+        users.add(new Users("NIRJAL PRAJAPATI","KHCE 074 BCT 026","nirjalprajapati@gmail.com"));
+        users.add(new Users("ROHIT PRAJAPATI","KHCE074 BCT 033","roht.praz@gmail.com"));
+        users.add(new Users("SAHAS PRAJAPATI","KHCE074 BCT 037","sahas_1999@hotmail.com"));
 
         AboutAdapter adapter = new AboutAdapter(users, getContext());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());

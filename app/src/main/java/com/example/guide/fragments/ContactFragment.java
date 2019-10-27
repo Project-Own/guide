@@ -54,7 +54,6 @@ public class ContactFragment extends Fragment {
         contacts.add(new Contact("Embassy of India","01-4410900"));
         contacts.add(new Contact("Embassy of Israel","01-4411811/01-4413419"));
         contacts.add(new Contact("Embassy of Japan","01-4426680"));
-
         contacts.add(new Contact("Embassy of Malaysia","01-5545680/01-5545681"));
         contacts.add(new Contact("Embassy of Myanmar","01- 5592774/01-5592841"));
         contacts.add(new Contact("Embassy of the Democratic People's Republic of Korea","01- 5521855/01-5535871"));
