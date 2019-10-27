@@ -16,80 +16,82 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.guide.Modal.Places;
+import com.example.guide.Modal.Food;
 import com.example.guide.R;
-import com.example.guide.activities.PlacesDetail;
+import com.example.guide.activities.FoodDetail;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
 
 import java.util.List;
 
-public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesViewHolder> {
-    private List<Places> placesList;
+public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder> {
+    private List<Food> foodList;
     private Context context;
     private Activity activity;
     private SpringyAdapterAnimator mAnimator;
 
-    public PlacesAdapter(List<Places> placesList, RecyclerView recyclerView, Context context, Activity activity) {
-        this.placesList = placesList;
+    public FoodAdapter(List<Food> foodList, RecyclerView recyclerView, Context context, Activity activity) {
+        this.foodList = foodList;
         this.context = context;
         this.activity = activity;
         mAnimator = new SpringyAdapterAnimator(recyclerView);
-        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_BOTTOM);
+        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_LEFT);
         mAnimator.addConfig(85, 15);
+
 
     }
 
-    public PlacesAdapter(List<Places> placesList, Context context) {
+    public FoodAdapter(List<Food> foodList, Context context) {
         this.context = context;
-        this.placesList = placesList;
+        this.foodList = foodList;
 
     }
 
 
     @NonNull
     @Override
-    public PlacesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.places_recycler_list, parent, false);
-
+        View view = layoutInflater.inflate(R.layout.food_recycler_list, parent, false);
         mAnimator.onSpringItemCreate(view);
 
-        return new PlacesViewHolder(view);
+        return new FoodViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlacesViewHolder holder, int position) {
-        holder.description.setText(placesList.get(position).getName());
+    public void onBindViewHolder(@NonNull FoodViewHolder holder, int position) {
+        holder.description.setText(foodList.get(position).getName());
         Glide.with(holder.itemView)
                 .load(context.getResources()
-                        .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
+                        .getIdentifier(foodList.get(position).getImage(), "drawable", context.getPackageName()))
 
                 .into(holder.imageView);
-        holder.bind(placesList.get(position));
+        holder.bind(foodList.get(position));
         mAnimator.onSpringItemBind(holder.itemView, position);
 
     }
 
     @Override
     public int getItemCount() {
-        return placesList.size();
+        return foodList.size();
     }
 
-    class PlacesViewHolder extends RecyclerView.ViewHolder {
+    class FoodViewHolder extends RecyclerView.ViewHolder {
         TextView description;
         ImageView imageView;
         CardView cardView;
+        Boolean click;
 
 
-        PlacesViewHolder(@NonNull View itemView) {
+        FoodViewHolder(@NonNull View itemView) {
             super(itemView);
-            description = itemView.findViewById(R.id.places_recycler_list_text);
-            imageView = itemView.findViewById(R.id.places_recycler_list_image);
-            cardView = itemView.findViewById(R.id.places_recycler_list_cardview);
+            description = itemView.findViewById(R.id.food_recycler_list_text);
+            imageView = itemView.findViewById(R.id.food_recycler_list_image);
+            cardView = itemView.findViewById(R.id.food_recycler_list_cardview);
+
         }
 
-        void bind(Places places) {
+        void bind(Food food) {
 
             itemView.setOnClickListener(view -> {
 //                if(listner != null){
@@ -99,9 +101,10 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 //                    }
 
 //                }
-                Intent myanim = new Intent(context, PlacesDetail.class);
+
+                Intent myanim = new Intent(context, FoodDetail.class);
                 myanim.putExtra("description", description.getText());
-                myanim.putExtra("image", places.getImage());
+                myanim.putExtra("image", food.getImage());
 
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, cardView, "image_this");
 

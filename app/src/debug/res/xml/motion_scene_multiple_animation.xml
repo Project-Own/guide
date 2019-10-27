@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Transition
-        app:constraintSetEnd="@layout/multiple_animation_example_end"
-        app:constraintSetStart="@layout/activity_main"
+        app:constraintSetEnd="@layout/detail_animation_end"
+        app:constraintSetStart="@layout/places_recycler_list"
         app:duration="1000">
 
 

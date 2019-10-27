@@ -19,6 +19,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.example.guide.Modal.Home;
 import com.example.guide.R;
 import com.example.guide.activities.CalendarActivity;
+import com.example.guide.activities.FoodActivity;
 import com.example.guide.activities.ForexActivity;
 import com.example.guide.activities.MapsActivity;
 import com.example.guide.activities.PlacesActivity;
@@ -81,7 +82,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                     aClass = PlacesActivity.class;
                     break;
                 case 3:
-                    aClass = PlacesActivity.class;
+                    aClass = FoodActivity.class;
                     break;
                 case 4:
                     aClass = CalendarActivity.class;

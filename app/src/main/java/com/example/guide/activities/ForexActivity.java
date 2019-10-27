@@ -141,7 +141,7 @@ public class ForexActivity extends AppCompatActivity {
 
 
 //                Log.i("Forex Data Function", countryNameMap.toString());
-            forexAdapter = new ForexAdapter(forexList, pairList, countryNameMap, context);
+            forexAdapter = new ForexAdapter(forexList, pairList, countryNameMap, recyclerView, context);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
             recyclerView.setLayoutManager(mLayoutManager);
             recyclerView.setAdapter(forexAdapter);
@@ -211,7 +211,6 @@ public class ForexActivity extends AppCompatActivity {
                     final String jsonString = new String(response.data,
                             HttpHeaderParser.parseCharset(response.headers));
 
-                    /******************************/
                     // parseNetworkResponse works on background thread and doesnot slow down UI Thread so parsing of data is done here for performance
                     // Here JsonString contains Json data
                     ForexData forexData = new Gson().fromJson(jsonString, ForexData.class);
@@ -266,8 +265,6 @@ public class ForexActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                    /*******************************/
-
                     return Response.success(new JSONObject(jsonString), cacheEntry);
                 } catch (UnsupportedEncodingException | JSONException e) {
                     return Response.error(new ParseError(e));
@@ -293,9 +290,6 @@ public class ForexActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(jsonObjectRequest);
     }
-
-
-    /************** FOREX Data Function END************/
 
 
     /******************************Currency Function*******************************/
@@ -336,8 +330,6 @@ public class ForexActivity extends AppCompatActivity {
                     cacheEntry.responseHeaders = response.headers;
                     final String jsonString = new String(response.data,
                             HttpHeaderParser.parseCharset(response.headers));
-
-                    /*******************************/
 
                     CurrencyData currencyData = new Gson().fromJson(jsonString, CurrencyData.class);
 
@@ -402,9 +394,6 @@ public class ForexActivity extends AppCompatActivity {
                     //   Log.i("Torpe","" + currencyData);
 
 
-                    /********************************/
-
-
                     return Response.success(new JSONObject(jsonString), cacheEntry);
                 } catch (UnsupportedEncodingException | JSONException e) {
                     return Response.error(new ParseError(e));
@@ -430,13 +419,6 @@ public class ForexActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(jsonObjectRequest);
     }
-/*****************************Currency Function END*******************************/
-
-
-
-
-
-
 
 
 }

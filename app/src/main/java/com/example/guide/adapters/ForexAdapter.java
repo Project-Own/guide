@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.guide.R;
+import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
+import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
 
 import java.util.List;
 import java.util.Map;
@@ -21,15 +23,19 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
 
     private List<Object> forexList;
     private List<String> pairList;
+    private SpringyAdapterAnimator mAnimator;
 
     private Map<String, String> countryNameMap;
 
 
-    public ForexAdapter(List<Object> forexList, List<String> pairList, Map<String, String> countryNameMap, Context context) {
+    public ForexAdapter(List<Object> forexList, List<String> pairList, Map<String, String> countryNameMap, RecyclerView recyclerView, Context context) {
         this.forexList = forexList;
         this.pairList = pairList;
         this.countryNameMap = countryNameMap;
         this.context = context;
+        mAnimator = new SpringyAdapterAnimator(recyclerView);
+        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_RIGHT);
+        mAnimator.addConfig(85, 15);
     }
 
     private FrameLayout frame;
@@ -49,6 +55,7 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
     public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // inflate Layout
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.forex_recyler_list, parent, false);
+        mAnimator.onSpringItemCreate(itemView);
 
         //fragment
         return new StudentViewHolder(itemView);
@@ -70,6 +77,9 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
         }
         //     Glide.with(holder.itemView).load(weatherData.get(position).getThumbnailUrl()).into(holder.photo);
         //     holder.bind(weatherData.get(position));
+
+        mAnimator.onSpringItemBind(holder.itemView, position);
+
     }
 
     @Override

@@ -3,16 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/first"
-    android:background="@drawable/custom_ripple_recycler"
-    android:clickable="true"
-    android:focusable="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/places_recycler_list_cardview"
+        android:id="@+id/food_recycler_list_cardview"
         android:layout_width="360dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
@@ -22,7 +19,7 @@
         tools:cardCornerRadius="25dp">
 
         <ImageView
-            android:id="@+id/places_recycler_list_image"
+            android:id="@+id/food_recycler_list_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="Image"
@@ -33,15 +30,15 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/places_recycler_list_text"
+        android:id="@+id/food_recycler_list_text"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text=""
+        android:singleLine="true"
+        android:text="Descriptiosdffffffffffffffffffffffffffffffffffffffffff \n\nsdfsdfsdfsn "
         android:textAlignment="center"
         android:textSize="14sp"
-        android:singleLine="true"
         android:transitionName="text_name" />
 
 

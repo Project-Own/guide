@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cccccc"
+    android:orientation="vertical"
+    app:layoutDescription="@xml/motion_scene_multiple_animation">
+
+    <com.github.florent37.shapeofview.shapes.ArcView
+        android:id="@+id/myShape"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_centerHorizontal="true"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shape_arc_cropDirection="outside"
+        app:shape_arc_height="36dp"
+        app:shape_arc_position="bottom">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/tq"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-20dp"
+            android:transitionName="image_this"
+            app:cardCornerRadius="25dp"
+            tools:cardCornerRadius="25dp">
+
+            <ImageView
+                android:id="@+id/coverImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Image of places list"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/nyatapolo" />
+        </androidx.cardview.widget.CardView>
+    </com.github.florent37.shapeofview.shapes.ArcView>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.29" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.32" />
+
+
+    <View
+        android:id="@+id/bgView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rectangle"
+        android:nestedScrollingEnabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline1" />
+
+    <TextView
+
+        android:id="@+id/titleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="serif-monospace"
+        android:gravity="center"
+        android:nestedScrollingEnabled="false"
+        android:text="Bhaktapur Durbar Square"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/bgView"
+        app:layout_constraintStart_toStartOf="@id/bgView"
+        app:layout_constraintTop_toBottomOf="@id/guideline1" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="0.7dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:background="#000000"
+        app:layout_constraintEnd_toEndOf="@id/bgView"
+        app:layout_constraintStart_toStartOf="@id/bgView"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+
+    <TextView
+        android:id="@+id/contentText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-condensed"
+        android:nestedScrollingEnabled="false"
+        android:padding="14dp"
+        android:scrollbars="vertical"
+        android:text="thi sifsadfjbakjsdbfjabsdfbkasdfkljasdkfakjsdnfkasbdkdsssssssssssssssssssssssssssssssssssssssssssssssssssssssssc
+        sdfbaksdbfkjabsdjfbasdbfajsbdfjabsdkfbakjsbdkfabskdfkajsbfkjasbdkjfbkjasdbfkjasbdkjfbaskjdbfkasdfkmaskdjfbajksdnfkjasbdfjkasf\nshdfjahsdjfhakjsdfhkjasdhfkjahdsf\nadsjhfjhdkfjhsdjfhasjdfhkas "
+        android:textSize="17sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
+
+    <Button
+        android:id="@+id/botton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="txt to speech" />
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

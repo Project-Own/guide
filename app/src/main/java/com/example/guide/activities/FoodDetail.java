@@ -14,13 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.guide.R;
 
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class FoodDetail extends AppCompatActivity implements TextToSpeech.OnInitListener {
     TextToSpeech t1;
     MotionLayout motionLayout;
     View view;
@@ -31,11 +32,10 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
     ImageView imageView;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.places_recycler_list_detail);
+        setContentView(R.layout.food_recycler_list_detail);
 
         motionLayout = findViewById(R.id.motionLayout);
 
@@ -47,16 +47,16 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
         Bundle b = i.getExtras();
         assert b != null;
         String description = b.getString("description", "");
-        String name = b.getString("image","");
+        String name = b.getString("image", "");
         textView.setText(description);
 
 
-        if(!name.equals("")){
+        if (!name.equals("")) {
             Glide.with(this)
                     .load(getResources()
                             .getIdentifier(name, "drawable", getPackageName()))
                     .fitCenter()
-
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(imageView);
 
         }
@@ -164,10 +164,10 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
     @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
-            Set<String> a=new HashSet<>();
+            Set<String> a = new HashSet<>();
             a.add("male");//here you can give male if you want to select male voice.
 //            Voice v=new Voice("en-us-x-sfg#female_2-local",new Locale("en","US"),400,200,true,a);
-            Voice v=new Voice("en-us-x-sfg#male_2-local",new Locale("en","US"),400,200,true,a);
+            Voice v = new Voice("en-us-x-sfg#male_2-local", new Locale("en", "US"), 400, 200, true, a);
             t1.setVoice(v);
             t1.setSpeechRate(0.8f);
 
@@ -186,16 +186,16 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
             Log.e("TTS", "Initilization Failed!");
         }
     }
+
     private void speakOut(String message) {
 
         t1.speak(message, TextToSpeech.QUEUE_FLUSH, null);
     }
 
-    public void onPause(){
+    public void onPause() {
 
         super.onPause();
     }
-
 
 
     @Override
