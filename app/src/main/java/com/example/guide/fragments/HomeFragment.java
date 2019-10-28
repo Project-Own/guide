@@ -22,10 +22,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
-    private Button nav;
-    private Button currencyBtn;
-    private Button placeBtn;
-    private Button weatherBtn;
+
 
 
     public HomeFragment() {
@@ -45,11 +42,11 @@ public class HomeFragment extends Fragment {
         recyclerView = v.findViewById(R.id.homeRecyclerView);
         homeList = new ArrayList<>();
         homeList.add(new Home("Navigation", "navigation_logo"));
-        homeList.add(new Home("Weather", "navigation_logo"));
-        homeList.add(new Home("Places", "navigation_logo"));
-        homeList.add(new Home("Food", "navigation_logo"));
-        homeList.add(new Home("Calendar", "navigation_logo"));
-        homeList.add(new Home("Currency", "navigation_logo"));
+        homeList.add(new Home("Weather", "weather"));
+        homeList.add(new Home("Heritages", "heritage"));
+        homeList.add(new Home("Food", "food"));
+        homeList.add(new Home("Calendar", "calendar"));
+        homeList.add(new Home("Currency", "currency"));
 
         HomeAdapter adapter = new HomeAdapter(homeList, getContext());
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);

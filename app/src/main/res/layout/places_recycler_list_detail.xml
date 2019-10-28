@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="Image of places list"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/nyatapolo" />
+                tools:srcCompat="@drawable/nyatapolo" />
         </androidx.cardview.widget.CardView>
     </com.github.florent37.shapeofview.shapes.ArcView>
 
@@ -114,8 +114,7 @@
         android:nestedScrollingEnabled="false"
         android:padding="14dp"
         android:scrollbars="vertical"
-        android:text="thi sifsadfjbakjsdbfjabsdfbkasdfkljasdkfakjsdnfkasbdkdsssssssssssssssssssssssssssssssssssssssssssssssssssssssssc
-        sdfbaksdbfkjabsdjfbasdbfajsbdfjabsdkfbakjsbdkfabskdfkajsbfkjasbdkjfbkjasdbfkjasbdkjfbaskjdbfkasdfkmaskdjfbajksdnfkjasbdfjkasf\nshdfjahsdjfhakjsdfhkjasdhfkjahdsf\nadsjhfjhdkfjhsdjfhasjdfhkas "
+        android:text="bkjasdbfkjasbdkjfbaskjdbfkasdfkmaskdjfbajksdnfkjasbdfjkasf\nshdfjahsdjfhakjsdfhkjasdhfkjahdsf\nadsjhfjhdkfjhsdjfhasjdfhkas "
         android:textSize="17sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
