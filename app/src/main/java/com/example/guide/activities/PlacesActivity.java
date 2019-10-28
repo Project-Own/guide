@@ -88,7 +88,7 @@ public class PlacesActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String[] s) {
-            placesList.add(new Places(s[1],s[2]));
+            placesList.add(new Places(s[0],s[1],s[2]));
 
 
             super.onPostExecute(s);
