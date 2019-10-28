@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,7 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
     View view;
 
     TextView textView;
+    TextView titleText;
     Boolean contentTextFullscreen = false;
     Button b1;
     ImageView imageView;
@@ -42,21 +44,23 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
         view = findViewById(R.id.bgView);
         textView = findViewById(R.id.contentText);
         imageView = findViewById(R.id.coverImage);
+        titleText = findViewById(R.id.titleTextView);
 
         Intent i = getIntent();
         Bundle b = i.getExtras();
         assert b != null;
         String description = b.getString("description", "");
-        String name = b.getString("image","");
+        String imageName = b.getString("image", "");
+        String name = b.getString("name", "");
         textView.setText(description);
+        titleText.setText(name);
 
 
-        if(!name.equals("")){
+        if (!imageName.equals("")) {
             Glide.with(this)
                     .load(getResources()
-                            .getIdentifier(name, "drawable", getPackageName()))
+                            .getIdentifier(imageName, "drawable", getPackageName()))
                     .fitCenter()
-
                     .into(imageView);
 
         }
@@ -121,6 +125,7 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
                         break;
                     case 10:
                         name += trans;
+                        textView.setMovementMethod(new ScrollingMovementMethod());
                         break;
                     default:
                         name += trans;

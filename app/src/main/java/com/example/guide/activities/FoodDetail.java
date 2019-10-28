@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,7 @@ public class FoodDetail extends AppCompatActivity implements TextToSpeech.OnInit
     Boolean contentTextFullscreen = false;
     Button b1;
     ImageView imageView;
+    TextView titleText;
 
 
     @Override
@@ -42,19 +44,22 @@ public class FoodDetail extends AppCompatActivity implements TextToSpeech.OnInit
         view = findViewById(R.id.bgView);
         textView = findViewById(R.id.contentText);
         imageView = findViewById(R.id.coverImage);
+        titleText = findViewById(R.id.titleTextView);
 
         Intent i = getIntent();
         Bundle b = i.getExtras();
         assert b != null;
         String description = b.getString("description", "");
-        String name = b.getString("image", "");
-        textView.setText(description);
+        String imageName = b.getString("image", "");
+        String name = b.getString("name", "");
+        textView.setText("sfdsfsdfdfsdf");
+        titleText.setText(name);
 
 
-        if (!name.equals("")) {
+        if (!imageName.equals("")) {
             Glide.with(this)
                     .load(getResources()
-                            .getIdentifier(name, "drawable", getPackageName()))
+                            .getIdentifier(imageName, "drawable", getPackageName()))
                     .fitCenter()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(imageView);
@@ -121,6 +126,8 @@ public class FoodDetail extends AppCompatActivity implements TextToSpeech.OnInit
                         break;
                     case 10:
                         name += trans;
+
+                        textView.setMovementMethod(new ScrollingMovementMethod());
                         break;
                     default:
                         name += trans;

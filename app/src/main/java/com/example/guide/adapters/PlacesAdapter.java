@@ -3,6 +3,7 @@ package com.example.guide.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +61,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
     @Override
     public void onBindViewHolder(@NonNull PlacesViewHolder holder, int position) {
-        holder.description.setText(placesList.get(position).getName());
+        holder.description.setText(placesList.get(position).getDescription());
         Glide.with(holder.itemView)
                 .load(context.getResources()
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
@@ -82,6 +83,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         CardView cardView;
 
 
+
         PlacesViewHolder(@NonNull View itemView) {
             super(itemView);
             description = itemView.findViewById(R.id.places_recycler_list_text);
@@ -99,19 +101,25 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 //                    }
 
 //                }
+
                 Intent myanim = new Intent(context, PlacesDetail.class);
-                myanim.putExtra("description", description.getText());
+                myanim.putExtra("description", places.getDescription());
                 myanim.putExtra("image", places.getImage());
+                myanim.putExtra("name", places.getName());
+                try {
 
-                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, cardView, "image_this");
-
-
-                context.startActivity(myanim, options.toBundle());
-
-
-                Toast.makeText(itemView.getContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, cardView, "image_this");
 
 
+                    context.startActivity(myanim, options.toBundle());
+
+
+                    Toast.makeText(itemView.getContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
+                } catch (Error e) {
+
+                    Log.i("TransitionAdapterPlaces", e.getMessage());
+                    context.startActivity(myanim);
+                }
             });
         }
     }

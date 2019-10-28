@@ -60,7 +60,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull FoodViewHolder holder, int position) {
-        holder.description.setText(foodList.get(position).getName());
+        holder.description.setText(foodList.get(position).getDescription());
         Glide.with(holder.itemView)
                 .load(context.getResources()
                         .getIdentifier(foodList.get(position).getImage(), "drawable", context.getPackageName()))
@@ -103,8 +103,9 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 //                }
 
                 Intent myanim = new Intent(context, FoodDetail.class);
-                myanim.putExtra("description", description.getText());
+                myanim.putExtra("description", food.getDescription());
                 myanim.putExtra("image", food.getImage());
+                myanim.putExtra("name", food.getName());
 
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, cardView, "image_this");
 
