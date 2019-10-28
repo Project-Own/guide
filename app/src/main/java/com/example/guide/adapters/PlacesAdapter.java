@@ -69,8 +69,8 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                 .into(holder.imageView);
         holder.bind(placesList.get(position));
         mAnimator.onSpringItemBind(holder.itemView, position);
-
     }
+
 
     @Override
     public int getItemCount() {

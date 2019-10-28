@@ -29,14 +29,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DHAKA, BD"
-                    android:textSize="24dp" />
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/updated_at"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20 April 2012, 20:08 PM"
-                    android:textSize="14dp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
 
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Clear Sky"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/temp"
@@ -62,7 +62,7 @@
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif-thin"
                     android:text="29°C"
-                    android:textSize="90dp" />
+                    android:textSize="90sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -126,14 +126,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Sunrise"
-                            android:textSize="12dp" />
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/sunrise"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="06:40 AM"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <Space
@@ -163,14 +163,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Sunset"
-                            android:textSize="12dp" />
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/sunset"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="06:40 AM"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <Space
@@ -318,14 +318,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Created By"
-                            android:textSize="12dp" />
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/about"
+                            android:textColor="@color/textIcons"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="AndroDocs"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -345,6 +346,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="Something went wrong"
+            android:textColor="@color/primaryText"
             android:visibility="gone" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

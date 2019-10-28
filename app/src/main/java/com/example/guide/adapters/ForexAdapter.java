@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.guide.R;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
@@ -69,6 +70,16 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
         if (countryNameMap != null) {
             holder.forexPairTextView.setText(String.format("%s ---> %s :", countryNameMap.get(from), countryNameMap.get(to)));
             holder.forexRateTextView.setText(forexList.get(position).toString());
+            Glide.with(holder.itemView)
+                    .load(context.getResources()
+                            .getIdentifier(from.toLowerCase(), "drawable", context.getPackageName()))
+                    .override(150, 150)
+                    .into(holder.photoFrom);
+            Glide.with(holder.itemView)
+                    .load(context.getResources()
+                            .getIdentifier(to.toLowerCase(), "drawable", context.getPackageName()))
+                    .override(150, 150)
+                    .into(holder.photoTo);
 
         } else {
             holder.forexPairTextView.setText(String.format("%s ---> %s :", from, to));
@@ -101,12 +112,17 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
     class StudentViewHolder extends RecyclerView.ViewHolder {
         private TextView forexPairTextView;
         private TextView forexRateTextView;
-        private ImageView photo;
+        private ImageView photoTo;
+        private ImageView photoFrom;
 
         StudentViewHolder(@NonNull View itemView) {
             super(itemView);
             forexPairTextView = itemView.findViewById(R.id.forexPairTextView);
             forexRateTextView = itemView.findViewById(R.id.forexRateTextView);
+            photoTo = itemView.findViewById(R.id.currencyToImg);
+            photoFrom = itemView.findViewById(R.id.currencyFromImg);
+
+
             //     photo = itemView.findViewById(R.id.textImage);
         }
 

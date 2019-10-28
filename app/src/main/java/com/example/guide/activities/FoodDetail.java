@@ -96,6 +96,8 @@ public class FoodDetail extends AppCompatActivity implements TextToSpeech.OnInit
                 switch (trans) {
                     case 0:
                         name += trans;
+                        textView.setVerticalScrollBarEnabled(false);
+
                         break;
                     case 1:
                         name += trans;

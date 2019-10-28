@@ -158,7 +158,7 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 Integer updatedAt = weatherData.getDt();
-                String updatedAtText = "Updated at: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(updatedAt * 1000));
+                String updatedAtText = "Updated at: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(updatedAt * 1000L));
                 String temp = weatherData.getMain().getTemp() + "°C";
                 String tempMin = "Min Temp: " + weatherData.getMain().getTempMin() + "°C";
                 String tempMax = "Max Temp: " + weatherData.getMain().getTempMax() + "°C";

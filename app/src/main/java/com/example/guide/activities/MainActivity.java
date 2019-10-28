@@ -5,8 +5,10 @@ import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.graphics.BlendMode;
 import android.graphics.BlendModeColorFilter;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
@@ -113,7 +115,7 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onTabSelected(TabLayout.Tab tab) {
                         super.onTabSelected(tab);
-                        int tabIconColor = ContextCompat.getColor(context, R.color.tabSelectedIconColor);
+                        int tabIconColor = ContextCompat.getColor(context, R.color.colorPrimaryDark);
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                             tab.getIcon().setColorFilter(new BlendModeColorFilter(tabIconColor, BlendMode.SRC_ATOP));
                         } else {
@@ -124,7 +126,7 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onTabUnselected(TabLayout.Tab tab) {
                         super.onTabUnselected(tab);
-                        int tabIconColor = ContextCompat.getColor(context, R.color.tabUnselectedIconColor);
+                        int tabIconColor = ContextCompat.getColor(context, R.color.colorPrimaryLight);
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                             tab.getIcon().setColorFilter(new BlendModeColorFilter(tabIconColor, BlendMode.SRC_ATOP));
                         } else {
@@ -138,6 +140,20 @@ public class MainActivity extends AppCompatActivity
                     }
                 }
         );
+
+        ColorStateList myColorStateList = new ColorStateList(
+                new int[][]{
+                        new int[]{android.R.attr.state_pressed}, //1
+                        new int[]{android.R.attr.state_focused}, //2
+                        new int[]{android.R.attr.state_focused, android.R.attr.state_pressed} //3
+                },
+                new int[]{
+                        Color.RED, //1
+                        Color.GREEN, //2
+                        Color.BLUE //3
+                }
+        );
+        tabLayout.setTabRippleColor(myColorStateList);
         tabLayout.setBackgroundColor(getResources().getColor(R.color.white));
         // For color text
         //tabLayout.setTabTextColors(getResources().getColor(R.color.black),getResources().getColor(R.color.white));
@@ -148,24 +164,24 @@ public class MainActivity extends AppCompatActivity
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_info_outline_black_24dp);
         // Set initial color of icons
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            tabLayout.getTabAt(0).getIcon().setColorFilter(new BlendModeColorFilter(R.color.tabSelectedIconColor, BlendMode.SRC_ATOP));
+            tabLayout.getTabAt(0).getIcon().setColorFilter(new BlendModeColorFilter(R.color.colorPrimaryDark, BlendMode.SRC_ATOP));
         } else {
-            tabLayout.getTabAt(0).getIcon().setColorFilter(getResources().getColor(R.color.tabSelectedIconColor), PorterDuff.Mode.SRC_ATOP);
+            tabLayout.getTabAt(0).getIcon().setColorFilter(getResources().getColor(R.color.colorPrimaryDark), PorterDuff.Mode.SRC_ATOP);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            tabLayout.getTabAt(1).getIcon().setColorFilter(new BlendModeColorFilter(R.color.tabUnselectedIconColor, BlendMode.SRC_ATOP));
+            tabLayout.getTabAt(1).getIcon().setColorFilter(new BlendModeColorFilter(R.color.colorPrimaryLight, BlendMode.SRC_ATOP));
         } else {
-            tabLayout.getTabAt(1).getIcon().setColorFilter(getResources().getColor(R.color.tabUnselectedIconColor), PorterDuff.Mode.SRC_ATOP);
+            tabLayout.getTabAt(1).getIcon().setColorFilter(getResources().getColor(R.color.colorPrimaryLight), PorterDuff.Mode.SRC_ATOP);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            tabLayout.getTabAt(2).getIcon().setColorFilter(new BlendModeColorFilter(R.color.tabUnselectedIconColor, BlendMode.SRC_ATOP));
+            tabLayout.getTabAt(2).getIcon().setColorFilter(new BlendModeColorFilter(R.color.colorPrimaryLight, BlendMode.SRC_ATOP));
         } else {
-            tabLayout.getTabAt(2).getIcon().setColorFilter(getResources().getColor(R.color.tabUnselectedIconColor), PorterDuff.Mode.SRC_ATOP);
+            tabLayout.getTabAt(2).getIcon().setColorFilter(getResources().getColor(R.color.colorPrimaryLight), PorterDuff.Mode.SRC_ATOP);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            tabLayout.getTabAt(3).getIcon().setColorFilter(new BlendModeColorFilter(R.color.tabUnselectedIconColor, BlendMode.SRC_ATOP));
+            tabLayout.getTabAt(3).getIcon().setColorFilter(new BlendModeColorFilter(R.color.colorPrimaryLight, BlendMode.SRC_ATOP));
         } else {
-            tabLayout.getTabAt(3).getIcon().setColorFilter(getResources().getColor(R.color.tabUnselectedIconColor), PorterDuff.Mode.SRC_ATOP);
+            tabLayout.getTabAt(3).getIcon().setColorFilter(getResources().getColor(R.color.colorPrimaryLight), PorterDuff.Mode.SRC_ATOP);
         }
 
         // Change color of indicator bar

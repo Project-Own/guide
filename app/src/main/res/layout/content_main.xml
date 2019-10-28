@@ -21,6 +21,7 @@
          android:layout_height="60dp"
          android:layout_gravity="center_vertical"
          android:layout_marginStart="-30dp"
+         android:foreground="@drawable/ic_chevron_right_black_24dp"
          android:background="@drawable/circle" />
 
 </FrameLayout>

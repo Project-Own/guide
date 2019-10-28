@@ -4,28 +4,44 @@
     android:id="@+id/forexLinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     android:orientation="vertical"
     tools:context=".activities.MainActivity">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center_horizontal"
+        android:text="Currency"
+        android:textSize="20sp" />
+
+    />
+
     <EditText
         android:id="@+id/Edit"
+        android:layout_margin="20dp"
+
+        android:background="@drawable/rounded_corner_rectangle"
+        android:imeOptions="actionDone"
+        android:inputType="textImeMultiLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints="Country Name"
         android:hint="Enter country Name"
-        android:imeOptions="actionDone"
-        android:inputType="textImeMultiLine" />
+        android:padding="12dp" />
 
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <FrameLayout
             android:id="@+id/forexFrameLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/colorAccent"
             android:animateLayoutChanges="true"
 
             >
@@ -37,8 +53,9 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/forexRecyclerView"
+                android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:background="@drawable/rectangle" />
         </FrameLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -44,9 +43,9 @@ public class HomeFragment extends Fragment {
         homeList.add(new Home("Navigation", "navigation_logo"));
         homeList.add(new Home("Weather", "weather"));
         homeList.add(new Home("Heritages", "heritage"));
-        homeList.add(new Home("Food", "food"));
+        homeList.add(new Home("Food", "restaurant"));
         homeList.add(new Home("Calendar", "calendar"));
-        homeList.add(new Home("Currency", "currency"));
+        homeList.add(new Home("Currency", "money"));
 
         HomeAdapter adapter = new HomeAdapter(homeList, getContext());
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);

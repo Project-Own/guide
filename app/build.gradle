@@ -63,5 +63,4 @@ dependencies {
 
     implementation 'com.facebook.rebound:rebound:0.3.8'
 
-
 }

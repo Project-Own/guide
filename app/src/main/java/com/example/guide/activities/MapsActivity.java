@@ -75,9 +75,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -177,7 +174,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         mapsButtonList.add(new MapsButton("ATM"));
                         mapsButtonList.add(new MapsButton("Restaurant"));
                         mapsButtonList.add(new MapsButton("Police"));
-                        mapsButtonList.add(new MapsButton("Taxi Stand"));
                         mapsButtonList.add(new MapsButton("Cafe"));
                         mapsButtonList.add(new MapsButton("Lodging"));
                         mapsButtonList.add(new MapsButton("Museum"));
@@ -240,7 +236,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
 
-        mClusterManager = new ClusterManager<MarkerItem>(getApplicationContext(), mMap);
+        mClusterManager = new ClusterManager<>(getApplicationContext(), mMap);
         customRenderer = new CustomRenderer(getApplicationContext(), mMap, mClusterManager);
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
@@ -324,11 +320,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void addUserMarker() {
         geoFire.setLocation("You", new GeoLocation(lastLocation.getLatitude(),
-                lastLocation.getLongitude()), new GeoFire.CompletionListener() {
-            @Override
-            public void onComplete(String key, DatabaseError error) {
+                lastLocation.getLongitude()), (key, error) -> {
 
-            }
         });
     }
 
@@ -532,17 +525,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .getReference("HeritageArea")
                 .child("MyCity")
                 .setValue(heritageArea)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
+                .addOnCompleteListener(task -> Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show()).addOnFailureListener(e -> Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_LONG).show());
     }
 
     /**
@@ -617,29 +600,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 TYPE = "police";
                 break;
             case 3:
-                TYPE = "taxi_stand";
-            case 4:
                 TYPE = "cafe";
                 break;
-            case 5:
+            case 4:
                 TYPE = "lodging";
                 break;
-            case 6:
+            case 5:
                 TYPE = "museum";
                 break;
-            case 7:
+            case 6:
                 TYPE = "pharmacy";
                 break;
-            case 8:
+            case 7:
                 TYPE = "hospital";
                 break;
-            case 9:
+            case 8:
                 TYPE = "hindu_temple";
                 break;
-            case 10:
+            case 9:
                 TYPE = "bank";
                 break;
-            case 11:
+            case 10:
                 TYPE = "travel_agency";
                 break;
             default:
@@ -648,63 +629,59 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         searchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + LOCATION + "&radius=" + RADIUS + "&type=" + TYPE + /*"&keyword=" + KEYWORD +*/ "&key=" + searchApiKey;
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, searchUrl, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, searchUrl, null, response -> {
 
-            @Override
-            public void onResponse(JSONObject response) {
+            mClusterManager.clearItems();
+            mClusterManager.getClusterMarkerCollection().clear();
+            mClusterManager.cluster();
+            // Initialize the manager with the context and the map.
+            // (Activity extends context, so we can pass 'this' in the constructor.)
+            mClusterManager = new ClusterManager<MarkerItem>(getApplicationContext(), mMap);
+            CustomRenderer clusterRenderer = new CustomRenderer(getApplicationContext(), mMap, mClusterManager);
+            // Point the map's listeners at the listeners implemented by the cluster
+            // manager.
+            mMap.setOnCameraIdleListener(mClusterManager);
+            mMap.setOnMarkerClickListener(mClusterManager);
+            mClusterManager.setRenderer(clusterRenderer);
+            /***************************************/
+            NearbySearchData nearbySearchData = new Gson().fromJson(response.toString(), NearbySearchData.class);
 
-                mClusterManager.clearItems();
-                mClusterManager.getClusterMarkerCollection().clear();
-                mClusterManager.cluster();
-                // Initialize the manager with the context and the map.
-                // (Activity extends context, so we can pass 'this' in the constructor.)
-                mClusterManager = new ClusterManager<MarkerItem>(getApplicationContext(), mMap);
-                CustomRenderer clusterRenderer = new CustomRenderer(getApplicationContext(), mMap, mClusterManager);
-                // Point the map's listeners at the listeners implemented by the cluster
-                // manager.
-                mMap.setOnCameraIdleListener(mClusterManager);
-                mMap.setOnMarkerClickListener(mClusterManager);
-                mClusterManager.setRenderer(clusterRenderer);
-                /***************************************/
-                NearbySearchData nearbySearchData = new Gson().fromJson(response.toString(), NearbySearchData.class);
+            List<Result> results = nearbySearchData.getResults();
+            for (Result result : results) {
 
-                List<Result> results = nearbySearchData.getResults();
-                for (Result result : results) {
+                double lat = result.getGeometry().getLocation().getLat();
+                double lng = result.getGeometry().getLocation().getLng();
 
-                    double lat = result.getGeometry().getLocation().getLat();
-                    double lng = result.getGeometry().getLocation().getLng();
+                String url = result.getIcon();
 
-                    String url = result.getIcon();
-
-                    MarkerOptions markerOptions = new MarkerOptions()
-                            .position(new LatLng(lat, lng))
-                            .title(result.getName())
-                            .snippet("Vicinity :" + result.getVicinity());
-                    Glide.with(getApplicationContext()).asBitmap().load(url)
-                            .fitCenter().diskCacheStrategy(DiskCacheStrategy.ALL).into(new SimpleTarget<Bitmap>() {
-                        @Override
-                        public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                            if (resource != null) {
-                                //  Bitmap circularBitmap = getRoundedCornerBitmap(bitmap, 150);
-                                //   BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(changeBitmapColor(resource,i));
-                                markerOptions.icon(BitmapDescriptorFactory.fromBitmap(resource));
-                            }
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(new LatLng(lat, lng))
+                        .title(result.getName())
+                        .snippet("Vicinity :" + result.getVicinity());
+                Glide.with(getApplicationContext()).asBitmap().load(url)
+                        .fitCenter().diskCacheStrategy(DiskCacheStrategy.ALL).into(new SimpleTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        if (resource != null) {
+                            //  Bitmap circularBitmap = getRoundedCornerBitmap(bitmap, 150);
+                            //   BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(changeBitmapColor(resource,i));
+                            markerOptions.icon(BitmapDescriptorFactory.fromBitmap(resource));
                         }
+                    }
 
-                    });
+                });
 
 // Create a cluster item for the marker and set the title and snippet using the constructor.
-                    MarkerItem infoWindowItem = new MarkerItem(markerOptions);
-                    mClusterManager.addItem(infoWindowItem);
-                    mClusterManager.cluster();
-
-                }
-                /***************************************/
-
-
-                Log.i("MainActivity", "" + response);
+                MarkerItem infoWindowItem = new MarkerItem(markerOptions);
+                mClusterManager.addItem(infoWindowItem);
+                mClusterManager.cluster();
 
             }
+            /***************************************/
+
+
+            Log.i("MainActivity", "" + response);
+
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
