@@ -114,6 +114,7 @@ public class CalendarActivity extends AppCompatActivity {
         Dashain();
         Tihar();
         OtherEvents();
+
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +126,7 @@ public class CalendarActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
