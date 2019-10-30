@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/places_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/modalContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:padding="36dp"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/modalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close" />
+
+        <ImageView
+            android:id="@+id/modalImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            tools:src="@drawable/ic_launcher_foreground"></ImageView>
+
+        <TextView
+            android:id="@+id/modalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:background="@drawable/rounded_corner_rectangle"
+            android:padding="24dp"
+            android:textColor="@color/primaryText"
+            android:textSize="24sp"
+            tools:text="Hello Man"
+            tools:textColor="@color/primaryText" />
+    </FrameLayout>
+</FrameLayout>

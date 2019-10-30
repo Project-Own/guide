@@ -253,4 +253,5 @@ public class WeatherActivity extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
 
+
 }

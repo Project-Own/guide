@@ -2,14 +2,28 @@ package com.example.guide.activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
+import com.example.guide.BlurBuilder;
 import com.example.guide.Modal.Places;
 import com.example.guide.R;
 import com.example.guide.adapters.GalleryAdapter;
@@ -31,26 +45,80 @@ public class GalleryActivity extends AppCompatActivity {
     private List<Places> placesList;
     private SpringyAdapterAnimator springyAdapterAnimator;
     private GalleryAdapter adapter;
+    private GalleryTagsListInterface galleryTagsListInterface;
+    private FrameLayout frameLayout;
+    private ImageView imageView;
+    private Button button;
+    private TextView textView;
+    private boolean isModalOpen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_places);
+        setContentView(R.layout.activity_gallery);
         context = this;
         activity = GalleryActivity.this;
 
         recyclerView = findViewById(R.id.places_recyclerView);
+        frameLayout = findViewById(R.id.modalContainer);
+        imageView = findViewById(R.id.modalImage);
+        button = findViewById(R.id.modalButton);
+        textView = findViewById(R.id.modalText);
+
         placesList = new ArrayList<>();
 //        placesList.add(new Places("Taumadhi Square\n","nyatapolo"));
 //        placesList.add(new Places("Bhaktapur Durbar Square", "nirajan"));
 //        placesList.add(new Places("Bhaktapur Durbar Square", "pressure"));
 
-        adapter = new GalleryAdapter(placesList, recyclerView, context, activity);
 
-        placesList.add(new Places("", "", "nyatapolo"));
-        placesList.add(new Places("", "", "usd"));
-        placesList.add(new Places("", "", "npr"));
-        placesList.add(new Places("", "", "weather"));
+        galleryTagsListInterface = new GalleryTagsListInterface() {
+            @Override
+            public void onTagClicked(String tagName, String description, int position) {
+
+                Glide.with(getApplicationContext())
+                        .asBitmap()
+                        .load(context.getResources()
+                                .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
+                        .error(R.drawable.nirajan)
+                        .override(1000, 2000)
+                        .into(new CustomTarget<Bitmap>() {
+                            @Override
+                            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                                isModalOpen = true;
+                                frameLayout.setAlpha(0f);
+                                Bitmap blurredBitmap = BlurBuilder.blur(context, resource);
+                                frameLayout.setBackground(new BitmapDrawable(getResources(), blurredBitmap));
+
+                                imageView.setImageBitmap(resource);
+
+                                textView.setText(description);
+                                frameLayout.setVisibility(View.VISIBLE);
+
+                                frameLayout.animate()
+                                        .alpha(1f)
+                                        .setDuration(500)
+                                ;
+
+                                frameLayout.setClickable(true);
+                                recyclerView.setLayoutFrozen(true);
+
+                            }
+
+                            @Override
+                            public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                            }
+                        });
+
+            }
+        };
+
+        adapter = new GalleryAdapter(placesList, recyclerView, context, activity, galleryTagsListInterface);
+
+        placesList.add(new Places("", "fgnfgb", "nyatapolo"));
+        placesList.add(new Places("", "sdfsd", "usd"));
+        placesList.add(new Places("", "fgbfgbfg", "npr"));
+        placesList.add(new Places("", "fgbfgb", "weather"));
 
         placesList.add(new Places("", "", "nyatapolo"));
         placesList.add(new Places("", "", "usd"));
@@ -74,6 +142,38 @@ public class GalleryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeModal();
+            }
+        });
+
+
+    }
+
+    public void closeModal() {
+
+        frameLayout.animate()
+                .alpha(0f)
+                .setDuration(500)
+        ;
+        recyclerView.setLayoutFrozen(false);
+        frameLayout.setClickable(false);
+        isModalOpen = false;
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (isModalOpen) {
+            closeModal();
+
+        } else {
+            super.onBackPressed();
+
+        }
     }
 
     public class TextReader extends AsyncTask<String[], Integer, String[]> {
@@ -116,4 +216,6 @@ public class GalleryActivity extends AppCompatActivity {
 
         }
     }
+
+
 }

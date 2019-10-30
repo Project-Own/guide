@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.guide.Modal.Places;
 import com.example.guide.R;
+import com.example.guide.activities.GalleryTagsListInterface;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
 
@@ -24,11 +25,13 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
     private Context context;
     private Activity activity;
     private SpringyAdapterAnimator mAnimator;
+    private GalleryTagsListInterface galleryTagsListInterface;
 
-    public GalleryAdapter(List<Places> placesList, RecyclerView recyclerView, Context context, Activity activity) {
+    public GalleryAdapter(List<Places> placesList, RecyclerView recyclerView, Context context, Activity activity, GalleryTagsListInterface galleryTagsListInterface) {
         this.placesList = placesList;
         this.context = context;
         this.activity = activity;
+        this.galleryTagsListInterface = galleryTagsListInterface;
         mAnimator = new SpringyAdapterAnimator(recyclerView);
         mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_BOTTOM);
         mAnimator.addConfig(85, 15);
@@ -56,12 +59,23 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
     @Override
     public void onBindViewHolder(@NonNull PlacesViewHolder holder, int position) {
         Glide.with(holder.itemView)
+                .asBitmap()
                 .load(context.getResources()
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
                 .error(R.drawable.nirajan)
+                .override(200, 200)
                 .into(holder.imageView);
-        holder.bind(placesList.get(position));
+
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                galleryTagsListInterface.onTagClicked(placesList.get(position).getImage(), placesList.get(position).getDescription(), position);
+            }
+        });
         mAnimator.onSpringItemBind(holder.itemView, position);
+
+
     }
 
 
@@ -82,12 +96,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
 
         void bind(Places places) {
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
 //                if(listner != null){
 //                    int position = getAdapterPosition();
 //                    if(position != RecyclerView.NO_POSITION){
