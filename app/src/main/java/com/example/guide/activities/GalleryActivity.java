@@ -115,27 +115,27 @@ public class GalleryActivity extends AppCompatActivity {
 
         adapter = new GalleryAdapter(placesList, recyclerView, context, activity, galleryTagsListInterface);
 
-        placesList.add(new Places("", "fgnfgb", "nyatapolo"));
-        placesList.add(new Places("", "sdfsd", "usd"));
-        placesList.add(new Places("", "fgbfgbfg", "npr"));
-        placesList.add(new Places("", "fgbfgb", "weather"));
-
-        placesList.add(new Places("", "", "nyatapolo"));
-        placesList.add(new Places("", "", "usd"));
-        placesList.add(new Places("", "", "npr"));
-        placesList.add(new Places("", "", "weather"));
-        placesList.add(new Places("", "", "usd"));
-        placesList.add(new Places("", "", "npr"));
-        placesList.add(new Places("", "", "weather"));
-        placesList.add(new Places("", "", "usd"));
-        placesList.add(new Places("", "", "npr"));
-        placesList.add(new Places("", "", "weather"));
-        placesList.add(new Places("", "", "usd"));
-        placesList.add(new Places("", "", "npr"));
-        placesList.add(new Places("", "", "weather"));
-        placesList.add(new Places("", "", "usd"));
-        placesList.add(new Places("", "", "npr"));
-        placesList.add(new Places("", "", "weather"));
+        placesList.add(new Places("", "Two boys in ritual attire", "fuches"));
+        placesList.add(new Places("", "Puppet of the Kumari(Living Goddess)", "katamari"));
+        placesList.add(new Places("", "", "batti"));
+        placesList.add(new Places("", "Bodygaurd at service of Dattatraya", "bodygaurd"));
+        placesList.add(new Places("", "newa girl in traditional dress", "rubi"));
+        placesList.add(new Places("", "Siddha Pukhu", "siddha"));
+        placesList.add(new Places("", "Statue of Bhupatindra Malla", "bhupa"));
+        placesList.add(new Places("", "Artifacts at rubbles after 2015 earthquake", "rubbles"));
+        placesList.add(new Places("", "Nyatapolo at night", "nightpolo"));
+        placesList.add(new Places("", "Wood carving at Vatsala Temple", "vatsala"));
+        placesList.add(new Places("", "Newa children in traditional attire", "children"));
+        placesList.add(new Places("", "Chariot of Bhairavnath with temple of its own in background", "bhailakha"));
+        placesList.add(new Places("", "Dattatraya captured", "datattraya"));
+        placesList.add(new Places("", "Newa girl dressed up for ritual called (ihi)", "ihimacha"));
+        placesList.add(new Places("", "Sukunda", "panas"));
+        placesList.add(new Places("", "Big bell of Bhaktapur with statue of Bhupatindra Malla in background", "bigbell"));
+       // placesList.add(new Places("", "", ""));
+       // placesList.add(new Places("", "", "weather"));
+       // placesList.add(new Places("", "", "usd"));
+       // placesList.add(new Places("", "", "npr"));
+       // placesList.add(new Places("", "", "weather"));
 
         StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
