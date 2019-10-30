@@ -14,7 +14,6 @@
         android:id="@+id/myShape"
         android:layout_width="0dp"
         android:layout_height="0dp"
-
         android:layout_centerHorizontal="true"
         android:background="@color/black"
         app:layout_constraintBottom_toTopOf="@id/divider"
@@ -74,7 +73,6 @@
         app:layout_constraintTop_toBottomOf="@id/guideline1" />
 
     <TextView
-
         android:id="@+id/titleTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -114,13 +112,13 @@
         android:paddingLeft="14dp"
         android:paddingTop="14dp"
         android:paddingRight="14dp"
-
+        android:transitionName="text_this"
         android:paddingBottom="60dp"
-        android:scrollbars="vertical"
         android:text="thi sifsadfjbakjsdbfjabsdfbkasdfkljasdkfakjsdnfkasbdkdsssssssssssssssssssssssssssssssssssssssssssssssssssssssssc
         sdfbaksdbfkjabsdjfbasdbfajsbdfjabsdkfbakjsbdkfabskdfkajsbfkjasbdkjfbkjasdbfkjasbdkjfbaskjdbfkasdfkmaskdjfbajksdnfkjasbdfjkasf\nshdfjahsdjfhakjsdfhkjasdhfkjahdsf\nadsjhfjhdkfjhsdjfhasjdfhkas "
         android:textSize="17sp"
         android:textStyle="italic"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider" />

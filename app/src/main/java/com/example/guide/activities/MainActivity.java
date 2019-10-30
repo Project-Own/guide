@@ -229,7 +229,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            openMapActivity();
+            Intent intent = new Intent(getApplicationContext(), GalleryActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_slideshow) {
             openMapActivity();
         } else if (id == R.id.nav_tools) {

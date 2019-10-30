@@ -243,7 +243,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMyLocationEnabled(true);
 
 
-        int fillColorArgb = Color.HSVToColor(50, new float[]{0, 0, 0});
+        int fillColorArgb = Color.HSVToColor(50, new float[]{2, 2, 2});
 
         int strokeColorArgb = Color.HSVToColor(90, new float[]{0, 0, 0});
 

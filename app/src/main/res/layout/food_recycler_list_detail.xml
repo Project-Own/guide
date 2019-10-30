@@ -119,7 +119,6 @@
 
         android:paddingBottom="60dp"
 
-        android:scrollbars="vertical"
         android:text="It is one of the three durbar squares in the valley which is a conglomeration of ancient art and architecture. Listed in world heritage site, the main attractions of the Durbar Square are 55 windows palace, the golden gate, Pasupatinath temple, the Vatsala temple, the bell of barking dogs and many others. A statue of Bhupatindra Malla, with him sitting, hands folded reverently before Taleju faces the golden gate. Beyond golden gate a courtyard leads to the other courtyards. There is a vast collection of chowks within the palace (of which once number was 99), such as Taleju chowk, Kumari chowk, Sundari chowk etc. Sundari chowk was the ritual bathing place of the king where at center possesses an impressive naga rising from the bottom of the tank. "
         android:textSize="17sp"
         android:textStyle="italic"

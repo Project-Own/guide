@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import iammert.com.expandablelib.ExpandCollapseListener;
 import iammert.com.expandablelib.ExpandableLayout;
 import iammert.com.expandablelib.Section;
 
@@ -109,7 +110,6 @@ public class EventActivity extends AppCompatActivity {
                 ((TextView) view.findViewById(R.id.tv_parent_name)).setText(PhoneCategory.name);
                 view.findViewById(R.id.arrow).setBackgroundResource(isExpanded ? R.drawable.ic_up_arrow_foreground : R.drawable.ic_down_arrow_foreground);
 
-
             }
 
             @Override
@@ -118,10 +118,27 @@ public class EventActivity extends AppCompatActivity {
             }
         });
 
+
+        layout.setExpandListener(new ExpandCollapseListener.ExpandListener<PhoneCategory>() {
+            @Override
+            public void onExpanded(int i, PhoneCategory phoneCategory, View view) {
+                view.findViewById(R.id.arrow).setBackgroundResource(R.drawable.ic_up_arrow_foreground);
+
+            }
+        });
+
+        layout.setCollapseListener(new ExpandCollapseListener.CollapseListener<PhoneCategory>() {
+            @Override
+            public void onCollapsed(int i, PhoneCategory phoneCategory, View view) {
+                view.findViewById(R.id.arrow).setBackgroundResource(R.drawable.ic_down_arrow_foreground);
+
+            }
+        });
         bisket();
         Dashain();
         Tihar();
         OtherEvents();
+
 
         layout.addSection(getSection("January"));
         layout.addSection(getSection("February"));

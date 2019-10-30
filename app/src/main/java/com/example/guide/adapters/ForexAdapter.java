@@ -35,7 +35,7 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
         this.countryNameMap = countryNameMap;
         this.context = context;
         mAnimator = new SpringyAdapterAnimator(recyclerView);
-        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_RIGHT);
+        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_BOTTOM);
         mAnimator.addConfig(85, 15);
     }
 

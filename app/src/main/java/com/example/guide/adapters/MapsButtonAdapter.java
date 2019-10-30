@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.guide.Modal.MapsButton;
@@ -67,7 +66,6 @@ public class MapsButtonAdapter extends RecyclerView.Adapter<MapsButtonAdapter.Ab
     class AboutViewHolder extends RecyclerView.ViewHolder {
         TextView description;
         ImageView imageView;
-        CardView cardView;
         Button button;
 
 

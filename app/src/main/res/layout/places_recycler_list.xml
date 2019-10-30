@@ -39,11 +39,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text=""
+        android:transitionName="text_this"
         android:textAlignment="center"
         android:textSize="14sp"
         android:singleLine="true"
-        android:transitionName="text_name" />
+        tools:text="asdad" />
 
 
 </LinearLayout>

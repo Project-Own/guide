@@ -12,10 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 
 import com.bumptech.glide.Glide;
 import com.example.guide.R;
+import com.github.florent37.shapeofview.shapes.ArcView;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -31,7 +33,12 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
     Boolean contentTextFullscreen = false;
     Button b1;
     ImageView imageView;
+    View divider;
+    CardView cardView;
+    ArcView arc;
 
+
+    int shortAnimationDuration;
 
 
     @Override
@@ -41,10 +48,16 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
 
         motionLayout = findViewById(R.id.motionLayout);
 
+        imageView = findViewById(R.id.coverImage);
+
+        divider = findViewById(R.id.divider);
         view = findViewById(R.id.bgView);
         textView = findViewById(R.id.contentText);
-        imageView = findViewById(R.id.coverImage);
         titleText = findViewById(R.id.titleTextView);
+        arc = findViewById(R.id.myShape);
+        cardView = findViewById(R.id.tq);
+
+        shortAnimationDuration = 1000;
 
         Intent i = getIntent();
         Bundle b = i.getExtras();
@@ -95,6 +108,9 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
                 switch (trans) {
                     case 0:
                         name += trans;
+                        textView.setMovementMethod(null);
+                        textView.setVerticalScrollBarEnabled(false);
+                        //set the animation
                         break;
                     case 1:
                         name += trans;
@@ -132,6 +148,7 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
                         break;
 
                 }
+                textView.scrollTo(0, 0);
 
                 //   Log.i("Scroll animation", name);
                 //   Log.i("Scroll animation", name);
@@ -148,6 +165,7 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
             @Override
             public void onTransitionTrigger(MotionLayout motionLayout, int i, boolean b, float v) {
 
+
             }
         });
     }
@@ -162,7 +180,9 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
         } else {
             assert t1 != null;
             t1.shutdown();
+
             super.onBackPressed();
+
         }
     }
 
