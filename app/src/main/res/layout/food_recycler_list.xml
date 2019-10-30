@@ -36,7 +36,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:singleLine="true"
-        android:text="Descriptiosdffffffffffffffffffffffffffffffffffffffffff \n\nsdfsdfsdfsn "
+        android:text="why would you post thing like this"
         android:textAlignment="center"
         android:textSize="14sp"
         android:transitionName="text_name" />

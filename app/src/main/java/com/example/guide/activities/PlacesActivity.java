@@ -47,8 +47,12 @@ public class PlacesActivity extends AppCompatActivity {
         adapter = new PlacesAdapter(placesList, recyclerView, context, activity);
 
         TextReader txt= (TextReader) new TextReader().execute(new String[]{"Taumadhi Square","taumadhi","nyatapolo"});
-         txt= (TextReader) new TextReader().execute(new String[]{"Pottery Square","pottery","nyatapolo"});
-         txt= (TextReader) new TextReader().execute(new String[]{"Durbar Square","durbar","nyatapolo"});
+         txt= (TextReader) new TextReader().execute(new String[]{"Pottery Square","pottery","potterysquare"});
+         txt= (TextReader) new TextReader().execute(new String[]{"Durbar Square","durbar","durbarsquare"});
+        txt= (TextReader) new TextReader().execute(new String[]{"Biska Jatra","biska","nyatapolo"});
+        txt= (TextReader) new TextReader().execute(new String[]{"Saparu","saparu","saparu"});
+
+
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);

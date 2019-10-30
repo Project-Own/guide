@@ -66,7 +66,6 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         Glide.with(holder.itemView)
                 .load(context.getResources()
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
-
                 .into(holder.imageView);
         holder.bind(placesList.get(position));
         mAnimator.onSpringItemBind(holder.itemView, position);

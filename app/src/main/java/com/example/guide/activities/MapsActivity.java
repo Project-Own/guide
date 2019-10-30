@@ -498,7 +498,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void addGeoPointToFirebaseDatabase() {
         heritageArea = new ArrayList<>();
 //        Dattatry:27.672275, 85.429280
-//        Bhaktapur durbar square:27.672378, 85.428124
+//        Bhaktapur durbarSquare square:27.672378, 85.428124
 //        55 Window Palace:27.672393, 85.428578
 //
 //        Golden gate:27.672476, 85.428464

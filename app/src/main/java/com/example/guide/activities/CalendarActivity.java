@@ -90,6 +90,7 @@ public class CalendarActivity extends AppCompatActivity {
         Event ev4 = new Event(Color.RED, 1580402612000L, "Shree Panchami");
         Event ev5 = new Event(Color.RED, 1582303412000L, "Shiva ratri");
         Event ev6 = new Event(Color.RED, 1583772212000L, "Happy holi");
+        Event ev7 = new Event(Color.GREEN, 1572367412000L, "nhu da ya vintuna! new year");
 
 
         compactCalendarView.addEvent(ev1);
