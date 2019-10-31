@@ -22,8 +22,9 @@
         android:layout_height="match_parent"
         android:clickable="true"
         android:orientation="vertical"
-        android:padding="36dp"
-        android:visibility="invisible">
+        android:padding="0dp"
+        android:visibility="invisible"
+        tools:visibility="visible">
 
         <Button
             android:id="@+id/modalButton"
@@ -43,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
-            android:background="@drawable/rounded_corner_rectangle"
+            android:background="@drawable/rounded_corner_rectangle1"
             android:padding="24dp"
             android:textColor="@color/primaryText"
             android:textSize="24sp"

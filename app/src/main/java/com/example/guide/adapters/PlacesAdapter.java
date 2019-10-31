@@ -49,6 +49,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
     }
 
 
+
     @NonNull
     @Override
     public PlacesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -62,6 +63,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
     @Override
     public void onBindViewHolder(@NonNull PlacesViewHolder holder, int position) {
+        holder.name.setText(placesList.get(position).getName());
         holder.description.setText(placesList.get(position).getDescription());
         Glide.with(holder.itemView)
                 .load(context.getResources()
@@ -81,6 +83,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         TextView description;
         ImageView imageView;
         CardView cardView;
+        TextView name;
 
 
 
@@ -89,6 +92,8 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
             description = itemView.findViewById(R.id.places_recycler_list_text);
             imageView = itemView.findViewById(R.id.places_recycler_list_image);
             cardView = itemView.findViewById(R.id.places_recycler_list_cardview);
+            name = itemView.findViewById(R.id.modalText);
+
         }
 
         void bind(Places places) {
