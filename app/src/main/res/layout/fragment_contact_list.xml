@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:elevation="10dp"
     android:orientation="vertical"
+    android:padding="8dp"
     >
 
     <androidx.cardview.widget.CardView
@@ -13,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:padding="40dp"
+        android:padding="16dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="6dp"
         android:background="@color/colorPrimary"
@@ -22,14 +23,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
 
 
-
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
                 <TextView
                     android:id="@+id/name"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name:"
                     android:textStyle="bold"
@@ -40,6 +45,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="number:"/>
+        </LinearLayout>
+
+            <View
+                android:layout_width="147dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                >
+            <ImageView
+                tools:src="@drawable/aed"
+                android:id="@+id/photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                 />
+            </LinearLayout>
+
 
 
             </LinearLayout>

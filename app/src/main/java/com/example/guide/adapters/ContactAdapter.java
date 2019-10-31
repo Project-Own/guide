@@ -4,12 +4,15 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.guide.Modal.Contact;
+import com.example.guide.Modal.Currency.BGN;
 import com.example.guide.Modal.Users;
 import com.example.guide.R;
 
@@ -34,10 +37,17 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.AboutVie
         return new AboutViewHolder(view);
     }
 
+
     @Override
+
     public void onBindViewHolder(@NonNull AboutViewHolder holder, int position) {
         holder.name.setText(contact.get(position).getName());
         holder.number.setText(contact.get(position).getNumber());
+        Glide.with(holder.itemView)
+                .load(context.getResources()
+                        .getIdentifier(contact.get(position).getPhoto(), "drawable", context.getPackageName()))
+                .override(150, 150)
+                .into(holder.photo);
 
 
 
@@ -49,6 +59,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.AboutVie
     }
 
     public  class AboutViewHolder extends RecyclerView.ViewHolder {
+        public ImageView photo;
         TextView name;
         TextView number;
 
@@ -58,6 +69,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.AboutVie
             super(itemView);
             name=itemView.findViewById(R.id.name);
             number=itemView.findViewById(R.id.number);
+            photo=itemView.findViewById(R.id.photo);
 
         }
     }

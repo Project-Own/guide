@@ -35,5 +35,5 @@
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginBottom="100dp"
-        tools:text="Events of 2019/20" />
+        android:text="Events of 2019/20" />
 </RelativeLayout>
