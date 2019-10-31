@@ -131,7 +131,7 @@ public class GalleryActivity extends AppCompatActivity {
         placesList.add(new Places("", "Newa girl dressed up for ritual called (ihi)", "ihimacha"));
         placesList.add(new Places("", "Sukunda", "panas"));
         placesList.add(new Places("", "Big bell of Bhaktapur with statue of Bhupatindra Malla in background", "bigbell"));
-       // placesList.add(new Places("", "", ""));
+        placesList.add(new Places("", "Pottery in making", "pottery1"));
        // placesList.add(new Places("", "", "weather"));
        // placesList.add(new Places("", "", "usd"));
        // placesList.add(new Places("", "", "npr"));
