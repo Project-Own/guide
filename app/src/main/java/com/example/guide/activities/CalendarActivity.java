@@ -12,10 +12,14 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.guide.NavigationBar;
 import com.example.guide.R;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.Date;
 import java.util.List;
@@ -109,6 +113,10 @@ public class CalendarActivity extends AppCompatActivity {
         compactCalendarView = findViewById(R.id.compactcalendar_view);
         compactCalendarView.setUseThreeLetterAbbreviation(true);
 
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationBar(this, drawer, this.getClass().getSimpleName()));
+
         textView = findViewById(R.id.calendarTextView);
 
         bisket();
@@ -127,7 +135,6 @@ public class CalendarActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
@@ -154,5 +161,15 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

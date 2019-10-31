@@ -12,6 +12,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -29,8 +31,10 @@ import com.android.volley.toolbox.Volley;
 import com.example.guide.Modal.Currency.CurrencyData;
 import com.example.guide.Modal.Forex.ForexData;
 import com.example.guide.Modal.Forex.Rates;
+import com.example.guide.NavigationBar;
 import com.example.guide.R;
 import com.example.guide.adapters.ForexAdapter;
+import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -77,6 +81,10 @@ public class ForexActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forex);
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationBar(this, drawer, this.getClass().getSimpleName()));
 
         forexFrameLayout = findViewById(R.id.forexFrameLayout);
         recyclerView = findViewById(R.id.forexRecyclerView);
@@ -420,6 +428,15 @@ public class ForexActivity extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
 
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
 
 }
 

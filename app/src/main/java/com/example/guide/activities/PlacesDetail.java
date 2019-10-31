@@ -14,10 +14,14 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.motion.widget.MotionLayout;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
+import com.example.guide.NavigationBar;
 import com.example.guide.R;
 import com.github.florent37.shapeofview.shapes.ArcView;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -168,14 +172,27 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
 
             }
         });
+
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        drawer.closeDrawer(GravityCompat.START);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationBar(this, drawer, this.getClass().getSimpleName()));
+
     }
+
 
     @Override
     public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+
         if (t1 != null) {
             t1.stop();
         }
-        if (contentTextFullscreen) {
+
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else if (contentTextFullscreen) {
             motionLayout.transitionToStart();
         } else {
             assert t1 != null;

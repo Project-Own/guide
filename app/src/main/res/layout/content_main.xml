@@ -17,11 +17,10 @@
 
      <Button
          android:id="@+id/navbarButton"
-         android:layout_width="60dp"
-         android:layout_height="60dp"
+         android:layout_width="@dimen/side_nav_button_width"
+         android:layout_height="@dimen/side_nav_button_height"
          android:layout_gravity="center_vertical"
-         android:layout_marginStart="-30dp"
-         android:foreground="@drawable/ic_chevron_right_black_24dp"
+         android:layout_marginStart="@dimen/side_nav_button_margin_start"
+         android:foreground="@drawable/side_nav_button"
          android:background="@drawable/circle" />
-
 </FrameLayout>

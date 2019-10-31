@@ -23,6 +23,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,6 +49,7 @@ import com.example.guide.Modal.MapsButton;
 import com.example.guide.Modal.MarkerItem;
 import com.example.guide.Modal.NearbySearch.NearbySearchData;
 import com.example.guide.Modal.NearbySearch.Result;
+import com.example.guide.NavigationBar;
 import com.example.guide.R;
 import com.example.guide.adapters.MapsButtonAdapter;
 import com.example.guide.interfaces.IOnLoadLocationListener;
@@ -75,6 +78,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -140,7 +144,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private List<LatLng> heritageArea;
     private RecyclerView recyclerView;
     private List<MapsButton> mapsButtonList;
-    private Context context;
+    private Context context = this;
     private Activity activity;
     private List<Marker> nearbyMarkerList = new ArrayList<>();
 
@@ -167,6 +171,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse response) {
                         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+
+                        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+                        NavigationView navigationView = findViewById(R.id.nav_view);
+                        navigationView.setNavigationItemSelectedListener(new NavigationBar(context, drawer, this.getClass().getSimpleName()));
 
                         recyclerView = findViewById(R.id.maps_recycler);
                         mapsButtonList = new ArrayList<>();
@@ -745,5 +753,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 /****************************************************************************************************/
 
-
+@Override
+public void onBackPressed() {
+    DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+    if (drawer.isDrawerOpen(GravityCompat.START)) {
+        drawer.closeDrawer(GravityCompat.START);
+    } else {
+        super.onBackPressed();
+    }
+}
 }

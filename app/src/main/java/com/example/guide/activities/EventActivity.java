@@ -7,12 +7,16 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.guide.Modal.Calendar.Phone;
 import com.example.guide.Modal.Calendar.PhoneCategory;
+import com.example.guide.NavigationBar;
 import com.example.guide.R;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
+import com.google.android.material.navigation.NavigationView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -102,6 +106,10 @@ public class EventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationBar(this, drawer, this.getClass().getSimpleName()));
+
         ExpandableLayout layout = findViewById(R.id.expandable_layout);
         layout.setRenderer(new ExpandableLayout.Renderer<PhoneCategory, Phone>() {
 
@@ -182,4 +190,15 @@ public class EventActivity extends AppCompatActivity {
         return section;
 
     }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 }

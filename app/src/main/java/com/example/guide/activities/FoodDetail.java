@@ -13,10 +13,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.guide.NavigationBar;
 import com.example.guide.R;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -37,9 +41,13 @@ public class FoodDetail extends AppCompatActivity implements TextToSpeech.OnInit
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.food_recycler_list_detail);
+        setContentView(R.layout.places_recycler_list_detail);
 
         motionLayout = findViewById(R.id.motionLayout);
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationBar(this, drawer, this.getClass().getSimpleName()));
 
         view = findViewById(R.id.bgView);
         textView = findViewById(R.id.contentText);
@@ -158,15 +166,22 @@ public class FoodDetail extends AppCompatActivity implements TextToSpeech.OnInit
 
     @Override
     public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+
         if (t1 != null) {
             t1.stop();
         }
-        if (contentTextFullscreen) {
+
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else if (contentTextFullscreen) {
             motionLayout.transitionToStart();
         } else {
             assert t1 != null;
             t1.shutdown();
+
             super.onBackPressed();
+
         }
     }
 

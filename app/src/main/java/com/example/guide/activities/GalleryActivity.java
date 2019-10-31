@@ -17,6 +17,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -25,9 +27,11 @@ import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.guide.BlurBuilder;
 import com.example.guide.Modal.Places;
+import com.example.guide.NavigationBar;
 import com.example.guide.R;
 import com.example.guide.adapters.GalleryAdapter;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
+import com.google.android.material.navigation.NavigationView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -58,6 +62,11 @@ public class GalleryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gallery);
         context = this;
         activity = GalleryActivity.this;
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationBar(context, drawer, this.getClass().getSimpleName()));
+
 
         recyclerView = findViewById(R.id.places_recyclerView);
         frameLayout = findViewById(R.id.modalContainer);
@@ -98,7 +107,6 @@ public class GalleryActivity extends AppCompatActivity {
                                         .alpha(1f)
                                         .setDuration(500)
                                 ;
-
                                 frameLayout.setClickable(true);
                                 recyclerView.setLayoutFrozen(true);
 
@@ -167,13 +175,17 @@ public class GalleryActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (isModalOpen) {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else if (isModalOpen) {
             closeModal();
 
         } else {
             super.onBackPressed();
-
         }
+
     }
 
     public class TextReader extends AsyncTask<String[], Integer, String[]> {

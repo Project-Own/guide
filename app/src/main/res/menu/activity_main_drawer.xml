@@ -6,20 +6,37 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_weather"
+            android:icon="@drawable/ic_cloud_black_24dp"
+            android:title="Weather" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_gallery" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_place"
+            android:icon="@drawable/ic_place_black_24dp"
+            android:title="Places" />
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:id="@+id/nav_currency"
+            android:icon="@drawable/ic_monetization_on_black_24dp"
+            android:title="Currency" />
+        <item
+            android:id="@+id/nav_food"
+            android:icon="@drawable/ic_restaurant_menu_food"
+            android:title="Food" />
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_map_black"
+            android:title="Map" />
+        <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/ic_today_black_24dp"
+            android:title="Calendar" />
+
     </group>
 
     <item android:title="Communicate">
@@ -29,9 +46,9 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/menu_share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_detail"
                 android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:title="Detail" />
         </menu>
     </item>
 

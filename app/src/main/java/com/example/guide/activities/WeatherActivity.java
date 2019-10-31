@@ -5,9 +5,12 @@ import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Cache;
@@ -20,9 +23,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.guide.Modal.Weather.Weather;
 import com.example.guide.Modal.Weather.WeatherData;
+import com.example.guide.NavigationBar;
 import com.example.guide.R;
+import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -35,8 +42,8 @@ import java.util.Locale;
 
 public class WeatherActivity extends AppCompatActivity {
 
+    String iconName = "10d";
     String weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=Bhaktapur,np&units=metric&APPID=" + "e98fff7661b64a5e994e6394560e74e9";
-
     WeatherData weatherData;
     SwipeRefreshLayout swipeRefreshLayout;
     TextView errorTextView, addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
@@ -44,11 +51,16 @@ public class WeatherActivity extends AppCompatActivity {
     private View contentView;
     private View loadingView;
     private int shortAnimationDuration;
+    private ImageView weatherImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationBar(this, drawer, this.getClass().getSimpleName()));
 
         addressTxt = findViewById(R.id.address);
         updated_atTxt = findViewById(R.id.updated_at);
@@ -61,7 +73,7 @@ public class WeatherActivity extends AppCompatActivity {
         windTxt = findViewById(R.id.wind);
         pressureTxt = findViewById(R.id.pressure);
         humidityTxt = findViewById(R.id.humidity);
-
+        weatherImage = findViewById(R.id.weatherImage);
 
         contentView = findViewById(R.id.mainContainer);
         loadingView = findViewById(R.id.loading_spinner);
@@ -165,14 +177,22 @@ public class WeatherActivity extends AppCompatActivity {
                 Integer pressure = weatherData.getMain().getPressure();
                 Integer humidity = weatherData.getMain().getHumidity();
 
+
                 Integer sunrise = weatherData.getSys().getSunrise();
                 Integer sunset = weatherData.getSys().getSunset();
                 Double windSpeed = weatherData.getWind().getSpeed();
                 String weatherDescription = "";
                 for (Weather weather : weatherData.getWeather()) {
                     weatherDescription = weather.getDescription() + "\n";
-
+                    iconName = weather.getIcon();
                 }
+                String weatherIconUrl = "https://openweathermap.org/img/wn/" + iconName + "@2x.png";
+
+                Glide.with(getApplicationContext())
+                        .load(weatherIconUrl)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(weatherImage)
+                ;
 
                 String address = weatherData.getName() + ", " + weatherData.getSys().getCountry();
 
@@ -253,5 +273,13 @@ public class WeatherActivity extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
 }

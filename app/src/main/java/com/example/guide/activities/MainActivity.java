@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -32,16 +33,16 @@ import com.example.guide.fragments.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Context context;
     private Button navbarButton;
+    DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = this;
-        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        drawer = findViewById(R.id.drawer_layout1);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -226,24 +227,65 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        String className = this.getClass().getSimpleName();
+        Log.i("ClassName", className);
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            if (!className.equals("MainActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), MainActivity.class);
+                context.startActivity(intent);
+            }
         } else if (id == R.id.nav_gallery) {
-            Intent intent = new Intent(getApplicationContext(), GalleryActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_slideshow) {
-            openMapActivity();
-        } else if (id == R.id.nav_tools) {
-            openMapActivity();
+            if (!className.equals("GalleryActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), GalleryActivity.class);
+                context.startActivity(intent);
+            }
+        } else if (id == R.id.nav_calendar) {
+            if (!className.equals("CalendarActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), CalendarActivity.class);
+                context.startActivity(intent);
+            }
+        } else if (id == R.id.nav_currency) {
+            if (!className.equals("ForexActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), ForexActivity.class);
+                context.startActivity(intent);
+            }
         } else if (id == R.id.nav_share) {
-            openMapActivity();
-        } else if (id == R.id.nav_send) {
-            openMapActivity();
+            if (!className.equals("MainActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), ForexActivity.class);
+                context.startActivity(intent);
+            }
+        } else if (id == R.id.nav_detail) {
+            if (!className.equals("MainActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), MainActivity.class);
+                context.startActivity(intent);
+
+            }
+        } else if (id == R.id.nav_map) {
+            if (!className.equals("MapsActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), MapsActivity.class);
+                context.startActivity(intent);
+            }
+        } else if (id == R.id.nav_place) {
+            if (!className.equals("PlacesActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), PlacesActivity.class);
+                context.startActivity(intent);
+            }
+        } else if (id == R.id.nav_food) {
+            if (!className.equals("FoodActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), FoodActivity.class);
+
+                context.startActivity(intent);
+            }
+        } else if (id == R.id.nav_weather) {
+            if (!className.equals("WeatherActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), WeatherActivity.class);
+                context.startActivity(intent);
+            }
         }
 
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
         drawer.closeDrawer(GravityCompat.START);
+
+
         return true;
     }
 

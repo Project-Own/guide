@@ -7,13 +7,17 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.guide.Modal.Places;
+import com.example.guide.NavigationBar;
 import com.example.guide.R;
 import com.example.guide.adapters.PlacesAdapter;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
+import com.google.android.material.navigation.NavigationView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,6 +41,10 @@ public class PlacesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_places);
         context = this;
         activity = PlacesActivity.this;
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationBar(context, drawer, this.getClass().getSimpleName()));
 
         recyclerView = findViewById(R.id.places_recyclerView);
         placesList = new ArrayList<>();
@@ -104,6 +112,16 @@ public class PlacesActivity extends AppCompatActivity {
 
             super.onPostExecute(s);
 
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout1);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
     }
 }
