@@ -3,8 +3,10 @@ package com.example.guide.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -21,6 +23,8 @@ import com.bumptech.glide.Glide;
 import com.example.guide.Modal.Places;
 import com.example.guide.R;
 import com.example.guide.activities.PlacesDetail;
+import com.example.guide.lib.SpringAnimationType;
+import com.example.guide.lib.SpringyAnimator;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
 
@@ -39,7 +43,6 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         mAnimator = new SpringyAdapterAnimator(recyclerView);
         mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_BOTTOM);
         mAnimator.addConfig(85, 15);
-
     }
 
     public PlacesAdapter(List<Places> placesList, Context context) {
@@ -70,7 +73,24 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
                 .into(holder.imageView);
         holder.bind(placesList.get(position));
+        holder.imageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEY, 5, 3, 0.5f, 1);
+                final SpringyAnimator rotate = new SpringyAnimator(SpringAnimationType.ROTATEY, 5, 3, 180, 0);
+
+                rotate.startSpring(holder.cardView);
+                scaleY.startSpring(holder.cardView);
+
+                return false;
+            }
+        });
+
+
         mAnimator.onSpringItemBind(holder.itemView, position);
+
+
     }
 
 
@@ -105,26 +125,40 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 //                        listner.onItemClick();
 //                    }
 
+
 //                }
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEY, 5, 3, 0.5f, 1);
+                final SpringyAnimator rotate = new SpringyAnimator(SpringAnimationType.ROTATEY, 5, 3, 180, 0);
 
-                Intent myanim = new Intent(context, PlacesDetail.class);
-                myanim.putExtra("description", places.getDescription());
-                myanim.putExtra("image", places.getImage());
-                myanim.putExtra("name", places.getName());
-                try {
-
-                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, Pair.create(cardView, "image_this"), Pair.create(description, "content_this"));
+                rotate.startSpring(itemView);
+                scaleY.startSpring(itemView);
 
 
-                    context.startActivity(myanim, options.toBundle());
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        Intent myanim = new Intent(context, PlacesDetail.class);
+                        myanim.putExtra("description", places.getDescription());
+                        myanim.putExtra("image", places.getImage());
+                        myanim.putExtra("name", places.getName());
+                        try {
+
+                            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, Pair.create(cardView, "image_this"), Pair.create(description, "content_this"));
 
 
-                    Toast.makeText(itemView.getContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
-                } catch (Error e) {
+                            context.startActivity(myanim, options.toBundle());
 
-                    Log.i("TransitionAdapterPlaces", e.getMessage());
-                    context.startActivity(myanim);
-                }
+
+                            Toast.makeText(itemView.getContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
+                        } catch (Error e) {
+
+                            Log.i("TransitionAdapterPlaces", e.getMessage());
+                            context.startActivity(myanim);
+                        }
+                    }
+                }, 900);
+
             });
         }
     }

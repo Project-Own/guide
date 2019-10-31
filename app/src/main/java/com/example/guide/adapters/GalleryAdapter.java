@@ -15,6 +15,8 @@ import com.bumptech.glide.Glide;
 import com.example.guide.Modal.Places;
 import com.example.guide.R;
 import com.example.guide.activities.GalleryTagsListInterface;
+import com.example.guide.lib.SpringAnimationType;
+import com.example.guide.lib.SpringyAnimator;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
 
@@ -70,9 +72,18 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEY, 5, 3, 0.5f, 1);
+                final SpringyAnimator rotate = new SpringyAnimator(SpringAnimationType.ROTATEY, 5, 3, 180, 0);
+                rotate.setDelay(100);
+                scaleY.setDelay(200);
+                rotate.startSpring(holder.imageView);
+                scaleY.startSpring(holder.imageView);
+
                 galleryTagsListInterface.onTagClicked(placesList.get(position).getImage(), placesList.get(position).getDescription(), position);
             }
         });
+
+
         mAnimator.onSpringItemBind(holder.itemView, position);
 
 

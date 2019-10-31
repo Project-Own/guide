@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -55,6 +56,11 @@ public class GalleryActivity extends AppCompatActivity {
     private Button button;
     private TextView textView;
     private boolean isModalOpen = false;
+    int x_cord, y_cord, x, y;
+    private int listPosition;
+    private int windowwidth;
+    private int screenCenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +80,12 @@ public class GalleryActivity extends AppCompatActivity {
         button = findViewById(R.id.modalButton);
         textView = findViewById(R.id.modalText);
 
+
+        windowwidth = getWindowManager().getDefaultDisplay().getWidth();
+
+        screenCenter = windowwidth / 2;
+
+
         placesList = new ArrayList<>();
 //        placesList.add(new Places("Taumadhi Square\n","nyatapolo"));
 //        placesList.add(new Places("Bhaktapur Durbar Square", "nirajan"));
@@ -84,40 +96,8 @@ public class GalleryActivity extends AppCompatActivity {
             @Override
             public void onTagClicked(String tagName, String description, int position) {
 
-                Glide.with(getApplicationContext())
-                        .asBitmap()
-                        .load(context.getResources()
-                                .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
-                        .error(R.drawable.nirajan)
-                        .override(1000, 2000)
-                        .into(new CustomTarget<Bitmap>() {
-                            @Override
-                            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                                isModalOpen = true;
-                                frameLayout.setAlpha(0f);
-                                Bitmap blurredBitmap = BlurBuilder.blur(context, resource);
-                                frameLayout.setBackground(new BitmapDrawable(getResources(), blurredBitmap));
-
-                                imageView.setImageBitmap(resource);
-
-                                textView.setText(description);
-                                frameLayout.setVisibility(View.VISIBLE);
-
-                                frameLayout.animate()
-                                        .alpha(1f)
-                                        .setDuration(500)
-                                ;
-                                frameLayout.setClickable(true);
-                                recyclerView.setLayoutFrozen(true);
-
-                            }
-
-                            @Override
-                            public void onLoadCleared(@Nullable Drawable placeholder) {
-
-                            }
-                        });
-
+                listPosition = position;
+                loadModalPhoto(description, position);
             }
         };
 
@@ -151,6 +131,74 @@ public class GalleryActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
 
+        imageView.setOnTouchListener(new OnSwipeTouchListener(context) {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                x_cord = (int) event.getRawX();
+                y_cord = (int) event.getRawY();
+
+                imageView.setX(0);
+                imageView.setY(0);
+                imageView.setRotation((float) 0);
+
+
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+
+                        x = (int) event.getX();
+                        y = (int) event.getY();
+
+
+                        Log.v("On touch", x + " " + y);
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+
+                        x_cord = (int) event.getRawX();
+                        // smoother animation.
+                        y_cord = (int) event.getRawY();
+
+                        imageView.setX(x_cord - x);
+                        imageView.setY(y_cord - y);
+
+
+                        if (x_cord >= screenCenter) {
+                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 32)));
+                            if (x_cord > (screenCenter + (screenCenter / 2))) {
+                                swipeRight();
+
+                            }
+                        } else {
+                            // rotate image while moving
+                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 32)));
+                            if (x_cord < (screenCenter / 2)) {
+                                swipeLeft();
+
+                            }
+                        }
+
+                        break;
+                }
+
+                return super.onTouch(v, event);
+
+            }
+
+            public void swipeRight() {
+                if (listPosition - 1 >= 0) {
+                    listPosition--;
+                    loadModalPhoto(placesList.get(listPosition).getDescription(), listPosition);
+                }
+            }
+
+            public void swipeLeft() {
+                if (listPosition < placesList.size() - 1) {
+                    listPosition++;
+                    loadModalPhoto(placesList.get(listPosition).getDescription(), listPosition);
+                }
+            }
+
+
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,6 +209,44 @@ public class GalleryActivity extends AppCompatActivity {
 
     }
 
+    private void loadModalPhoto(String description, int position) {
+        Glide.with(getApplicationContext())
+                .asBitmap()
+                .load(context.getResources()
+                        .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
+                .error(R.drawable.nirajan)
+                .override(1000, 2000)
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        isModalOpen = true;
+                        frameLayout.setAlpha(0f);
+                        Bitmap blurredBitmap = BlurBuilder.blur(context, resource);
+                        frameLayout.setBackground(new BitmapDrawable(getResources(), blurredBitmap));
+
+                        imageView.setImageBitmap(resource);
+
+                        textView.setText(description);
+                        frameLayout.setVisibility(View.VISIBLE);
+
+                        frameLayout.animate()
+                                .alpha(1f)
+                                .setDuration(500)
+                        ;
+                        frameLayout.setClickable(true);
+                        recyclerView.setLayoutFrozen(true);
+
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
+
+    }
+
+
     public void closeModal() {
 
         frameLayout.animate()
@@ -169,6 +255,7 @@ public class GalleryActivity extends AppCompatActivity {
         ;
         recyclerView.setLayoutFrozen(false);
         frameLayout.setClickable(false);
+        frameLayout.setVisibility(View.GONE);
         isModalOpen = false;
     }
 
