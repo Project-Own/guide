@@ -3,6 +3,8 @@ package com.example.guide.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -60,6 +62,7 @@ public class GalleryActivity extends AppCompatActivity {
     private int listPosition;
     private int windowwidth;
     private int screenCenter;
+    private Bitmap blurredBitmap;
 
 
     @Override
@@ -132,6 +135,11 @@ public class GalleryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
+
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.siddha);
+        blurredBitmap = BlurBuilder.blur(context, bitmap);
+        frameLayout.setBackground(new BitmapDrawable(getResources(), blurredBitmap));
 
         imageView.setOnTouchListener(new OnSwipeTouchListener(context) {
             @Override
@@ -240,9 +248,7 @@ public class GalleryActivity extends AppCompatActivity {
                     public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                         isModalOpen = true;
                         frameLayout.setAlpha(0f);
-                        Bitmap blurredBitmap = BlurBuilder.blur(context, resource);
                         //frameLayout.setBackground(new BitmapDrawable(getResources(), blurredBitmap));
-                        frameLayout.setBackground(getResources().getDrawable(R.drawable.siddha));
                         imageView.setImageBitmap(resource);
 
 

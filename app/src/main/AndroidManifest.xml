@@ -61,6 +61,9 @@
         <activity
             android:name=".activities.EventActivity"
             android:label="Event Screen" />
+        <activity
+            android:name=".activities.AboutActivity"
+            android:label="Event Screen" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

@@ -73,19 +73,18 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
                 .into(holder.imageView);
         holder.bind(placesList.get(position));
-        holder.imageView.setOnTouchListener(new View.OnTouchListener() {
+
+        holder.cardView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-
-                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEY, 5, 3, 0.5f, 1);
-                final SpringyAnimator rotate = new SpringyAnimator(SpringAnimationType.ROTATEY, 5, 3, 180, 0);
-
-                rotate.startSpring(holder.cardView);
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 5, 10, 0.8f, 1);
+                scaleY.setDelay(200);
                 scaleY.startSpring(holder.cardView);
 
                 return false;
             }
         });
+
 
 
         mAnimator.onSpringItemBind(holder.itemView, position);
@@ -127,11 +126,6 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
 
 //                }
-                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEY, 5, 3, 0.5f, 1);
-                final SpringyAnimator rotate = new SpringyAnimator(SpringAnimationType.ROTATEY, 5, 3, 180, 0);
-
-                rotate.startSpring(itemView);
-                scaleY.startSpring(itemView);
 
 
                 new Handler().postDelayed(new Runnable() {
@@ -157,7 +151,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                             context.startActivity(myanim);
                         }
                     }
-                }, 900);
+                }, 500);
 
             });
         }

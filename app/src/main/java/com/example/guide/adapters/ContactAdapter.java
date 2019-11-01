@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.guide.Modal.Contact;
-import com.example.guide.Modal.Currency.BGN;
-import com.example.guide.Modal.Users;
 import com.example.guide.R;
 
 import java.util.List;
@@ -46,6 +44,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.AboutVie
         Glide.with(holder.itemView)
                 .load(context.getResources()
                         .getIdentifier(contact.get(position).getPhoto(), "drawable", context.getPackageName()))
+                .fitCenter()
                 .override(150, 150)
                 .into(holder.photo);
 
@@ -72,6 +71,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.AboutVie
             photo=itemView.findViewById(R.id.photo);
 
         }
+    }
+
+    public void filterList(List<Contact> contactList) {
+        this.contact = contactList;
+        notifyDataSetChanged();
     }
 
 

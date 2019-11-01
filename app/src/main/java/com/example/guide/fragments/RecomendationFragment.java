@@ -38,14 +38,14 @@ public class RecomendationFragment extends Fragment {
         View v= inflater.inflate(R.layout.fragment_about_recycler, container, false);
         recycleView = v.findViewById(R.id.recycleView);
         recomendations = new ArrayList<>();
-        RecomendationAdapter adapter=new RecomendationAdapter(recomendations,getContext());
+        RecomendationAdapter adapter = new RecomendationAdapter(recomendations, getContext(), recycleView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recycleView.setLayoutManager(mLayoutManager);
         recycleView.setAdapter(adapter);
-        recomendations.add(new Recomendation("NIRAJAN PRJAPATI","KHCE074BCT024","prajapatinirajan0@gmail.com"));
-        recomendations.add(new Recomendation("NIRJAL PRAJAPATI","KHCE074BCT026","nirjalprajapati@gmail.com"));
-        recomendations.add(new Recomendation("ROHIT PRAJAPATI","KHCE074BCT033","prajapatinirajan0@gmail.com"));
-        recomendations.add(new Recomendation("SAHAS PRAJAPATI","KHCE074BCT037","sahas_1999@hotmail.com"));
+        recomendations.add(new Recomendation("NIRAJAN PRJAPATI", "KHCE074BCT024", "prajapatinirajan0@gmail.com", "weqwe", "12321", "sfsdfdsdvsddsfdsf", "nyatapolo"));
+        recomendations.add(new Recomendation("NIRJAL PRAJAPATI", "KHCE074BCT026", "nirjalprajapati@gmail.com", "werwe", "445645", "fdgtrtwefefef", "usd "));
+        recomendations.add(new Recomendation("ROHIT PRAJAPATI", "KHCE074BCT033", "prajapatinirajan0@gmail.com", "ewr", "786780", "sdfsdfsdfsd", "aud"));
+        recomendations.add(new Recomendation("SAHAS PRAJAPATI", "KHCE074BCT037", "sahas_1999@hotmail.com", "gfdfg", "798978", "gdfgdfgdfgdfg", "bara"));
 
 
         return v;

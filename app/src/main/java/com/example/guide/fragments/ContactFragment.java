@@ -2,9 +2,12 @@ package com.example.guide.fragments;
 
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.guide.Modal.Contact;
 import com.example.guide.R;
 import com.example.guide.adapters.ContactAdapter;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,25 +27,68 @@ import java.util.List;
 public class ContactFragment extends Fragment {
     private RecyclerView recycleView;
     private List<Contact> contacts;
-
+    private ContactAdapter adapter;
+    private EditText editText;
 
     public ContactFragment() {
         // Required empty public constructor
     }
 
+    private List<Contact> filteredListContact = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_about_recycler, container, false);
+        View view = inflater.inflate(R.layout.fragment_contact_recycler, container, false);
         recycleView = view.findViewById(R.id.recycleView);
+        editText = view.findViewById(R.id.contactEditText);
+
+        TabLayout contactTabs = view.findViewById(R.id.contactTabs);
+        contactTabs.addTab(contactTabs.newTab().setText("Embassy"));
+        contactTabs.addTab(contactTabs.newTab().setText("Emergency"));
+
+
+        contactTabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getText().toString().toLowerCase()) {
+                    case "embassy":
+                        setupEmbassyContact();
+                        adapter.notifyDataSetChanged();
+                        break;
+                    case "emergency":
+                        setupEmergencyContact();
+                        adapter.notifyDataSetChanged();
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
         contacts = new ArrayList<>();
-        ContactAdapter adapter = new ContactAdapter(contacts, getContext());
+        setupEmbassyContact();
+        adapter = new ContactAdapter(contacts, getContext());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recycleView.setLayoutManager(mLayoutManager);
         recycleView.setAdapter(adapter);
 
+        return view;
+
+    }
+
+    private void setupEmbassyContact() {
+        contacts.clear();
         contacts.add(new Contact("Embassy of Bangladesh","01-4390132","bdt"));
         contacts.add(new Contact("Embassy of Brazil","01-4721462 /01-4721463","brl"));
         contacts.add(new Contact("Embassy of China","01-4440286","cny"));
@@ -70,11 +117,76 @@ public class ContactFragment extends Fragment {
         contacts.add(new Contact("Embassy of the United States of America","01-4234000","usd"));
 
 
+        editText.setHint("Enter Country Name...");
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filter(s.toString());
+            }
 
-        return view;
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
     }
+
+    private void setupEmergencyContact() {
+
+        contacts.clear();
+        contacts.add(new Contact("Embassy of Qatar", "01-5173161", "qar"));
+        contacts.add(new Contact("Embassy of Russia", "01-4412155/01-441 1063", "rub"));
+        contacts.add(new Contact("Embassy of Saudi Arabia", "01-4720891", "sar"));
+        contacts.add(new Contact("Embassy of South Korea", "01-4270172/01-4270417", "skr"));
+        contacts.add(new Contact("Embassy of Srilanka", "01-4721389", "lkr"));
+        contacts.add(new Contact("Embassy of Switzerland", "01-4217008/01-5525358", "chf"));
+        contacts.add(new Contact("Embassy of Thailand", "01-4371410/01-4371411", "thb"));
+        contacts.add(new Contact("Embassy of the United Arab Emirates", "01-4237100", "aed"));
+        contacts.add(new Contact("Embassy of the United Kingdom", "01-4371410/01-4371411", "gbp"));
+        contacts.add(new Contact("Embassy of the United States of America", "01-4234000", "usd"));
+
+
+        editText.setHint("Enter Emergency Service...");
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+    }
+
+    private void filter(String text) {
+        filteredListContact.clear();
+
+        for (Contact contact : contacts) {
+
+            if (contact.getName().toLowerCase().contains(text.toLowerCase())) {
+                filteredListContact.add(contact);
+
+            }
+
+        }
+        adapter.filterList(filteredListContact);
+
+    }
+
+
 
 }

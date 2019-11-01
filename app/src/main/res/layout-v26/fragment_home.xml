@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/homeLinear"
     android:background="@drawable/background">
 
     <LinearLayout
@@ -22,7 +23,7 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             android:elevation="20dp"
-            android:shadowColor="@color/colorAccent"
+            android:shadowColor="@color/secondaryText"
             android:shadowDx="-2"
             android:shadowDy="-2"
             android:shadowRadius="1"
@@ -39,7 +40,7 @@
             android:text="BHAKTAPUR"
             android:elevation="20dp"
             android:textColor="@color/white"
-            android:shadowColor="@color/colorAccent"
+            android:shadowColor="@color/secondaryText"
             android:shadowDx="-5"
             android:shadowDy="-5"
             android:shadowRadius="1"

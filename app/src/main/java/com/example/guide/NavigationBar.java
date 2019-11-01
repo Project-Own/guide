@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.guide.activities.AboutActivity;
 import com.example.guide.activities.CalendarActivity;
 import com.example.guide.activities.FoodActivity;
 import com.example.guide.activities.ForexActivity;
@@ -69,8 +70,8 @@ public class NavigationBar implements NavigationView.OnNavigationItemSelectedLis
                 context.startActivity(intent);
             }
         } else if (id == R.id.nav_detail) {
-            if (!className.equals("MainActivity")) {
-                Intent intent = new Intent(context.getApplicationContext(), MainActivity.class);
+            if (!className.equals("AboutActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), AboutActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
                 context.startActivity(intent);

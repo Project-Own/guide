@@ -13,5 +13,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CustomTheme">
+        <item name="android:background">@drawable/face_logo</item>
+    </style>
+
 
 </resources>

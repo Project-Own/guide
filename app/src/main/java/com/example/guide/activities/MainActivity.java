@@ -28,6 +28,7 @@ import com.example.guide.adapters.SelectionPagerAdapter;
 import com.example.guide.fragments.ContactFragment;
 import com.example.guide.fragments.HomeFragment;
 import com.example.guide.fragments.InfoFragment;
+import com.example.guide.fragments.RecomendationFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         adapter.addFragment(new HomeFragment());
         adapter.addFragment(new ContactFragment());
-        adapter.addFragment(new ContactFragment());
+        adapter.addFragment(new RecomendationFragment());
         adapter.addFragment(new InfoFragment());
         ViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
@@ -207,8 +208,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 context.startActivity(intent);
             }
         } else if (id == R.id.nav_detail) {
-            if (!className.equals("MainActivity")) {
-                Intent intent = new Intent(context.getApplicationContext(), MainActivity.class);
+            if (!className.equals("AboutActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), AboutActivity.class);
                 context.startActivity(intent);
 
             }

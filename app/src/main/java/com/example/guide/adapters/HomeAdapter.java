@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -24,6 +26,8 @@ import com.example.guide.activities.ForexActivity;
 import com.example.guide.activities.MapsActivity;
 import com.example.guide.activities.PlacesActivity;
 import com.example.guide.activities.WeatherActivity;
+import com.example.guide.lib.SpringAnimationType;
+import com.example.guide.lib.SpringyAnimator;
 
 import java.util.List;
 
@@ -69,7 +73,20 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                     }
                 })
         ;
+
+        holder.button.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 5, 10, 0.8f, 1);
+                scaleY.setDelay(200);
+                scaleY.startSpring(holder.button);
+
+                return false;
+            }
+        });
         holder.button.setOnClickListener(v -> {
+
+
             int viewNo = position;
             switch (viewNo) {
                 case 0:
@@ -93,8 +110,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                 default:
                     throw new IllegalStateException("Unexpected value: " + viewNo);
             }
-            Intent intent = new Intent(context, aClass);
-            context.startActivity(intent);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(context, aClass);
+                    context.startActivity(intent);
+                }
+            }, 500);
         });
 
 

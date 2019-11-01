@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="10dp"
@@ -19,7 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -27,6 +26,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/recommendationImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="Image"
@@ -41,20 +41,38 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/name"
+                    android:id="@+id/recommendationName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Name:"
                     android:textStyle="bold"
                     />
                 <TextView
-                    android:id="@+id/roll"
+                    android:id="@+id/recommendationPhone"
                     android:layout_marginVertical="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Roll:"/>
                 <TextView
-                    android:id="@+id/email"
+                    android:id="@+id/recommendationVicinity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email:" />
+
+                <TextView
+                    android:id="@+id/recommendationRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email:" />
+
+                <TextView
+                    android:id="@+id/recommendationDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email:" />
+
+                <TextView
+                    android:id="@+id/recommendationPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Email:"/>

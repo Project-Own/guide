@@ -3,6 +3,7 @@ package com.example.guide.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -69,17 +70,22 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
                 .into(holder.imageView);
 
 
-        holder.imageView.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEY, 5, 3, 0.5f, 1);
-                final SpringyAnimator rotate = new SpringyAnimator(SpringAnimationType.ROTATEY, 5, 3, 180, 0);
-                rotate.setDelay(100);
-                scaleY.setDelay(200);
-                rotate.startSpring(holder.imageView);
-                scaleY.startSpring(holder.imageView);
 
                 galleryTagsListInterface.onTagClicked(placesList.get(position).getImage(), placesList.get(position).getDescription(), position);
+            }
+        });
+
+        holder.cardView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 5, 10, 0.8f, 1);
+                scaleY.setDelay(200);
+                scaleY.startSpring(holder.cardView);
+
+                return false;
             }
         });
 
@@ -103,6 +109,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
         PlacesViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.places_recycler_list_image);
+            cardView = itemView.findViewById(R.id.places_recycler_list_cardview);
         }
 
         void bind(Places places) {
