@@ -148,9 +148,7 @@ public class EventActivity extends AppCompatActivity {
         OtherEvents();
 
 
-        layout.addSection(getSection("January"));
-        layout.addSection(getSection("February"));
-        layout.addSection(getSection("March"));
+
         layout.addSection(getSection("April"));
         layout.addSection(getSection("May"));
         layout.addSection(getSection("June"));
@@ -160,6 +158,9 @@ public class EventActivity extends AppCompatActivity {
         layout.addSection(getSection("October"));
         layout.addSection(getSection("November"));
         layout.addSection(getSection("December"));
+        layout.addSection(getSection("January"));
+        layout.addSection(getSection("February"));
+        layout.addSection(getSection("March"));
 
     }
 

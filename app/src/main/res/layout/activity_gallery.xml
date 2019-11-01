@@ -6,8 +6,7 @@
     android:id="@+id/drawer_layout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:fitsSystemWindows="true">
 
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -41,7 +40,7 @@
                 android:id="@+id/modalButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Close" />
+                android:text="Back" />
 
             <ImageView
                 android:id="@+id/modalImage"
@@ -52,13 +51,13 @@
 
             <TextView
                 android:id="@+id/modalText"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|bottom"
                 android:background="@drawable/rounded_corner_rectangle1"
                 android:padding="24dp"
                 android:textColor="@color/primaryText"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 tools:text="Hello Man"
                 tools:textColor="@color/primaryText" />
         </FrameLayout>
