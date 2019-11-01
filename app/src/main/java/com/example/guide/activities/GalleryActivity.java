@@ -3,7 +3,6 @@ package com.example.guide.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,6 +13,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -164,39 +164,56 @@ public class GalleryActivity extends AppCompatActivity {
 
 
                         if (x_cord >= screenCenter) {
-                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 32)));
+                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 64)));
                             if (x_cord > (screenCenter + (screenCenter / 2))) {
-                                swipeRight();
-
+//                                if(!isLoading) {
+//                                    isLoading = true;
+//                                    swipeRight();
+//                                }
                             }
+
+
                         } else {
                             // rotate image while moving
-                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 32)));
+                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 64)));
                             if (x_cord < (screenCenter / 2)) {
-                                swipeLeft();
-
+//                                if(!isLoading){
+//                                    isLoading = true;
+//                                    swipeLeft();
+//                                }
                             }
+
+
                         }
 
                         break;
                 }
 
+
                 return super.onTouch(v, event);
 
             }
 
-            public void swipeRight() {
+            @Override
+            public void onSwipeRight() {
                 if (listPosition - 1 >= 0) {
                     listPosition--;
                     loadModalPhoto(placesList.get(listPosition).getDescription(), listPosition);
+                } else {
+                    Toast.makeText(activity, "Start of Gallery Reached", Toast.LENGTH_SHORT).show();
                 }
+                super.onSwipeRight();
             }
 
-            public void swipeLeft() {
+            @Override
+            public void onSwipeLeft() {
                 if (listPosition < placesList.size() - 1) {
                     listPosition++;
                     loadModalPhoto(placesList.get(listPosition).getDescription(), listPosition);
+                } else {
+                    Toast.makeText(activity, "End of Gallery Reached", Toast.LENGTH_SHORT).show();
                 }
+                super.onSwipeLeft();
             }
 
 
@@ -224,9 +241,10 @@ public class GalleryActivity extends AppCompatActivity {
                         isModalOpen = true;
                         frameLayout.setAlpha(0f);
                         Bitmap blurredBitmap = BlurBuilder.blur(context, resource);
-                        frameLayout.setBackground(new BitmapDrawable(getResources(), blurredBitmap));
-
+                        //frameLayout.setBackground(new BitmapDrawable(getResources(), blurredBitmap));
+                        frameLayout.setBackground(getResources().getDrawable(R.drawable.siddha));
                         imageView.setImageBitmap(resource);
+
 
                         textView.setText(description);
                         frameLayout.setVisibility(View.VISIBLE);
@@ -235,8 +253,9 @@ public class GalleryActivity extends AppCompatActivity {
                                 .alpha(1f)
                                 .setDuration(500)
                         ;
+
                         frameLayout.setClickable(true);
-                        recyclerView.setLayoutFrozen(true);
+
 
                     }
 

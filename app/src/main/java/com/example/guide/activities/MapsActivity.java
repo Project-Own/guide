@@ -5,7 +5,9 @@ import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -190,7 +192,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         mapsButtonList.add(new MapsButton("Hindu Temple"));
                         mapsButtonList.add(new MapsButton("Bank"));
                         mapsButtonList.add(new MapsButton("Travel Agency"));
-
+                        mapsButtonList.add(new MapsButton("RestRoom"));
 
                         tagsListInterface = new TagsListInterface() {
                             @Override
@@ -449,18 +451,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onKeyEntered(String key, GeoLocation location) {
-        sendNotification("EDMTDev", String.format("%s entered the dangerous area", key));
+        sendNotification("Bhaktapur Guide", String.format("%s entered the heritage area", key));
     }
 
     @Override
     public void onKeyExited(String key) {
-        sendNotification("EDMTDev", String.format("%s leaved the dangerous area", key));
+        sendNotification("Bhaktapur Guide", String.format("%s leaved the heritage area", key));
 
     }
 
     @Override
     public void onKeyMoved(String key, GeoLocation location) {
-        sendNotification("EDMTDev", String.format("%s move within the dangerous area", key));
+        sendNotification("Bhaktapur Guide", String.format("%s move within the heritage area", key));
     }
 
     private void sendNotification(String title, String content) {
@@ -468,6 +470,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String NOTIFICAION_CHANNEL_ID = "edit_multiple_location";
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
+        Intent notificationIntent = new Intent(getApplicationContext(), PlacesActivity.class);
+        notificationIntent.putExtra("NotificationMessage", "I am from Notification");
+        notificationIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        notificationIntent.setAction(Intent.ACTION_MAIN);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent resultIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, 0);
 
         //Config
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -484,8 +492,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         builder.setContentTitle(title)
                 .setContentText(content)
                 .setAutoCancel(false)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                .setSmallIcon(R.mipmap.logo_round)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.logo))
+                .setContentIntent(resultIntent)
+        ;
         Notification notification = builder.build();
         notificationManager.notify(new Random().nextInt(), notification);
     }
@@ -517,16 +527,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        navadurga:27.675410, 85.435734
 //        wakupati narayan:27.673746, 85.437095
 //        pottery square:27.670156, 85.427781
-        heritageArea.add(new LatLng(27.672275, 85.429280)); //Dattatray
-        heritageArea.add(new LatLng(27.672378, 85.428124)); //Bhaktapur Durbar
-        heritageArea.add(new LatLng(27.672355, 85.428546)); // Window Palace
-        heritageArea.add(new LatLng(27.672476, 85.428464)); // Golden Gate
-        heritageArea.add(new LatLng(27.671359, 85.429517)); // Bhairav nath
-        heritageArea.add(new LatLng(27.671834, 85.428458)); // PashupatiNath
+        heritageArea.add(new LatLng(27.673494, 85.435307)); //Dattatray
+        heritageArea.add(new LatLng(27.672075, 85.428101)); //Bhaktapur Durbar
+        heritageArea.add(new LatLng(27.672157, 85.428591)); // Window Palace
+        heritageArea.add(new LatLng(27.672155, 85.428421)); // Golden Gate
+        heritageArea.add(new LatLng(27.671103, 85.429502)); // Bhairav nath
+        heritageArea.add(new LatLng(27.671802, 85.428457)); // PashupatiNath
         heritageArea.add(new LatLng(27.672037, 85.427865)); // KedarNath
-        heritageArea.add(new LatLng(27.675410, 85.435734)); // NavaDurga
-        heritageArea.add(new LatLng(27.673746, 85.437095)); // Wakupati Narayan
-        heritageArea.add(new LatLng(27.670156, 85.427781)); // Pottery Square
+        heritageArea.add(new LatLng(27.675112, 85.435722)); // NavaDurga
+        heritageArea.add(new LatLng(27.673452, 85.437138)); // Wakupati Narayan
+        heritageArea.add(new LatLng(27.669888, 85.427779)); // Pottery Square
+        heritageArea.add(new LatLng(27.673791, 85.403437)); // Pottery Square
 
         //Comment After execution
         FirebaseDatabase.getInstance()
@@ -597,6 +608,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void getNearbySearchData(int position) {
+
+        boolean quitFunc = false;
+
+        mClusterManager.clearItems();
+        mClusterManager.getClusterMarkerCollection().clear();
+        mClusterManager.cluster();
+        // Initialize the manager with the context and the map.
+        // (Activity extends context, so we can pass 'this' in the constructor.)
+        mClusterManager = new ClusterManager<MarkerItem>(getApplicationContext(), mMap);
+        CustomRenderer clusterRenderer = new CustomRenderer(getApplicationContext(), mMap, mClusterManager);
+        // Point the map's listeners at the listeners implemented by the cluster
+        // manager.
+        mMap.setOnCameraIdleListener(mClusterManager);
+        mMap.setOnMarkerClickListener(mClusterManager);
+        mClusterManager.setRenderer(clusterRenderer);
+
         switch (position) {
             case 0:
                 TYPE = "atm";
@@ -631,26 +658,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             case 10:
                 TYPE = "travel_agency";
                 break;
+            case 11:
+                placeBathroomMarker();
+                quitFunc = true;
+                break;
             default:
                 TYPE = "hindu_temple";
 
+        }
+        if (quitFunc) {
+            return;
         }
         searchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + LOCATION + "&radius=" + RADIUS + "&type=" + TYPE + /*"&keyword=" + KEYWORD +*/ "&key=" + searchApiKey;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, searchUrl, null, response -> {
 
-            mClusterManager.clearItems();
-            mClusterManager.getClusterMarkerCollection().clear();
-            mClusterManager.cluster();
-            // Initialize the manager with the context and the map.
-            // (Activity extends context, so we can pass 'this' in the constructor.)
-            mClusterManager = new ClusterManager<MarkerItem>(getApplicationContext(), mMap);
-            CustomRenderer clusterRenderer = new CustomRenderer(getApplicationContext(), mMap, mClusterManager);
-            // Point the map's listeners at the listeners implemented by the cluster
-            // manager.
-            mMap.setOnCameraIdleListener(mClusterManager);
-            mMap.setOnMarkerClickListener(mClusterManager);
-            mClusterManager.setRenderer(clusterRenderer);
             /***************************************/
             NearbySearchData nearbySearchData = new Gson().fromJson(response.toString(), NearbySearchData.class);
 
@@ -751,7 +773,37 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         requestQueue.add(jsonObjectRequest);
     }
 
-/****************************************************************************************************/
+    private void placeBathroomMarker() {
+
+        List<MarkerOptions> toiletList = new ArrayList<>();
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.673527, 85.438918))
+                .title("Chyamashing Public Toilet")
+                .snippet("Vicinity :" + "Chyamasing"));
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.673812, 85.435212))
+                .title("Dattatry Public Toilet")
+                .snippet("Vicinity :" + "Dattatray"));
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.672618, 85.428886))
+                .title("Durbar Square Public Toilet")
+                .snippet("Vicinity :" + "Durbar Square"));
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.668656, 85.427561))
+                .title("Pottery Public Toilet")
+                .snippet("Vicinity :" + "Pottery Square"));
+
+
+        for (MarkerOptions markerOptions : toiletList) {
+            if (mMap != null) {
+                mMap.addMarker(markerOptions);
+
+            }
+        }
+    }
+
+    /****************************************************************************************************/
 
 @Override
 public void onBackPressed() {
