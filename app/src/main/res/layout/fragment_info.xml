@@ -8,30 +8,30 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:src="@drawable/siddha" />
 
-        <androidx.core.widget.NestedScrollView
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="130dp"
                 android:background="@drawable/rectangle"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/abstractTextView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="sdfasdfasdfa" />
+
 
                 <View
 
@@ -43,7 +43,9 @@
                 <TextView
                     android:id="@+id/ticketInfoTextView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="saffasdf" />
+
 
                 <View
 
@@ -55,7 +57,9 @@
                 <TextView
                     android:id="@+id/infoTicketTextView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="sfasdf" />
+
 
                 <View
 
@@ -67,9 +71,10 @@
                 <TextView
                     android:id="@+id/infoTextView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="sdasd" />
             </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
+        </ScrollView>
     </FrameLayout>
+
 </LinearLayout>

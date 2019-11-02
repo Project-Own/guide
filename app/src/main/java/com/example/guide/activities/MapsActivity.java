@@ -142,7 +142,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private String searchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + LOCATION + "&radius=" + RADIUS + "&type=" + TYPE + /*"&keyword=" + KEYWORD +*/ "&key=" + searchApiKey;
     CustomRenderer customRenderer;
     int i = 0;
-    private float GEOFENCE_RADIUS = 0.009f; // 0.5 = 500mf
+    private float GEOFENCE_RADIUS = 0.02f; // 0.5 = 500m
     private List<LatLng> heritageArea;
     private RecyclerView recyclerView;
     private List<MapsButton> mapsButtonList;
@@ -538,6 +538,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         heritageArea.add(new LatLng(27.673452, 85.437138)); // Wakupati Narayan
         heritageArea.add(new LatLng(27.669888, 85.427779)); // Pottery Square
         heritageArea.add(new LatLng(27.673791, 85.403437)); // Pottery Square
+        heritageArea.add(new LatLng(27.671363, 85.429330)); // Nyatapolo
 
         //Comment After execution
         FirebaseDatabase.getInstance()
