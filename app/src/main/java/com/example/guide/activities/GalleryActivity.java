@@ -105,7 +105,7 @@ public class GalleryActivity extends AppCompatActivity {
 
         placesList.add(new Places("", "Two boys in ritual attire", "fuches"));
         placesList.add(new Places("", "Puppet of the Kumari(Living Goddess)", "katamari"));
-        placesList.add(new Places("", "", "batti"));
+        placesList.add(new Places("", "Aarati", "batti"));
         placesList.add(new Places("", "Bodygaurd at service of Dattatraya", "bodygaurd"));
         placesList.add(new Places("", "Girl in traditional newari dress", "rubi"));
         placesList.add(new Places("", "Siddha Pukhu", "siddha"));
@@ -129,6 +129,7 @@ public class GalleryActivity extends AppCompatActivity {
         placesList.add(new Places("", "Cuteness Overloaded", "traditionalboy"));
         placesList.add(new Places("", "Hymn of the Weekend", "traditionalmusic"));
         placesList.add(new Places("", "Music in the air", "khing"));
+        placesList.add(new Places("", "The beauty", "peacockw"));
 
 
         StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);

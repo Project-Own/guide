@@ -163,7 +163,7 @@ public class ContactFragment extends Fragment {
     private void setupEmergencyContact() {
 
         contacts.clear();
-        contacts.add(new Contact("Bhaktapur Hospital", "01-6610676", "bkthpt","Doodh Pati"));
+        contacts.add(new Contact("Bhaktapur Hospital", "01-6610676", "bkthptush","Doodh Pati"));
         contacts.add(new Contact("Bir Hospital", "01-4221119/01-441 1063", "bir","Kathmandu"));
         contacts.add(new Contact("Police Control", "100", "police",""));
         contacts.add(new Contact("Tourist Police", "01-4226359/01-4226403", "police","Bhrikuti Mandap, Kathmandu"));

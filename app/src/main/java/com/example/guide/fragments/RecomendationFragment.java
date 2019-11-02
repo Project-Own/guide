@@ -58,23 +58,28 @@ public class RecomendationFragment extends Fragment {
         placesRecyclerView.setLayoutManager(mPlacesLayoutManager);
         placesRecyclerView.setAdapter(placesAdapter);
 
-        recomendationsPlaces.add(new Recomendation("Bhaktapur Durbar Square", "", "", "", "", "one of the largest ancient squares in Nepal filled to the brim with temples, cultural carvings and buildings ", "durbarsquare"));
+        recomendationsPlaces.add(new Recomendation("Bhaktapur Durbar Square", "", "", "", "", "one of the largest ancient squares in Nepal filled to the " +
+                "\n brim with temples, cultural carvings and buildings ", "durbarsquare"));
         recomendationsPlaces.add(new Recomendation("Basantapur Chowk", "", "", "", "", "two famous sculptures that cost a man his hands \n" +
                 "\n", "usd "));
-        recomendationsPlaces.add(new Recomendation("The Palace of Fifty-five Windows", "", "", "", "", "a masterpiece of wood carving The Golden Gate: one of the most intricate and well decorated gates in the world", "aud"));
-        recomendationsPlaces.add(new Recomendation("Pashupatinath Temple", "", "", "", "", "impressive wooden temple", "bara"));
-        recomendationsPlaces.add(new Recomendation("Vatsala Durga Temple & Taleju Bell", "", "", "", "", "Stone temple with bell built by King Jagat Prakash Malla (currently - 2017/18- under reconstruction however you can give donations directly to its rebuilding) ", "bara"));
+        recomendationsPlaces.add(new Recomendation("The Palace of Fifty-five Windows", "", "", "", "", "a masterpiece of wood carving The Golden Gate: one of " +
+                "\n the most intricate and well decorated gates in the world", "durbarsquare"));
+        recomendationsPlaces.add(new Recomendation("Pashupatinath Temple", "", "", "", "", "impressive wooden temple", "pasupati"));
+        recomendationsPlaces.add(new Recomendation("Vatsala Durga Temple & Taleju Bell", "", "", "", "", "Stone temple with bell built by King Jagat Prakash Malla " +
+                "\n (currently - 2017/18- under reconstruction however you can give donations directly to its rebuilding) ", "vatsala"));
         recomendationsPlaces.add(new Recomendation("Siddhi Laxmi Temple", "", "", "", "", "A stone temple built in the 17th-century (currently - 2017/18- under reconstuction)\n" +
-                "\n", "bara"));
-        recomendationsPlaces.add(new Recomendation("Pottery Square", "", "", "", "", "Watch Bhaktapur's famous pottery as it's made in this idyllic traditional square filled with potters and their wares. ", "bara"));
-        recomendationsPlaces.add(new Recomendation("Royal Curd", "", "", "", "", "Take a time out and eat some of Bhaktapur's famous curd", "bara"));
-        recomendationsPlaces.add(new Recomendation("Side streets of Bhaktapur", "", "", "", "", "Spend hours wandering off down the side streets of the city enjoying local handicraft stores, artisans, local cafes and countless ancient buildings ", "bara"));
-        recomendationsPlaces.add(new Recomendation("Taumadhi Square", "", "", "", "", "a huge square with the tallest temple in Nepal", "bara"));
+                "\n", "siddhilaxmi"));
+        recomendationsPlaces.add(new Recomendation("Pottery Square", "", "", "", "", "Watch Bhaktapur's famous pottery as it's made in this idyllic traditional square filled with potters and their wares. ", "potters"));
+        recomendationsPlaces.add(new Recomendation("Royal Curd", "", "", "", "", "Take a time out and eat some of Bhaktapur's famous curd", "kingcurd"));
+        recomendationsPlaces.add(new Recomendation("Side streets of Bhaktapur", "", "", "", "", "Spend hours wandering off down the side " +
+                "\n streets of the city enjoying local handicraft stores, " +
+                "\n artisans, local cafes and countless ancient buildings ", "alley"));
+        recomendationsPlaces.add(new Recomendation("Taumadhi Square", "", "", "", "", "a huge square with the tallest temple in Nepal", "nightpolo"));
         recomendationsPlaces.add(new Recomendation("Nyatapola Temple in Taumadhi Square", "", "", "", "", "with a five-tier roof and an ornate exterior stone staircase the Nyatapola Temple is one of the tallest in all Nepal.", "bara"));
-        recomendationsPlaces.add(new Recomendation("Dattatreya Square", "", "", "", "", "the oldest royal square in Nepal filled with things to see and do.", "bara"));
+        recomendationsPlaces.add(new Recomendation("Dattatreya Square", "", "", "", "", "the oldest royal square in Nepal filled with things to see and do.", "dattatreya"));
         recomendationsPlaces.add(new Recomendation("Dattatreya Temple in Dattatreya Square", "", "", "", "", "Smaller but much revered three-tier temple. \n" +
-                "\n", "bara"));
-        recomendationsPlaces.add(new Recomendation("The Peacock Window", "", "", "", "", "One of Nepal's most precious woodcarvings and national art treasures - there are several craft stores along the same street worth visiting", "bara"));
+                "\n", "dattatreya"));
+        recomendationsPlaces.add(new Recomendation("The Peacock Window", "", "", "", "", "One of Nepal's most precious woodcarvings and national art treasures - there are several craft stores along the same street worth visiting", "peacockw"));
 
         placesAdapter.notifyDataSetChanged();
         return v;

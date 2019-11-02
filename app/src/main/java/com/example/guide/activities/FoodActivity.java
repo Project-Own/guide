@@ -54,6 +54,7 @@ public class FoodActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.places_recyclerView);
         foodList = new ArrayList<>();
+        foodList.add(new Places("King Curd", "If there is something better than the best then it is King curd(Ju Ju Dhau) of Bhaktapur ", "kingcurd"));
         foodList.add(new Places("Choila", "-Boneless and skinless buffalo meat which is roasted in fire " +
                 "(fire made  of straw).marinated with the secret home made newari spices  ", "choila"));
 
