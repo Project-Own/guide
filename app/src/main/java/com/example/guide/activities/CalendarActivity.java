@@ -103,6 +103,7 @@ public class CalendarActivity extends AppCompatActivity {
         compactCalendarView.addEvent(ev4);
         compactCalendarView.addEvent(ev5);
         compactCalendarView.addEvent(ev6);
+        compactCalendarView.getEventsForMonth(12312);
     }
 
     @Override

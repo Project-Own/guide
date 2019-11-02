@@ -31,7 +31,7 @@ public class RecomendationAdapter extends RecyclerView.Adapter<RecomendationAdap
         this.context=context;
         this.recomendation= recomendation;
         mAnimator = new SpringyAdapterAnimator(recyclerView);
-        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_BOTTOM);
+        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_RIGHT);
         mAnimator.addConfig(85, 15);
 
     }
@@ -65,7 +65,7 @@ public class RecomendationAdapter extends RecyclerView.Adapter<RecomendationAdap
         holder.itemView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 5, 10, 0.8f, 1);
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 5, 10, 0.95f, 1);
                 scaleY.setDelay(200);
                 scaleY.startSpring(holder.itemView);
 

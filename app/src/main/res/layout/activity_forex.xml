@@ -9,46 +9,55 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <FrameLayout
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/forexLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorAccent"
-            tools:context=".activities.MainActivity"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:context=".activities.MainActivity">
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Currency" />
+                android:layout_margin="20dp"
+                android:gravity="center_horizontal"
+                android:text="Currency"
+                android:textSize="20sp" />
+
+            />
 
             <EditText
+                android:id="@+id/Edit"
+                android:layout_margin="20dp"
 
                 android:background="@drawable/rounded_corner_rectangle"
-                android:padding="12dp"
                 android:imeOptions="actionDone"
                 android:inputType="textImeMultiLine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="Country Name"
                 android:hint="Enter country Name"
-                android:id="@+id/Edit"/>
+                android:padding="12dp" />
 
 
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/swipeRefreshLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <FrameLayout
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:background="@color/colorAccent"
                     android:id="@+id/forexFrameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorAccent"
                     android:animateLayoutChanges="true"
 
                     >
@@ -60,8 +69,8 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/forexRecyclerView"
+                        android:layout_height="match_parent"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:background="@drawable/rectangle" />
                 </FrameLayout>
             </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

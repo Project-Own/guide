@@ -27,10 +27,18 @@ public class InfoFragment extends Fragment {
             "and historical heritages. Bhaktapur is living heritage displaying the vibrant depth of Newari culture.";
     String ticketInfo = "The current fee for foreigners is included in your overall Bhaktapur ticket price. This ticket covers all of Bhaktapur including, Bhaktapur Durbar Square, Pottery Square, Taumadhi Square and Dattatreya Tole. If you are planning to stay in Bhaktapur show your passport at the ticket office and you can get the same ticket extended for one week with no extra cost. Ticket booths are located at all the main entrance streets into the old city of Bhaktapur and there are random \"ticket inspections\" so do hold on to your ticket! \n" +
             "\n";
+    String aboutAbstract = "About\n" +
+            "The ancient city Bhaktapur lies on the Eastern part of Kathmandu valley which is also known as Bhadgaon or Khwopa. The historical monument on around signifies medieval age culture and tradition of Nepal and this old city is inhabited by indigenous...more\n" +
+            "Certificate of Excellence\n" +
+            "Open Now\n" +
+            "Hours Today: 7:00 AM - 7:00 PM\n" +
+            "See all hours\n" +
+            "Suggested duration: More than 3 hours";
+
     TextView infoTextView;
     private RecyclerView recycleView;
     private List<Users> users;
-    private TextView infoTicketTextView;
+    private TextView infoTicketTextView, ticketTextView, abstractTextView;
 
     public InfoFragment() {
         // Required empty public constructor
@@ -45,7 +53,12 @@ public class InfoFragment extends Fragment {
         infoTextView = v.findViewById(R.id.infoTextView);
         infoTextView.setText(info);
         infoTicketTextView = v.findViewById(R.id.infoTicketTextView);
-        infoTicketTextView.setText(info);
+        infoTicketTextView.setText(ticketInfo);
+        abstractTextView = v.findViewById(R.id.abstractTextView);
+        ticketTextView = v.findViewById(R.id.ticketInfoTextView);
+
+        abstractTextView.setText(aboutAbstract);
+        ticketTextView.setText("Payment to be done at gate");
 
 
         return v;
