@@ -61,9 +61,6 @@
             android:name=".activities.CalendarActivity"
             android:label="Calendar Screen" />
         <activity
-            android:name=".activities.EventActivity"
-            android:label="Event Screen" />
-        <activity
             android:name=".activities.AboutActivity"
             android:label="Event Screen" />
 

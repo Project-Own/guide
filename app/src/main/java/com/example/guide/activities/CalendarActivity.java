@@ -1,5 +1,6 @@
 package com.example.guide.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +45,7 @@ public class CalendarActivity extends AppCompatActivity {
     Button button;
 
 
+
     ExpandableLayout layout;
     private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
 
@@ -73,7 +76,7 @@ public class CalendarActivity extends AppCompatActivity {
         Event ev2 = new Event(Color.RED, 1570293812000L, "Fulpati");
         Event ev3 = new Event(Color.RED, 1570380212000L, "Maha Astami");
         Event ev4 = new Event(Color.RED, 1570466612000L, "Maha Nawami");
-        Event ev5 = new Event(Color.RED, 1570553012000L, "vijaya Dashami! End of Dashain");
+        Event ev5 = new Event(Color.RED, 1570553012000L, "Vijaya Dashami! End of Dashain");
 
 
         compactCalendarView.addEvent(ev1);
@@ -126,7 +129,8 @@ public class CalendarActivity extends AppCompatActivity {
         compactCalendarView.setUseThreeLetterAbbreviation(true);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout1);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(
+                R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationBar(this, drawer, this.getClass().getSimpleName()));
 
         textView = findViewById(R.id.calendarTextView);
@@ -136,17 +140,9 @@ public class CalendarActivity extends AppCompatActivity {
         Tihar();
         OtherEvents();
 
-        button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        TextView textView1 = findViewById(R.id.text1);
+        textView1.setText(getSection(compactCalendarView.getFirstDayOfCurrentMonth()));
 
-                Intent intent = new Intent(CalendarActivity.this, EventActivity.class);
-
-
-                startActivity(intent);
-            }
-        });
 
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
@@ -170,107 +166,29 @@ public class CalendarActivity extends AppCompatActivity {
             public void onMonthScroll(Date firstDayOfNewMonth) {
 
                 textView.setText(dateFormatMonth.format(firstDayOfNewMonth));
-              layout = new ExpandableLayout(getApplicationContext());
-
-                layout = findViewById(R.id.expandable_layout);
-                layout.setRenderer(new ExpandableLayout.Renderer<PhoneCategory, Phone>() {
-
-                    @Override
-                    public void renderParent(View view, PhoneCategory PhoneCategory, boolean isExpanded, int parentPosition) {
-                        ((TextView) view.findViewById(R.id.tv_parent_name)).setText(PhoneCategory.name);
-                        view.findViewById(R.id.arrow).setBackgroundResource(isExpanded ? R.drawable.ic_up_arrow_foreground : R.drawable.ic_down_arrow_foreground);
-
-                    }
-
-                    @Override
-                    public void renderChild(View view, Phone Phone, int parentPosition, int childPosition) {
-                        ((TextView) view.findViewById(R.id.tv_child_name)).setText(Phone.name);
-                    }
-                });
-
-
-                layout.setExpandListener(new ExpandCollapseListener.ExpandListener<PhoneCategory>() {
-                    @Override
-                    public void onExpanded(int i, PhoneCategory phoneCategory, View view) {
-                        view.findViewById(R.id.arrow).setBackgroundResource(R.drawable.ic_up_arrow_foreground);
-
-                    }
-                });
-
-                layout.setCollapseListener(new ExpandCollapseListener.CollapseListener<PhoneCategory>() {
-                    @Override
-                    public void onCollapsed(int i, PhoneCategory phoneCategory, View view) {
-                        view.findViewById(R.id.arrow).setBackgroundResource(R.drawable.ic_down_arrow_foreground);
-
-                    }
-                });
-
-                layout.addSection( getSection(firstDayOfNewMonth));
-
-
-
-            }
-        });
-
-        layout = findViewById(R.id.expandable_layout);
-
-        layout.setRenderer(new ExpandableLayout.Renderer<PhoneCategory, Phone>() {
-
-            @Override
-            public void renderParent(View view, PhoneCategory PhoneCategory, boolean isExpanded, int parentPosition) {
-                ((TextView) view.findViewById(R.id.tv_parent_name)).setText(PhoneCategory.name);
-                view.findViewById(R.id.arrow).setBackgroundResource(isExpanded ? R.drawable.ic_up_arrow_foreground : R.drawable.ic_down_arrow_foreground);
-
-            }
-
-            @Override
-            public void renderChild(View view, Phone Phone, int parentPosition, int childPosition) {
-                ((TextView) view.findViewById(R.id.tv_child_name)).setText(Phone.name);
+                textView1.setText(getSection(firstDayOfNewMonth));
             }
         });
 
 
-        layout.setExpandListener(new ExpandCollapseListener.ExpandListener<PhoneCategory>() {
-            @Override
-            public void onExpanded(int i, PhoneCategory phoneCategory, View view) {
-                view.findViewById(R.id.arrow).setBackgroundResource(R.drawable.ic_up_arrow_foreground);
-
-            }
-        });
-
-        layout.setCollapseListener(new ExpandCollapseListener.CollapseListener<PhoneCategory>() {
-            @Override
-            public void onCollapsed(int i, PhoneCategory phoneCategory, View view) {
-                view.findViewById(R.id.arrow).setBackgroundResource(R.drawable.ic_down_arrow_foreground);
-
-            }
-        });
 
     }
 
+    private String  getSection(Date date) {
+      String fDate = new java.text.SimpleDateFormat("yyyy-MMM-dd").format(date);
 
-    private Section<PhoneCategory, Phone> getSection(Date date) {
-        Section<PhoneCategory, Phone> section = new Section<>();
-       String fDate = new java.text.SimpleDateFormat("yyyy-MMM-dd").format(date);
-        PhoneCategory PhoneCategory1 = new PhoneCategory(fDate.substring(5,8));
-
-        List<Phone> PhoneList = new ArrayList<>();
-
-
+        String eve="";
         Boolean present = false;
         for (Event event : compactCalendarView.getEventsForMonth(date)) {
             present=true;
-            PhoneList.add(new Phone(event.getData().toString(), event.getData().toString()));
+            eve+= new Date(event.getTimeInMillis()).toString().substring(4,10) + " - " + event.getData()+ "\n";
 
         }
         if (!present) {
-            PhoneList.add(new Phone("No Activity", "No Activity"));
+            eve += "No Activity";
 
         }
-        section.parent = PhoneCategory1;
-        section.children.addAll(PhoneList);
-        return section;
-
+       return eve;
     }
 
     @Override
