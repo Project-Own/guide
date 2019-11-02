@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,15 +16,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.guide.Modal.Calendar.Phone;
+import com.example.guide.Modal.Calendar.PhoneCategory;
 import com.example.guide.NavigationBar;
 import com.example.guide.R;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import iammert.com.expandablelib.ExpandCollapseListener;
+import iammert.com.expandablelib.ExpandableLayout;
+import iammert.com.expandablelib.Section;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class CalendarActivity extends AppCompatActivity {
@@ -33,6 +41,9 @@ public class CalendarActivity extends AppCompatActivity {
     List<Event> eventList;
     TextView textView;
     Button button;
+
+
+    ExpandableLayout layout;
     private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
 
     public void bisket() {
@@ -159,8 +170,68 @@ public class CalendarActivity extends AppCompatActivity {
             public void onMonthScroll(Date firstDayOfNewMonth) {
 
                 textView.setText(dateFormatMonth.format(firstDayOfNewMonth));
+                layout.removeAllViews();
+              layout.addSection( getSection(firstDayOfNewMonth));
             }
         });
+
+        layout = findViewById(R.id.expandable_layout);
+        layout.setRenderer(new ExpandableLayout.Renderer<PhoneCategory, Phone>() {
+
+            @Override
+            public void renderParent(View view, PhoneCategory PhoneCategory, boolean isExpanded, int parentPosition) {
+                ((TextView) view.findViewById(R.id.tv_parent_name)).setText(PhoneCategory.name);
+                view.findViewById(R.id.arrow).setBackgroundResource(isExpanded ? R.drawable.ic_up_arrow_foreground : R.drawable.ic_down_arrow_foreground);
+
+            }
+
+            @Override
+            public void renderChild(View view, Phone Phone, int parentPosition, int childPosition) {
+                ((TextView) view.findViewById(R.id.tv_child_name)).setText(Phone.name);
+            }
+        });
+
+
+        layout.setExpandListener(new ExpandCollapseListener.ExpandListener<PhoneCategory>() {
+            @Override
+            public void onExpanded(int i, PhoneCategory phoneCategory, View view) {
+                view.findViewById(R.id.arrow).setBackgroundResource(R.drawable.ic_up_arrow_foreground);
+
+            }
+        });
+
+        layout.setCollapseListener(new ExpandCollapseListener.CollapseListener<PhoneCategory>() {
+            @Override
+            public void onCollapsed(int i, PhoneCategory phoneCategory, View view) {
+                view.findViewById(R.id.arrow).setBackgroundResource(R.drawable.ic_down_arrow_foreground);
+
+            }
+        });
+
+    }
+
+
+    private Section<PhoneCategory, Phone> getSection(Date date) {
+        Section<PhoneCategory, Phone> section = new Section<>();
+       String fDate = new java.text.SimpleDateFormat("yyyy-MMM-dd").format(date);
+        PhoneCategory PhoneCategory1 = new PhoneCategory(fDate.substring(5,8));
+
+        List<Phone> PhoneList = new ArrayList<>();
+
+
+        Boolean present = false;
+        for (Event event : compactCalendarView.getEventsForMonth(date)) {
+            present=true;
+            PhoneList.add(new Phone(event.getData().toString(), event.getData().toString()));
+
+        }
+        if (!present) {
+            PhoneList.add(new Phone("No Activity", "No Activity"));
+
+        }
+        section.parent = PhoneCategory1;
+        section.children.addAll(PhoneList);
+        return section;
 
     }
 

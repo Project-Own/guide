@@ -129,6 +129,10 @@ public class GalleryActivity extends AppCompatActivity {
         placesList.add(new Places("", "Wakupati Narayan Temple near Dattatreya", "wakupati"));
         placesList.add(new Places("", "Woman threshing grain in traditional way", "grain"));
         placesList.add(new Places("", "The perfect shot", "nyatapolo12"));
+        placesList.add(new Places("", "Cuteness Overloaded", "traditionalboy"));
+        placesList.add(new Places("", "Hymn of the Weekend", "traditionalmusic"));
+        placesList.add(new Places("", "Music in the air", "khing"));
+
 
         StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);

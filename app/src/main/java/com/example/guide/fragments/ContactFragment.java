@@ -89,32 +89,32 @@ public class ContactFragment extends Fragment {
 
     private void setupEmbassyContact() {
         contacts.clear();
-        contacts.add(new Contact("Embassy of Bangladesh","01-4390132","bdt"));
-        contacts.add(new Contact("Embassy of Brazil","01-4721462 /01-4721463","brl"));
-        contacts.add(new Contact("Embassy of China","01-4440286","cny"));
-        contacts.add(new Contact("Embassy of Egypt","01-5590166","egp"));
+        contacts.add(new Contact("Embassy of Bangladesh","01-4390132","bdt",""));
+        contacts.add(new Contact("Embassy of Brazil","01-4721462 /01-4721463","brl",""));
+        contacts.add(new Contact("Embassy of China","01-4440286","cny",""));
+        contacts.add(new Contact("Embassy of Egypt","01-5590166","egp",""));
 
-        contacts.add(new Contact("Embassy of Finland","01-4417221/01-4416636","fin"));
-        contacts.add(new Contact("Embassy of France","01-4412332/01-4414734","fr"));
-        contacts.add(new Contact("Embassy of Germany","01-4412786/01-4416527","ger"));
-        contacts.add(new Contact("Embassy of India","01-4410900","inr"));
-        contacts.add(new Contact("Embassy of Israel","01-4411811/01-4413419","ils"));
-        contacts.add(new Contact("Embassy of Japan","01-4426680","jpy"));
-        contacts.add(new Contact("Embassy of Malaysia","01-5545680/01-5545681","myr"));
-        contacts.add(new Contact("Embassy of Myanmar","01- 5592774/01-5592841","mmk"));
-        contacts.add(new Contact("Embassy of North Korea","01- 5521855/01-5535871","dpr"));
-        contacts.add(new Contact("Embassy of Norway","01- 554 5307","nor"));
-        contacts.add(new Contact("Embassy of Pakistan","01-4374024/01-4374016","pkr"));
-        contacts.add(new Contact("Embassy of Qatar","01-5173161","qar"));
-        contacts.add(new Contact("Embassy of Russia","01-4412155/01-441 1063","rub"));
-        contacts.add(new Contact("Embassy of Saudi Arabia","01-4720891","sar"));
-        contacts.add(new Contact("Embassy of South Korea","01-4270172/01-4270417","skr"));
-        contacts.add(new Contact("Embassy of Srilanka","01-4721389","lkr"));
-        contacts.add(new Contact("Embassy of Switzerland","01-4217008/01-5525358","chf"));
-        contacts.add(new Contact("Embassy of Thailand","01-4371410/01-4371411","thb"));
-        contacts.add(new Contact("Embassy of the United Arab Emirates","01-4237100","aed"));
-        contacts.add(new Contact("Embassy of the United Kingdom","01-4371410/01-4371411","gbp"));
-        contacts.add(new Contact("Embassy of the United States of America","01-4234000","usd"));
+        contacts.add(new Contact("Embassy of Finland","01-4417221/01-4416636","fin",""));
+        contacts.add(new Contact("Embassy of France","01-4412332/01-4414734","fr",""));
+        contacts.add(new Contact("Embassy of Germany","01-4412786/01-4416527","ger",""));
+        contacts.add(new Contact("Embassy of India","01-4410900","inr",""));
+        contacts.add(new Contact("Embassy of Israel","01-4411811/01-4413419","ils",""));
+        contacts.add(new Contact("Embassy of Japan","01-4426680","jpy",""));
+        contacts.add(new Contact("Embassy of Malaysia","01-5545680/01-5545681","myr",""));
+        contacts.add(new Contact("Embassy of Myanmar","01- 5592774/01-5592841","mmk",""));
+        contacts.add(new Contact("Embassy of North Korea","01- 5521855/01-5535871","dpr",""));
+        contacts.add(new Contact("Embassy of Norway","01- 554 5307","nor",""));
+        contacts.add(new Contact("Embassy of Pakistan","01-4374024/01-4374016","pkr",""));
+        contacts.add(new Contact("Embassy of Qatar","01-5173161","qar",""));
+        contacts.add(new Contact("Embassy of Russia","01-4412155/01-441 1063","rub",""));
+        contacts.add(new Contact("Embassy of Saudi Arabia","01-4720891","sar",""));
+        contacts.add(new Contact("Embassy of South Korea","01-4270172/01-4270417","skr",""));
+        contacts.add(new Contact("Embassy of Srilanka","01-4721389","lkr",""));
+        contacts.add(new Contact("Embassy of Switzerland","01-4217008/01-5525358","chf",""));
+        contacts.add(new Contact("Embassy of Thailand","01-4371410/01-4371411","thb",""));
+        contacts.add(new Contact("Embassy of the United Arab Emirates","01-4237100","aed",""));
+        contacts.add(new Contact("Embassy of the United Kingdom","01-4371410/01-4371411","gbp",""));
+        contacts.add(new Contact("Embassy of the United States of America","01-4234000","usd",""));
 
 
         editText.setHint("Enter Country Name...");
@@ -140,16 +140,20 @@ public class ContactFragment extends Fragment {
     private void setupEmergencyContact() {
 
         contacts.clear();
-        contacts.add(new Contact("Embassy of Qatar", "01-5173161", "qar"));
-        contacts.add(new Contact("Embassy of Russia", "01-4412155/01-441 1063", "rub"));
-        contacts.add(new Contact("Embassy of Saudi Arabia", "01-4720891", "sar"));
-        contacts.add(new Contact("Embassy of South Korea", "01-4270172/01-4270417", "skr"));
-        contacts.add(new Contact("Embassy of Srilanka", "01-4721389", "lkr"));
-        contacts.add(new Contact("Embassy of Switzerland", "01-4217008/01-5525358", "chf"));
-        contacts.add(new Contact("Embassy of Thailand", "01-4371410/01-4371411", "thb"));
-        contacts.add(new Contact("Embassy of the United Arab Emirates", "01-4237100", "aed"));
-        contacts.add(new Contact("Embassy of the United Kingdom", "01-4371410/01-4371411", "gbp"));
-        contacts.add(new Contact("Embassy of the United States of America", "01-4234000", "usd"));
+        contacts.add(new Contact("Bhaktapur Hospital", "01-6610676", "","Doodh Pati"));
+        contacts.add(new Contact("Bir Hospital", "01-4221119/01-441 1063", "rub"));
+        contacts.add(new Contact("Police Control", "100", "",""));
+        contacts.add(new Contact("Tourist Police", "01-4226359/01-4226403", "skr","Bhrikuti Mandap, Kathmandu"));
+        contacts.add(new Contact("TU Teaching Hospital", "01-4412707/01-4412808/01-4412505", "lkr","Maharajgunj,kathmandu"));
+        contacts.add(new Contact("Nepal Tourism Board", "01-4256909/014256229", "chf","Bhrikuti Mandap, Kathmandu"));
+        contacts.add(new Contact("Department of Immigration", "01-4223509/01-4222453", "thb",""));
+        contacts.add(new Contact("Tribhuvan International Airport(TIA)", "01-4472256/01-4472257", "aed"));
+        contacts.add(new Contact("Tilganga Eye Hospital", "01-4423684", "gbp",""));
+        contacts.add(new Contact("Public Health Care Center", "01-6610317/01-6613146", "usd","Chyamhasingh,Bhaktapur"));
+        contacts.add(new Contact("Emergency Ambulance", "102", "",""));
+        contacts.add(new Contact("International Flight Service", "4470311/4472835(ext )", "usd","Kathmandu"));
+        contacts.add(new Contact("Nighr Taxi Service", "01-4244485/01-4224375", "usd","Dharmapath"));
+        contacts.add(new Contact("Interpol Section", "01-4411210/01-4412602", "usd","Naxal, Kathmandu"));
 
 
         editText.setHint("Enter Emergency Service...");

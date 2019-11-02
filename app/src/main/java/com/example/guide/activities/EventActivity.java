@@ -183,7 +183,7 @@ public class EventActivity extends AppCompatActivity {
             }
         }
         if (!present) {
-            PhoneList.add(new Phone("No EventActivity", "No EventActivity"));
+            PhoneList.add(new Phone("No Activity", "No Activity"));
 
         }
         section.parent = PhoneCategory1;
