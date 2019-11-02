@@ -35,12 +35,6 @@
                 android:transitionName="image_this"
                 app:srcCompat="@drawable/logo" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Hello"
-                android:textColor="@color/textIcons" />
         </FrameLayout>
     </androidx.cardview.widget.CardView>
 

@@ -5,16 +5,23 @@
     android:id="@+id/drawer_layout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:fitsSystemWindows="true">
 
 
     <FrameLayout
+
+        android:background="@color/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/content_main" />
+        <include
+            layout="@layout/content_main"
+            android:background="@color/background" />
 
         <ImageView
+
+            android:visibility="gone"
             android:id="@+id/imageViewSplash"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,6 +36,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
+        android:background="@color/background"
         app:menu="@menu/activity_main_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -8,6 +8,7 @@
         <item name="android:windowActivityTransitions">true</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
         <item name="android:windowDisablePreview">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -15,13 +16,12 @@
     </style>
 
     <style name="CustomTheme">
-
-        <item name="android:background">@drawable/face_logo</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowActivityTransitions">true</item>
         <item name="windowActionBar">false</item>
-        <item name="android:windowDisablePreview">false</item>
         <item name="windowNoTitle">true</item>
+
+        <item name="android:windowDisablePreview">false</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>

@@ -6,15 +6,13 @@
     android:id="@+id/drawer_layout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:fitsSystemWindows="true">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
     android:id="@+id/motionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -81,8 +79,10 @@
         android:nestedScrollingEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline1" />
+        app:layout_constraintTop_toBottomOf="@id/guideline1"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -112,7 +112,24 @@
         app:layout_constraintStart_toStartOf="@id/bgView"
         app:layout_constraintTop_toBottomOf="@id/titleTextView" />
 
+            <Button
+                android:id="@+id/botton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/ic_volume_up_black_24dp"
+                android:fontFamily="sans-serif-condensed"
+                android:nestedScrollingEnabled="false"
+                android:paddingLeft="14dp"
+                android:paddingTop="14dp"
+                android:paddingRight="14dp"
+                android:paddingBottom="60dp"
 
+                android:transitionName="text_this"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@id/divider" />
     <TextView
         android:id="@+id/contentText"
         android:layout_width="0dp"
@@ -135,14 +152,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="txt to speech"
-        android:id="@+id/botton"/>
 
-
-</androidx.constraintlayout.motion.widget.MotionLayout>
+        </androidx.constraintlayout.motion.widget.MotionLayout>
 
         <Button
             android:id="@+id/navbarButton"

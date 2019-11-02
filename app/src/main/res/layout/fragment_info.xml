@@ -14,12 +14,28 @@
             android:scaleType="centerCrop"
             android:src="@drawable/siddha" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:shadowColor="@color/black"
+            android:shadowDx="-10"
+            android:shadowDy="-10"
+            android:text="Bhaktapur "
+            android:textColor="@color/textIcons"
+            android:textSize="40sp" />
+
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
+                android:id="@+id/linearInfo"
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="130dp"
@@ -27,6 +43,16 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="About"
+                    android:textColor="@color/primaryText"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_margin="8dp"
                     android:id="@+id/abstractTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -41,20 +67,32 @@
                     android:background="@color/divider" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Ticket Information"
+                    android:textColor="@color/primaryText"
+                    android:textSize="20sp" />
+                <TextView
+
+                    android:layout_margin="8dp"
                     android:id="@+id/ticketInfoTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="saffasdf" />
 
 
-                <View
-
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="12dp"
-                    android:background="@color/divider" />
-
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="Note:"
+                    android:textColor="@color/primaryText"
+                    android:textSize="18sp" />
+                <TextView
+
+                    android:layout_marginLeft="8dp"
                     android:id="@+id/infoTicketTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -69,10 +107,24 @@
                     android:background="@color/divider" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="More About Bhaktapur"
+                    android:textColor="@color/primaryText"
+                    android:textSize="20sp" />
+                <TextView
                     android:id="@+id/infoTextView"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="sdasd" />
+
             </LinearLayout>
         </ScrollView>
     </FrameLayout>

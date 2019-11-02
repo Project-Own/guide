@@ -60,7 +60,7 @@
         android:textAlignment="center"
         android:textSize="14sp"
         android:singleLine="true"
-        tools:text="asdad" />
+        tools:text="asdasdfasddddddddddddddddddfsdfsdfsdfsdfsd+\n+\n+\nd" />
 
 
 </LinearLayout>

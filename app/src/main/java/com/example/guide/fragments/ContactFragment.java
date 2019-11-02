@@ -35,6 +35,7 @@ public class ContactFragment extends Fragment {
     }
 
     private List<Contact> filteredListContact = new ArrayList<>();
+    private List<Contact> filteredListContactEmergency = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,14 +53,52 @@ public class ContactFragment extends Fragment {
         contactTabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                editText.setText("");
                 switch (tab.getText().toString().toLowerCase()) {
                     case "embassy":
                         setupEmbassyContact();
-                        adapter.notifyDataSetChanged();
+                        adapter.filterList(contacts);
+                        editText.setHint("Enter Country Name...");
+                        editText.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                            }
+
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                setupEmbassyContact();
+                                filter(s.toString());
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable s) {
+
+                            }
+                        });
                         break;
                     case "emergency":
                         setupEmergencyContact();
-                        adapter.notifyDataSetChanged();
+                        adapter.filterList(contacts);
+                        editText.setHint("Enter Emergency Service...");
+                        editText.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                            }
+
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                setupEmergencyContact();
+                                filterEmergency(s.toString());
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable s) {
+
+                            }
+                        });
+
                         break;
                     default:
                         break;
@@ -117,23 +156,7 @@ public class ContactFragment extends Fragment {
         contacts.add(new Contact("Embassy of the United States of America","01-4234000","usd",""));
 
 
-        editText.setHint("Enter Country Name...");
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filter(s.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
     }
 
@@ -156,23 +179,7 @@ public class ContactFragment extends Fragment {
         contacts.add(new Contact("Interpol Section", "01-4411210/01-4412602", "usd","Naxal, Kathmandu"));
 
 
-        editText.setHint("Enter Emergency Service...");
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filter(s.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
     }
 
@@ -188,6 +195,21 @@ public class ContactFragment extends Fragment {
 
         }
         adapter.filterList(filteredListContact);
+
+    }
+
+    private void filterEmergency(String text) {
+        filteredListContactEmergency.clear();
+
+        for (Contact contact : contacts) {
+
+            if (contact.getName().toLowerCase().contains(text.toLowerCase())) {
+                filteredListContactEmergency.add(contact);
+
+            }
+
+        }
+        adapter.filterList(filteredListContactEmergency);
 
     }
 

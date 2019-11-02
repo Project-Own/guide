@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .asGif()
                 .load(R.raw.splash_logo)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .placeholder(R.drawable.nyatapolo_logo)
+                .placeholder(R.drawable.placeholder_logo)
                 .into(imageView)
 
         ;
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         // Change color of indicator bar
-        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimaryDark));
+        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimaryLight));
 
     }
 

@@ -6,8 +6,7 @@
     android:id="@+id/drawer_layout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:fitsSystemWindows="true">
 
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,20 +18,22 @@
             android:id="@+id/forexLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent"
+            android:background="@drawable/bg_gradient"
             android:orientation="vertical"
             tools:context=".activities.MainActivity">
 
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:gravity="center_horizontal"
+                android:layout_gravity="center"
+                android:layout_margin="25dp"
+                android:background="@drawable/title_background"
+                android:padding="10dp"
                 android:text="Currency"
-                android:textSize="20sp" />
-
-            />
+                android:textColor="@color/primaryText"
+                android:textSize="@dimen/title" />
 
             <EditText
                 android:id="@+id/Edit"
@@ -57,7 +58,7 @@
                     android:id="@+id/forexFrameLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorAccent"
+                    android:background="@null"
                     android:animateLayoutChanges="true"
 
                     >

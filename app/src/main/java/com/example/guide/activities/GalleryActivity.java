@@ -166,12 +166,15 @@ public class GalleryActivity extends AppCompatActivity {
                         // smoother animation.
                         y_cord = (int) event.getRawY();
 
-                        imageView.setX(x_cord - x);
-                        imageView.setY(y_cord - y);
+                        if (!(x_cord > (screenCenter + (screenCenter / 2))) && !(x_cord < (screenCenter / 2))) {
 
+
+                            imageView.setX(x_cord - x);
+                            imageView.setY(y_cord - y);
+                        }
 
                         if (x_cord >= screenCenter) {
-                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 64)));
+                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 256)));
                             if (x_cord > (screenCenter + (screenCenter / 2))) {
 //                                if(!isLoading) {
 //                                    isLoading = true;
@@ -182,7 +185,7 @@ public class GalleryActivity extends AppCompatActivity {
 
                         } else {
                             // rotate image while moving
-                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 64)));
+                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 256)));
                             if (x_cord < (screenCenter / 2)) {
 //                                if(!isLoading){
 //                                    isLoading = true;

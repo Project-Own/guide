@@ -78,7 +78,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 5, 10, 0.8f, 1);
-                scaleY.setDelay(200);
+
                 scaleY.startSpring(holder.cardView);
 
                 return false;

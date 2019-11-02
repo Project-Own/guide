@@ -2,11 +2,11 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="opaque">
 
-    <item android:drawable="?colorPrimaryDark" />
+    <item android:drawable="@color/black" />
     <item>
         <bitmap
             android:gravity="center"
 
-            android:src="@drawable/nyatapolo_logo" />
+            android:src="@drawable/placeholder_logo" />
     </item>
 </layer-list>
