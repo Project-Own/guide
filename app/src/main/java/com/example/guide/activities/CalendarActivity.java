@@ -170,12 +170,50 @@ public class CalendarActivity extends AppCompatActivity {
             public void onMonthScroll(Date firstDayOfNewMonth) {
 
                 textView.setText(dateFormatMonth.format(firstDayOfNewMonth));
-                layout.removeAllViews();
-              layout.addSection( getSection(firstDayOfNewMonth));
+              layout = new ExpandableLayout(getApplicationContext());
+
+                layout = findViewById(R.id.expandable_layout);
+                layout.setRenderer(new ExpandableLayout.Renderer<PhoneCategory, Phone>() {
+
+                    @Override
+                    public void renderParent(View view, PhoneCategory PhoneCategory, boolean isExpanded, int parentPosition) {
+                        ((TextView) view.findViewById(R.id.tv_parent_name)).setText(PhoneCategory.name);
+                        view.findViewById(R.id.arrow).setBackgroundResource(isExpanded ? R.drawable.ic_up_arrow_foreground : R.drawable.ic_down_arrow_foreground);
+
+                    }
+
+                    @Override
+                    public void renderChild(View view, Phone Phone, int parentPosition, int childPosition) {
+                        ((TextView) view.findViewById(R.id.tv_child_name)).setText(Phone.name);
+                    }
+                });
+
+
+                layout.setExpandListener(new ExpandCollapseListener.ExpandListener<PhoneCategory>() {
+                    @Override
+                    public void onExpanded(int i, PhoneCategory phoneCategory, View view) {
+                        view.findViewById(R.id.arrow).setBackgroundResource(R.drawable.ic_up_arrow_foreground);
+
+                    }
+                });
+
+                layout.setCollapseListener(new ExpandCollapseListener.CollapseListener<PhoneCategory>() {
+                    @Override
+                    public void onCollapsed(int i, PhoneCategory phoneCategory, View view) {
+                        view.findViewById(R.id.arrow).setBackgroundResource(R.drawable.ic_down_arrow_foreground);
+
+                    }
+                });
+
+                layout.addSection( getSection(firstDayOfNewMonth));
+
+
+
             }
         });
 
         layout = findViewById(R.id.expandable_layout);
+
         layout.setRenderer(new ExpandableLayout.Renderer<PhoneCategory, Phone>() {
 
             @Override
