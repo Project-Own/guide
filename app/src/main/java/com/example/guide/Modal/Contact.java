@@ -4,6 +4,18 @@ public class Contact {
  private String name;
  private String number;
  private String photo;
+ private String location;
+
+
+
+
+    public Contact(String name, String number, String photo, String location) {
+        this.name = name;
+        this.number = number;
+        this.photo = photo;
+        this.location = location;
+    }
+
 
 
 
@@ -36,6 +48,16 @@ public class Contact {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+
 
 
 }

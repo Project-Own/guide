@@ -48,9 +48,10 @@
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginBottom="100dp"
-        tools:text="Events of 2019/20" />
+        android:text="Events of 2019/20" />
 
     <LinearLayout
+        android:id="@+id/linearText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -74,7 +75,29 @@
 
             android:text="-festivals or events" />
 
+
     </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/black"
+        android:layout_below="@+id/linearText"
+        >
+
+        <iammert.com.expandablelib.ExpandableLayout
+            android:id="@+id/expandable_layout"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:childLayout="@layout/child"
+
+            app:parentLayout="@layout/parent_layout">
+
+        </iammert.com.expandablelib.ExpandableLayout>
+
+
+    </ScrollView>
+
 </RelativeLayout>
 
         <Button

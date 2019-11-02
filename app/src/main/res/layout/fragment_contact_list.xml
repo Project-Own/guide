@@ -15,7 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-
         app:cardCornerRadius="10dp"
         app:cardElevation="6dp"
         android:background="@color/colorPrimary"
@@ -66,6 +65,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="number:"/>
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_marginVertical="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="location:"/>
+
+
             </LinearLayout>
 
 
