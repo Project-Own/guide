@@ -2,8 +2,6 @@ package com.example.guide.fragments;
 
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.guide.BlurBuilder;
 import com.example.guide.Modal.Home;
 import com.example.guide.R;
 import com.example.guide.adapters.HomeAdapter;
@@ -46,9 +43,7 @@ public class HomeFragment extends Fragment {
 
         linearLayout = v.findViewById(R.id.homeLinear);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.background);
-        blurredBitmap = BlurBuilder.blur(getActivity(), bitmap, 3f, 0.5f);
-        linearLayout.setBackground(new BitmapDrawable(getResources(), blurredBitmap));
+        linearLayout.setBackgroundResource(R.drawable.background);
 
         recyclerView = v.findViewById(R.id.homeRecyclerView);
         homeList = new ArrayList<>();

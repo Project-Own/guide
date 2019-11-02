@@ -1,28 +1,34 @@
 package com.example.guide.activities;
 
+import android.Manifest;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.guide.R;
 import com.example.guide.adapters.SelectionPagerAdapter;
 import com.example.guide.fragments.ContactFragment;
@@ -31,6 +37,12 @@ import com.example.guide.fragments.InfoFragment;
 import com.example.guide.fragments.RecomendationFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Context context;
@@ -38,75 +50,85 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     DrawerLayout drawer;
     ObjectAnimator scaleDown;
-    ColorStateList myColorStateList = new ColorStateList(
-            new int[][]{
-                    new int[]{android.R.attr.state_pressed}, //1
-                    new int[]{android.R.attr.state_focused}, //2
-                    new int[]{android.R.attr.state_focused, android.R.attr.state_pressed} //3
-            },
-            new int[]{
-                    Color.RED, //1
-                    Color.GREEN, //2
-                    Color.BLUE //3
-            }
-    );
+    ViewPager viewPager;
+    TabLayout tabLayout;
     private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        context = this;
+        imageView = findViewById(R.id.imageViewSplash);
+
+        context = MainActivity.this;
+
+        Glide.with(context)
+                .asGif()
+                .load(R.raw.splash_logo)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(R.drawable.nyatapolo_logo)
+                .into(imageView)
+
+        ;
+
+        jump();
 
 
 
         navbarButton = findViewById(R.id.navbarButton);
         drawer = findViewById(R.id.drawer_layout1);
         navigationView = findViewById(R.id.nav_view);
-        scaleDown = ObjectAnimator.ofPropertyValuesHolder(
-                navbarButton,
-                PropertyValuesHolder.ofFloat("scaleX", 1.1f),
-                PropertyValuesHolder.ofFloat("scaleY", 1.1f));
-        scaleDown.setDuration(1000);
-
-        scaleDown.setRepeatCount(ObjectAnimator.INFINITE);
-        scaleDown.setRepeatMode(ObjectAnimator.REVERSE);
+        viewPager = findViewById(R.id.viewPager);
+        tabLayout = findViewById(R.id.tabs);
 
 
-        navigationView.setNavigationItemSelectedListener(MainActivity.this);
-        navbarButton.setOnClickListener(v -> {
-            if (drawer.isDrawerOpen(GravityCompat.START)) {
-                drawer.closeDrawer(GravityCompat.START);
-            } else {
-                drawer.openDrawer(GravityCompat.START);
-            }
-        });
+        new BackgroundRun().execute();
 
-        scaleDown.start();
-        setupViewPager();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                scaleDown.setRepeatCount(ObjectAnimator.INFINITE);
+                scaleDown.setRepeatMode(ObjectAnimator.REVERSE);
 
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            String[] PERMISSIONS = {android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION};
-            if (!hasPermissions(this, PERMISSIONS)) {
-                ActivityCompat.requestPermissions(this, PERMISSIONS, 112);
-            } else {
+                navigationView.setNavigationItemSelectedListener(MainActivity.this);
+                navbarButton.setOnClickListener(v -> {
+                    if (drawer.isDrawerOpen(GravityCompat.START)) {
+                        drawer.closeDrawer(GravityCompat.START);
+                    } else {
+                        drawer.openDrawer(GravityCompat.START);
+                    }
+                });
+
+                scaleDown.start();
+
+                imageView.setVisibility(View.GONE);
+
 
             }
-        } else {
+        }, 7000);
 
-        }
-    }
-    private static boolean hasPermissions(Context context, String... permissions) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
-            for (String permission : permissions) {
-                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
-                    return false;
-                }
-            }
-        }
-        return true;
+        Dexter.withActivity(this)
+                .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
+
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+                        Toast.makeText(context, "Permission Required may be required!!", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+
+                    }
+                }).check();
+
 
     }
 
@@ -122,10 +144,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         adapter.addFragment(new ContactFragment());
         adapter.addFragment(new RecomendationFragment());
         adapter.addFragment(new InfoFragment());
-        ViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
-        TabLayout tabLayout = findViewById(R.id.tabs);
-
         tabLayout.setupWithViewPager(viewPager);
 
 
@@ -240,6 +259,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         return true;
+    }
+
+    private void jump() {
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean previouslyStarted = prefs.getBoolean(getString(R.string.pref_previously_started), false);
+        if (!previouslyStarted) {
+            SharedPreferences.Editor edit = prefs.edit();
+            edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
+            edit.commit();
+            startActivity(new Intent(this, LandingActivity.class));
+            finish();
+
+        }
+
+
+    }
+
+    public class BackgroundRun extends AsyncTask<Void, Integer, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            setupViewPager();
+            scaleDown = ObjectAnimator.ofPropertyValuesHolder(
+                    navbarButton,
+                    PropertyValuesHolder.ofFloat("scaleX", 1.1f),
+                    PropertyValuesHolder.ofFloat("scaleY", 1.1f));
+            scaleDown.setDuration(1000);
+
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            imageView.animate()
+                    .alpha(0f)
+                    .setDuration(3000);
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+        }
     }
 
 

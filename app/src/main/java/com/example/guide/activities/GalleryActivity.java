@@ -3,8 +3,6 @@ package com.example.guide.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -28,7 +26,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.guide.BlurBuilder;
 import com.example.guide.Modal.Places;
 import com.example.guide.NavigationBar;
 import com.example.guide.R;
@@ -141,9 +138,7 @@ public class GalleryActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.siddha);
-        blurredBitmap = BlurBuilder.blur(context, bitmap);
-        frameLayout.setBackground(new BitmapDrawable(getResources(), blurredBitmap));
+        frameLayout.setBackgroundResource(R.drawable.siddha);
 
         imageView.setOnTouchListener(new OnSwipeTouchListener(context) {
             @Override

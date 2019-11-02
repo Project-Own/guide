@@ -3,9 +3,7 @@
     android:opacity="opaque">
 
     <item android:drawable="?colorPrimaryDark" />
-    <item
-        android:width="1000dp"
-        android:height="1000dp">
+    <item>
         <bitmap
             android:gravity="center"
 

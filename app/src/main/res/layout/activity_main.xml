@@ -14,6 +14,12 @@
 
         <include layout="@layout/content_main" />
 
+        <ImageView
+            android:id="@+id/imageViewSplash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/black" />
 
     </FrameLayout>
     <com.google.android.material.navigation.NavigationView
