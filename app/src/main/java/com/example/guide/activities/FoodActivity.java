@@ -3,9 +3,6 @@ package com.example.guide.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -38,16 +35,6 @@ public class FoodActivity extends AppCompatActivity {
         activity = FoodActivity.this;
 
 
-        Button placesButton = findViewById(R.id.backPlaces);
-        placesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
-        TextView titleText = findViewById(R.id.titleTextView);
-        titleText.setText("Food");
         DrawerLayout drawer = findViewById(R.id.drawer_layout1);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationBar(context, drawer, this.getClass().getSimpleName()));

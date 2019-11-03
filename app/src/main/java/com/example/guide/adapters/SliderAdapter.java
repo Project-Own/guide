@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,15 +24,15 @@ public class SliderAdapter extends PagerAdapter {
             R.drawable.code_icon
     };
 
-    public String[] slide_headings={"EAT",
-    "SLEEP",
-    "CODE"
+    public String[] slide_headings = {"Information",
+            "Navigate",
+            "Understand",
     };
 
     public String[] slide_desc={
-            "sdkfjlskdjfskdflk",
-            "skdjfjksjdklfsd",
-            "kjsdjkslkdf;lsdf"
+            "Be Informative:\nForeign Exchange Rate",
+            "Navigate Through Maps and Markers",
+            "Understand Local Heritage and Culture"
     };
 
     @Override
@@ -43,7 +42,7 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object o) {
-        return view==(RelativeLayout)o;
+        return view == o;
     }
 
     @NonNull

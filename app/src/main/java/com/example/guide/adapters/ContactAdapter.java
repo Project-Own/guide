@@ -70,7 +70,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.AboutVie
             name=itemView.findViewById(R.id.name);
             number=itemView.findViewById(R.id.number);
             photo=itemView.findViewById(R.id.photo);
-            location=itemView.findViewById(R.id.location);
         }
     }
 

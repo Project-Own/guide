@@ -48,10 +48,10 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center_vertical|start"
-                    android:background="@drawable/left_arrow" />
+                    android:background="@drawable/ic_chevron_left_black_24dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewPlaces"
@@ -59,8 +59,8 @@
                     android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
                 <Button
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center_vertical|end"
                     android:background="@drawable/ic_chevron_right_black_24dp" />
             </FrameLayout>
@@ -85,10 +85,10 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center_vertical|start"
-                    android:background="@drawable/left_arrow" />
+                    android:background="@drawable/ic_chevron_left_black_24dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycleView"
@@ -96,8 +96,8 @@
                     android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
                 <Button
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center_vertical|end"
                     android:background="@drawable/ic_chevron_right_black_24dp" />
             </FrameLayout>

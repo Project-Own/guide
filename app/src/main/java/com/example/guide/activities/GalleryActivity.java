@@ -60,6 +60,7 @@ public class GalleryActivity extends AppCompatActivity {
     private int windowwidth;
     private int screenCenter;
     private Bitmap blurredBitmap;
+    TextView instruction;
 
 
     @Override
@@ -73,7 +74,7 @@ public class GalleryActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationBar(context, drawer, this.getClass().getSimpleName()));
 
-
+        instruction = findViewById(R.id.instruction);
         recyclerView = findViewById(R.id.places_recyclerView);
         frameLayout = findViewById(R.id.modalContainer);
         imageView = findViewById(R.id.modalImage);
@@ -81,6 +82,7 @@ public class GalleryActivity extends AppCompatActivity {
         textView = findViewById(R.id.modalText);
 
 
+        instruction.setText("<--SWIPE FROM CENTER-->");
         windowwidth = getWindowManager().getDefaultDisplay().getWidth();
 
         screenCenter = windowwidth / 2;
@@ -167,11 +169,14 @@ public class GalleryActivity extends AppCompatActivity {
                         // smoother animation.
                         y_cord = (int) event.getRawY();
 
-                        if (!(x_cord > (screenCenter + (screenCenter / 2))) && !(x_cord < (screenCenter / 2))) {
+                        if (!(x_cord > (screenCenter + (screenCenter / 4))) && !(x_cord < screenCenter - (screenCenter / 4))) {
 
 
                             imageView.setX(x_cord - x);
-                            imageView.setY(y_cord - y);
+                        } else {
+
+                            imageView.setX(0);
+
                         }
 
                         if (x_cord >= screenCenter) {

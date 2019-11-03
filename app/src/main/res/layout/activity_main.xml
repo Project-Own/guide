@@ -21,7 +21,7 @@
 
         <ImageView
 
-            android:visibility="gone"
+            android:visibility="visible"
             android:id="@+id/imageViewSplash"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

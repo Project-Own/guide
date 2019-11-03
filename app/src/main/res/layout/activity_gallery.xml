@@ -56,17 +56,35 @@
                 android:layout_gravity="center"
                 tools:src="@drawable/ic_launcher_foreground"></ImageView>
 
-            <TextView
-                android:id="@+id/modalText"
+            <LinearLayout
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|bottom"
-                android:background="@drawable/rounded_corner_rectangle1"
-                android:padding="24dp"
-                android:textColor="@color/primaryText"
-                android:textSize="18sp"
-                tools:text="Hello Man"
-                tools:textColor="@color/primaryText" />
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:id="@+id/instruction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text=""
+                    android:textColor="@color/secondaryText" />
+
+                <TextView
+                    android:id="@+id/modalText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:background="@drawable/rounded_corner_rectangle1"
+                    android:padding="24dp"
+                    android:textColor="@color/primaryText"
+                    android:textSize="18sp"
+                    tools:text="Hello Man"
+                    tools:textColor="@color/primaryText" />
+
+            </LinearLayout>
         </FrameLayout>
 
         <Button
@@ -77,6 +95,7 @@
             android:layout_marginStart="@dimen/side_nav_button_margin_start"
             android:background="@drawable/circle"
             android:foreground="@drawable/side_nav_button" />
+
 
     </FrameLayout>
 

@@ -74,6 +74,7 @@ import com.google.android.gms.maps.model.Dot;
 import com.google.android.gms.maps.model.Gap;
 import com.google.android.gms.maps.model.JointType;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PatternItem;
@@ -103,8 +104,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import static com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom;
-
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GeoQueryEventListener, IOnLoadLocationListener {
 
     private GoogleMap mMap;
@@ -121,6 +120,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     ClusterManager<MarkerItem> mClusterManager;
 
     private PolygonOptions polygonOptions;
+
+    private LatLngBounds BHAKTAPUR = new LatLngBounds(
+            new LatLng(27.651823, 85.424451), new LatLng(27.697431, 85.421389));
+
 
     private static final int POLYGON_STROKE_WIDTH_PX = 8;
     private static final int PATTERN_DASH_LENGTH_PX = 20;
@@ -435,13 +438,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .clickable(true)
                 .strokeJointType(JointType.ROUND) //Bevel,round,default
                 .strokeWidth(POLYGON_STROKE_WIDTH_PX)
+                .strokePattern(Arrays.asList(DASH, GAP)) // dot-(Dot,Gap){....} dash-(Dash,Gap){---} mixed-(dot,gap,dash,gap)
+
         ;
+        mMap.setLatLngBoundsForCameraTarget(BHAKTAPUR);
 
         mMutalbePolygon = mMap.addPolygon(polygonOptions);
-
-        googleMap.moveCamera(newLatLngZoom(new LatLng(27.668311, 85.431090), 15));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15), null);
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(13), 2000, null);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(27.671635, 85.429339)));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(13), null);
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
 
         if (fusedLocationProviderClient != null) {
