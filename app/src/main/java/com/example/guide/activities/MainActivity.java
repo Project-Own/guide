@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -53,12 +54,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ViewPager viewPager;
     TabLayout tabLayout;
     private ImageView imageView;
+    MediaPlayer song;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.CustomTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        song= MediaPlayer.create(MainActivity.this,R.raw.song);
+        song.start();
 
         imageView = findViewById(R.id.imageViewSplash);
 
@@ -131,6 +135,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        song.release();
+    }
+
 
 
     private void setupViewPager(){

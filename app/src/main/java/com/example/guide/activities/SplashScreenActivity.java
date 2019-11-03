@@ -2,6 +2,7 @@ package com.example.guide.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MotionEvent;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.guide.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
+
 
     ImageView imageView;
     @Override
@@ -39,13 +41,19 @@ public class SplashScreenActivity extends AppCompatActivity {
         } catch (Exception ex) {
             jump();
         }
+
+
     }
+
+
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         jump();
         return true;
     }
+
 
     private void jump() {
         if (isFinishing())
@@ -71,8 +79,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 
 
         }
+
         finish();
 
 
+
     }
+
 }
