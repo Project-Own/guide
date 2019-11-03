@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +28,9 @@ public class RecomendationFragment extends Fragment {
 
     private List<Recomendation> recomendations, recomendationsPlaces;
 
+    private Button placesLeft, placesRight, hotelLeft, hotelRight;
+    private int hotelPosition = 0;
+    private int placePosition = 0;
 
     public RecomendationFragment() {
         // Required empty public constructor
@@ -53,6 +58,10 @@ public class RecomendationFragment extends Fragment {
                 "Lite version: (this page) – 2.6 km\n" +
                 "Heritage enthusiast: 4.22 km" );
 
+        placesLeft = v.findViewById(R.id.placesleft);
+        placesRight = v.findViewById(R.id.placesRight);
+        hotelLeft = v.findViewById(R.id.hotelLeft);
+        hotelRight = v.findViewById(R.id.hotelRight);
         recycleView = v.findViewById(R.id.recycleView);
         placesRecyclerView = v.findViewById(R.id.recyclerViewPlaces);
         recomendations = new ArrayList<>();
@@ -74,6 +83,22 @@ public class RecomendationFragment extends Fragment {
         placesRecyclerView.setLayoutManager(mPlacesLayoutManager);
         placesRecyclerView.setAdapter(placesAdapter);
 
+        placesRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                visibleItemCount = layoutManager.getChildCount();
+                totalItemCount = layoutManager.getItemCount();
+                firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
+                lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
+
+            }
+        });
         recomendationsPlaces.add(new Recomendation("Bhaktapur Durbar Square", "", "", "", "", "one of the largest ancient squares in Nepal filled to the " +
                 "\n brim with temples, cultural carvings and buildings ", "durbarsquare"));
         recomendationsPlaces.add(new Recomendation("Basantapur Chowk", "", "", "", "", "two famous sculptures that cost a man his hands \n" +
@@ -97,6 +122,48 @@ public class RecomendationFragment extends Fragment {
         recomendationsPlaces.add(new Recomendation("The Peacock Window", "", "", "", "", "One of Nepal's most precious woodcarvings and national art treasures - there are several craft stores along the same street worth visiting", "peacockw"));
 
         placesAdapter.notifyDataSetChanged();
+
+        placesLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (placePosition > 0) {
+                    placePosition--;
+                    placesRecyclerView.scrollToPosition(placePosition);
+                }
+            }
+        });
+
+        placesRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (placePosition < recomendationsPlaces.size()) {
+                    placePosition++;
+                    placesRecyclerView.scrollToPosition(placePosition);
+
+                }
+            }
+        });
+
+        hotelLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (hotelPosition > 0) {
+                    hotelPosition--;
+                    recycleView.scrollToPosition(hotelPosition);
+                }
+            }
+        });
+
+        hotelRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (hotelPosition < recomendations.size()) {
+                    recycleView.scrollToPosition(hotelPosition);
+                }
+            }
+        });
+
+
         return v;
     }
 
