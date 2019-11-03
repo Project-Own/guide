@@ -44,7 +44,7 @@ public class AboutActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.places_recyclerView);
         usersList = new ArrayList<>();
-        usersList.add(new Users("NIRAJAN PRJAPATI", "KHCE 074 BCT 024", "prajapatinirajan0@gmail.com", "ruko"));
+        usersList.add(new Users("NIRAJAN PRJAPATI", "KHCE 074 BCT 024", "prajapatinirajan0@gmail.com", "photo"));
         usersList.add(new Users("NIRJAL PRAJAPATI", "KHCE 074 BCT 026", "nirjalprajapati@gmail.com", "nirjal"));
         usersList.add(new Users("ROHIT PRAJAPATI", "KHCE074 BCT 033", "roht.praz@gmail.com", "rohit"));
         usersList.add(new Users("SAHAS PRAJAPATI", "KHCE074 BCT 037", "sahas_1999@hotmail.com", "sahas"));

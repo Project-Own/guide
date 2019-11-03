@@ -540,6 +540,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         heritageArea.add(new LatLng(27.669888, 85.427779)); // Pottery Square
         heritageArea.add(new LatLng(27.673791, 85.403437)); // Pottery Square
         heritageArea.add(new LatLng(27.671363, 85.429330)); // Nyatapolo
+        heritageArea.add(new LatLng(27.678230, 85.439310)); // my home
 
         //Comment After execution
         FirebaseDatabase.getInstance()

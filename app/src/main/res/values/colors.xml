@@ -9,13 +9,13 @@
     <color name="Kawai">#f2e2ff</color>
     <color name="colorPrimary">#2196F3</color>
     <color name="colorPrimaryDark">#1976D2</color>
-    <color name="colorPrimaryLight">#BBDEFB</color>
+    <color name="colorPrimaryLight">#83BDFF</color>
     <color name="colorAccent">#536DFE</color>
     <color name="textIcons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
     <color name="secondaryText">#757575</color>
     <color name="primaryText">#212121</color>
-
+    <color name="one">#FF83BDFF</color>
     <color name="startCircle">#80BBDEFB</color>
     <color name="endCircle">#40536DFE</color>
     <color name="background">#fff</color>
