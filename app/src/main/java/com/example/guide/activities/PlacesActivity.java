@@ -1,6 +1,5 @@
 package com.example.guide.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -29,7 +28,7 @@ import java.util.List;
 public class PlacesActivity extends AppCompatActivity {
 
 
-    Activity activity;
+    AppCompatActivity activity;
     Context context;
     private RecyclerView recyclerView;
     private List<Places> placesList;
@@ -37,6 +36,7 @@ public class PlacesActivity extends AppCompatActivity {
     private PlacesAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.CustomTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
         context = this;

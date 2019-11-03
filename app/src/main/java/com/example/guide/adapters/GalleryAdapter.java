@@ -1,6 +1,5 @@
 package com.example.guide.adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -9,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,11 +26,11 @@ import java.util.List;
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesViewHolder> {
     private List<Places> placesList;
     private Context context;
-    private Activity activity;
+    private AppCompatActivity activity;
     private SpringyAdapterAnimator mAnimator;
     private GalleryTagsListInterface galleryTagsListInterface;
 
-    public GalleryAdapter(List<Places> placesList, RecyclerView recyclerView, Context context, Activity activity, GalleryTagsListInterface galleryTagsListInterface) {
+    public GalleryAdapter(List<Places> placesList, RecyclerView recyclerView, Context context, AppCompatActivity activity, GalleryTagsListInterface galleryTagsListInterface) {
         this.placesList = placesList;
         this.context = context;
         this.activity = activity;
@@ -67,6 +67,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
                 .error(R.drawable.nirajan)
                 .override(200, 200)
+                .fitCenter()
                 .into(holder.imageView);
 
 

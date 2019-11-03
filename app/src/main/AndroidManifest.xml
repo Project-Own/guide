@@ -20,14 +20,30 @@
         android:hardwareAccelerated="true"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.WeatherActivity" />
-        <activity android:name=".activities.PlacesActivity" />
-        <activity android:name=".activities.FoodActivity" />
-        <activity android:name=".activities.PlacesDetail" />
-        <activity android:name=".activities.FoodDetail" />
-        <activity android:name=".activities.ForexActivity" />
-        <activity android:name=".activities.LandingActivity" />
-        <activity android:name=".activities.GalleryActivity"></activity>
+        <activity
+            android:name=".activities.WeatherActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".activities.PlacesActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".activities.FoodActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".activities.PlacesDetail"
+            android:noHistory="true" />
+        <activity
+            android:name=".activities.FoodDetail"
+            android:noHistory="true" />
+        <activity
+            android:name=".activities.ForexActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".activities.LandingActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".activities.GalleryActivity"
+            android:noHistory="true"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -37,6 +53,7 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <activity
+            android:noHistory="true"
             android:name=".activities.MapsActivity"
             android:label="@string/title_activity_maps" />
 
@@ -58,9 +75,11 @@
         </activity>
 
         <activity
+            android:noHistory="true"
             android:name=".activities.CalendarActivity"
             android:label="Calendar Screen" />
         <activity
+            android:noHistory="true"
             android:name=".activities.AboutActivity"
             android:label="Event Screen" />
 

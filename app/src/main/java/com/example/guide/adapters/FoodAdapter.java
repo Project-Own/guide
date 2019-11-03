@@ -1,6 +1,5 @@
 package com.example.guide.adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,10 +27,10 @@ import java.util.List;
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder> {
     private List<Food> foodList;
     private Context context;
-    private Activity activity;
+    private AppCompatActivity activity;
     private SpringyAdapterAnimator mAnimator;
 
-    public FoodAdapter(List<Food> foodList, RecyclerView recyclerView, Context context, Activity activity) {
+    public FoodAdapter(List<Food> foodList, RecyclerView recyclerView, Context context, AppCompatActivity activity) {
         this.foodList = foodList;
         this.context = context;
         this.activity = activity;

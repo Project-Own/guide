@@ -77,8 +77,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
         holder.button.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 5, 10, 0.8f, 1);
-                scaleY.setDelay(200);
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 40, 7, 0.8f, 1);
+
                 scaleY.startSpring(holder.button);
 
                 return false;
@@ -117,7 +117,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                     Intent intent = new Intent(context, aClass);
                     context.startActivity(intent);
                 }
-            }, 500);
+            }, 200);
         });
 
 

@@ -23,8 +23,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import iammert.com.expandablelib.ExpandableLayout;
-
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class CalendarActivity extends AppCompatActivity {
 
@@ -37,7 +35,7 @@ public class CalendarActivity extends AppCompatActivity {
 
 
 
-    ExpandableLayout layout;
+
     private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
 
     public void bisket() {
@@ -113,6 +111,7 @@ public class CalendarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.CustomTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 

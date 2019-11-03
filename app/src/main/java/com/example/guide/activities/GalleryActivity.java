@@ -1,36 +1,24 @@
 package com.example.guide.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.example.guide.Modal.Places;
 import com.example.guide.NavigationBar;
 import com.example.guide.R;
 import com.example.guide.adapters.GalleryAdapter;
+import com.example.guide.adapters.InfiniteScrollAdapter;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
+import com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.BufferedReader;
@@ -43,49 +31,77 @@ import java.util.List;
 public class GalleryActivity extends AppCompatActivity {
 
 
-    Activity activity;
+    AppCompatActivity activity;
     Context context;
     private RecyclerView recyclerView;
     private List<Places> placesList;
     private SpringyAdapterAnimator springyAdapterAnimator;
     private GalleryAdapter adapter;
     private GalleryTagsListInterface galleryTagsListInterface;
-    private FrameLayout frameLayout;
-    private ImageView imageView;
-    private Button button;
-    private TextView textView;
     private boolean isModalOpen = false;
     int x_cord, y_cord, x, y;
     private int listPosition;
     private int windowwidth;
     private int screenCenter;
     private Bitmap blurredBitmap;
-    TextView instruction;
+    List<Integer> lstImages = new ArrayList<>();
 
+    private void initData() {
+        lstImages.add(R.drawable.fuches);
+        lstImages.add(R.drawable.katamari);
+        lstImages.add(R.drawable.batti);
+        lstImages.add(R.drawable.bodygaurd);
+        lstImages.add(R.drawable.rubi);
+        lstImages.add(R.drawable.siddha);
+        lstImages.add(R.drawable.bhupa);
+        lstImages.add(R.drawable.rubbles);
+        lstImages.add(R.drawable.nightpolo);
+        lstImages.add(R.drawable.vatsala);
+        lstImages.add(R.drawable.children);
+        lstImages.add(R.drawable.bhailakha);
+        lstImages.add(R.drawable.datattraya);
+        lstImages.add(R.drawable.ihimacha);
+        lstImages.add(R.drawable.panas);
+        lstImages.add(R.drawable.bigbell);
+        lstImages.add(R.drawable.pottery1);
+        lstImages.add(R.drawable.bhairav);
+        lstImages.add(R.drawable.siddhilaxmi);
+        lstImages.add(R.drawable.potters);
+        lstImages.add(R.drawable.wakupati);
+        lstImages.add(R.drawable.grain);
+        lstImages.add(R.drawable.nyatapolo12);
+        lstImages.add(R.drawable.traditionalboy);
+        lstImages.add(R.drawable.traditionalmusic);
+        lstImages.add(R.drawable.khing);
+        lstImages.add(R.drawable.peacockw);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.CustomTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
         context = this;
         activity = GalleryActivity.this;
 
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout1);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationBar(context, drawer, this.getClass().getSimpleName()));
 
-        instruction = findViewById(R.id.instruction);
         recyclerView = findViewById(R.id.places_recyclerView);
-        frameLayout = findViewById(R.id.modalContainer);
-        imageView = findViewById(R.id.modalImage);
-        button = findViewById(R.id.modalButton);
-        textView = findViewById(R.id.modalText);
+
+        /*********************/
+        initData();
+
+        HorizontalInfiniteCycleViewPager pager = findViewById(R.id.horizontal_cycle);
+        InfiniteScrollAdapter infiAdapter = new InfiniteScrollAdapter(lstImages, getBaseContext());
+        pager.setAdapter(infiAdapter);
 
 
-        instruction.setText("<--SWIPE FROM CENTER-->");
-        windowwidth = getWindowManager().getDefaultDisplay().getWidth();
+        /*********************/
 
-        screenCenter = windowwidth / 2;
+
 
 
         placesList = new ArrayList<>();
@@ -99,7 +115,7 @@ public class GalleryActivity extends AppCompatActivity {
             public void onTagClicked(String tagName, String description, int position) {
 
                 listPosition = position;
-                loadModalPhoto(description, position);
+                pager.setCurrentItem(position);
             }
         };
 
@@ -133,166 +149,20 @@ public class GalleryActivity extends AppCompatActivity {
         placesList.add(new Places("", "Music in the air", "khing"));
         placesList.add(new Places("", "The beauty", "peacockw"));
 
-
-        StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        mLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+        //     mLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
 
 
-        frameLayout.setBackgroundResource(R.drawable.siddha);
 
-        imageView.setOnTouchListener(new OnSwipeTouchListener(context) {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                x_cord = (int) event.getRawX();
-                y_cord = (int) event.getRawY();
-
-                imageView.setX(0);
-                imageView.setY(0);
-                imageView.setRotation((float) 0);
-
-
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-
-                        x = (int) event.getX();
-                        y = (int) event.getY();
-
-
-                        Log.v("On touch", x + " " + y);
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-
-                        x_cord = (int) event.getRawX();
-                        // smoother animation.
-                        y_cord = (int) event.getRawY();
-
-                        if (!(x_cord > (screenCenter + (screenCenter / 4))) && !(x_cord < screenCenter - (screenCenter / 4))) {
-
-
-                            imageView.setX(x_cord - x);
-                        } else {
-
-                            imageView.setX(0);
-
-                        }
-
-                        if (x_cord >= screenCenter) {
-                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 256)));
-                            if (x_cord > (screenCenter + (screenCenter / 2))) {
-//                                if(!isLoading) {
-//                                    isLoading = true;
-//                                    swipeRight();
-//                                }
-                            }
-
-
-                        } else {
-                            // rotate image while moving
-                            imageView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 256)));
-                            if (x_cord < (screenCenter / 2)) {
-//                                if(!isLoading){
-//                                    isLoading = true;
-//                                    swipeLeft();
-//                                }
-                            }
-
-
-                        }
-
-                        break;
-                }
-
-
-                return super.onTouch(v, event);
-
-            }
-
-            @Override
-            public void onSwipeRight() {
-                if (listPosition - 1 >= 0) {
-                    listPosition--;
-                    loadModalPhoto(placesList.get(listPosition).getDescription(), listPosition);
-                } else {
-                    Toast.makeText(activity, "Start of Gallery Reached", Toast.LENGTH_SHORT).show();
-                }
-                super.onSwipeRight();
-            }
-
-            @Override
-            public void onSwipeLeft() {
-                if (listPosition < placesList.size() - 1) {
-                    listPosition++;
-                    loadModalPhoto(placesList.get(listPosition).getDescription(), listPosition);
-                } else {
-                    Toast.makeText(activity, "End of Gallery Reached", Toast.LENGTH_SHORT).show();
-                }
-                super.onSwipeLeft();
-            }
-
-
-        });
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                closeModal();
-            }
-        });
 
 
     }
 
-    private void loadModalPhoto(String description, int position) {
-        Glide.with(getApplicationContext())
-                .asBitmap()
-                .load(context.getResources()
-                        .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
-                .error(R.drawable.nirajan)
-                .override(1000, 2000)
-                .into(new CustomTarget<Bitmap>() {
-                    @Override
-                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                        isModalOpen = true;
-                        frameLayout.setAlpha(0f);
-                        //frameLayout.setBackground(new BitmapDrawable(getResources(), blurredBitmap));
-                        imageView.setImageBitmap(resource);
 
 
-                        textView.setText(description);
-                        frameLayout.setVisibility(View.VISIBLE);
-
-                        frameLayout.animate()
-                                .alpha(1f)
-                                .setDuration(500)
-                        ;
-
-                        frameLayout.setClickable(true);
-
-
-                    }
-
-                    @Override
-                    public void onLoadCleared(@Nullable Drawable placeholder) {
-
-                    }
-                });
-
-    }
-
-
-    public void closeModal() {
-
-        frameLayout.animate()
-                .alpha(0f)
-                .setDuration(500)
-        ;
-        recyclerView.setLayoutFrozen(false);
-        frameLayout.setClickable(false);
-        frameLayout.setVisibility(View.GONE);
-        isModalOpen = false;
-    }
 
 
     @Override
@@ -301,8 +171,6 @@ public class GalleryActivity extends AppCompatActivity {
 
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if (isModalOpen) {
-            closeModal();
 
         } else {
             super.onBackPressed();

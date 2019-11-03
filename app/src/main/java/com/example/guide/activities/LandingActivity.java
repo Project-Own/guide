@@ -15,6 +15,7 @@ import com.example.guide.R;
 import com.example.guide.adapters.SliderAdapter;
 
 public class LandingActivity extends AppCompatActivity {
+
     private ViewPager mslider;
     private TextView[] mdots;
     private SliderAdapter sliderAdapter;
@@ -27,14 +28,15 @@ public class LandingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.CustomTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
 
-        mslider=(ViewPager)findViewById(R.id.slider);
+        mslider = findViewById(R.id.slider);
         mdotLayout = findViewById(R.id.dots);
 
-        mNextButton = (Button) findViewById(R.id.next);
-        mBackButton = (Button) findViewById(R.id.back);
+        mNextButton = findViewById(R.id.next);
+        mBackButton = findViewById(R.id.back);
 
         sliderAdapter=new SliderAdapter(this);
         mslider.setAdapter(sliderAdapter);

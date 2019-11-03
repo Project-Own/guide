@@ -1,6 +1,5 @@
 package com.example.guide.adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.guide.Modal.MapsButton;
@@ -21,11 +21,11 @@ import java.util.List;
 public class MapsButtonAdapter extends RecyclerView.Adapter<MapsButtonAdapter.AboutViewHolder> {
     private List<MapsButton> MapsButtonList;
     private Context context;
-    private Activity activity;
+    private AppCompatActivity activity;
     private TagsListInterface tagsListInterface;
 
 
-    public MapsButtonAdapter(List<MapsButton> MapsButtonList, Context context, Activity activity, TagsListInterface tagsListInterface) {
+    public MapsButtonAdapter(List<MapsButton> MapsButtonList, Context context, AppCompatActivity activity, TagsListInterface tagsListInterface) {
         this.MapsButtonList = MapsButtonList;
         this.context = context;
         this.activity = activity;

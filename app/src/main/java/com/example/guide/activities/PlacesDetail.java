@@ -47,6 +47,7 @@ public class PlacesDetail extends AppCompatActivity implements TextToSpeech.OnIn
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.CustomTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.places_recycler_list_detail);
 

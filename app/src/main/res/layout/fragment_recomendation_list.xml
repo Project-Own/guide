@@ -28,7 +28,7 @@
                     android:scaleType="centerCrop"
                     android:layout_height="wrap_content"
                     android:contentDescription="Image"
-                    android:src="@drawable/code_icon">
+                    app:srcCompat="@drawable/code_icon">
 
                 </ImageView>
             </LinearLayout>

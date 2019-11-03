@@ -1,6 +1,5 @@
 package com.example.guide.adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -14,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.util.Pair;
@@ -33,10 +33,10 @@ import java.util.List;
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesViewHolder> {
     private List<Places> placesList;
     private Context context;
-    private Activity activity;
+    private AppCompatActivity activity;
     private SpringyAdapterAnimator mAnimator;
 
-    public PlacesAdapter(List<Places> placesList, RecyclerView recyclerView, Context context, Activity activity) {
+    public PlacesAdapter(List<Places> placesList, RecyclerView recyclerView, Context context, AppCompatActivity activity) {
         this.placesList = placesList;
         this.context = context;
         this.activity = activity;
@@ -77,7 +77,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         holder.cardView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 5, 10, 0.8f, 1);
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 40, 7, 0.8f, 1);
 
                 scaleY.startSpring(holder.cardView);
 
@@ -151,7 +151,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                             context.startActivity(myanim);
                         }
                     }
-                }, 500);
+                }, 200);
 
             });
         }

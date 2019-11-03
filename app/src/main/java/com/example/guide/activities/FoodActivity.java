@@ -1,6 +1,5 @@
 package com.example.guide.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -22,13 +21,14 @@ import java.util.List;
 public class FoodActivity extends AppCompatActivity {
 
 
-    Activity activity;
+    AppCompatActivity activity;
     Context context;
     private RecyclerView recyclerView;
     private List<Places> foodList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.CustomTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
         context = this;

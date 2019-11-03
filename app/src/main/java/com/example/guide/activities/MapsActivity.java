@@ -1,7 +1,6 @@
 package com.example.guide.activities;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -24,6 +23,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -149,7 +149,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private RecyclerView recyclerView;
     private List<MapsButton> mapsButtonList;
     private Context context = this;
-    private Activity activity;
+    private AppCompatActivity activity;
     private List<Marker> nearbyMarkerList = new ArrayList<>();
 
     public static Bitmap changeBitmapColor(Bitmap sourceBitmap, int color) {
@@ -166,6 +166,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.CustomTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 

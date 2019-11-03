@@ -40,6 +40,7 @@ public class FoodDetail extends AppCompatActivity implements TextToSpeech.OnInit
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.CustomTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.places_recycler_list_detail);
 
