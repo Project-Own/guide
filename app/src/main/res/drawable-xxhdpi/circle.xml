@@ -2,9 +2,15 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
     <gradient
-        android:angle="45"
-        android:endColor="@color/endCircle"
-        android:startColor="@color/startCircle" />
+        android:angle="180"
+        android:endColor="@color/bluish"
+        android:startColor="@color/endCircle"
+        android:centerColor="@color/bluish"
+
+
+
+
+        />
     <padding
         android:bottom="7dp"
         android:left="7dp"

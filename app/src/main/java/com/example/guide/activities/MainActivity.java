@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         //  tabLayout.setTabRippleColor(myColorStateList);
-        tabLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        tabLayout.setBackgroundResource(R.color.colorPrimary);
         //tabLayout.setSelectedTabIndicatorGravity(TabLayout.INDICATOR_GRAVITY_CENTER);
         // For color text
         //tabLayout.setTabTextColors(getResources().getColor(R.color.black),getResources().getColor(R.color.white));
