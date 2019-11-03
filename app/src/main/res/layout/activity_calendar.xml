@@ -11,20 +11,38 @@
 
 
     <FrameLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<RelativeLayout
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
     android:background="@drawable/bg_gradient"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/title_background"
+                android:gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="Calendar"
+                android:textColor="@color/textIcons"
+                android:textSize="@dimen/title" />
     <TextView
         android:id="@+id/calendarTextView"
-        android:textSize="40dp"
+        android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="hello"
-
+        android:background="@drawable/title_background"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textSize="30sp"
+        tools:text="November - 2019"
         />
 
     <com.github.sundeepk.compactcalendarview.CompactCalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -41,8 +59,10 @@
         app:compactCalendarCurrentSelectedDayBackgroundColor="#E57373"
         app:compactCalendarMultiEventIndicatorColor="#fff"
         app:compactCalendarTargetHeight="250dp"
-        app:compactCalendarTextColor="#000"
-        app:compactCalendarTextSize="12sp" />
+        app:compactCalendarTextColor="@color/primaryText"
+        app:compactCalendarTextSize="12sp"
+
+        />
 
 
 
@@ -54,16 +74,29 @@
         android:layout_alignBottom="@id/compactcalendar_view"
 
         />
+
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:text="Events:" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_below="@+id/linearText"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="8dp"
         >
 
        <TextView
            android:id="@+id/text1"
+           android:textColor="@color/textIcons"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
+           tools:text="sdfsdf"
 
            />
 
@@ -71,7 +104,7 @@
 
     </ScrollView>
 
-</RelativeLayout>
+        </LinearLayout>
 
         <Button
             android:id="@+id/navbarButton"
@@ -81,6 +114,8 @@
             android:layout_marginStart="@dimen/side_nav_button_margin_start"
             android:background="@drawable/circle"
             android:foreground="@drawable/side_nav_button" />
+
+
     </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView

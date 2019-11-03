@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:elevation="10dp"
-    android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/recyclerId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="40dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="6dp">
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:id="@+id/recyclerId"
+
+    android:layout_width="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <ImageView
+                    android:layout_width="match_parent"
                     android:id="@+id/recommendationImage"
-                    android:layout_width="wrap_content"
+                    android:scaleType="centerCrop"
                     android:layout_height="wrap_content"
                     android:contentDescription="Image"
                     android:src="@drawable/code_icon">
@@ -36,6 +34,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -45,33 +44,37 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Name:"
-                    android:textStyle="bold"
+                    android:padding="4dp"
                     />
                 <TextView
+                    android:padding="4dp"
                     android:id="@+id/recommendationPhone"
-                    android:layout_marginVertical="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Roll:"/>
                 <TextView
+                    android:padding="4dp"
                     android:id="@+id/recommendationVicinity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Email:" />
 
                 <TextView
+                    android:padding="4dp"
                     android:id="@+id/recommendationRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Email:" />
 
                 <TextView
+                    android:padding="4dp"
                     android:id="@+id/recommendationDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Email:" />
 
                 <TextView
+                    android:padding="4dp"
                     android:id="@+id/recommendationPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,5 +85,3 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-
-</LinearLayout>

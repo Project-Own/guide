@@ -49,12 +49,24 @@ public class RecomendationAdapter extends RecyclerView.Adapter<RecomendationAdap
 
     @Override
     public void onBindViewHolder(@NonNull AboutViewHolder holder, int position) {
-        holder.name.setText(recomendation.get(position).getName());
-        holder.rating.setText(recomendation.get(position).getRating());
-        holder.price.setText(recomendation.get(position).getPrice());
-        holder.phone.setText(recomendation.get(position).getPhone());
-        holder.vicinity.setText(recomendation.get(position).getVicinity());
-        holder.description.setText(recomendation.get(position).getDescription());
+        if (recomendation.get(position).getRating().equals("")) {
+            holder.rating.setVisibility(View.GONE);
+        }
+        if (recomendation.get(position).getPhone().equals("")) {
+            holder.phone.setVisibility(View.GONE);
+        }
+        if (recomendation.get(position).getVicinity().equals("")) {
+            holder.vicinity.setVisibility(View.GONE);
+        }
+        if (recomendation.get(position).getPrice().equals("")) {
+            holder.price.setVisibility(View.GONE);
+        }
+        holder.name.setText("Name: " + recomendation.get(position).getName());
+        holder.rating.setText("Rating: " + recomendation.get(position).getRating());
+        holder.price.setText("Price: " + recomendation.get(position).getPrice());
+        holder.phone.setText("Phone No: " + recomendation.get(position).getPhone());
+        holder.vicinity.setText("Vicinity: " + recomendation.get(position).getVicinity());
+        holder.description.setText("Description:\n" + recomendation.get(position).getDescription());
         Glide.with(holder.itemView)
                 .load(context.getResources()
                         .getIdentifier(recomendation.get(position).getPhoto(), "drawable", context.getPackageName()))

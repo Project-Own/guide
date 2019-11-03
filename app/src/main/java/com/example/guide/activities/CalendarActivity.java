@@ -1,15 +1,10 @@
 package com.example.guide.activities;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,22 +13,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.guide.Modal.Calendar.Phone;
-import com.example.guide.Modal.Calendar.PhoneCategory;
 import com.example.guide.NavigationBar;
 import com.example.guide.R;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import iammert.com.expandablelib.ExpandCollapseListener;
 import iammert.com.expandablelib.ExpandableLayout;
-import iammert.com.expandablelib.Section;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class CalendarActivity extends AppCompatActivity {
@@ -43,6 +33,7 @@ public class CalendarActivity extends AppCompatActivity {
     List<Event> eventList;
     TextView textView;
     Button button;
+    TextView textView1;
 
 
 
@@ -140,9 +131,10 @@ public class CalendarActivity extends AppCompatActivity {
         Tihar();
         OtherEvents();
 
-        TextView textView1 = findViewById(R.id.text1);
+        textView1 = findViewById(R.id.text1);
         textView1.setText(getSection(compactCalendarView.getFirstDayOfCurrentMonth()));
 
+        textView.setText(dateFormatMonth.format(compactCalendarView.getFirstDayOfCurrentMonth()));
 
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
@@ -175,7 +167,7 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
     private String  getSection(Date date) {
-      String fDate = new java.text.SimpleDateFormat("yyyy-MMM-dd").format(date);
+        //String fDate = new java.text.SimpleDateFormat("yyyy-MMM-dd").format(date);
 
         String eve="";
         Boolean present = false;

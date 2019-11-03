@@ -69,7 +69,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.Dash;
 import com.google.android.gms.maps.model.Dot;
 import com.google.android.gms.maps.model.Gap;
@@ -160,6 +159,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return resultBitmap;
     }
 
+    List<Marker> bathroomMarker = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -221,7 +222,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 .findFragmentById(R.id.map);
                         mapFragment.getMapAsync(MapsActivity.this);
 */
-                        addGeoPointToFirebaseDatabase();
+                        //    addGeoPointToFirebaseDatabase();
                         initArea();
                         settingGeoFire();
 
@@ -238,93 +239,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     }
                 }).check();
-
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-
-        mClusterManager = new ClusterManager<>(getApplicationContext(), mMap);
-        customRenderer = new CustomRenderer(getApplicationContext(), mMap, mClusterManager);
-
-        mMap.getUiSettings().setZoomControlsEnabled(true);
-        mMap.setMyLocationEnabled(true);
-
-
-        int fillColorArgb = Color.HSVToColor(50, new float[]{2, 2, 2});
-
-        int strokeColorArgb = Color.HSVToColor(90, new float[]{0, 0, 0});
-
-        polygonOptions = new PolygonOptions()
-                .addAll(
-                        Arrays.asList(
-                                new LatLng(26.591212, 86.47988), // Top rightmost
-                                new LatLng(26.591212, 84.247988), // Top rightmost
-                                new LatLng(28.791212, 84.247988), // Top rightmost
-                                new LatLng(28.791212, 86.47988)// Top rightmost
-
-                        )
-                )
-                .addHole(
-                        Arrays.asList(
-                                new LatLng(27.691212,85.447988), // Top rightmost
-
-                                new LatLng(27.688212,85.437818), // Left side tail of top rightmost
-
-                                new LatLng(27.679657,85.435108), // Tail Left Slope
-
-                                new LatLng(27.678641,85.425264), // Top Midway slight bend
-
-                                new LatLng(27.677258,85.416974),
-
-                                new LatLng(27.679508,85.412062),
-
-                                new LatLng(27.677460,85.406996), // Leftmost after bump
-
-                                new LatLng(27.6769508,85.403164), //  Leftmost bump
-
-                                new LatLng(27.673928,85.400017), // Leftmost Peak
-
-                                new LatLng(27.671298,85.408142), // Below Sallaghari
-
-
-                                new LatLng(27.666076,85.417879), // Ghalel tol
-
-                                new LatLng(27.665289,85.424768), // Below Gapali
-
-                                new LatLng(27.665927,85.438154), // Left Side of V
-
-                                new LatLng(27.663825,85.442135), //Rightmost Bottom
-
-                                new LatLng(27.675604,85.448746), //RightMost Peak
-
-                                new LatLng(27.691212,85.447988) // Top rightmost
-                        )
-                )
-                .fillColor(fillColorArgb)
-                .strokeColor(strokeColorArgb)
-                .clickable(true)
-                .strokeJointType(JointType.ROUND) //Bevel,round,default
-                .strokePattern(Arrays.asList(DASH,GAP)) // dot-(Dot,Gap){....} dash-(Dash,Gap){---} mixed-(dot,gap,dash,gap)
-                .strokeWidth(POLYGON_STROKE_WIDTH_PX)
-        ;
-
-        mMutalbePolygon = mMap.addPolygon(polygonOptions);
-
-        googleMap.moveCamera(newLatLngZoom(new LatLng(27.668311, 85.431090), 15));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15),null);
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(13), 2000, null);
-
-
-        if (fusedLocationProviderClient != null) {
-            fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper());
-        }
-
-        // Add Circle for dangerous area
-        addCircleArea();
-
 
     }
 
@@ -455,14 +369,95 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     @Override
-    public void onKeyExited(String key) {
-        sendNotification("Bhaktapur Guide", String.format("%s leaved the heritage area", key));
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+
+        mClusterManager = new ClusterManager<>(getApplicationContext(), mMap);
+        customRenderer = new CustomRenderer(getApplicationContext(), mMap, mClusterManager);
+
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.setMyLocationEnabled(true);
+
+
+        int fillColorArgb = getResources().getColor(R.color.fillColorRgb);
+
+        int strokeColorArgb = Color.HSVToColor(90, new float[]{0, 0, 0});
+
+        polygonOptions = new PolygonOptions()
+                .addAll(
+                        Arrays.asList(
+                                new LatLng(26.591212, 86.47988), // Top rightmost
+                                new LatLng(26.591212, 84.247988), // Top rightmost
+                                new LatLng(28.791212, 84.247988), // Top rightmost
+                                new LatLng(28.791212, 86.47988)// Top rightmost
+
+                        )
+                )
+                .addHole(
+                        Arrays.asList(
+                                new LatLng(27.691212, 85.447988), // Top rightmost
+
+                                new LatLng(27.688212, 85.437818), // Left side tail of top rightmost
+
+                                new LatLng(27.679657, 85.435108), // Tail Left Slope
+
+                                new LatLng(27.678641, 85.425264), // Top Midway slight bend
+
+                                new LatLng(27.677258, 85.416974),
+
+                                new LatLng(27.679508, 85.412062),
+
+                                new LatLng(27.677460, 85.406996), // Leftmost after bump
+
+                                new LatLng(27.6769508, 85.403164), //  Leftmost bump
+
+                                new LatLng(27.673928, 85.400017), // Leftmost Peak
+
+                                new LatLng(27.671298, 85.408142), // Below Sallaghari
+
+
+                                new LatLng(27.666076, 85.417879), // Ghalel tol
+
+                                new LatLng(27.665289, 85.424768), // Below Gapali
+
+                                new LatLng(27.665927, 85.438154), // Left Side of V
+
+                                new LatLng(27.663825, 85.442135), //Rightmost Bottom
+
+                                new LatLng(27.675604, 85.448746), //RightMost Peak
+
+                                new LatLng(27.691212, 85.447988) // Top rightmost
+                        )
+                )
+                .fillColor(fillColorArgb)
+                .strokeColor(strokeColorArgb)
+                .clickable(true)
+                .strokeJointType(JointType.ROUND) //Bevel,round,default
+                .strokeWidth(POLYGON_STROKE_WIDTH_PX)
+        ;
+
+        mMutalbePolygon = mMap.addPolygon(polygonOptions);
+
+        googleMap.moveCamera(newLatLngZoom(new LatLng(27.668311, 85.431090), 15));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15), null);
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(13), 2000, null);
+
+
+        if (fusedLocationProviderClient != null) {
+            fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper());
+        }
+
+        // Add Circle for dangerous area
+        addCircleArea();
+
 
     }
 
     @Override
-    public void onKeyMoved(String key, GeoLocation location) {
-        sendNotification("Bhaktapur Guide", String.format("%s move within the heritage area", key));
+    public void onKeyExited(String key) {
+        //   sendNotification("Bhaktapur Guide", String.format("%s leaved the heritage area", key));
+
     }
 
     private void sendNotification(String title, String content) {
@@ -548,35 +543,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addOnCompleteListener(task -> Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show()).addOnFailureListener(e -> Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_LONG).show());
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
-
-    public void addCircleArea() {
-        if (geoQuery != null) {
-            geoQuery.removeGeoQueryEventListener(this);
-            geoQuery.removeAllListeners();
-
-        }
-        // Add Circle for dangerous area
-        for (LatLng latlng : heritageArea) {
-            mMap.addCircle(new CircleOptions().center(latlng)
-                    .radius(GEOFENCE_RADIUS * 1000) // GEOFENCE_RADIUS : 0.5f * 1000 = 500m
-                    .strokeColor(Color.BLUE)
-                    .fillColor(0x220000ff)
-                    .strokeWidth(5.0f)
-            );
-
-            // Create GeoQuery when user is in dangerous location
-            geoQuery = geoFire.queryAtLocation(new GeoLocation(latlng.latitude, latlng.longitude), GEOFENCE_RADIUS); //500m
-            geoQuery.addGeoQueryEventListener(this);
-        }
+    @Override
+    public void onKeyMoved(String key, GeoLocation location) {
+        // sendNotification("Bhaktapur Guide", String.format("%s move within the heritage area", key));
     }
 
     @Override
@@ -605,6 +574,37 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             addUserMarker();
             //Add Circle of dangerous area
             addCircleArea();
+        }
+    }
+
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
+
+    public void addCircleArea() {
+        if (geoQuery != null) {
+            geoQuery.removeGeoQueryEventListener(this);
+            geoQuery.removeAllListeners();
+
+        }
+        // Add Circle for dangerous area
+        for (LatLng latlng : heritageArea) {
+//            mMap.addCircle(new CircleOptions().center(latlng)
+//                    .radius(GEOFENCE_RADIUS * 1000) // GEOFENCE_RADIUS : 0.5f * 1000 = 500m
+//                    .strokeColor(Color.BLUE)
+//                    .fillColor(0x220000ff)
+//                    .strokeWidth(5.0f)
+//            );
+
+            // Create GeoQuery when user is in dangerous location
+            geoQuery = geoFire.queryAtLocation(new GeoLocation(latlng.latitude, latlng.longitude), GEOFENCE_RADIUS); //500m
+            geoQuery.addGeoQueryEventListener(this);
         }
     }
 
@@ -670,6 +670,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (quitFunc) {
             return;
         }
+        clearBathroomarker();
+
         searchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + LOCATION + "&radius=" + RADIUS + "&type=" + TYPE + /*"&keyword=" + KEYWORD +*/ "&key=" + searchApiKey;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, searchUrl, null, response -> {
@@ -774,6 +776,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         requestQueue.add(jsonObjectRequest);
     }
 
+    private void clearBathroomarker() {
+
+
+        for (Marker markerOptions : bathroomMarker) {
+            if (mMap != null) {
+                markerOptions.remove();
+
+            }
+        }
+    }
+
     private void placeBathroomMarker() {
 
         List<MarkerOptions> toiletList = new ArrayList<>();
@@ -798,7 +811,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         for (MarkerOptions markerOptions : toiletList) {
             if (mMap != null) {
-                mMap.addMarker(markerOptions);
+                bathroomMarker.add(mMap.addMarker(markerOptions));
 
             }
         }
