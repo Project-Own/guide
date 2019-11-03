@@ -163,17 +163,17 @@ public class ContactFragment extends Fragment {
     private void setupEmergencyContact() {
 
         contacts.clear();
-        contacts.add(new Contact("Bhaktapur Hospital", "01-6610676", "bkthptush","Doodh Pati"));
-        contacts.add(new Contact("Bir Hospital", "01-4221119/01-441 1063", "bir","Kathmandu"));
         contacts.add(new Contact("Police Control", "100", "police",""));
+        contacts.add(new Contact("Emergency Ambulance", "102", "ambulance",""));
         contacts.add(new Contact("Tourist Police", "01-4226359/01-4226403", "police","Bhrikuti Mandap, Kathmandu"));
+        contacts.add(new Contact("Bhaktapur Hospital", "01-6610676", "bkthpt","Doodh Pati"));
+        contacts.add(new Contact("Bir Hospital", "01-4221119/01-441 1063", "bir","Kathmandu"));
+        contacts.add(new Contact("Public Health Care Center", "01-6610317/01-6613146", "polytechnic","Chyamhasingh,Bhaktapur"));
+        contacts.add(new Contact("Tilganga Eye Hospital", "01-4423684", "tilganga","Kathmandu"));
         contacts.add(new Contact("TU Teaching Hospital", "01-4412707/01-4412808/01-4412505", "teaching","Maharajgunj,kathmandu"));
         contacts.add(new Contact("Nepal Tourism Board", "01-4256909/014256229", "ntb","Bhrikuti Mandap, Kathmandu"));
         contacts.add(new Contact("Department of Immigration", "01-4223509/01-4222453", "immigration","Kathmandu"));
         contacts.add(new Contact("Tribhuvan International Airport(TIA)", "01-4472256/01-4472257", "tia","Kathmandu"));
-        contacts.add(new Contact("Tilganga Eye Hospital", "01-4423684", "tilganga","Kathmandu"));
-        contacts.add(new Contact("Public Health Care Center", "01-6610317/01-6613146", "polytechnic","Chyamhasingh,Bhaktapur"));
-        contacts.add(new Contact("Emergency Ambulance", "102", "ambulance",""));
         contacts.add(new Contact("International Flight Service", "4470311/4472835(ext )", "aero","Kathmandu"));
         contacts.add(new Contact("Night Taxi Service", "01-4244485/01-4224375", "taxi","Dharmapath"));
         contacts.add(new Contact("Interpol Section", "01-4411210/01-4412602", "interpol","Naxal, Kathmandu"));

@@ -71,6 +71,34 @@
                 android:layout_margin="12dp"
                 android:background="@color/divider" />
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Bhaktapur Heritage Walk"
+                android:textColor="@color/primaryText"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/text1"
+                />
+
+
+
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="12dp"
+                android:background="@color/divider"
+                />
+
+            <TextView
 
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,6 +38,21 @@ public class RecomendationFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_recommendation_recycler, container, false);
 
+
+        TextView text1= v.findViewById(R.id.text1);
+
+        text1.setText("Time needed:\n" +
+                "\n" +
+                "Lite version (this page): 2 hours\n" +
+                "Heritage enthusiast: overnight stays or at least one full day" +
+                "\n" +
+                "This walk can take between 2 hours or as mentioned above you could easily spread it out into an overnight stay depending on your likes.\n" +
+                "\n" +
+                "Distance:\n" +
+                "\n" +
+                "Lite version: (this page) – 2.6 km\n" +
+                "Heritage enthusiast: 4.22 km" );
+
         recycleView = v.findViewById(R.id.recycleView);
         placesRecyclerView = v.findViewById(R.id.recyclerViewPlaces);
         recomendations = new ArrayList<>();
@@ -61,7 +77,7 @@ public class RecomendationFragment extends Fragment {
         recomendationsPlaces.add(new Recomendation("Bhaktapur Durbar Square", "", "", "", "", "one of the largest ancient squares in Nepal filled to the " +
                 "\n brim with temples, cultural carvings and buildings ", "durbarsquare"));
         recomendationsPlaces.add(new Recomendation("Basantapur Chowk", "", "", "", "", "two famous sculptures that cost a man his hands \n" +
-                "\n", "usd "));
+                "\n", "basantapur"));
         recomendationsPlaces.add(new Recomendation("The Palace of Fifty-five Windows", "", "", "", "", "a masterpiece of wood carving The Golden Gate: one of " +
                 "\n the most intricate and well decorated gates in the world", "durbarsquare"));
         recomendationsPlaces.add(new Recomendation("Pashupatinath Temple", "", "", "", "", "impressive wooden temple", "pasupati"));
@@ -75,10 +91,9 @@ public class RecomendationFragment extends Fragment {
                 "\n streets of the city enjoying local handicraft stores, " +
                 "\n artisans, local cafes and countless ancient buildings ", "alley"));
         recomendationsPlaces.add(new Recomendation("Taumadhi Square", "", "", "", "", "a huge square with the tallest temple in Nepal", "nightpolo"));
-        recomendationsPlaces.add(new Recomendation("Nyatapola Temple in Taumadhi Square", "", "", "", "", "with a five-tier roof and an ornate exterior stone staircase the Nyatapola Temple is one of the tallest in all Nepal.", "bara"));
-        recomendationsPlaces.add(new Recomendation("Dattatreya Square", "", "", "", "", "the oldest royal square in Nepal filled with things to see and do.", "dattatreya"));
-        recomendationsPlaces.add(new Recomendation("Dattatreya Temple in Dattatreya Square", "", "", "", "", "Smaller but much revered three-tier temple. \n" +
-                "\n", "dattatreya"));
+
+        recomendationsPlaces.add(new Recomendation("Dattatreya Square", "", "", "", "", "the oldest royal square in Nepal filled with things to see and do.", "datattreya"));
+
         recomendationsPlaces.add(new Recomendation("The Peacock Window", "", "", "", "", "One of Nepal's most precious woodcarvings and national art treasures - there are several craft stores along the same street worth visiting", "peacockw"));
 
         placesAdapter.notifyDataSetChanged();
