@@ -64,13 +64,13 @@ public class GalleryActivity extends AppCompatActivity {
         lstImages.add(R.drawable.panas);
         lstImages.add(R.drawable.bigbell);
         lstImages.add(R.drawable.pottery1);
-        lstImages.add(R.drawable.bhairav);
-        lstImages.add(R.drawable.siddhilaxmi);
+        //lstImages.add(R.drawable.bhairav);
+        //lstImages.add(R.drawable.siddhilaxmi);
         lstImages.add(R.drawable.potters);
-        lstImages.add(R.drawable.wakupati);
+        //lstImages.add(R.drawable.wakupati);
         lstImages.add(R.drawable.grain);
-        lstImages.add(R.drawable.nyatapolo12);
-        lstImages.add(R.drawable.traditionalboy);
+       // lstImages.add(R.drawable.nyatapolo12);
+       // lstImages.add(R.drawable.traditionalboy);
         lstImages.add(R.drawable.traditionalmusic);
         lstImages.add(R.drawable.khing);
         lstImages.add(R.drawable.peacockw);
@@ -97,6 +97,7 @@ public class GalleryActivity extends AppCompatActivity {
         HorizontalInfiniteCycleViewPager pager = findViewById(R.id.horizontal_cycle);
         InfiniteScrollAdapter infiAdapter = new InfiniteScrollAdapter(lstImages, getBaseContext());
         pager.setAdapter(infiAdapter);
+
 
 
         /*********************/
@@ -138,13 +139,13 @@ public class GalleryActivity extends AppCompatActivity {
         placesList.add(new Places("", "Sukunda", "panas"));
         placesList.add(new Places("", "Big bell of Bhaktapur with statue of Bhupatindra Malla in background", "bigbell"));
         placesList.add(new Places("", "Pottery in making", "pottery1"));
-        placesList.add(new Places("", "Renovated Bhairav temple at taumadhi", "bhairav"));
-        placesList.add(new Places("", "Siddhi Laxmi temple at Durbar Square", "siddhilaxmi"));
+        //placesList.add(new Places("", "Renovated Bhairav temple at taumadhi", "bhairav"));
+       // placesList.add(new Places("", "Siddhi Laxmi temple at Durbar Square", "siddhilaxmi"));
         placesList.add(new Places("", "Potters Square at noon", "potters"));
-        placesList.add(new Places("", "Wakupati Narayan Temple near Dattatreya", "wakupati"));
+      //  placesList.add(new Places("", "Wakupati Narayan Temple near Dattatreya", "wakupati"));
         placesList.add(new Places("", "Woman threshing grain in traditional way", "grain"));
-        placesList.add(new Places("", "The perfect shot", "nyatapolo12"));
-        placesList.add(new Places("", "Cuteness Overloaded", "traditionalboy"));
+        //placesList.add(new Places("", "The perfect shot", "nyatapolo12"));
+        //placesList.add(new Places("", "Cuteness Overloaded", "traditionalboy"));
         placesList.add(new Places("", "Hymn of the Weekend", "traditionalmusic"));
         placesList.add(new Places("", "Music in the air", "khing"));
         placesList.add(new Places("", "The beauty", "peacockw"));
