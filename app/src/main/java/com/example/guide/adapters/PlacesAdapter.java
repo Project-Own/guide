@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -74,14 +74,13 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                 .into(holder.imageView);
         holder.bind(placesList.get(position));
 
-        holder.cardView.setOnTouchListener(new View.OnTouchListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 40, 7, 0.8f, 1);
+            public void onClick(View v) {
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 85, 15, 0.8f, 1);
 
                 scaleY.startSpring(holder.cardView);
 
-                return false;
             }
         });
 
@@ -128,6 +127,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 //                }
 
 
+                itemView.playSoundEffect(SoundEffectConstants.CLICK);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

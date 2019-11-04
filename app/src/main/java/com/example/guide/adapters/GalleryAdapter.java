@@ -18,7 +18,6 @@ import com.example.guide.R;
 import com.example.guide.activities.GalleryTagsListInterface;
 import com.example.guide.lib.SpringAnimationType;
 import com.example.guide.lib.SpringyAnimator;
-import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
 
 import java.util.List;
@@ -35,9 +34,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
         this.context = context;
         this.activity = activity;
         this.galleryTagsListInterface = galleryTagsListInterface;
-        mAnimator = new SpringyAdapterAnimator(recyclerView);
-        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_BOTTOM);
-        mAnimator.addConfig(85, 15);
+//        mAnimator = new SpringyAdapterAnimator(recyclerView);
+//        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SCALE);
+//        mAnimator.addConfig(85, 15);
 
     }
 
@@ -54,7 +53,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.gallery_recycler_list, parent, false);
 
-        mAnimator.onSpringItemCreate(view);
+//        mAnimator.onSpringItemCreate(view);
 
         return new PlacesViewHolder(view);
     }
@@ -91,7 +90,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
         });
 
 
-        mAnimator.onSpringItemBind(holder.itemView, position);
+//        mAnimator.onSpringItemBind(holder.itemView, position);
 
 
     }

@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setTheme(R.style.CustomTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        song= MediaPlayer.create(MainActivity.this,R.raw.song);
-        song.start();
 
         imageView = findViewById(R.id.imageViewSplash);
 
@@ -109,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 scaleDown.start();
 
                 imageView.setVisibility(View.GONE);
+
 
 
             }
@@ -297,6 +296,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     PropertyValuesHolder.ofFloat("scaleX", 1.1f),
                     PropertyValuesHolder.ofFloat("scaleY", 1.1f));
             scaleDown.setDuration(1000);
+
+            song = MediaPlayer.create(MainActivity.this, R.raw.song);
+            song.start();
 
             return null;
         }

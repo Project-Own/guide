@@ -21,14 +21,13 @@
         android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
+            android:screenOrientation="portrait"
             android:name=".activities.WeatherActivity"
             android:noHistory="true" />
         <activity
-            android:name=".activities.PlacesActivity"
-            android:noHistory="true" />
+            android:name=".activities.PlacesActivity" />
         <activity
-            android:name=".activities.FoodActivity"
-            android:noHistory="true" />
+            android:name=".activities.FoodActivity" />
         <activity
             android:name=".activities.PlacesDetail"
             android:noHistory="true" />

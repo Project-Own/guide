@@ -31,6 +31,8 @@ public class RecomendationFragment extends Fragment {
     private Button placesLeft, placesRight, hotelLeft, hotelRight;
     private int hotelPosition = 0;
     private int placePosition = 0;
+    private int visibleItemCount, totalItemCount, coun;
+    private int firstVisibleItemPosition, lastVisibleItem;
 
     public RecomendationFragment() {
         // Required empty public constructor
@@ -62,10 +64,13 @@ public class RecomendationFragment extends Fragment {
         placesRight = v.findViewById(R.id.placesRight);
         hotelLeft = v.findViewById(R.id.hotelLeft);
         hotelRight = v.findViewById(R.id.hotelRight);
+
         recycleView = v.findViewById(R.id.recycleView);
         placesRecyclerView = v.findViewById(R.id.recyclerViewPlaces);
+
         recomendations = new ArrayList<>();
         recomendationsPlaces = new ArrayList<>();
+
         RecomendationAdapter adapter = new RecomendationAdapter(recomendations, getContext(), recycleView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recycleView.setLayoutManager(mLayoutManager);
@@ -78,6 +83,7 @@ public class RecomendationFragment extends Fragment {
                 " Temple the city's oldest edifice dating back to 1472 AD, " +
                 "the guest house is where you can start your exploration trip from.", "shiva"));
 
+
         RecomendationAdapter placesAdapter = new RecomendationAdapter(recomendationsPlaces, getContext(), placesRecyclerView);
         RecyclerView.LayoutManager mPlacesLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         placesRecyclerView.setLayoutManager(mPlacesLayoutManager);
@@ -87,15 +93,49 @@ public class RecomendationFragment extends Fragment {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
+                visibleItemCount = mPlacesLayoutManager.getChildCount();
+                totalItemCount = mPlacesLayoutManager.getItemCount();
+                firstVisibleItemPosition = ((LinearLayoutManager) mPlacesLayoutManager).findFirstVisibleItemPosition();
+                lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
+                placePosition = lastVisibleItem;
+                if (placePosition <= 1) {
+                    placesLeft.setVisibility(View.INVISIBLE);
+                } else if (placePosition == recomendationsPlaces.size()) {
+                    placesRight.setVisibility(View.INVISIBLE);
+                } else {
+                    placesRight.setVisibility(View.VISIBLE);
+                    placesLeft.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                visibleItemCount = layoutManager.getChildCount();
-                totalItemCount = layoutManager.getItemCount();
-                firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
+
+            }
+        });
+        recycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                visibleItemCount = mLayoutManager.getChildCount();
+                totalItemCount = mLayoutManager.getItemCount();
+                firstVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findFirstVisibleItemPosition();
                 lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
+                hotelPosition = lastVisibleItem;
+                if (hotelPosition <= 1) {
+                    hotelLeft.setVisibility(View.INVISIBLE);
+                } else if (hotelPosition == recomendations.size()) {
+                    hotelRight.setVisibility(View.INVISIBLE);
+                } else {
+                    hotelLeft.setVisibility(View.VISIBLE);
+                    hotelRight.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
 
             }
         });

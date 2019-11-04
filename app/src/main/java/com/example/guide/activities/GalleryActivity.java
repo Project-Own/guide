@@ -52,7 +52,6 @@ public class GalleryActivity extends AppCompatActivity {
         lstImages.add(R.drawable.batti);
         lstImages.add(R.drawable.bodygaurd);
         lstImages.add(R.drawable.rubi);
-        lstImages.add(R.drawable.siddha);
         lstImages.add(R.drawable.bhupa);
         lstImages.add(R.drawable.rubbles);
         lstImages.add(R.drawable.nightpolo);
@@ -63,6 +62,8 @@ public class GalleryActivity extends AppCompatActivity {
         lstImages.add(R.drawable.ihimacha);
         lstImages.add(R.drawable.panas);
         lstImages.add(R.drawable.bigbell);
+
+        lstImages.add(R.drawable.siddha);
         lstImages.add(R.drawable.pottery1);
         //lstImages.add(R.drawable.bhairav);
         //lstImages.add(R.drawable.siddhilaxmi);
@@ -127,7 +128,6 @@ public class GalleryActivity extends AppCompatActivity {
         placesList.add(new Places("", "Aarati", "batti"));
         placesList.add(new Places("", "Bodygaurd at service of Dattatraya", "bodygaurd"));
         placesList.add(new Places("", "Girl in traditional newari dress", "rubi"));
-        placesList.add(new Places("", "Siddha Pukhu", "siddha"));
         placesList.add(new Places("", "Statue of Bhupatindra Malla", "bhupa"));
         placesList.add(new Places("", "Artifacts at rubbles after 2015 earthquake", "rubbles"));
         placesList.add(new Places("", "Nyatapolo at night", "nightpolo"));
@@ -138,6 +138,9 @@ public class GalleryActivity extends AppCompatActivity {
         placesList.add(new Places("", "Newa girl dressed up for ritual called (ihi)", "ihimacha"));
         placesList.add(new Places("", "Sukunda", "panas"));
         placesList.add(new Places("", "Big bell of Bhaktapur with statue of Bhupatindra Malla in background", "bigbell"));
+
+        placesList.add(new Places("", "Siddha Pukhu", "siddha"));
+
         placesList.add(new Places("", "Pottery in making", "pottery1"));
         //placesList.add(new Places("", "Renovated Bhairav temple at taumadhi", "bhairav"));
        // placesList.add(new Places("", "Siddhi Laxmi temple at Durbar Square", "siddhilaxmi"));

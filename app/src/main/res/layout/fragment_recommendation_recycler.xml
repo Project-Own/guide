@@ -51,8 +51,9 @@
                     android:id="@+id/placesleft"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:foreground="@drawable/ic_chevron_left_black_24dp"
                     android:layout_gravity="center_vertical|start"
-                    android:background="@drawable/ic_chevron_left_black_24dp" />
+                    android:visibility="invisible" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewPlaces"
@@ -64,7 +65,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center_vertical|end"
-                    android:background="@drawable/ic_chevron_right_black_24dp" />
+                    android:foreground="@drawable/ic_chevron_right_black_24dp" />
             </FrameLayout>
             <View
 
@@ -118,8 +119,9 @@
                     android:id="@+id/hotelLeft"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:foreground="@drawable/ic_chevron_left_black_24dp"
                     android:layout_gravity="center_vertical|start"
-                    android:background="@drawable/ic_chevron_left_black_24dp" />
+                    android:visibility="invisible" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycleView"
@@ -131,7 +133,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center_vertical|end"
-                    android:background="@drawable/ic_chevron_right_black_24dp" />
+                    android:foreground="@drawable/ic_chevron_right_black_24dp" />
             </FrameLayout>
 
 

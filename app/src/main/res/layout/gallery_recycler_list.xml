@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/first"
-    android:layout_width="100dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_margin="8dp"
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical">
@@ -18,8 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:transitionName="tq1"
-        app:cardCornerRadius="25dp"
-        tools:cardCornerRadius="25dp">
+        app:cardCornerRadius="8dp"
+        tools:cardCornerRadius="8dp">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -27,11 +27,11 @@
 
             <ImageView
                 android:id="@+id/places_recycler_list_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="Image"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
                 android:transitionName="image_this"
                 app:srcCompat="@drawable/logo" />
 
