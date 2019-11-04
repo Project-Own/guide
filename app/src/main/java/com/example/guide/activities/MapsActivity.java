@@ -815,6 +815,72 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .title("Pottery Public Toilet")
                 .snippet("Vicinity :" + "Pottery Square"));
 
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.667747, 85.427190))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Pottery Square"));
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.667822, 85.424338))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Near Barahi Temple"));
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.671592,85.423147))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Siddha Pukhu"));
+
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.672382,85.427373))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Durbar Square"));
+
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.674380,85.427993))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Tourist Bus Park"));
+
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.675298,85.430040))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Byasi"));
+
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.675185,85.431792))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Thalachhen Tole"));
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.676077,85.431792))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Mahalaxmi"));
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.676542,85.435062))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Mahalaxmi ko Mathi"));
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.675890,85.436637))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Kwathandau"));
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.673438,85.438294))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Chyamhasingh"));
+
+        toiletList.add(new MarkerOptions()
+                .position(new LatLng(27.668201,85.431662))
+                .title("Tourist Ticket Counter")
+                .snippet("Vicinity :" + "Bhelukhel"));
+
+
+
 
         for (MarkerOptions markerOptions : toiletList) {
             if (mMap != null) {
