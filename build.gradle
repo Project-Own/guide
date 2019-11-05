@@ -3,9 +3,8 @@
 buildscript {
     repositories {
         google()
+        mavenCentral()
         jcenter()
-
-        
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.1'
@@ -20,9 +19,9 @@ buildscript {
 allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
-
-        maven {url 'https://jitpack.io'}
+        maven { url 'https://mapbox.bintray.com/mapbox' }
 
     }
 }

@@ -111,7 +111,19 @@ public class RecomendationFragment extends Fragment {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+                visibleItemCount = mPlacesLayoutManager.getChildCount();
+                totalItemCount = mPlacesLayoutManager.getItemCount();
+                firstVisibleItemPosition = ((LinearLayoutManager) mPlacesLayoutManager).findFirstVisibleItemPosition();
+                lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
 
+                if (placePosition <= 1) {
+                    placesLeft.setVisibility(View.INVISIBLE);
+                } else if (placePosition == recomendationsPlaces.size()) {
+                    placesRight.setVisibility(View.INVISIBLE);
+                } else {
+                    placesRight.setVisibility(View.VISIBLE);
+                    placesLeft.setVisibility(View.VISIBLE);
+                }
             }
         });
         recycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -136,7 +148,19 @@ public class RecomendationFragment extends Fragment {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-
+                visibleItemCount = mLayoutManager.getChildCount();
+                totalItemCount = mLayoutManager.getItemCount();
+                firstVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findFirstVisibleItemPosition();
+                lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
+                hotelPosition = lastVisibleItem;
+                if (hotelPosition <= 1) {
+                    hotelLeft.setVisibility(View.INVISIBLE);
+                } else if (hotelPosition == recomendations.size()) {
+                    hotelRight.setVisibility(View.INVISIBLE);
+                } else {
+                    hotelLeft.setVisibility(View.VISIBLE);
+                    hotelRight.setVisibility(View.VISIBLE);
+                }
             }
         });
         recomendationsPlaces.add(new Recomendation("Bhaktapur Durbar Square", "", "", "", "", "one of the largest ancient squares in Nepal filled to the " +

@@ -41,6 +41,9 @@
             android:name=".activities.LandingActivity"
             android:noHistory="true" />
         <activity
+            android:name=".activities.SimpleOfflineMapActivity"
+            android:noHistory="true" />
+        <activity
             android:name=".activities.GalleryActivity"
             android:noHistory="true"></activity>
         <!--

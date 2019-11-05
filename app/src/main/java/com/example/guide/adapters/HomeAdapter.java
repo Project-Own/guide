@@ -20,11 +20,11 @@ import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.guide.Modal.Home;
 import com.example.guide.R;
-import com.example.guide.activities.CalendarActivity;
 import com.example.guide.activities.FoodActivity;
 import com.example.guide.activities.ForexActivity;
 import com.example.guide.activities.MapsActivity;
 import com.example.guide.activities.PlacesActivity;
+import com.example.guide.activities.SimpleOfflineMapActivity;
 import com.example.guide.activities.WeatherActivity;
 import com.example.guide.lib.SpringAnimationType;
 import com.example.guide.lib.SpringyAnimator;
@@ -102,7 +102,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                     aClass = FoodActivity.class;
                     break;
                 case 4:
-                    aClass = CalendarActivity.class;
+                    aClass = SimpleOfflineMapActivity.class;
                     break;
                 case 5:
                     aClass = ForexActivity.class;

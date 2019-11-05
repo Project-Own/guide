@@ -23,6 +23,15 @@
     <string name="pref_previously_loaded" />
     <string name="errorMessage">Oops!! Please retry</string>
 
-
+    <string name="basic_offline_deleted_toast">Oflline deleted</string>
+    <string name="simple_offline_end_progress_success">offline end progress success</string>
+    <string name="access_token">pk.eyJ1IjoiYjEwcHJhamFwYXRpIiwiYSI6ImNrMms3b3VwNTEzNWczaW50eXJhdHQxMGUifQ.8_rq1MX4Nc9IjCNkh3sYcg</string>
+    <string name="user_location_permission_explanation">Permission is need for map to get user location</string>
+    <string name="user_location_permission_not_granted">User\'s Location cannot be accessed</string>
+    <string name="new_location">Lat:%s Lang:%s</string>
+    <string name="toast_instruction">Just do something!!IDK</string>
+    <string name="rv_card_name">%d int re</string>
+    <string name="rv_card_bed_info">%d int areu yo ni</string>
+    <string name="click_on_map_instruction">Click on Map</string>
 
 </resources>
