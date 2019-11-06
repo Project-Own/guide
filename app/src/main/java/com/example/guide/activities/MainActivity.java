@@ -65,7 +65,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         imageView = findViewById(R.id.imageViewSplash);
 
         context = MainActivity.this;
-
+        song = MediaPlayer.create(MainActivity.this, R.raw.song);
+        song.start();
         Glide.with(context)
                 .asGif()
                 .load(R.raw.splash_logo)
@@ -297,8 +298,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     PropertyValuesHolder.ofFloat("scaleY", 1.1f));
             scaleDown.setDuration(1000);
 
-            song = MediaPlayer.create(MainActivity.this, R.raw.song);
-            song.start();
 
             return null;
         }
