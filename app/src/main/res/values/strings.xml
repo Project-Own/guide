@@ -22,6 +22,7 @@
     <string name="pref_previously_started" />
     <string name="pref_previously_loaded" />
     <string name="errorMessage">Oops!! Please retry</string>
+    <string name="process_tts">Switching Language</string>
 
     <string name="basic_offline_deleted_toast">Oflline deleted</string>
     <string name="simple_offline_end_progress_success">offline end progress success</string>
@@ -33,5 +34,12 @@
     <string name="rv_card_name">%d int re</string>
     <string name="rv_card_bed_info">%d int areu yo ni</string>
     <string name="click_on_map_instruction">Click on Map</string>
+    <string name="translator_api_key">trnsl.1.1.20191109T115457Z.b9e9b523e6e84a6c.07b63b812d774c1e07698b00afa937eb4aca6e30</string>
+    <string name="hint_text">Tap to enter text</string>
+    <string name="new_translate">Translate</string>
+    <string name="speech_prompt">Speak Now</string>
+    <string name="language_not_supported">This language speech is currently not supported</string>
+    <string name="select_matching_text">Select Matching Text</string>
+    <string name="language_pack_missing">This language speech pack needs to be installed</string>
 
 </resources>

@@ -264,6 +264,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 context.startActivity(intent);
             }
         }
+        else if (id == R.id.translator) {
+            if (!className.equals("TranslationActivity")) {
+                Intent intent = new Intent(context.getApplicationContext(), TranslationActivity.class);
+                context.startActivity(intent);
+            }
+        }
 
         drawer.closeDrawer(GravityCompat.START);
 

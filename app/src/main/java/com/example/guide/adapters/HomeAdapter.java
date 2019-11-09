@@ -25,6 +25,7 @@ import com.example.guide.activities.ForexActivity;
 import com.example.guide.activities.MapsActivity;
 import com.example.guide.activities.PlacesActivity;
 import com.example.guide.activities.SimpleOfflineMapActivity;
+import com.example.guide.activities.TranslationActivity;
 import com.example.guide.activities.WeatherActivity;
 import com.example.guide.lib.SpringAnimationType;
 import com.example.guide.lib.SpringyAnimator;
@@ -107,6 +108,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                 case 5:
                     aClass = ForexActivity.class;
                     break;
+                case 6:
+                    aClass = TranslationActivity.class;
+                    break;
+
                 default:
                     throw new IllegalStateException("Unexpected value: " + viewNo);
             }

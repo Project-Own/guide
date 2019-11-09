@@ -53,6 +53,8 @@ public class HomeFragment extends Fragment {
         homeList.add(new Home("Food", "okmyanws1"));
         homeList.add(new Home("Calendar", "calendarws1"));
         homeList.add(new Home("Currency", "currencyws2"));
+        homeList.add(new Home("translator", "currencyws2"));
+
 
         HomeAdapter adapter = new HomeAdapter(homeList, getContext());
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
