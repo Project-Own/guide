@@ -5,7 +5,6 @@
 
     <group android:checkableBehavior="single">
         <item
-
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="Home" />
@@ -17,18 +16,12 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_place"
-            android:icon="@drawable/ic_place_black_24dp"
-            android:title="Places" />
+
         <item
             android:id="@+id/nav_currency"
             android:icon="@drawable/ic_monetization_on_black_24dp"
             android:title="Currency" />
-        <item
-            android:id="@+id/nav_food"
-            android:icon="@drawable/ic_restaurant_menu_food"
-            android:title="Food" />
+
         <item
             android:id="@+id/nav_map"
             android:icon="@drawable/ic_map_black"
@@ -38,8 +31,8 @@
             android:icon="@drawable/ic_today_black_24dp"
             android:title="Calendar" />
         <item
-            android:id="@+id/translator"
-            android:icon="@drawable/ic_today_black_24dp"
+            android:id="@+id/nav_translator"
+            android:icon="@drawable/ic_translate_black_24dp"
             android:title="Translator" />
 
     </group>

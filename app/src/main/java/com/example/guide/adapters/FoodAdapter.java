@@ -1,39 +1,38 @@
 package com.example.guide.adapters;
 
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityOptionsCompat;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.guide.Modal.Food;
+import com.example.guide.Model.Places;
 import com.example.guide.R;
-import com.example.guide.activities.FoodDetail;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
 
 import java.util.List;
 
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder> {
-    private List<Food> foodList;
+    private List<Places> foodList;
     private Context context;
-    private AppCompatActivity activity;
+    private NavController navController;
     private SpringyAdapterAnimator mAnimator;
 
-    public FoodAdapter(List<Food> foodList, RecyclerView recyclerView, Context context, AppCompatActivity activity) {
+    public FoodAdapter(List<Places> foodList, RecyclerView recyclerView, Context context, NavController navController) {
         this.foodList = foodList;
         this.context = context;
-        this.activity = activity;
+        this.navController = navController;
         mAnimator = new SpringyAdapterAnimator(recyclerView);
         mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_LEFT);
         mAnimator.addConfig(85, 15);
@@ -41,7 +40,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
     }
 
-    public FoodAdapter(List<Food> foodList, Context context) {
+    public FoodAdapter(List<Places> foodList, Context context) {
         this.context = context;
         this.foodList = foodList;
 
@@ -91,7 +90,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
         }
 
-        void bind(Food food) {
+        void bind(Places places) {
 
             itemView.setOnClickListener(view -> {
 //                if(listner != null){
@@ -100,21 +99,23 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 //                        listner.onItemClick();
 //                    }
 
+
 //                }
 
-                Intent myanim = new Intent(context, FoodDetail.class);
-                myanim.putExtra("description", food.getDescription());
-                myanim.putExtra("image", food.getImage());
-                myanim.putExtra("name", food.getName());
 
-                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, cardView, "image_this");
-
-
-                context.startActivity(myanim, options.toBundle());
+                itemView.playSoundEffect(SoundEffectConstants.CLICK);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
 
 
-                Toast.makeText(itemView.getContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
-
+                        final Bundle bundle = new Bundle();
+                        bundle.putString("name", places.getName());
+                        bundle.putString("description", places.getDescription());
+                        bundle.putString("image", places.getImage());
+                        navController.navigate(R.id.action_nav_food_to_foodDetailFragment2, bundle);
+                    }
+                }, 100);
 
             });
         }

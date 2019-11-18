@@ -10,17 +10,18 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.guide.Model.Places;
 import com.example.guide.R;
 
 import java.util.List;
 
 public class InfiniteScrollAdapter extends PagerAdapter {
 
-    List<Integer> lstImages;
+    List<Places> lstImages;
     Context context;
     LayoutInflater layoutInflater;
 
-    public InfiniteScrollAdapter(List<Integer> lstImages, Context context) {
+    public InfiniteScrollAdapter(List<Places> lstImages, Context context) {
         this.lstImages = lstImages;
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
@@ -46,7 +47,7 @@ public class InfiniteScrollAdapter extends PagerAdapter {
         View view = layoutInflater.inflate(R.layout.card_item, container, false);
         ImageView imageView = view.findViewById(R.id.imageView);
         Glide.with(view)
-                .load(lstImages.get(position))
+                .load(context.getResources().getIdentifier(lstImages.get(position).getImage(),"drawable", context.getPackageName()))
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .placeholder(R.drawable.code_icon)
                 .error(R.drawable.ic_close_black_24dp)

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.redundant.LandingActivity"
+    android:background="@drawable/bg_gradient">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/slider"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:backgroundTint="#44FFFFFF"
+        android:id="@+id/back"
+        android:text="Back"
+        android:visibility="invisible"
+        ></Button>
+
+    <Button
+        android:id="@+id/next"
+        android:text="Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:backgroundTint="#44FFFFFF"
+        ></Button>
+    <LinearLayout
+        android:id="@+id/dots"
+        android:layout_width="80dp"
+        android:layout_height="91dp"
+        android:layout_gravity="bottom|center"
+        android:orientation="horizontal"
+        android:gravity="center"
+
+
+        >
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

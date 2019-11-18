@@ -46,15 +46,15 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.guide.CustomRenderer;
-import com.example.guide.Modal.Geofence.MyLatLng;
-import com.example.guide.Modal.MapsButton;
-import com.example.guide.Modal.MarkerItem;
-import com.example.guide.Modal.NearbySearch.NearbySearchData;
-import com.example.guide.Modal.NearbySearch.Result;
-import com.example.guide.NavigationBar;
+import com.example.guide.Model.Geofence.MyLatLng;
+import com.example.guide.Model.MapsButton;
+import com.example.guide.Model.MarkerItem;
+import com.example.guide.Model.NearbySearch.NearbySearchData;
+import com.example.guide.Model.NearbySearch.Result;
 import com.example.guide.R;
 import com.example.guide.adapters.MapsButtonAdapter;
 import com.example.guide.interfaces.IOnLoadLocationListener;
+import com.example.guide.interfaces.TagsListInterface;
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
@@ -182,7 +182,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                         DrawerLayout drawer = findViewById(R.id.drawer_layout1);
                         NavigationView navigationView = findViewById(R.id.nav_view);
-                        navigationView.setNavigationItemSelectedListener(new NavigationBar(context, drawer, this.getClass().getSimpleName()));
 
                         recyclerView = findViewById(R.id.maps_recycler);
                         mapsButtonList = new ArrayList<>();
@@ -482,7 +481,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String NOTIFICAION_CHANNEL_ID = "edit_multiple_location";
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Intent notificationIntent = new Intent(getApplicationContext(), PlacesActivity.class);
+        Intent notificationIntent = new Intent(getApplicationContext(), MainActivity.class);
         notificationIntent.putExtra("NotificationMessage", "I am from Notification");
         notificationIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         notificationIntent.setAction(Intent.ACTION_MAIN);

@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.guide.Modal.Recomendation;
+import com.example.guide.Model.Recommendation;
 import com.example.guide.R;
 import com.example.guide.lib.SpringAnimationType;
 import com.example.guide.lib.SpringyAnimator;
@@ -22,12 +22,12 @@ import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
 import java.util.List;
 
 public class RecomendationAdapter extends RecyclerView.Adapter<RecomendationAdapter.AboutViewHolder>  {
-    private List<Recomendation> recomendation;
+    private List<Recommendation> recomendation;
     private Context context;
     private SpringyAdapterAnimator mAnimator;
     private RecyclerView recyclerView;
 
-    public RecomendationAdapter(List<Recomendation> recomendation, Context context, RecyclerView recyclerView) {
+    public RecomendationAdapter(List<Recommendation> recomendation, Context context, RecyclerView recyclerView) {
         this.context=context;
         this.recomendation= recomendation;
         mAnimator = new SpringyAdapterAnimator(recyclerView);

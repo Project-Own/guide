@@ -12,9 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.guide.Modal.MapsButton;
+import com.example.guide.Model.MapsButton;
 import com.example.guide.R;
-import com.example.guide.activities.TagsListInterface;
+import com.example.guide.interfaces.TagsListInterface;
 
 import java.util.List;
 

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.guide.Modal.Users;
+import com.example.guide.Model.Users;
 import com.example.guide.R;
 
 import java.util.List;

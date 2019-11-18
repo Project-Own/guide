@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.guide.Model.ForexModel;
 import com.example.guide.R;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
@@ -28,6 +29,15 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
 
     private Map<String, String> countryNameMap;
 
+    public ForexAdapter(ForexModel forexData, RecyclerView recyclerView, Context context) {
+        this.forexList = forexData.getForexList();
+        this.pairList = forexData.getPairList();
+        this.countryNameMap = forexData.getCounntryNameMap();
+        this.context = context;
+        mAnimator = new SpringyAdapterAnimator(recyclerView);
+        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_BOTTOM);
+        mAnimator.addConfig(85, 15);
+    }
 
     public ForexAdapter(List<Object> forexList, List<String> pairList, Map<String, String> countryNameMap, RecyclerView recyclerView, Context context) {
         this.forexList = forexList;
@@ -95,7 +105,12 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
 
     @Override
     public int getItemCount() {
-        return pairList.size();
+        if (pairList != null) {
+            return pairList.size();
+
+        } else {
+            return 0;
+        }
     }
 
     public interface OnItemClickListener {
@@ -106,6 +121,12 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.StudentViewH
     public void filterList(List<Object> forexList, List<String> pairList) {
         this.forexList = forexList;
         this.pairList = pairList;
+        notifyDataSetChanged();
+    }
+    public void filterList(ForexModel forexData) {
+        this.forexList = forexData.getForexList();
+        this.pairList = forexData.getPairList();
+        this.countryNameMap = forexData.getCounntryNameMap();
         notifyDataSetChanged();
     }
 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.guide.ui.contact.ContactViewModel" />
+
+    </data>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/contactTabs"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:background="@color/colorPrimaryDark"
+
+        />
+
+    <EditText
+        android:id="@+id/contactEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Enter country name"
+        android:padding="16dp"
+        android:onTextChanged="@{viewModel::onContactTextChanged}"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>
+
+</layout>

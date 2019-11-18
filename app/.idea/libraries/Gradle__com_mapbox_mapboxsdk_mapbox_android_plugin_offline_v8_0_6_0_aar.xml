@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-plugin-offline-v8:0.6.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9adc54c47054669a276c9c722e68d969/jetified-mapbox-android-plugin-offline-v8-0.6.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9adc54c47054669a276c9c722e68d969/jetified-mapbox-android-plugin-offline-v8-0.6.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-plugin-offline-v8/0.6.0/309e2f91630374247ca1f8fb98a9cdf70113b503/mapbox-android-plugin-offline-v8-0.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

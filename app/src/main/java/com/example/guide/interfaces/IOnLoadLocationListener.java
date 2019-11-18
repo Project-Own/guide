@@ -1,6 +1,6 @@
 package com.example.guide.interfaces;
 
-import com.example.guide.Modal.Geofence.MyLatLng;
+import com.example.guide.Model.Geofence.MyLatLng;
 
 import java.util.List;
 

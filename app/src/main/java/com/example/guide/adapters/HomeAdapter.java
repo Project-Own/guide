@@ -1,32 +1,24 @@
 package com.example.guide.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.guide.Modal.Home;
+import com.example.guide.Model.Home;
 import com.example.guide.R;
-import com.example.guide.activities.FoodActivity;
-import com.example.guide.activities.ForexActivity;
-import com.example.guide.activities.MapsActivity;
-import com.example.guide.activities.PlacesActivity;
-import com.example.guide.activities.SimpleOfflineMapActivity;
-import com.example.guide.activities.TranslationActivity;
-import com.example.guide.activities.WeatherActivity;
 import com.example.guide.lib.SpringAnimationType;
 import com.example.guide.lib.SpringyAnimator;
 
@@ -35,12 +27,16 @@ import java.util.List;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolder> {
     private List<Home> homeList;
     private Context context;
-    private Class aClass;
-
+    private int aClass;
+    private NavController navController;
     public HomeAdapter(List<Home> homeList, Context context) {
         this.context = context;
         this.homeList = homeList;
-
+    }
+    public HomeAdapter(List<Home> homeList, Context context, NavController navController) {
+        this.context = context;
+        this.homeList = homeList;
+        this.navController = navController;
     }
 
 
@@ -75,41 +71,39 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                 })
         ;
 
-        holder.button.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 40, 7, 0.8f, 1);
 
-                scaleY.startSpring(holder.button);
-
-                return false;
-            }
-        });
         holder.button.setOnClickListener(v -> {
+
+            final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 40, 7, 0.8f, 1);
+
+            scaleY.startSpring(holder.button);
 
 
             int viewNo = position;
             switch (viewNo) {
                 case 0:
-                    aClass = MapsActivity.class;
+                    aClass = R.id.action_nav_home_to_simpleOfflineMapActivity;
                     break;
                 case 1:
-                    aClass = WeatherActivity.class;
+                    aClass = R.id.action_nav_home_to_nav_weather;
                     break;
                 case 2:
-                    aClass = PlacesActivity.class;
+                    aClass = R.id.action_nav_home_to_nav_place;
                     break;
                 case 3:
-                    aClass = FoodActivity.class;
+                    aClass = R.id.action_nav_home_to_nav_food;
                     break;
                 case 4:
-                    aClass = SimpleOfflineMapActivity.class;
+                    aClass = R.id.action_nav_home_to_nav_calendar;
                     break;
                 case 5:
-                    aClass = ForexActivity.class;
+                    aClass = R.id.action_nav_home_to_nav_currency;
                     break;
                 case 6:
-                    aClass = TranslationActivity.class;
+                    aClass = R.id.action_nav_home_to_nav_translator;
+                    break;
+                case 7:
+                    aClass = R.id.action_nav_home_to_nav_gallery;
                     break;
 
                 default:
@@ -119,10 +113,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent = new Intent(context, aClass);
-                    context.startActivity(intent);
+                    navController.navigate(aClass);
                 }
-            }, 200);
+            }, 100);
         });
 
 

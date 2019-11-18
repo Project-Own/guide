@@ -2,7 +2,7 @@ package com.example.guide;
 
 import android.content.Context;
 
-import com.example.guide.Modal.MarkerItem;
+import com.example.guide.Model.MarkerItem;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.clustering.ClusterManager;

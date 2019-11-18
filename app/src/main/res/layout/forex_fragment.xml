@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.guide.ui.forex.ForexViewModel" />
+    </data>
+
+
+    <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/forexLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient"
+        android:orientation="vertical"
+        tools:context=".activities.MainActivity">
+
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="25dp"
+            android:background="@drawable/title_background"
+            android:padding="10dp"
+            android:text="Currency"
+            android:textColor="@color/primaryText"
+            android:textSize="@dimen/title" />
+
+        <EditText
+            android:id="@+id/Edit"
+            android:layout_margin="20dp"
+
+            android:onTextChanged="@{viewModel::onCurrencyTextChanged}"
+
+            android:background="@drawable/rounded_corner_rectangle"
+            android:imeOptions="actionDone"
+            android:inputType="textImeMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="Country Name"
+            android:hint="Enter country Name"
+
+            android:text="@={viewModel.countryNameSearch}"
+            android:padding="12dp" />
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:refreshing="@{viewModel.isBusy}"
+            app:onRefreshListener="@{() -> viewModel.onRefresh()}"
+
+            >
+
+            <FrameLayout
+                android:id="@+id/forexFrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:animateLayoutChanges="true"
+
+                >
+                <!--    <ProgressBar-->
+                <!--        android:id="@+id/forexProgressBar"-->
+                <!--        android:layout_width="wrap_content"-->
+                <!--        android:layout_height="wrap_content" />-->
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/forexRecyclerView"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/rectangle" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.errorText}"
+
+                    />
+            </FrameLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/conversionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/calendar"
+        android:onClick="@{()-> viewModel.onFabClicked()}"
+
+        />
+
+    <LinearLayout
+        android:id="@+id/converterView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="@{viewModel.isClicked ? View.VISIBLE : View.GONE}"
+        android:background="@color/transparentwhite"
+
+        >
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:visibility="@{viewModel.busy?View.VISIBLE:View.GONE}" />
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/convertResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.convertedValue}"
+                    android:textColor="@color/secondaryText" />
+
+                <EditText
+                    android:id="@+id/convertNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Number"
+                    android:text="@={viewModel.convertNumber}"
+                    android:onTextChanged="@{viewModel::onConversionTextChanged}"
+
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spinnerForexFrom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:spinnerMode="dropdown"
+
+                        android:onItemSelected="@{(parent,view,pos,id)->viewModel.spinnerForexFromSelected(parent,view,pos,id)}"
+                        />
+
+                    <Spinner
+                        android:id="@+id/spinnerForexTo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:spinnerMode="dropdown"
+                        android:onItemSelected="@{(parent,view,pos,id)->viewModel.spinnerForexToSelected(parent,view,pos,id)}"
+                        />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/convertButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()-> viewModel.onConvesionClicked()}"
+                    />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+        <ImageButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_black_24dp"
+            android:onClick="@{() -> viewModel.closeOnClick()}"
+            android:visibility="@{viewModel.isClicked ? View.VISIBLE : View.GONE}"
+
+            />
+</FrameLayout>
+</layout>

@@ -13,9 +13,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.guide.Modal.Places;
+import com.example.guide.Model.Places;
 import com.example.guide.R;
-import com.example.guide.activities.GalleryTagsListInterface;
+import com.example.guide.interfaces.GalleryTagsListInterface;
 import com.example.guide.lib.SpringAnimationType;
 import com.example.guide.lib.SpringyAnimator;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
@@ -29,10 +29,10 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
     private SpringyAdapterAnimator mAnimator;
     private GalleryTagsListInterface galleryTagsListInterface;
 
-    public GalleryAdapter(List<Places> placesList, RecyclerView recyclerView, Context context, AppCompatActivity activity, GalleryTagsListInterface galleryTagsListInterface) {
+    public GalleryAdapter(List<Places> placesList, RecyclerView recyclerView, Context context, GalleryTagsListInterface galleryTagsListInterface) {
         this.placesList = placesList;
         this.context = context;
-        this.activity = activity;
+
         this.galleryTagsListInterface = galleryTagsListInterface;
 //        mAnimator = new SpringyAdapterAnimator(recyclerView);
 //        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SCALE);

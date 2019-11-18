@@ -41,5 +41,6 @@
     <string name="language_not_supported">This language speech is currently not supported</string>
     <string name="select_matching_text">Select Matching Text</string>
     <string name="language_pack_missing">This language speech pack needs to be installed</string>
+    <string name="nav_bar_is_selected">false</string>
 
 </resources>

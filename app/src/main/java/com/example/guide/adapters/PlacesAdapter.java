@@ -1,28 +1,25 @@
 package com.example.guide.adapters;
 
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.util.Pair;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.guide.Modal.Places;
+import com.example.guide.Model.Places;
 import com.example.guide.R;
-import com.example.guide.activities.PlacesDetail;
 import com.example.guide.lib.SpringAnimationType;
 import com.example.guide.lib.SpringyAnimator;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
@@ -31,6 +28,7 @@ import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
 import java.util.List;
 
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesViewHolder> {
+    private NavController navController;
     private List<Places> placesList;
     private Context context;
     private AppCompatActivity activity;
@@ -40,6 +38,21 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         this.placesList = placesList;
         this.context = context;
         this.activity = activity;
+        mAnimator = new SpringyAdapterAnimator(recyclerView);
+        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_BOTTOM);
+        mAnimator.addConfig(85, 15);
+    }
+    public PlacesAdapter(List<Places> placesList, RecyclerView recyclerView, Context context) {
+        this.placesList = placesList;
+        this.context = context;
+        mAnimator = new SpringyAdapterAnimator(recyclerView);
+        mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_BOTTOM);
+        mAnimator.addConfig(85, 15);
+    }
+    public PlacesAdapter(List<Places> placesList, RecyclerView recyclerView, Context context, NavController navController) {
+        this.placesList = placesList;
+        this.context = context;
+        this.navController = navController;
         mAnimator = new SpringyAdapterAnimator(recyclerView);
         mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_BOTTOM);
         mAnimator.addConfig(85, 15);
@@ -74,13 +87,13 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                 .into(holder.imageView);
         holder.bind(placesList.get(position));
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onTouch(View v, MotionEvent event) {
                 final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 85, 15, 0.8f, 1);
 
                 scaleY.startSpring(holder.cardView);
-
+                return false;
             }
         });
 
@@ -132,26 +145,14 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                     @Override
                     public void run() {
 
-                        Intent myanim = new Intent(context, PlacesDetail.class);
-                        myanim.putExtra("description", places.getDescription());
-                        myanim.putExtra("image", places.getImage());
-                        myanim.putExtra("name", places.getName());
-                        try {
 
-                            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, Pair.create(cardView, "image_this"), Pair.create(description, "content_this"));
-
-
-                            context.startActivity(myanim, options.toBundle());
-
-
-                            Toast.makeText(itemView.getContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
-                        } catch (Error e) {
-
-                            Log.i("TransitionAdapterPlaces", e.getMessage());
-                            context.startActivity(myanim);
-                        }
+                        final Bundle bundle = new Bundle();
+                        bundle.putString("name", places.getName());
+                        bundle.putString("description", places.getDescription());
+                        bundle.putString("image", places.getImage());
+                        navController.navigate(R.id.action_nav_place_to_placeDetailFragment3, bundle);
                     }
-                }, 200);
+                }, 100);
 
             });
         }
