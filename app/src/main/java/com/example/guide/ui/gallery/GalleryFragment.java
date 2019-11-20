@@ -38,7 +38,7 @@ public class GalleryFragment extends Fragment {
     public static GalleryFragment newInstance() {
         return new GalleryFragment();
     }
-
+    private int spanCount = 2;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class GalleryFragment extends Fragment {
         pager = v.findViewById(R.id.horizontal_cycle);
 
         recyclerView = v.findViewById(R.id.places_recyclerView);
-        StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(3, LinearLayoutManager.VERTICAL);
+        StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(spanCount, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setHasFixedSize(true);
         return v;
@@ -96,10 +96,13 @@ public class GalleryFragment extends Fragment {
 
         super.onConfigurationChanged(newConfig);
         if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
-
+            spanCount = 3;
         }else{
-
+            spanCount = 2;
         }
+        StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(spanCount, LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(mLayoutManager);
+
     }
     @Override
     public void onDestroy() {

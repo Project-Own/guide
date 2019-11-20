@@ -23,9 +23,13 @@
             android:text="Gallery"
             android:textSize="@dimen/title" />
 
-        <RelativeLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+        <LinearLayout
+        android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager
                 android:id="@+id/horizontal_cycle"
@@ -42,14 +46,17 @@
                 app:icvp_scroll_duration="250" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:padding="16dp"
                 android:layout_alignBottom="@+id/horizontal_cycle"
                 android:id="@+id/places_recyclerView"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="bottom" />
-        </RelativeLayout>
+        </LinearLayout>
+        </ScrollView>
     </LinearLayout>
+
 
 
 </FrameLayout>

@@ -379,8 +379,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-480" />
-                            <option name="y" value="1590" />
+                            <option name="x" value="-519" />
+                            <option name="y" value="1578" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -433,8 +433,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="14" />
-                            <option name="y" value="376" />
+                            <option name="x" value="47" />
+                            <option name="y" value="693" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -500,6 +500,11 @@
                               </value>
                             </entry>
                             <entry key="action_nav_home_to_nav_weather">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_nav_home_to_placeDetailFragment3">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -612,6 +617,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="reviewFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-740" />
+                            <option name="y" value="1590" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

@@ -181,7 +181,7 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
 
 
 
-        t1 = new TextToSpeech(getContext(), this, "com.google.android.tts");
+         t1 = new TextToSpeech(getContext(), this, "com.google.android.tts");
         //        Set<String> a=new HashSet<>();
         //        a.add("female");//here you can give male if you want to select male voice.
         //        Voice v=new Voice("en-us-x-sfg#female_2-local",new Locale("en","UK"),400,200,true,a);
@@ -241,9 +241,9 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
                 if (contentTextFullscreen) {
                     motionLayout.transitionToStart();
                 } else {
-                    if(t1 != null){
-                        t1.shutdown();
-                    }
+
+                    t1.shutdown();
+
 
                     Navigation.findNavController(getActivity(),R.id.my_nav_host_fragment).navigateUp();
 

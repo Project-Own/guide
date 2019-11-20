@@ -68,6 +68,9 @@
             app:launchSingleTop="true"
             app:popUpTo="@+id/nav_home"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nav_home_to_placeDetailFragment3"
+            app:destination="@id/placeDetailFragment3" />
     </fragment>
 
     <fragment
@@ -197,5 +200,10 @@
         android:name="com.example.guide.ui.map.MapFragment"
         android:label="map_fragment"
         tools:layout="@layout/map_fragment" />
+    <fragment
+        android:id="@+id/nav_review"
+        android:name="com.example.guide.ui.review.ReviewFragment"
+        android:label="review_fragment"
+        tools:layout="@layout/review_fragment" />
 
 </navigation>

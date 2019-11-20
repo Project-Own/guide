@@ -3,7 +3,6 @@ package com.example.guide.ui.viewpager;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -55,7 +54,7 @@ public class ViewPagerFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tabs);
 
 
-        new doInBackground().execute();
+        setupViewPager();
         return view;
        }
 
@@ -68,33 +67,19 @@ public class ViewPagerFragment extends Fragment {
         // TODO: Use the ViewModel
     }
 
-    public class doInBackground extends AsyncTask<Void, Integer, Float>{
 
-        @Override
-        protected Float doInBackground(Void... voids) {
-            FragmentManager fm = getChildFragmentManager();
-            Fragment fragment;
-            adapter = new SelectionPagerAdapter(getChildFragmentManager());
-            fragment = new HomeFragment();
-            adapter.addFragment(fragment);
-            fragment = new ContactFragment();
-            adapter.addFragment(fragment);
-            fragment = new RecommendationFragment();
-            adapter.addFragment(fragment);
-            fragment = new InfoFragment();
-            adapter.addFragment(fragment);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Float aFloat) {
-            setupViewPager();
-            super.onPostExecute(aFloat);
-
-        }
-    }
     private void setupViewPager(){
-
+        FragmentManager fm = getChildFragmentManager();
+        Fragment fragment;
+        adapter = new SelectionPagerAdapter(getChildFragmentManager());
+        fragment = new HomeFragment();
+        adapter.addFragment(fragment);
+        fragment = new ContactFragment();
+        adapter.addFragment(fragment);
+        fragment = new RecommendationFragment();
+        adapter.addFragment(fragment);
+        fragment = new InfoFragment();
+        adapter.addFragment(fragment);
         // adapter for viewPager
         viewPager.setAdapter(adapter);
 
@@ -116,9 +101,9 @@ public class ViewPagerFragment extends Fragment {
         // Set initial color of icons
         ColorStateList colors;
         if (Build.VERSION.SDK_INT >= 23) {
-            colors = getActivity().getResources().getColorStateList(R.color.tab_icon, getActivity().getTheme());
+            colors = getResources().getColorStateList(R.color.tab_icon, getActivity().getTheme());
         } else {
-            colors = getActivity().getResources().getColorStateList(R.color.tab_icon);
+            colors = getResources().getColorStateList(R.color.tab_icon);
         }
 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {

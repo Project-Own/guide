@@ -1,6 +1,7 @@
 package com.example.guide.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -26,14 +28,15 @@ public class RecomendationAdapter extends RecyclerView.Adapter<RecomendationAdap
     private Context context;
     private SpringyAdapterAnimator mAnimator;
     private RecyclerView recyclerView;
+    private NavController navController;
 
-    public RecomendationAdapter(List<Recommendation> recomendation, Context context, RecyclerView recyclerView) {
+    public RecomendationAdapter(List<Recommendation> recomendation, Context context, RecyclerView recyclerView, NavController navController) {
         this.context=context;
         this.recomendation= recomendation;
         mAnimator = new SpringyAdapterAnimator(recyclerView);
         mAnimator.setSpringAnimationType(SpringyAdapterAnimationType.SLIDE_FROM_RIGHT);
         mAnimator.addConfig(85, 15);
-
+        this.navController = navController;
     }
 
 
@@ -82,6 +85,18 @@ public class RecomendationAdapter extends RecyclerView.Adapter<RecomendationAdap
                 scaleY.startSpring(holder.itemView);
 
                 return false;
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+
+                bundle.putString("name", recomendation.get(position).getName());
+                bundle.putString("description", recomendation.get(position).getDescription());
+                bundle.putString("image", recomendation.get(position).getPhoto());
+                navController.navigate(R.id.action_nav_home_to_placeDetailFragment3, bundle);
             }
         });
 

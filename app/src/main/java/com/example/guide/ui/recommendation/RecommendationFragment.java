@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,11 +63,12 @@ public class RecommendationFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        NavController navController = Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment);
         mViewModel = ViewModelProviders.of(this).get(RecommendationViewModel.class);
         mViewModel.loadHotel().observe(this, new Observer<List<Recommendation>>() {
             @Override
             public void onChanged(List<Recommendation> recommendations) {
-                RecomendationAdapter adapter = new RecomendationAdapter(recommendations, getContext(), hotelRecyclerView);
+                RecomendationAdapter adapter = new RecomendationAdapter(recommendations, getContext(), hotelRecyclerView, navController);
                 hotelRecyclerView.setAdapter(adapter);
 
                 hotelRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -132,7 +135,7 @@ public class RecommendationFragment extends Fragment {
         mViewModel.loadRecommendedPlaces().observe(this, new Observer<List<Recommendation>>() {
             @Override
             public void onChanged(List<Recommendation> recommendations) {
-                RecomendationAdapter adapter = new RecomendationAdapter(recommendations, getContext(), placesRecyclerView);
+                RecomendationAdapter adapter = new RecomendationAdapter(recommendations, getContext(), placesRecyclerView, navController);
                 placesRecyclerView.setAdapter(adapter);
                 placesRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                     @Override

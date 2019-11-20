@@ -108,6 +108,11 @@
                     android:text="@{viewModel.infoData.ticketInfo}" />
 
 
+                <Button
+                    android:id="@+id/ticketMap"
+                    android:text="View Ticket Counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
                 <View
 
                     android:layout_width="match_parent"

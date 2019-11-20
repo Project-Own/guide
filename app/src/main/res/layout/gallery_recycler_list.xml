@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/first"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:clickable="true"
@@ -21,21 +21,18 @@
         app:cardCornerRadius="8dp"
         tools:cardCornerRadius="8dp">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
             <ImageView
                 android:id="@+id/places_recycler_list_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
+                android:maxHeight="200dp"
                 android:contentDescription="Image"
                 android:scaleType="centerCrop"
                 android:transitionName="image_this"
                 app:srcCompat="@drawable/logo" />
 
-        </FrameLayout>
+
     </androidx.cardview.widget.CardView>
 
 
