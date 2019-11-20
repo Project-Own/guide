@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.guide.ui.forex.ForexViewModel" />
+    </data>
+
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/convertResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.convertedValue}"
+            android:textColor="@color/secondaryText" />
+
+        <EditText
+            android:id="@+id/convertNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Number"
+            android:text="@={viewModel.convertNumber}"
+            android:onTextChanged="@{viewModel::onConversionTextChanged}"
+
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spinnerForexFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"
+
+                android:onItemSelected="@{(parent,view,pos,id)->viewModel.spinnerForexFromSelected(parent,view,pos,id)}"
+                />
+
+            <Spinner
+                android:id="@+id/spinnerForexTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"
+                android:onItemSelected="@{(parent,view,pos,id)->viewModel.spinnerForexToSelected(parent,view,pos,id)}"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/convertButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()-> viewModel.onConvesionClicked()}"
+            />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+</layout>

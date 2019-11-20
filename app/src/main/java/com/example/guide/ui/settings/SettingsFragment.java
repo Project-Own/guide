@@ -1,4 +1,4 @@
-package com.example.guide.ui.viewpagerContainer;
+package com.example.guide.ui.settings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,24 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.guide.R;
 
-public class ViewpagerContainerFragment extends Fragment {
+public class SettingsFragment extends Fragment {
 
-    private ViewpagerContainerViewModel mViewModel;
+    private SettingsViewModel mViewModel;
 
-    public static ViewpagerContainerFragment newInstance() {
-        return new ViewpagerContainerFragment();
+    public static SettingsFragment newInstance() {
+        return new SettingsFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.viewpager_container_fragment, container, false);
+        return inflater.inflate(R.layout.settings_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(ViewpagerContainerViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(SettingsViewModel.class);
         // TODO: Use the ViewModel
     }
 

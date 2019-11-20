@@ -1,15 +1,13 @@
-package com.example.guide.ui.splash;
+package com.example.guide.ui.feedback;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
-public class SplashViewModel extends AndroidViewModel {
-    public SplashViewModel(@NonNull Application application) {
+public class FeedbackViewModel extends AndroidViewModel  {
+    public FeedbackViewModel(@NonNull Application application) {
         super(application);
     }
     // TODO: Implement the ViewModel
-
-
 }

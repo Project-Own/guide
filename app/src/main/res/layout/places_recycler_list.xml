@@ -19,7 +19,7 @@
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:transitionName="tq1"
+        android:transitionName="image_this"
         app:cardCornerRadius="25dp"
         tools:cardCornerRadius="25dp">
 
@@ -32,7 +32,6 @@
             android:layout_height="match_parent"
             android:contentDescription="Image"
             android:scaleType="centerCrop"
-            android:transitionName="image_this"
             app:srcCompat="@drawable/logo" />
 
         <TextView

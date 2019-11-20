@@ -1,5 +1,6 @@
 package com.example.guide.ui.gallery;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,11 +8,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.guide.Model.Places;
 import com.example.guide.R;
@@ -30,7 +34,7 @@ public class GalleryFragment extends Fragment {
     private GalleryTagsListInterface galleryTagsListInterface;
     private HorizontalInfiniteCycleViewPager pager;
     private int listPosition;
-
+    private AlertDialog alertDialog;
     public static GalleryFragment newInstance() {
         return new GalleryFragment();
     }
@@ -43,7 +47,7 @@ public class GalleryFragment extends Fragment {
         pager = v.findViewById(R.id.horizontal_cycle);
 
         recyclerView = v.findViewById(R.id.places_recyclerView);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(3, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setHasFixedSize(true);
         return v;
@@ -59,22 +63,46 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onTagClicked(String tagName, String description, int position) {
 
-                listPosition = position;
-                pager.setCurrentItem(position);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("image", tagName);
+                Navigation.findNavController(getActivity(),R.id.my_nav_host_fragment).navigate(R.id.action_nav_gallery_to_fullscreenImageFragment, bundle);
+//                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
+//                View mView = getLayoutInflater().inflate(R.layout.dialog_custom_layout, null);
+//                PhotoView photoView = mView.findViewById(R.id.imageView);
+//                photoView.setImageResource(R.drawable.bodygaurd);
+//                mBuilder.setView(mView);
+//               alertDialog = mBuilder.create();
+//                alertDialog.show();
+
             }
         };
+
 
         mViewModel.getPlacesList().observe(this, new Observer<List<Places>>() {
             @Override
             public void onChanged(List<Places> places) {
                 adapter = new GalleryAdapter(places, recyclerView, getContext(),  galleryTagsListInterface);
                 recyclerView.setAdapter(adapter);
-                InfiniteScrollAdapter infiAdapter = new InfiniteScrollAdapter(places, getContext());
+                InfiniteScrollAdapter infiAdapter = new InfiniteScrollAdapter(places, getContext(), galleryTagsListInterface);
                 pager.setAdapter(infiAdapter);
 
             }
         });
 
     }
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
 
+        super.onConfigurationChanged(newConfig);
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+
+        }else{
+
+        }
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }

@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -55,6 +56,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                 .load(context.getResources()
                         .getIdentifier(homeList.get(position).getImage(), "drawable", context.getPackageName()))
                 .fitCenter()
+                .override(100, 100)
                 .into(new CustomTarget<Drawable>() {
                     @Override
                     public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
@@ -71,52 +73,65 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                 })
         ;
 
-
-        holder.button.setOnClickListener(v -> {
-
-            final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 40, 7, 0.8f, 1);
-
-            scaleY.startSpring(holder.button);
+        holder.button.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
 
 
-            int viewNo = position;
-            switch (viewNo) {
-                case 0:
-                    aClass = R.id.action_nav_home_to_simpleOfflineMapActivity;
-                    break;
-                case 1:
-                    aClass = R.id.action_nav_home_to_nav_weather;
-                    break;
-                case 2:
-                    aClass = R.id.action_nav_home_to_nav_place;
-                    break;
-                case 3:
-                    aClass = R.id.action_nav_home_to_nav_food;
-                    break;
-                case 4:
-                    aClass = R.id.action_nav_home_to_nav_calendar;
-                    break;
-                case 5:
-                    aClass = R.id.action_nav_home_to_nav_currency;
-                    break;
-                case 6:
-                    aClass = R.id.action_nav_home_to_nav_translator;
-                    break;
-                case 7:
-                    aClass = R.id.action_nav_home_to_nav_gallery;
-                    break;
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 85, 15, 0.8f, 1);
 
-                default:
-                    throw new IllegalStateException("Unexpected value: " + viewNo);
+                scaleY.startSpring(holder.button);
+
+
+
+                return false;
             }
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    navController.navigate(aClass);
-                }
-            }, 100);
+
         });
+
+        holder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (position) {
+                    case 0:
+                        aClass = R.id.action_nav_home_to_mapFragment;
+                        break;
+                    case 1:
+                        aClass = R.id.action_nav_home_to_nav_weather;
+                        break;
+                    case 2:
+                        aClass = R.id.action_nav_home_to_nav_place;
+                        break;
+                    case 3:
+                        aClass = R.id.action_nav_home_to_nav_food;
+                        break;
+                    case 4:
+                        aClass = R.id.action_nav_home_to_nav_calendar;
+                        break;
+                    case 5:
+                        aClass = R.id.action_nav_home_to_nav_currency;
+                        break;
+                    case 6:
+                        aClass = R.id.action_nav_home_to_nav_translator;
+                        break;
+                    case 7:
+                        aClass = R.id.action_nav_home_to_nav_gallery;
+                        break;
+
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + position);
+                }
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        navController.navigate(aClass);
+                    }
+                }, 10);
+            }
+        });
+
+
 
 
     }

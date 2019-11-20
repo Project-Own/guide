@@ -1,9 +1,12 @@
 package com.example.guide.ui.viewpager;
 
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,8 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.guide.R;
@@ -30,6 +35,8 @@ public class ViewPagerFragment extends Fragment {
     private ViewPagerViewModel mViewModel;
     ViewPager viewPager;
     TabLayout tabLayout;
+    SelectionPagerAdapter adapter;
+    NavController mNavController;
     public static ViewPagerFragment newInstance() {
         return new ViewPagerFragment();
     }
@@ -37,6 +44,8 @@ public class ViewPagerFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        mNavController = Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment);
+        jump();
         View view = inflater.inflate(R.layout.view_pager_fragment, container, false);
 //        BottomNavigationView navView = view.findViewById(R.id.navigation);
 //        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -46,35 +55,57 @@ public class ViewPagerFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tabs);
 
 
-
+        new doInBackground().execute();
         return view;
        }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         mViewModel = ViewModelProviders.of(this).get(ViewPagerViewModel.class);
 
-        setupViewPager();
         // TODO: Use the ViewModel
     }
+
+    public class doInBackground extends AsyncTask<Void, Integer, Float>{
+
+        @Override
+        protected Float doInBackground(Void... voids) {
+            FragmentManager fm = getChildFragmentManager();
+            Fragment fragment;
+            adapter = new SelectionPagerAdapter(getChildFragmentManager());
+            fragment = new HomeFragment();
+            adapter.addFragment(fragment);
+            fragment = new ContactFragment();
+            adapter.addFragment(fragment);
+            fragment = new RecommendationFragment();
+            adapter.addFragment(fragment);
+            fragment = new InfoFragment();
+            adapter.addFragment(fragment);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Float aFloat) {
+            setupViewPager();
+            super.onPostExecute(aFloat);
+
+        }
+    }
     private void setupViewPager(){
+
         // adapter for viewPager
-        FragmentManager fm = getChildFragmentManager();
-        Fragment fragment;
-        SelectionPagerAdapter adapter = new SelectionPagerAdapter(getChildFragmentManager());
-        fragment = new HomeFragment();
-        adapter.addFragment(fragment);
-        fragment = new ContactFragment();
-        adapter.addFragment(fragment);
-        fragment = new RecommendationFragment();
-        adapter.addFragment(fragment);
-        fragment = new InfoFragment();
-        adapter.addFragment(fragment);
         viewPager.setAdapter(adapter);
 
+
         adapter.notifyDataSetChanged();
+
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_black_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_phone_black_24dp);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_star_black_24dp);
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_info_outline_black_24dp);
 
         //  tabLayout.setTabRippleColor(myColorStateList);
         tabLayout.setBackgroundResource(R.color.colorPrimary);
@@ -82,16 +113,12 @@ public class ViewPagerFragment extends Fragment {
         // For color text
         //tabLayout.setTabTextColors(getResources().getColor(R.color.black),getResources().getColor(R.color.white));
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_black_24dp);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_phone_black_24dp);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_star_black_24dp);
-        tabLayout.getTabAt(3).setIcon(R.drawable.ic_info_outline_black_24dp);
         // Set initial color of icons
         ColorStateList colors;
         if (Build.VERSION.SDK_INT >= 23) {
-            colors = getResources().getColorStateList(R.color.tab_icon, getActivity().getTheme());
+            colors = getActivity().getResources().getColorStateList(R.color.tab_icon, getActivity().getTheme());
         } else {
-            colors = getResources().getColorStateList(R.color.tab_icon);
+            colors = getActivity().getResources().getColorStateList(R.color.tab_icon);
         }
 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
@@ -127,4 +154,13 @@ public class ViewPagerFragment extends Fragment {
     }
 
 
+    private void jump() {
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean previouslyStarted = prefs.getBoolean(getString(R.string.pref_previously_started), false);
+        if (!previouslyStarted) {
+            mNavController.navigate(R.id.action_nav_home_to_landingFragment);
+
+        }
+    }
 }

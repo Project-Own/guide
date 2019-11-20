@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class ForexViewModel extends AndroidViewModel {
 
@@ -98,9 +99,6 @@ public class ForexViewModel extends AndroidViewModel {
         filter(s.toString());
     }
 
-    public void closeOnClick(){
-        isClicked.setValue(Boolean.FALSE);
-    }
     public void onConversionTextChanged(CharSequence s, int start, int before, int count){
         try {
             convertedValue.setValue("" + (Double.parseDouble(s.toString()) * toRatio / fromRatio));
@@ -119,6 +117,7 @@ public class ForexViewModel extends AndroidViewModel {
 
 
     public void onFabClicked(){
+
         isClicked.setValue(Boolean.TRUE); //View.VISIBLE
     }
 
@@ -484,7 +483,13 @@ public class ForexViewModel extends AndroidViewModel {
             String[] strings = new String[countryNameMap.size()];
             listCurrecyName = new String[countryNameMap.size()];
             int i = 0;
-            for (Map.Entry<String, String> entry : countryNameMap.entrySet()) {
+
+            // TreeMap to store values of HashMap
+            TreeMap<String, String> sorted = new TreeMap<>();
+
+            // Copy all data from hashMap into TreeMap
+            sorted.putAll(countryNameMap);
+            for (Map.Entry<String, String> entry : sorted.entrySet()) {
                 strings[i] = entry.getValue();
                 listCurrecyName[i] = entry.getKey();
                 i++;

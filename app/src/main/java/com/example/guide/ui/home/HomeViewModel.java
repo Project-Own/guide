@@ -36,8 +36,8 @@ public class HomeViewModel extends AndroidViewModel {
         home.add(new Home("Food", "okmyanws1"));
         home.add(new Home("Calendar", "calendarws1"));
         home.add(new Home("Currency", "currencyws2"));
-        home.add(new Home("Currency", "currencyws2"));
-        home.add(new Home("Currency", "currencyws2"));
+        home.add(new Home("Translator", "translatorws"));
+        home.add(new Home("Gallery", "galleryws"));
 
         homeList.setValue(home);
 

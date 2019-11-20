@@ -13,12 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -26,6 +28,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.guide.Model.ForexModel;
 import com.example.guide.R;
 import com.example.guide.adapters.ForexAdapter;
+import com.example.guide.databinding.DialogCustomLayoutBinding;
 import com.example.guide.databinding.ForexFragmentBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -44,6 +47,10 @@ public class ForexFragment extends Fragment {
     private LinearLayout convertLinearLayout;
     private EditText convertEditText;
     private ForexFragmentBinding binding;
+    private FloatingActionButton fab;
+    private DialogCustomLayoutBinding customLayoutBinding;
+    private View dialogView;
+
     public static ForexFragment newInstance() {
         return new ForexFragment();
     }
@@ -54,7 +61,10 @@ public class ForexFragment extends Fragment {
 
         binding = DataBindingUtil.bind(inflater.inflate(R.layout.forex_fragment, container, false));
 
-      View view = binding.getRoot();
+        dialogView = getLayoutInflater().inflate(R.layout.dialog_custom_layout, null);
+        customLayoutBinding = DataBindingUtil.bind(dialogView);
+
+        View view = binding.getRoot();
         forexFrameLayout = view.findViewById(R.id.forexFrameLayout);
         recyclerView = view.findViewById(R.id.forexRecyclerView);
         //   forexProgressBar = findViewById(R.id.forexProgressBar);
@@ -74,7 +84,7 @@ public class ForexFragment extends Fragment {
         convertButton = view.findViewById(R.id.convertButton);
         textView = view.findViewById(R.id.convertResult);
         convertEditText = view.findViewById(R.id.convertNumber);
-
+        fab = view.findViewById(R.id.conversionButton);
         return view;
     }
 
@@ -85,10 +95,27 @@ public class ForexFragment extends Fragment {
 
         binding.setViewModel(mViewModel);
         binding.setLifecycleOwner(this);
+        customLayoutBinding.setViewModel(mViewModel);
+        customLayoutBinding.setLifecycleOwner(this);
 
         ForexModel forexModels = new ForexModel();
         ForexAdapter forexAdapter = new ForexAdapter(forexModels, recyclerView, getContext());
         recyclerView.setAdapter(forexAdapter);
+
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                if(mViewModel.isClicked.getValue()) {
+                    mViewModel.isClicked.setValue(false);
+                }else {
+                    Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment).navigateUp();
+                }
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+
 
         mViewModel.loadForexData().observe(this, new Observer<ForexModel>() {
             @Override
@@ -110,6 +137,7 @@ public class ForexFragment extends Fragment {
 
             }
         });
+
 
 
 

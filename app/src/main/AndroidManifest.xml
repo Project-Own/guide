@@ -36,7 +36,9 @@
 
         <activity
             android:name=".activities.MainActivity"
-            android:label="Guide">
+            android:label="Guide"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

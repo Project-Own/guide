@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/splashFragment2">
+    app:startDestination="@+id/nav_home">
 
     <fragment
         android:id="@+id/nav_home"
@@ -12,37 +12,62 @@
         tools:layout="@layout/view_pager_fragment" >
         <action
             android:id="@+id/action_nav_home_to_nav_weather"
-            app:destination="@id/nav_weather" />
+            app:destination="@id/nav_weather"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_nav_home_to_nav_currency"
-            app:destination="@id/nav_currency" />
+            app:destination="@id/nav_currency"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_nav_home_to_nav_gallery"
-            app:destination="@id/nav_gallery" />
+            app:destination="@id/nav_gallery"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_nav_home_to_nav_food"
-            app:destination="@id/nav_food" />
+            app:destination="@id/nav_food"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_nav_home_to_nav_place"
-            app:destination="@id/nav_place" />
+            app:destination="@id/nav_place"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_nav_home_to_nav_share"
-            app:destination="@id/nav_share" />
+            app:destination="@id/nav_share"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_nav_home_to_nav_calendar"
-            app:destination="@id/nav_calendar" />
+            app:destination="@id/nav_calendar"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_nav_home_to_nav_map"
-            app:destination="@id/nav_map" />
+            app:destination="@id/nav_map"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_nav_home_to_nav_translator"
-            app:destination="@id/nav_translator" />
+            app:destination="@id/nav_translator"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_nav_home_to_nav_detail"
-            app:destination="@id/nav_detail" />
+            app:destination="@id/nav_detail"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_nav_home_to_simpleOfflineMapActivity"
-            app:destination="@id/simpleOfflineMapActivity" />
+            app:destination="@id/simpleOfflineMapActivity"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_nav_home_to_mapsActivity"
+            app:destination="@id/mapsActivity"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_nav_home_to_mapFragment"
+            app:destination="@id/mapFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_nav_home_to_landingFragment"
+            app:destination="@id/landingFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_home"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -55,7 +80,11 @@
         android:id="@+id/nav_gallery"
         android:name="com.example.guide.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/galerry_fragment" />
+        tools:layout="@layout/galerry_fragment" >
+        <action
+            android:id="@+id/action_nav_gallery_to_fullscreenImageFragment"
+            app:destination="@id/fullscreenImageFragment" />
+    </fragment>
 
 
     <fragment
@@ -95,8 +124,8 @@
         android:label="Food"
         tools:layout="@layout/food_fragment" >
         <action
-            android:id="@+id/action_nav_food_to_foodDetailFragment2"
-            app:destination="@id/foodDetailFragment2" />
+            android:id="@+id/action_nav_food_to_placeDetailFragment3"
+            app:destination="@id/placeDetailFragment3" />
     </fragment>
 
     <fragment
@@ -117,26 +146,6 @@
         android:label="@string/menu_send"
         tools:layout="@layout/about_fragment" />
     <fragment
-        android:id="@+id/splashFragment2"
-        android:name="com.example.guide.ui.splash.SplashFragment"
-        android:label="splash_fragment"
-        tools:layout="@layout/splash_fragment" >
-        <action
-            android:id="@+id/action_splashFragment2_to_nav_home"
-            app:destination="@id/nav_home"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@+id/splashFragment2"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_splashFragment2_to_landingFragment"
-            app:destination="@id/landingFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@id/splashFragment2"
-            app:popUpToInclusive="true" />
-    </fragment>
-    <fragment
         android:id="@+id/landingFragment"
         android:name="com.example.guide.ui.landing.LandingFragment"
         android:label="LandingFragment" >
@@ -145,23 +154,48 @@
             app:destination="@+id/nav_home"
             app:enterAnim="@anim/fadein"
             app:exitAnim="@anim/fadeout"
+            app:launchSingleTop="true"
             app:popUpTo="@id/landingFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/foodDetailFragment2"
-        android:name="com.example.guide.ui.foodDetail.FoodDetailFragment"
-        android:label="food_detail_fragment"
-        tools:layout="@layout/food_detail_fragment" />
-    <fragment
         android:id="@+id/placeDetailFragment3"
         android:name="com.example.guide.ui.placeDetail.PlaceDetailFragment"
         android:label="place_detail_fragment"
-        tools:layout="@layout/place_detail_fragment" />
+        tools:layout="@layout/place_detail_fragment" >
+        <action
+            android:id="@+id/action_placeDetailFragment3_to_fullscreenImageFragment"
+            app:destination="@id/fullscreenImageFragment" />
+    </fragment>
     <activity
         android:id="@+id/simpleOfflineMapActivity"
         android:name="com.example.guide.activities.SimpleOfflineMapActivity"
         android:label="activity_simple_offline"
         tools:layout="@layout/activity_simple_offline" />
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="com.example.guide.activities.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" />
+    <fragment
+        android:id="@+id/nav_feedback"
+        android:name="com.example.guide.ui.feedback.FeedbackFragment"
+        android:label="feedback_fragment"
+        tools:layout="@layout/feedback_fragment" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.guide.ui.settings.SettingsFragment"
+        android:label="settings_fragment"
+        tools:layout="@layout/settings_fragment" />
+    <fragment
+        android:id="@+id/fullscreenImageFragment"
+        android:name="com.example.guide.ui.fullscreenImage.FullscreenImageFragment"
+        android:label="fullscreen_image_fragment"
+        tools:layout="@layout/fullscreen_image_fragment" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.guide.ui.map.MapFragment"
+        android:label="map_fragment"
+        tools:layout="@layout/map_fragment" />
 
 </navigation>

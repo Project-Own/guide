@@ -65,7 +65,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
                 .load(context.getResources()
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
                 .error(R.drawable.nirajan)
-                .override(200, 200)
                 .fitCenter()
                 .into(holder.imageView);
 

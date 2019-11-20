@@ -1,5 +1,6 @@
 package com.example.guide.activities;
 
+import android.Manifest;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.graphics.BitmapFactory;
@@ -15,6 +16,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.guide.R;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineCallback;
 import com.mapbox.android.core.location.LocationEngineProvider;
@@ -108,158 +115,177 @@ public class SimpleOfflineMapActivity extends AppCompatActivity implements Mapbo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Dexter.withActivity(this)
+                .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
 
 // Mapbox access token is configured here. This needs to be called either in your application
 // object or in the same activity which contains the mapview.
-        Mapbox.getInstance(this, getString(R.string.access_token));
+                        Mapbox.getInstance(getBaseContext(), getString(R.string.access_token));
 
 // This contains the MapView in XML and needs to be called after the access token is configured.
-        setContentView(R.layout.activity_simple_offline);
+                        setContentView(R.layout.activity_simple_offline);
 
 
-        mapView = findViewById(R.id.mapView);
-        mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(@NonNull final MapboxMap map) {
-
-
-                map.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
-                    @Override
-                    public void onStyleLoaded(@NonNull final Style style) {
-
-
-                        mapboxMap = map;
-//Enable locattion Plugin
-                        enableLocationComponent(style);
-
-                        addDestinationIconSymbolLayer(style);
-
-                        mapboxMap.addOnMapClickListener(SimpleOfflineMapActivity.this);
-                        button = findViewById(R.id.startButton);
-                        button.setOnClickListener(new View.OnClickListener() {
+                        mapView = findViewById(R.id.mapView);
+                        mapView.onCreate(savedInstanceState);
+                        mapView.getMapAsync(new OnMapReadyCallback() {
                             @Override
-                            public void onClick(View v) {
-                                boolean simulateRoute = true;
-                                NavigationLauncherOptions options = NavigationLauncherOptions.builder()
-                                        .directionsRoute(currentRoute)
-                                        .shouldSimulateRoute(simulateRoute)
-                                        .build();
+                            public void onMapReady(@NonNull final MapboxMap map) {
+
+
+                                map.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
+                                    @Override
+                                    public void onStyleLoaded(@NonNull final Style style) {
+
+
+                                        mapboxMap = map;
+//Enable locattion Plugin
+                                        enableLocationComponent(style);
+
+                                        addDestinationIconSymbolLayer(style);
+
+                                        mapboxMap.addOnMapClickListener(SimpleOfflineMapActivity.this);
+                                        button = findViewById(R.id.startButton);
+                                        button.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                boolean simulateRoute = true;
+                                                NavigationLauncherOptions options = NavigationLauncherOptions.builder()
+                                                        .directionsRoute(currentRoute)
+                                                        .shouldSimulateRoute(simulateRoute)
+                                                        .build();
 // Call this method with Context from within an Activity
-                                NavigationLauncher.startNavigation(SimpleOfflineMapActivity.this, options);
-                            }
-                        });
+                                                NavigationLauncher.startNavigation(SimpleOfflineMapActivity.this, options);
+                                            }
+                                        });
 
 //Set up traffic congestion
-                        TrafficPlugin trafficPlugin = new TrafficPlugin(mapView, map, style);
-                        trafficPlugin.setVisibility(true); // Enable the traffic view
+                                        TrafficPlugin trafficPlugin = new TrafficPlugin(mapView, map, style);
+                                        trafficPlugin.setVisibility(true); // Enable the traffic view
 
-                        //Set up Building Plugin
-                        buildingPlugin = new BuildingPlugin(mapView, map, style);
-                        buildingPlugin.setMinZoomLevel(15f);
-                        buildingPlugin.setVisibility(true);
+                                        //Set up Building Plugin
+                                        buildingPlugin = new BuildingPlugin(mapView, map, style);
+                                        buildingPlugin.setMinZoomLevel(15f);
+                                        buildingPlugin.setVisibility(true);
 // Set up the OfflineManager
-                        offlineManager = OfflineManager.getInstance(SimpleOfflineMapActivity.this);
+                                        offlineManager = OfflineManager.getInstance(SimpleOfflineMapActivity.this);
 
 // Create a bounding box for the offline region
-                        LatLngBounds latLngBounds = new LatLngBounds.Builder()
-                                .include(new LatLng(27.726761, 85.459005)) // Northeast
-                                .include(new LatLng(27.628252, 85.459936)) // Southwest
-                                .include(new LatLng(27.645307, 85.270841))
-                                .include(new LatLng(27.732261, 85.278338))
-                                .build();
+                                        LatLngBounds latLngBounds = new LatLngBounds.Builder()
+                                                .include(new LatLng(27.726761, 85.459005)) // Northeast
+                                                .include(new LatLng(27.628252, 85.459936)) // Southwest
+                                                .include(new LatLng(27.645307, 85.270841))
+                                                .include(new LatLng(27.732261, 85.278338))
+                                                .build();
 
 
 // Define the offline region
-                        final OfflineTilePyramidRegionDefinition definition = new OfflineTilePyramidRegionDefinition(
-                                style.getUri(),
-                                latLngBounds,
-                                10,
-                                20,
-                                SimpleOfflineMapActivity.this.getResources().getDisplayMetrics().density);
+                                        final OfflineTilePyramidRegionDefinition definition = new OfflineTilePyramidRegionDefinition(
+                                                style.getUri(),
+                                                latLngBounds,
+                                                10,
+                                                20,
+                                                SimpleOfflineMapActivity.this.getResources().getDisplayMetrics().density);
 
 // Set the metadata
-                        byte[] metadata;
-                        try {
-                            JSONObject jsonObject = new JSONObject();
-                            jsonObject.put(JSON_FIELD_REGION_NAME, "Bhaktapur");
-                            String json = jsonObject.toString();
-                            metadata = json.getBytes(JSON_CHARSET);
-                        } catch (Exception exception) {
-                            Log.e("", String.format("Failed to encode metadata: %s", exception.getMessage()));
-                            metadata = null;
-                        }
+                                        byte[] metadata;
+                                        try {
+                                            JSONObject jsonObject = new JSONObject();
+                                            jsonObject.put(JSON_FIELD_REGION_NAME, "Bhaktapur");
+                                            String json = jsonObject.toString();
+                                            metadata = json.getBytes(JSON_CHARSET);
+                                        } catch (Exception exception) {
+                                            Log.e("", String.format("Failed to encode metadata: %s", exception.getMessage()));
+                                            metadata = null;
+                                        }
 
 // Create the region asynchronously
-                        if (metadata != null) {
-                            offlineManager.createOfflineRegion(
-                                    definition,
-                                    metadata,
-                                    new OfflineManager.CreateOfflineRegionCallback() {
-                                        @Override
-                                        public void onCreate(OfflineRegion offlineRegion) {
-                                            offlineRegion.setDownloadState(OfflineRegion.STATE_ACTIVE);
+                                        if (metadata != null) {
+                                            offlineManager.createOfflineRegion(
+                                                    definition,
+                                                    metadata,
+                                                    new OfflineManager.CreateOfflineRegionCallback() {
+                                                        @Override
+                                                        public void onCreate(OfflineRegion offlineRegion) {
+                                                            offlineRegion.setDownloadState(OfflineRegion.STATE_ACTIVE);
 
 // Display the download progress bar
-                                            progressBar = findViewById(R.id.progress_bar);
-                                            startProgress();
+                                                            progressBar = findViewById(R.id.progress_bar);
+                                                            startProgress();
 
 // Monitor the download progress using setObserver
-                                            offlineRegion.setObserver(new OfflineRegion.OfflineRegionObserver() {
-                                                @Override
-                                                public void onStatusChanged(OfflineRegionStatus status) {
+                                                            offlineRegion.setObserver(new OfflineRegion.OfflineRegionObserver() {
+                                                                @Override
+                                                                public void onStatusChanged(OfflineRegionStatus status) {
 
 // Calculate the download percentage and update the progress bar
-                                                    double percentage = status.getRequiredResourceCount() >= 0
-                                                            ? (100.0 * status.getCompletedResourceCount() / status.getRequiredResourceCount()) :
-                                                            0.0;
+                                                                    double percentage = status.getRequiredResourceCount() >= 0
+                                                                            ? (100.0 * status.getCompletedResourceCount() / status.getRequiredResourceCount()) :
+                                                                            0.0;
 
-                                                    if (status.isComplete()) {
+                                                                    if (status.isComplete()) {
 // Download complete
-                                                        endProgress(getString(R.string.simple_offline_end_progress_success));
-                                                        // Create new camera position
-                                                        CameraPosition cameraPosition = new CameraPosition.Builder()
-                                                                .target(definition.getBounds().getCenter())
-                                                                .zoom(definition.getMinZoom())
-                                                                .build();
+                                                                        endProgress(getString(R.string.simple_offline_end_progress_success));
+                                                                        // Create new camera position
+                                                                        CameraPosition cameraPosition = new CameraPosition.Builder()
+                                                                                .target(definition.getBounds().getCenter())
+                                                                                .zoom(definition.getMinZoom())
+                                                                                .build();
 
-                                                        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), 2000);
+                                                                        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), 2000);
 
 
 //// Move camera to new position
-                                                        map.setMinZoomPreference(2);
+                                                                        map.setMinZoomPreference(2);
 //                                                        map.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                                                    } else if (status.isRequiredResourceCountPrecise()) {
+                                                                    } else if (status.isRequiredResourceCountPrecise()) {
 // Switch to determinate state
-                                                        setPercentage((int) Math.round(percentage));
-                                                    }
-                                                }
+                                                                        setPercentage((int) Math.round(percentage));
+                                                                    }
+                                                                }
 
-                                                @Override
-                                                public void onError(OfflineRegionError error) {
+                                                                @Override
+                                                                public void onError(OfflineRegionError error) {
 // If an error occurs, print to logcat
-                                                    Log.e("onError reason: %s", error.getReason());
-                                                    Log.e("onError message: %s", error.getMessage());
-                                                }
+                                                                    Log.e("onError reason: %s", error.getReason());
+                                                                    Log.e("onError message: %s", error.getMessage());
+                                                                }
 
-                                                @Override
-                                                public void mapboxTileCountLimitExceeded(long limit) {
+                                                                @Override
+                                                                public void mapboxTileCountLimitExceeded(long limit) {
 // Notify if offline region exceeds maximum tile count
-                                                    Log.e("", String.format("Mapbox tile count limit exceeded: %s", limit));
-                                                }
-                                            });
-                                        }
+                                                                    Log.e("", String.format("Mapbox tile count limit exceeded: %s", limit));
+                                                                }
+                                                            });
+                                                        }
 
-                                        @Override
-                                        public void onError(String error) {
-                                            Log.e("Error: %s", error);
+                                                        @Override
+                                                        public void onError(String error) {
+                                                            Log.e("Error: %s", error);
+                                                        }
+                                                    });
                                         }
-                                    });
-                        }
+                                    }
+                                });
+                            }
+                        });
+
+
                     }
-                });
-            }
-        });
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+                        Toast.makeText(getApplicationContext(), "You must enable permissions", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+
+                    }
+                }).check();
     }
 
     @SuppressWarnings({"MissingPermission"})

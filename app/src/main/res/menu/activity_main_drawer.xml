@@ -39,14 +39,18 @@
 
     <item android:title="Communicate">
         <menu>
+           <item android:id="@+id/nav_settings"
+               android:icon="@drawable/ic_settings_black_24dp"
+               android:title="Settings"
+               />
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_feedback_black_24dp"
+                android:title="Feedback" />
             <item
                 android:id="@+id/nav_detail"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Detail" />
+                android:icon="@drawable/ic_info_outline_black_24dp"
+                android:title="About Us" />
         </menu>
     </item>
 

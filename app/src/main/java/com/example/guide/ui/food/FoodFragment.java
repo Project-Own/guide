@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,7 +27,7 @@ public class FoodFragment extends Fragment {
     private FoodViewModel mViewModel;
     private RecyclerView.LayoutManager mLayoutManager;
     private RecyclerView recyclerView;
-
+    private TextView titleText;
     public static FoodFragment newInstance() {
         return new FoodFragment();
     }
@@ -36,7 +37,8 @@ public class FoodFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.places_fragment, container, false);
         recyclerView = view.findViewById(R.id.places_recyclerView);
-
+        titleText = view.findViewById(R.id.titleText);
+        titleText.setText("Food");
         mLayoutManager = new LinearLayoutManager(getContext());
 
         return view;
@@ -59,5 +61,6 @@ public class FoodFragment extends Fragment {
             }
         });
     }
+
 
 }

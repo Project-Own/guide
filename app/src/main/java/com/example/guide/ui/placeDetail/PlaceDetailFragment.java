@@ -1,31 +1,40 @@
 package com.example.guide.ui.placeDetail;
 
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.speech.tts.Voice;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.guide.R;
 import com.github.florent37.shapeofview.shapes.ArcView;
 
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+
+import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
 
 public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInitListener {
 
@@ -37,14 +46,17 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
     TextView textView;
     TextView titleText;
     Boolean contentTextFullscreen = false;
-    Button b1;
+    ImageButton b1;
     ImageView imageView;
     View divider;
     CardView cardView;
     ArcView arc;
+    Drawable drawable;
+    String imageName;
 
 
     int shortAnimationDuration;
+    private boolean isPlaying = false;
 
     public static PlaceDetailFragment newInstance() {
         return new PlaceDetailFragment();
@@ -65,7 +77,7 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
         titleText = v.findViewById(R.id.titleTextView);
         arc = v.findViewById(R.id.myShape);
         cardView = v.findViewById(R.id.tq);
-
+        b1 = v.findViewById(R.id.botton);
         motionLayout.setTransitionListener(new MotionLayout.TransitionListener() {
             @Override
             public void onTransitionStarted(MotionLayout motionLayout, int i, int i1) {
@@ -132,11 +144,15 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
         });
 
         String description = getArguments().getString("description");
-        String imageName = getArguments().getString("image");
+        imageName = getArguments().getString("image");
         String name = getArguments().getString("name");
 
 
         textView.setText(description);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            textView.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
+        }
+
         titleText.setText(name);
 
 
@@ -145,9 +161,51 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
                     .load(getResources()
                             .getIdentifier(imageName, "drawable", getActivity().getPackageName()))
                     .fitCenter()
-                    .into(imageView);
+
+                    .into(new CustomTarget<Drawable>() {
+                        @Override
+                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                            drawable = resource;
+                            imageView.setImageDrawable(resource);
+                        }
+
+                        @Override
+                        public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                        }
+                    });
 
         }
+
+
+
+
+
+        t1 = new TextToSpeech(getContext(), this, "com.google.android.tts");
+        //        Set<String> a=new HashSet<>();
+        //        a.add("female");//here you can give male if you want to select male voice.
+        //        Voice v=new Voice("en-us-x-sfg#female_2-local",new Locale("en","UK"),400,200,true,a);
+        //        t1.setVoice(v);
+        //        t1.setSpeechRate(0.8f);
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isPlaying){
+                    if (t1 != null) {
+                        t1.stop();
+                        b1.setImageDrawable(getResources().getDrawable(R.drawable.ic_volume_up_black_24dp));
+                    }
+                    isPlaying = false;
+                }else{
+                    t1.speak(description, TextToSpeech.QUEUE_FLUSH, null);
+
+                    isPlaying = true;
+                    b1.setImageDrawable(getResources().getDrawable(R.drawable.ic_volume_off_black_24dp));
+                }
+            }
+        });
+
         return v;
 
     }
@@ -156,8 +214,43 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("image", imageName);
+                Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment).navigate(R.id.action_placeDetailFragment3_to_fullscreenImageFragment, bundle);
+//                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
+//                View mView = getLayoutInflater().inflate(R.layout.dialog_custom_layout, null);
+//                PhotoView photoView = mView.findViewById(R.id.imageView);
+//                photoView.setImageDrawable(drawable);
+//                mBuilder.setView(mView);
+//                AlertDialog alertDialog = mBuilder.create();
+//                alertDialog.show();
+            }
+        });
+        // This callback will only be called when MyFragment is at least Started.
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                if (t1 != null) {
+                    t1.stop();
+                    b1.setImageDrawable(getResources().getDrawable(R.drawable.ic_volume_up_black_24dp));
+                }
+                if (contentTextFullscreen) {
+                    motionLayout.transitionToStart();
+                } else {
+                    if(t1 != null){
+                        t1.shutdown();
+                    }
 
+                    Navigation.findNavController(getActivity(),R.id.my_nav_host_fragment).navigateUp();
 
+                }
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
 
         mViewModel = ViewModelProviders.of(this).get(PlaceDetailViewModel.class);
         // TODO: Use the ViewModel
@@ -173,12 +266,22 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
             t1.setVoice(v);
             t1.setSpeechRate(0.8f);
 
+            //        Set<String> a=new HashSet<>();
+            //        a.add("female");//here you can give male if you want to select male voice.
+            //        Voice v=new Voice("en-us-x-sfg#female_2-local",new Locale("en","UK"),400,200,true,a);
+            //        t1.setVoice(v);
+            //        t1.setSpeechRate(0.8f);
+
             // int result = t1.setLanguage(Locale.US);
             int result = t1.setVoice(v);
 
             if (result == TextToSpeech.LANG_MISSING_DATA
                     || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("TTS", "This Language is not supported");
+
+
+
+
             } else {
                 // btnSpeak.setEnabled(true);
 
@@ -187,6 +290,28 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
         } else {
             Log.e("TTS", "Initilization Failed!");
         }
+
+        t1.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+            @Override
+            public void onDone(String utteranceId) {
+                // Log.d("MainActivity", "TTS finished");
+                if (t1 != null) {
+                    t1.stop();
+                    b1.setImageDrawable(getResources().getDrawable(R.drawable.ic_volume_up_black_24dp));
+                }
+                isPlaying = false;
+
+            }
+
+            @Override
+            public void onError(String utteranceId) {
+            }
+
+            @Override
+            public void onStart(String utteranceId) {
+
+            }
+        });
     }
 
     private void speakOut(String message) {

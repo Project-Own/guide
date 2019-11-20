@@ -93,4 +93,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
+//tuco FIREBASE
+    implementation 'com.firebase:firebase-client-android:2.5.2'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 }

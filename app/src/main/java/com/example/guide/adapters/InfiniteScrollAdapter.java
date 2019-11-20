@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.guide.Model.Places;
 import com.example.guide.R;
+import com.example.guide.interfaces.GalleryTagsListInterface;
 
 import java.util.List;
 
@@ -20,12 +21,15 @@ public class InfiniteScrollAdapter extends PagerAdapter {
     List<Places> lstImages;
     Context context;
     LayoutInflater layoutInflater;
+    GalleryTagsListInterface galleryTagsListInterface;
 
-    public InfiniteScrollAdapter(List<Places> lstImages, Context context) {
+    public InfiniteScrollAdapter(List<Places> lstImages, Context context, GalleryTagsListInterface galleryTagsListInterface) {
         this.lstImages = lstImages;
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
+        this.galleryTagsListInterface = galleryTagsListInterface;
     }
+
 
     @Override
     public int getCount() {
@@ -55,6 +59,13 @@ public class InfiniteScrollAdapter extends PagerAdapter {
                 .override(1000, 500)
                 .into(imageView)
         ;
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                galleryTagsListInterface.onTagClicked(lstImages.get(position).getImage(), lstImages.get(position).getDescription(), position);
+
+            }
+        });
         container.addView(view);
         return view;
     }

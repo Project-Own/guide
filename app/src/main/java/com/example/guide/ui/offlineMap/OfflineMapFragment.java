@@ -2,8 +2,12 @@ package com.example.guide.ui.offlineMap;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -447,20 +452,49 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
     @Override
     public boolean onMapClick(@NonNull LatLng point) {
 
-        Point destinationPoint = Point.fromLngLat(point.getLongitude(), point.getLatitude());
-        assert locationComponent.getLastKnownLocation() != null;
-        Point originPoint = Point.fromLngLat(locationComponent.getLastKnownLocation().getLongitude(),
-                locationComponent.getLastKnownLocation().getLatitude());
+        final LocationManager manager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 
-        GeoJsonSource source = mapboxMap.getStyle().getSourceAs("destination-source-id");
-        if (source != null) {
-            source.setGeoJson(Feature.fromGeometry(destinationPoint));
+        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            buildAlertMessageNoGps();
+
+        }else{
+
+            if(mapboxMap != null) {
+                Point destinationPoint = Point.fromLngLat(point.getLongitude(), point.getLatitude());
+                assert locationComponent.getLastKnownLocation() != null;
+                Point originPoint = Point.fromLngLat(locationComponent.getLastKnownLocation().getLongitude(),
+                        locationComponent.getLastKnownLocation().getLatitude());
+
+                GeoJsonSource source = mapboxMap.getStyle().getSourceAs("destination-source-id");
+                if (source != null) {
+                    source.setGeoJson(Feature.fromGeometry(destinationPoint));
+                }
+
+                getRoute(originPoint, destinationPoint);
+                button.setEnabled(true);
+                button.setBackgroundResource(R.color.mapbox_blue);
+            }
         }
 
-        getRoute(originPoint, destinationPoint);
-        button.setEnabled(true);
-        button.setBackgroundResource(R.color.mapbox_blue);
         return true;
+    }
+
+    private void buildAlertMessageNoGps() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage("Your GPS seems to be disabled, do you want to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        dialog.cancel();
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
     }
 
     private void getRoute(Point origin, Point destination) {

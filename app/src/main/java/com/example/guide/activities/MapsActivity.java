@@ -73,6 +73,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.Dash;
 import com.google.android.gms.maps.model.Dot;
 import com.google.android.gms.maps.model.Gap;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.JointType;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -449,6 +450,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMutalbePolygon = mMap.addPolygon(polygonOptions);
 
+
+        GroundOverlayOptions bhaktapurMap = new GroundOverlayOptions()
+                .image(BitmapDescriptorFactory.fromResource(R.drawable.bhaktapur_map))
+                .transparency(0.5f)
+                .position(new LatLng(27.671635, 85.429339), 8600f, 6500f);
+        mMap.addGroundOverlay(bhaktapurMap);
 
         // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
         CameraPosition cameraPosition = new CameraPosition.Builder()

@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.navigation.NavController;
+import androidx.navigation.fragment.FragmentNavigator;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -138,6 +139,10 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
 
 //                }
+                FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder()
+                        .addSharedElement(cardView, "image_this")
+                        .addSharedElement(description, "text_this")
+                        .build();
 
 
                 itemView.playSoundEffect(SoundEffectConstants.CLICK);
@@ -146,11 +151,12 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                     public void run() {
 
 
+
                         final Bundle bundle = new Bundle();
                         bundle.putString("name", places.getName());
                         bundle.putString("description", places.getDescription());
                         bundle.putString("image", places.getImage());
-                        navController.navigate(R.id.action_nav_place_to_placeDetailFragment3, bundle);
+                        navController.navigate(R.id.action_nav_place_to_placeDetailFragment3, bundle, null, extras);
                     }
                 }, 100);
 

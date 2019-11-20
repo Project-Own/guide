@@ -53,6 +53,21 @@
                 <map>
                   <entry key="foodDetailFragment2">
                     <value>
+                      <LayoutPositions>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_foodDetailFragment2_to_fullscreenImageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="fullscreenImageFragment">
+                    <value>
                       <LayoutPositions />
                     </value>
                   </entry>
@@ -103,7 +118,17 @@
                   </entry>
                   <entry key="nav_gallery">
                     <value>
-                      <LayoutPositions />
+                      <LayoutPositions>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_nav_gallery_to_fullscreenImageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
                     </value>
                   </entry>
                   <entry key="nav_home">
@@ -208,7 +233,17 @@
                   </entry>
                   <entry key="placeDetailFragment3">
                     <value>
-                      <LayoutPositions />
+                      <LayoutPositions>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_placeDetailFragment3_to_fullscreenImageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
                     </value>
                   </entry>
                   <entry key="simpleOfflineMapActivity">
@@ -246,13 +281,13 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="foodDetailFragment2">
+                  <entry key="fullscreenImageFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="998" />
-                            <option name="y" value="1792" />
+                            <option name="x" value="1840" />
+                            <option name="y" value="2590" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -263,8 +298,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="75" />
+                            <option name="x" value="-232" />
+                            <option name="y" value="591" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -275,6 +310,30 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="mapFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="346" />
+                            <option name="y" value="-68" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="mapsActivity">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1114" />
+                            <option name="y" value="346" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -296,8 +355,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="754" />
-                            <option name="y" value="368" />
+                            <option name="x" value="963" />
+                            <option name="y" value="290" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -315,18 +374,30 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="nav_feedback">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-480" />
+                            <option name="y" value="1590" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="nav_food">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="754" />
-                            <option name="y" value="1792" />
+                            <option name="x" value="1022" />
+                            <option name="y" value="1942" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_nav_food_to_foodDetailFragment2">
+                            <entry key="action_nav_food_to_placeDetailFragment3">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -345,6 +416,15 @@
                             <option name="y" value="2504" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_nav_gallery_to_fullscreenImageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -353,12 +433,27 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="500" />
-                            <option name="y" value="118" />
+                            <option name="x" value="14" />
+                            <option name="y" value="376" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_nav_home_to_landingFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_nav_home_to_mapFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_nav_home_to_mapsActivity">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_nav_home_to_nav_calendar">
                               <value>
                                 <LayoutPositions />
@@ -452,6 +547,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="nav_settings">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-260" />
+                            <option name="y" value="1590" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="nav_share">
                     <value>
                       <LayoutPositions>
@@ -481,8 +588,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="754" />
-                            <option name="y" value="1436" />
+                            <option name="x" value="1909" />
+                            <option name="y" value="1300" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -493,9 +600,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="998" />
-                            <option name="y" value="3572" />
+                            <option name="x" value="1297" />
+                            <option name="y" value="2735" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_placeDetailFragment3_to_fullscreenImageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -505,35 +621,9 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="754" />
-                            <option name="y" value="724" />
+                            <option name="x" value="1106" />
+                            <option name="y" value="640" />
                           </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="splashFragment2">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="118" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_splashFragment2_to_landingFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_splashFragment2_to_nav_home">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
