@@ -19,7 +19,7 @@
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".activities.MapsActivity" />
+            tools:context=".activities.redundant.MapsActivity" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/maps_recycler"

@@ -1,4 +1,4 @@
-package com.example.guide.activities;
+package com.example.guide.activities.redundant;
 
 import android.Manifest;
 import android.app.Notification;
@@ -52,6 +52,7 @@ import com.example.guide.Model.MarkerItem;
 import com.example.guide.Model.NearbySearch.NearbySearchData;
 import com.example.guide.Model.NearbySearch.Result;
 import com.example.guide.R;
+import com.example.guide.activities.MainActivity;
 import com.example.guide.adapters.MapsButtonAdapter;
 import com.example.guide.interfaces.IOnLoadLocationListener;
 import com.example.guide.interfaces.TagsListInterface;

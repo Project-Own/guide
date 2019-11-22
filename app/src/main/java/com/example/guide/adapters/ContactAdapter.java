@@ -1,6 +1,8 @@
 package com.example.guide.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +43,15 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.AboutVie
     public void onBindViewHolder(@NonNull AboutViewHolder holder, int position) {
         holder.name.setText(contact.get(position).getName());
         holder.number.setText(contact.get(position).getNumber());
+
+        holder.number.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:"+contact.get(position).getNumber()));
+                context.startActivity(intent);
+            }
+        });
         Glide.with(holder.itemView)
                 .load(context.getResources()
                         .getIdentifier(contact.get(position).getPhoto(), "drawable", context.getPackageName()))

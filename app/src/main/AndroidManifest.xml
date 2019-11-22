@@ -26,11 +26,11 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <activity
-            android:name=".activities.MapsActivity"
+            android:name=".activities.redundant.MapsActivity"
             android:label="@string/title_activity_maps"
             android:noHistory="true" />
         <activity
-            android:name=".activities.SimpleOfflineMapActivity"
+            android:name=".activities.redundant.SimpleOfflineMapActivity"
             android:label="@string/title_activity_maps"
             android:noHistory="true" />
 

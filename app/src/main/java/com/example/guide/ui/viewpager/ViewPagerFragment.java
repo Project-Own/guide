@@ -105,7 +105,7 @@ public class ViewPagerFragment extends Fragment {
         } else {
             colors = getResources().getColorStateList(R.color.tab_icon);
         }
-
+ 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             Drawable icon = tab.getIcon();

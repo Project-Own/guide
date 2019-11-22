@@ -96,4 +96,7 @@ dependencies {
 //tuco FIREBASE
     implementation 'com.firebase:firebase-client-android:2.5.2'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    //Facebook Shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }

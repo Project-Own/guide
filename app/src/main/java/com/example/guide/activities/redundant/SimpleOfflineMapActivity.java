@@ -1,4 +1,4 @@
-package com.example.guide.activities;
+package com.example.guide.activities.redundant;
 
 import android.Manifest;
 import android.animation.ValueAnimator;

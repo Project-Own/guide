@@ -552,6 +552,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="nav_review">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="nav_settings">
                     <value>
                       <LayoutPositions>
@@ -617,18 +629,6 @@
                               </value>
                             </entry>
                           </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="reviewFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-740" />
-                            <option name="y" value="1590" />
-                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

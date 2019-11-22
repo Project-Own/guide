@@ -172,12 +172,12 @@
     </fragment>
     <activity
         android:id="@+id/simpleOfflineMapActivity"
-        android:name="com.example.guide.activities.SimpleOfflineMapActivity"
+        android:name="com.example.guide.activities.redundant.SimpleOfflineMapActivity"
         android:label="activity_simple_offline"
         tools:layout="@layout/activity_simple_offline" />
     <activity
         android:id="@+id/mapsActivity"
-        android:name="com.example.guide.activities.MapsActivity"
+        android:name="com.example.guide.activities.redundant.MapsActivity"
         android:label="activity_maps"
         tools:layout="@layout/activity_maps" />
     <fragment
