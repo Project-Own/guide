@@ -53,7 +53,6 @@ public class GalleryFragment extends Fragment {
         recyclerView = v.findViewById(R.id.places_recyclerView);
         StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(spanCount, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setHasFixedSize(true);
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) recyclerView.getLayoutParams();
 // Changes the height and width to the specified *pixels*
         params.height = Resources.getSystem().getDisplayMetrics().heightPixels;
