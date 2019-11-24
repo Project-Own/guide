@@ -63,6 +63,7 @@ public class GalleryViewModel extends AndroidViewModel {
         placesList.add(new Places("", "Hymn of the Weekend", "traditionalmusic"));
         placesList.add(new Places("", "Music in the air", "khing"));
         placesList.add(new Places("", "The beauty", "peacockw"));
+        placesList.add(new Places("", "Shining at dark ", "dbatnight"));
 
         places.setValue(placesList);
 

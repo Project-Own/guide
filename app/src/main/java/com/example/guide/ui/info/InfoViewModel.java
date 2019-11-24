@@ -41,7 +41,7 @@ public class InfoViewModel extends AndroidViewModel {
                 "\n";
         String aboutAbstractData = "Bhaktapur, known as Khwopa in local Nepal bhasa is the eastern gateway of the Kathmandu valley which lies about 16 kilometers from the heart of Kathmandu city. Bhaktapur is a medieval town locked in centuries–old beliefs and trad" +
                 "itions.";
-        String priceData = "SAARC COUNTRIES : 200$ \nOTHER COUNTRIES: 400";
+        String priceData = "SAARC COUNTRIES and China: Rs 500 \nOTHER COUNTRIES: Rs 1500";
 
         info = new Info();
         info.setAbout(aboutAbstractData);

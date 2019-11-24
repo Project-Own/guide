@@ -1,9 +1,16 @@
 package com.example.guide.ui.about;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +31,7 @@ public class AboutFragment extends Fragment {
     private AboutViewModel mViewModel;
     private RecyclerView recycleView;
     RecyclerView.LayoutManager mLayoutManager;
+    TextView textView;
     private List<Users> users;
 
     public static AboutFragment newInstance() {
@@ -35,12 +43,40 @@ public class AboutFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.about_fragment, container, false);
         recycleView = v.findViewById(R.id.aboutRecyclerView);
+        mLayoutManager = new LinearLayoutManager(getContext());
 
-       mLayoutManager = new LinearLayoutManager(getContext());
+        textView = v.findViewById(R.id.text12);
 
+        String text12 = "Pictures credit to Sunil Shilpakar and Uday Prajapati. You can find them at instagram: shilpee_ss udaya.rise";
+        SpannableString ss = new SpannableString(text12);
 
+        ClickableSpan clickableSpan1  = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                clicked("https://www.instagram.com/shilpee_ss/");
+            }
+        };
+
+        ClickableSpan clickableSpan2  = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                clicked("https://www.instagram.com/udaya.rise/");
+            }
+        };
+
+        ss.setSpan(clickableSpan1,86,95, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(clickableSpan2,97,107, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        textView.setText(ss);
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
         return v;
     }
+
+     public void clicked(String url){
+         Intent intent = new Intent(Intent.ACTION_VIEW);
+         intent.setData(Uri.parse(url));
+         startActivity(intent);
+     }
 
 
 
