@@ -77,7 +77,7 @@ public class ReviewFragment extends Fragment {
     }
 
     public void submitfeedback(){
-        String rating=Integer.toString(ratingBar.getNumStars());
+        String rating=Integer.toString((int) ratingBar.getRating());
         String username=name.getText().toString();
         String useremail=email.getText().toString();
         String userreview=review.getText().toString();
