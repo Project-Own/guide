@@ -1,10 +1,12 @@
 package com.example.guide.ui.gallery;
 
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,6 +41,7 @@ public class GalleryFragment extends Fragment {
         return new GalleryFragment();
     }
     private int spanCount = 2;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -46,10 +49,16 @@ public class GalleryFragment extends Fragment {
 
         pager = v.findViewById(R.id.horizontal_cycle);
 
+
         recyclerView = v.findViewById(R.id.places_recyclerView);
         StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(spanCount, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setHasFixedSize(true);
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) recyclerView.getLayoutParams();
+// Changes the height and width to the specified *pixels*
+        params.height = Resources.getSystem().getDisplayMetrics().heightPixels;
+        params.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        recyclerView.setLayoutParams(params);
         return v;
     }
 
@@ -58,6 +67,7 @@ public class GalleryFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(GalleryViewModel.class);
         // TODO: Use the ViewModel
+
 
         galleryTagsListInterface = new GalleryTagsListInterface() {
             @Override
@@ -79,6 +89,7 @@ public class GalleryFragment extends Fragment {
         };
 
 
+
         mViewModel.getPlacesList().observe(this, new Observer<List<Places>>() {
             @Override
             public void onChanged(List<Places> places) {
@@ -89,6 +100,8 @@ public class GalleryFragment extends Fragment {
 
             }
         });
+
+
 
     }
     @Override

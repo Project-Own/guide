@@ -1,5 +1,8 @@
 package com.example.guide.ui.contact;
 
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +10,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -87,6 +91,22 @@ public class ContactFragment extends Fragment {
             }
         });
         contactTabs.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimaryLight));
+        ColorStateList colors;
+        if (Build.VERSION.SDK_INT >= 23) {
+            colors = getResources().getColorStateList(R.color.tab_icon, getActivity().getTheme());
+        } else {
+            colors = getResources().getColorStateList(R.color.tab_icon);
+        }
+
+        for (int i = 0; i < contactTabs.getTabCount(); i++) {
+            TabLayout.Tab tab = contactTabs.getTabAt(i);
+            Drawable icon = tab.getIcon();
+
+            if (icon != null) {
+                icon = DrawableCompat.wrap(icon);
+                DrawableCompat.setTintList(icon, colors);
+            }
+        }
 
         adapter = new ContactAdapter(contacts, getContext());
 

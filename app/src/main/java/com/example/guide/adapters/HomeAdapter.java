@@ -16,6 +16,7 @@ import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.guide.Model.Home;
@@ -56,7 +57,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                 .load(context.getResources()
                         .getIdentifier(homeList.get(position).getImage(), "drawable", context.getPackageName()))
                 .fitCenter()
-                .override(100, 100)
+                .transition(DrawableTransitionOptions.withCrossFade())
                 .into(new CustomTarget<Drawable>() {
                     @Override
                     public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {

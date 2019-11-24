@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs size="16dp"
+    space="8dp">
+    <tab
+        inactiveColor="@color/colorPrimaryDark"
+        activeColor="@color/colorPrimaryLight"
+        drawable="@drawable/ic_home_black_24dp"/>
+    <tab
+        inactiveColor="@color/colorPrimaryDark"
+        activeColor="@color/colorPrimaryLight"
+        drawable="@drawable/ic_phone_black_24dp"/>
+    <tab
+        inactiveColor="@color/colorPrimaryDark"
+        activeColor="@color/colorPrimaryLight"
+        drawable="@drawable/ic_star_black_24dp"/>
+    <tab
+        inactiveColor="@color/colorPrimaryDark"
+        activeColor="@color/colorPrimaryLight"
+        drawable="@drawable/ic_info_outline_black_24dp"/>
+</tabs>

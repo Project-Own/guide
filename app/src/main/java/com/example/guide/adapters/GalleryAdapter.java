@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.guide.Model.Places;
 import com.example.guide.R;
 import com.example.guide.interfaces.GalleryTagsListInterface;
@@ -66,6 +67,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PlacesVi
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
                 .error(R.drawable.nirajan)
                 .fitCenter()
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .into(holder.imageView);
 
 

@@ -74,9 +74,9 @@ public class ContactViewModel extends AndroidViewModel {
     }
     private void loadEmmergencyContactsList() {
         contacts.clear();
-        contacts.add(new Contact("Police Control", "100", "police",""));
-        contacts.add(new Contact("Emergency Ambulance", "102", "ambulance",""));
-        contacts.add(new Contact("Tourist Police", "1144(Toll Free/ Hotline)", "police","Head Quarter-> Bhrikuti Mandap, Kathmandu"));
+        contacts.add(new Contact("Police Control", "+977-100", "police",""));
+        contacts.add(new Contact("Emergency Ambulance", "+977-102", "ambulance",""));
+        contacts.add(new Contact("Tourist Police", "+977-1144(Toll Free/ Hotline)", "police","Head Quarter-> Bhrikuti Mandap, Kathmandu"));
         contacts.add(new Contact("Bhaktapur Hospital", "01-6610676", "bkthpt","Doodh Pati"));
         contacts.add(new Contact("Bir Hospital", "01-4221119/01-441 1063", "bir","Kathmandu"));
         contacts.add(new Contact("Public Health Care Center", "01-6610317/01-6613146", "polytechnic","Chyamhasingh,Bhaktapur"));
