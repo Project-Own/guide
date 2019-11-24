@@ -180,11 +180,7 @@
         android:name="com.example.guide.activities.redundant.MapsActivity"
         android:label="activity_maps"
         tools:layout="@layout/activity_maps" />
-    <fragment
-        android:id="@+id/nav_feedback"
-        android:name="com.example.guide.ui.feedback.FeedbackFragment"
-        android:label="feedback_fragment"
-        tools:layout="@layout/feedback_fragment" />
+
     <fragment
         android:id="@+id/nav_settings"
         android:name="com.example.guide.ui.settings.SettingsFragment"
@@ -204,6 +200,6 @@
         android:id="@+id/nav_review"
         android:name="com.example.guide.ui.review.ReviewFragment"
         android:label="review_fragment"
-        tools:layout="@layout/review_fragment" />
+        tools:layout="@layout/review_layout" />
 
 </navigation>

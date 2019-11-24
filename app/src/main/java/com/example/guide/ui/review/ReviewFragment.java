@@ -69,6 +69,11 @@ public class ReviewFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 submitfeedback();
+                name.getText().clear();
+                email.getText().clear();
+                review.getText().clear();
+                getReview.getText().clear();
+                ratingBar.setRating(0f);
             }
         });
 
@@ -77,7 +82,7 @@ public class ReviewFragment extends Fragment {
     }
 
     public void submitfeedback(){
-        String rating=Integer.toString(ratingBar.getNumStars());
+        String rating=Float.toString(ratingBar.getRating());
         String username=name.getText().toString();
         String useremail=email.getText().toString();
         String userreview=review.getText().toString();
@@ -118,6 +123,7 @@ public class ReviewFragment extends Fragment {
         if(userreview1.isEmpty()){
             getReview.setError("this field is required");
             button.setEnabled(false);
+            Toast.makeText(getContext(), "feedback sent", Toast.LENGTH_SHORT).show();
         }
         else{
             getReview.setError(null);
