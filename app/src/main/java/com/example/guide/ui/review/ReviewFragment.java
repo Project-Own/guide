@@ -29,6 +29,9 @@ public class ReviewFragment extends Fragment {
     EditText review;
     EditText getReview;
 
+
+
+
     public static ReviewFragment newInstance() {
         return new ReviewFragment();
     }
@@ -43,6 +46,7 @@ public class ReviewFragment extends Fragment {
         review=view.findViewById(R.id.editText4);
         getReview=view.findViewById(R.id.editText5);
         button= view.findViewById(R.id.button);
+        ratingBar=view.findViewById(R.id.rating1);
         Firebase.setAndroidContext(getContext());
         String uniqueID= Settings.Secure.getString(getActivity().getContentResolver(),Settings.Secure.ANDROID_ID);
         firebase=new Firebase("https://review-ff940.firebaseio.com/Users"+ uniqueID);
@@ -64,8 +68,6 @@ public class ReviewFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 submitfeedback();
             }
         });
@@ -75,11 +77,13 @@ public class ReviewFragment extends Fragment {
     }
 
     public void submitfeedback(){
+        String rating=Integer.toString(ratingBar.getNumStars());
         String username=name.getText().toString();
         String useremail=email.getText().toString();
         String userreview=review.getText().toString();
         String  userreview1=getReview.getText().toString();
         Firebase reusername=firebase.child("name");
+
         reusername.setValue(username);
         if(username.isEmpty()){
             name.setError("this field is required");
@@ -120,6 +124,17 @@ public class ReviewFragment extends Fragment {
             button.setEnabled(true);
         }
 
+
+        Firebase rerating=firebase.child("rating");
+        rerating.setValue(rating);
+        if(userreview1.isEmpty()){
+            getReview.setError("Rating is required");
+            button.setEnabled(false);
+        }
+        else{
+            getReview.setError(null);
+            button.setEnabled(true);
+        }
 
 
 
