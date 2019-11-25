@@ -95,7 +95,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
             public void onClick(View v) {
                 switch (position) {
                     case 0:
-                        aClass = R.id.action_nav_home_to_mapFragment;
+                        aClass = R.id.action_nav_home_to_nav_map;
                         break;
                     case 1:
                         aClass = R.id.action_nav_home_to_nav_weather;

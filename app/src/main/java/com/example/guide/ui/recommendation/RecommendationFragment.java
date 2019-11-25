@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,7 +26,7 @@ public class RecommendationFragment extends Fragment {
 
     private RecommendationViewModel mViewModel;
     private RecyclerView hotelRecyclerView, placesRecyclerView;
-    private Button placesLeft, placesRight, hotelLeft, hotelRight;
+    private ImageButton placesLeft, placesRight, hotelLeft, hotelRight;
     private int hotelPosition = 0;
     private int placePosition = 0;
     private int visibleItemCount, totalItemCount, coun;

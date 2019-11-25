@@ -1,6 +1,5 @@
 package com.example.guide.ui.offlineMap;
 
-import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,7 +7,10 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +24,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.guide.Model.MapsButton;
 import com.example.guide.R;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineCallback;
@@ -55,7 +59,6 @@ import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
 import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
 import com.mapbox.mapboxsdk.plugins.building.BuildingPlugin;
 import com.mapbox.mapboxsdk.plugins.traffic.TrafficPlugin;
-import com.mapbox.mapboxsdk.style.layers.Layer;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
@@ -66,6 +69,7 @@ import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -78,7 +82,7 @@ import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconIgnorePlacem
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconImage;
 
 public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClickListener,
-        PermissionsListener {
+        PermissionsListener{
 
     // JSON encoding/decoding
     public static final String JSON_CHARSET = "UTF-8";
@@ -93,10 +97,7 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
     private PermissionsManager permissionsManager;
     private MapboxMap mapboxMap;
     private MapView mapView;
-    private ValueAnimator parkColorAnimator;
-    private ValueAnimator hotelColorAnimator;
-    private ValueAnimator attractionsColorAnimator;
-    private Layer waterLayer;
+
     private LocationEngine locationEngine;
     private LocationChangeListeningActivityLocationCallback callback =
             new LocationChangeListeningActivityLocationCallback(this);
@@ -108,6 +109,11 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
     private Button button;
 
     private OfflineMapViewModel mViewModel;
+    private ArrayList<LatLng> heritageArea;
+
+
+    private RecyclerView recyclerView;
+    private List<MapsButton> mapsButtonList;
 
     public static OfflineMapFragment newInstance() {
         return new OfflineMapFragment();
@@ -126,6 +132,10 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
 
         mapView = view.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
+
+
+
+
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull final MapboxMap map) {
@@ -169,11 +179,46 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
                         offlineManager = OfflineManager.getInstance(getActivity());
 
 // Create a bounding box for the offline region
-                        LatLngBounds latLngBounds = new LatLngBounds.Builder()
+                        /* KAthmandu Valley bound
                                 .include(new LatLng(27.726761, 85.459005)) // Northeast
                                 .include(new LatLng(27.628252, 85.459936)) // Southwest
                                 .include(new LatLng(27.645307, 85.270841))
-                                .include(new LatLng(27.732261, 85.278338))
+                                .include(new LatLng(27.732261, 85.278338))*/
+                        LatLngBounds latLngBounds = new LatLngBounds.Builder()
+
+
+                                .include(new LatLng(27.691212, 85.447988)) // Top rightmost
+
+                                .include(new LatLng(27.688212, 85.437818)) // Left side tail of top rightmost
+
+                                .include(new LatLng(27.679657, 85.435108)) // Tail Left Slope
+
+                                .include(new LatLng(27.678641, 85.425264)) // Top Midway slight bend
+
+                                .include(new LatLng(27.677258, 85.416974))
+
+                                .include(new LatLng(27.679508, 85.412062))
+
+                                .include(new LatLng(27.677460, 85.406996)) // Leftmost after bump
+
+                                .include(new LatLng(27.6769508, 85.403164)) //  Leftmost bump
+
+                                .include(new LatLng(27.673928, 85.400017)) // Leftmost Peak
+
+                                .include(new LatLng(27.671298, 85.408142)) // Below Sallaghari
+
+
+                                .include(new LatLng(27.666076, 85.417879)) // Ghalel tol
+
+                                .include(new LatLng(27.665289, 85.424768)) // Below Gapali
+
+                                .include(new LatLng(27.665927, 85.438154)) // Left Side of V
+
+                                .include(new LatLng(27.663825, 85.442135)) //Rightmost Bottom
+
+                                .include(new LatLng(27.675604, 85.448746)) //RightMost Peak
+
+                                .include(new LatLng(27.691212, 85.447988)) // Top rightmost
                                 .build();
 
 
@@ -368,11 +413,6 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
         mapView.onResume();
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        mapView.onStop();
-    }
 
     @Override
     public void onPause() {
@@ -457,22 +497,28 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
         if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             buildAlertMessageNoGps();
 
+
         }else{
+            if(isNetworkAvailable()) {
 
-            if(mapboxMap != null) {
-                Point destinationPoint = Point.fromLngLat(point.getLongitude(), point.getLatitude());
-                assert locationComponent.getLastKnownLocation() != null;
-                Point originPoint = Point.fromLngLat(locationComponent.getLastKnownLocation().getLongitude(),
-                        locationComponent.getLastKnownLocation().getLatitude());
 
-                GeoJsonSource source = mapboxMap.getStyle().getSourceAs("destination-source-id");
-                if (source != null) {
-                    source.setGeoJson(Feature.fromGeometry(destinationPoint));
+                if (mapboxMap != null) {
+                    Point destinationPoint = Point.fromLngLat(point.getLongitude(), point.getLatitude());
+                    assert locationComponent.getLastKnownLocation() != null;
+                    Point originPoint = Point.fromLngLat(locationComponent.getLastKnownLocation().getLongitude(),
+                            locationComponent.getLastKnownLocation().getLatitude());
+
+                    GeoJsonSource source = mapboxMap.getStyle().getSourceAs("destination-source-id");
+                    if (source != null) {
+                        source.setGeoJson(Feature.fromGeometry(destinationPoint));
+                    }
+
+                    getRoute(originPoint, destinationPoint);
+                    button.setEnabled(true);
+                    button.setBackgroundResource(R.color.mapbox_blue);
                 }
-
-                getRoute(originPoint, destinationPoint);
-                button.setEnabled(true);
-                button.setBackgroundResource(R.color.mapbox_blue);
+            }else{
+                buildAlertMessageNoInternetConnection();
             }
         }
 
@@ -486,6 +532,31 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(final DialogInterface dialog, final int id) {
                         startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        dialog.cancel();
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+    }
+
+    private void buildAlertMessageNoInternetConnection() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage("Your Intenet seems to be disabled, do you want to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -534,6 +605,13 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
                 });
     }
 
+
+    @Override
+    public void onStop() {
+        mapView.onStop();
+        super.onStop();
+    }
+
     private static class LocationChangeListeningActivityLocationCallback
             implements LocationEngineCallback<LocationEngineResult> {
 
@@ -559,12 +637,6 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
                     return;
                 }
 
-// Create a Toast which displays the new location's coordinates
-                Toast.makeText(fragment.getContext(), String.format("Lat:%s Lang:%s",
-                        String.valueOf(result.getLastLocation().getLatitude()),
-                        String.valueOf(result.getLastLocation().getLongitude())),
-                        Toast.LENGTH_SHORT).show();
-
 // Pass the new location to the Maps SDK's LocationComponent
                 if (fragment.mapboxMap != null && result.getLastLocation() != null) {
                     fragment.mapboxMap.getLocationComponent().forceLocationUpdate(result.getLastLocation());
@@ -587,5 +659,7 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
             }
         }
     }
+
+
 
 }

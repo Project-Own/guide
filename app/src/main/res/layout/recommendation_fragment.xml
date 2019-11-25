@@ -47,12 +47,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
+                <ImageButton
                     android:id="@+id/placesleft"
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:foreground="@drawable/ic_chevron_left_black_24dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_chevron_left_black_24dp"
                     android:layout_gravity="center_vertical|start"
+                    android:background="@drawable/custom_ripple"
                     android:visibility="invisible" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -60,12 +61,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
-                <Button
+                <ImageButton
                     android:id="@+id/placesRight"
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_vertical|end"
-                    android:foreground="@drawable/ic_chevron_right_black_24dp" />
+                    android:background="@drawable/custom_ripple"
+                    android:src="@drawable/ic_chevron_right_black_24dp" />
             </FrameLayout>
             <View
 
@@ -115,12 +117,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
+                <ImageButton
                     android:id="@+id/hotelLeft"
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:foreground="@drawable/ic_chevron_left_black_24dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_chevron_left_black_24dp"
                     android:layout_gravity="center_vertical|start"
+                    android:background="@drawable/custom_ripple"
                     android:visibility="invisible" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -128,12 +131,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
-                <Button
+                <ImageButton
                     android:id="@+id/hotelRight"
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_vertical|end"
-                    android:foreground="@drawable/ic_chevron_right_black_24dp" />
+                    android:background="@drawable/custom_ripple"
+                    android:src="@drawable/ic_chevron_right_black_24dp" />
             </FrameLayout>
 
 

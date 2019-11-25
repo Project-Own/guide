@@ -22,4 +22,12 @@
     <color name="fillColorRgb">#90BBDEFB</color>
     <color name="colorDarkGray">#a2a2a2</color>
     <color name="transparent">#00000000</color>
+
+
+    <color name="placeholder_bg">#dddddd</color>
+    <color name="item_name">#0c0c0c</color>
+    <color name="description">#1a1a1a</color>
+    <color name="chef">#777</color>
+    <color name="timestamp">#777</color>
+    <color name="background_blur">#30222222</color>
 </resources>

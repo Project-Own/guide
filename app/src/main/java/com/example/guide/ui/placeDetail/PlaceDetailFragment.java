@@ -161,7 +161,7 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
                     .load(getResources()
                             .getIdentifier(imageName, "drawable", getActivity().getPackageName()))
                     .fitCenter()
-
+                    .override(1000, 1000)
                     .into(new CustomTarget<Drawable>() {
                         @Override
                         public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {

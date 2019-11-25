@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -110,7 +111,7 @@ public class SimpleOfflineMapActivity extends AppCompatActivity implements Mapbo
     private NavigationMapRoute navigationMapRoute;
     // variables needed to initialize navigation
     private Button button;
-
+    private LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,6 +129,7 @@ public class SimpleOfflineMapActivity extends AppCompatActivity implements Mapbo
 // This contains the MapView in XML and needs to be called after the access token is configured.
                         setContentView(R.layout.activity_simple_offline);
 
+                        linearLayout = findViewById(R.id.loadView);
 
                         mapView = findViewById(R.id.mapView);
                         mapView.onCreate(savedInstanceState);
@@ -458,6 +460,7 @@ public class SimpleOfflineMapActivity extends AppCompatActivity implements Mapbo
         }
 
 
+        linearLayout.setVisibility(View.GONE);
 // Stop and hide the progress bar
         isEndNotified = true;
         progressBar.setIndeterminate(false);

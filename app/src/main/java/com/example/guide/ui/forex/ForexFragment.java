@@ -30,6 +30,7 @@ import com.example.guide.R;
 import com.example.guide.adapters.ForexAdapter;
 import com.example.guide.databinding.DialogCustomLayoutBinding;
 import com.example.guide.databinding.ForexFragmentBinding;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ForexFragment extends Fragment {
@@ -50,7 +51,7 @@ public class ForexFragment extends Fragment {
     private FloatingActionButton fab;
     private DialogCustomLayoutBinding customLayoutBinding;
     private View dialogView;
-
+    private ShimmerFrameLayout shimmerFrameLayout;
     public static ForexFragment newInstance() {
         return new ForexFragment();
     }
@@ -70,6 +71,8 @@ public class ForexFragment extends Fragment {
         //   forexProgressBar = findViewById(R.id.forexProgressBar);
         //   forexProgressBar.setVisibility(View.VISIBLE);
         editText= view.findViewById(R.id.Edit);
+
+        shimmerFrameLayout = (ShimmerFrameLayout) view.findViewById(R.id.shimmer_view_container);
 
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
 

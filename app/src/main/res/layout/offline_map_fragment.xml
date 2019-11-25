@@ -37,6 +37,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <ProgressBar
         android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyleHorizontal"

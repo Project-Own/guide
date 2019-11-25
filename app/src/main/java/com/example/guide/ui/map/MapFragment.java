@@ -31,6 +31,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -77,7 +78,6 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.Dash;
 import com.google.android.gms.maps.model.Dot;
 import com.google.android.gms.maps.model.Gap;
-import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.JointType;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -86,6 +86,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -158,6 +159,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
     private List<MapsButton> mapsButtonList;
     private Context context = getContext();
     private AppCompatActivity activity;
+    private FloatingActionButton floatingActionButton;
     private List<Marker> nearbyMarkerList = new ArrayList<>();
 
     public static Bitmap changeBitmapColor(Bitmap sourceBitmap, int color) {
@@ -180,6 +182,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.map_fragment, container, false);
+        floatingActionButton = view.findViewById(R.id.navigation_button);
 
         Dexter.withActivity(getActivity())
                 .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -217,7 +220,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
                             }
                         };
 
-                        MapsButtonAdapter adapter = new MapsButtonAdapter(mapsButtonList, context, activity, tagsListInterface);
+                        MapsButtonAdapter adapter = new MapsButtonAdapter(mapsButtonList, context, tagsListInterface);
                         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
                         recyclerView.setLayoutManager(mLayoutManager);
                         recyclerView.setAdapter(adapter);
@@ -258,6 +261,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment).navigate(R.id.action_nav_map_to_simpleOfflineMapActivity);
+            }
+        });
         mViewModel = ViewModelProviders.of(this).get(MapViewModel.class);
         // TODO: Use the ViewModel
     }
@@ -466,17 +475,26 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
         mMutalbePolygon = mMap.addPolygon(polygonOptions);
 
 
+/*
         GroundOverlayOptions bhaktapurMap = new GroundOverlayOptions()
                 .image(BitmapDescriptorFactory.fromResource(R.drawable.bhaktapur_map))
                 .transparency(0.5f)
                 .position(new LatLng(27.671635, 85.429339), 8600f, 6500f);
         mMap.addGroundOverlay(bhaktapurMap);
+*/
 
-        // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(new LatLng(27.671635, 85.429339))      // Sets the center of the map to Mountain View
-                .zoom(17)                   // Sets the zoom
-                .bearing(90)                // Sets the orientation of the camera to east
+                .zoom(10)                   // Sets the zoom
+                .bearing(-90)
+                .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+                .build();                   // Creates a CameraPosition from the builder
+
+        mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
+        cameraPosition = new CameraPosition.Builder()
+                .target(new LatLng(27.671635, 85.429339))      // Sets the center of the map to Mountain View
+                .zoom(13)                   // Sets the zoom
                 .tilt(30)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));

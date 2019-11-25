@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.guide.Model.MapsButton;
@@ -21,14 +20,13 @@ import java.util.List;
 public class MapsButtonAdapter extends RecyclerView.Adapter<MapsButtonAdapter.AboutViewHolder> {
     private List<MapsButton> MapsButtonList;
     private Context context;
-    private AppCompatActivity activity;
     private TagsListInterface tagsListInterface;
 
 
-    public MapsButtonAdapter(List<MapsButton> MapsButtonList, Context context, AppCompatActivity activity, TagsListInterface tagsListInterface) {
+    public MapsButtonAdapter(List<MapsButton> MapsButtonList, Context context, TagsListInterface tagsListInterface) {
         this.MapsButtonList = MapsButtonList;
         this.context = context;
-        this.activity = activity;
+
         this.tagsListInterface = tagsListInterface;
     }
 

@@ -89,6 +89,34 @@
                     android:text="@{viewModel.errorText}"
 
                     />
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_view_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.isBusy? View.VISIBLE : View.GONE}"
+                    app:shimmer_duration="800"
+                    app:shimmer_auto_start="true"
+
+                    >
+
+                    <!-- Adding 3 rows of placeholders -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/recipe_placeholder_item" />
+
+                        <include layout="@layout/recipe_placeholder_item" />
+
+                        <include layout="@layout/recipe_placeholder_item" />
+
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
             </FrameLayout>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
@@ -195,5 +223,25 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/loadView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#30222222"
+            android:visibility="@{viewModel.isBusy ? View.VISIBLE : View.GONE}"
+
+            >
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/anim_coin" />
+
+
+        </LinearLayout>
 </FrameLayout>
 </layout>

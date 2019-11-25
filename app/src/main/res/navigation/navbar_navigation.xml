@@ -51,18 +51,6 @@
             app:destination="@id/nav_detail"
             app:launchSingleTop="true" />
         <action
-            android:id="@+id/action_nav_home_to_simpleOfflineMapActivity"
-            app:destination="@id/simpleOfflineMapActivity"
-            app:launchSingleTop="true" />
-        <action
-            android:id="@+id/action_nav_home_to_mapsActivity"
-            app:destination="@id/mapsActivity"
-            app:launchSingleTop="true" />
-        <action
-            android:id="@+id/action_nav_home_to_mapFragment"
-            app:destination="@id/mapFragment"
-            app:launchSingleTop="true" />
-        <action
             android:id="@+id/action_nav_home_to_landingFragment"
             app:destination="@id/landingFragment"
             app:launchSingleTop="true"
@@ -100,9 +88,13 @@
 
     <fragment
         android:id="@+id/nav_map"
-        android:name="com.example.guide.ui.offlineMap.OfflineMapFragment"
+        android:name="com.example.guide.ui.map.MapFragment"
         android:label="Map Fragment"
-        tools:layout="@layout/offline_map_fragment" />
+        tools:layout="@layout/map_fragment" >
+        <action
+            android:id="@+id/action_nav_map_to_simpleOfflineMapActivity"
+            app:destination="@id/simpleOfflineMapActivity" />
+    </fragment>
 
 
     <fragment
@@ -175,11 +167,6 @@
         android:name="com.example.guide.activities.redundant.SimpleOfflineMapActivity"
         android:label="activity_simple_offline"
         tools:layout="@layout/activity_simple_offline" />
-    <activity
-        android:id="@+id/mapsActivity"
-        android:name="com.example.guide.activities.redundant.MapsActivity"
-        android:label="activity_maps"
-        tools:layout="@layout/activity_maps" />
 
     <fragment
         android:id="@+id/nav_settings"
@@ -191,11 +178,6 @@
         android:name="com.example.guide.ui.fullscreenImage.FullscreenImageFragment"
         android:label="fullscreen_image_fragment"
         tools:layout="@layout/fullscreen_image_fragment" />
-    <fragment
-        android:id="@+id/mapFragment"
-        android:name="com.example.guide.ui.map.MapFragment"
-        android:label="map_fragment"
-        tools:layout="@layout/map_fragment" />
     <fragment
         android:id="@+id/nav_review"
         android:name="com.example.guide.ui.review.ReviewFragment"

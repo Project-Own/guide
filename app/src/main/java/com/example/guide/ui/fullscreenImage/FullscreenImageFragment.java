@@ -1,10 +1,12 @@
 package com.example.guide.ui.fullscreenImage;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,11 +14,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.guide.R;
 
 public class FullscreenImageFragment extends Fragment {
 
     private FullscreenImageViewModel mViewModel;
+    private LinearLayout linearLayout;
 
     public static FullscreenImageFragment newInstance() {
         return new FullscreenImageFragment();
@@ -28,14 +33,25 @@ public class FullscreenImageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fullscreen_image_fragment, container, false);
         String imageName = getArguments().getString("image");
         ImageView imageView = view.findViewById(R.id.fullscreenImageView);
-
+        linearLayout = view.findViewById(R.id.loadView);
         if (!imageName.equals("")) {
             Glide.with(this)
                     .load(getResources()
                             .getIdentifier(imageName, "drawable", getActivity().getPackageName()))
                     .fitCenter()
+                    .override(2000,2000)
+                    .into(new CustomTarget<Drawable>() {
+                        @Override
+                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                            imageView.setImageDrawable(resource);
+                            linearLayout.setVisibility(View.GONE);
+                        }
 
-                    .into(imageView);
+                        @Override
+                        public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                        }
+                    });
 
         }
         return view;

@@ -211,7 +211,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                         };
 
-                        MapsButtonAdapter adapter = new MapsButtonAdapter(mapsButtonList, context, activity, tagsListInterface);
+                        MapsButtonAdapter adapter = new MapsButtonAdapter(mapsButtonList, context, tagsListInterface);
                         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
                         recyclerView.setLayoutManager(mLayoutManager);
                         recyclerView.setAdapter(adapter);

@@ -34,7 +34,7 @@ public class InfoFragment extends Fragment {
         ticket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment).navigate(R.id.action_nav_home_to_mapFragment);
+                Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment).navigate(R.id.action_nav_map_to_simpleOfflineMapActivity);
             }
         });
         return binding.getRoot();
