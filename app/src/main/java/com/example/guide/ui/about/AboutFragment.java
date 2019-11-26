@@ -43,9 +43,10 @@ public class AboutFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.about_fragment, container, false);
         recycleView = v.findViewById(R.id.aboutRecyclerView);
+        textView = v.findViewById(R.id.text13);
         mLayoutManager = new LinearLayoutManager(getContext());
 
-        textView = v.findViewById(R.id.text12);
+
 
         String text12 = "Pictures credit to Sunil Shilpakar and Uday Prajapati. You can find them at instagram: shilpee_ss udaya.rise";
         SpannableString ss = new SpannableString(text12);

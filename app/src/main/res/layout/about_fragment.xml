@@ -3,8 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/bluish"
     >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="About Us"
+        android:textSize="30dp"
+        android:textStyle="italic"
+        />
 
 
 
@@ -14,7 +23,7 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/text12"
+        android:id="@+id/text13"
         android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
