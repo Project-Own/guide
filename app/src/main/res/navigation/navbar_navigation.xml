@@ -73,8 +73,8 @@
         android:label="@string/menu_gallery"
         tools:layout="@layout/galerry_fragment" >
         <action
-            android:id="@+id/action_nav_gallery_to_fullscreenImageFragment"
-            app:destination="@id/fullscreenImageFragment" />
+            android:id="@+id/action_nav_gallery_to_fullscreenGalleryFragment"
+            app:destination="@id/fullscreenGalleryFragment" />
     </fragment>
 
 
@@ -88,9 +88,9 @@
 
     <fragment
         android:id="@+id/nav_map"
-        android:name="com.example.guide.ui.map.MapFragment"
+        android:name="com.example.guide.ui.offlineMap.OfflineMapFragment"
         android:label="Map Fragment"
-        tools:layout="@layout/map_fragment" >
+        tools:layout="@layout/offline_map_fragment" >
         <action
             android:id="@+id/action_nav_map_to_simpleOfflineMapActivity"
             app:destination="@id/simpleOfflineMapActivity" />
@@ -170,9 +170,9 @@
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="com.example.guide.ui.settings.SettingsFragment"
+        android:name="com.example.guide.ui.nearbyPlaces.NearbyPlacesFragment"
         android:label="settings_fragment"
-        tools:layout="@layout/settings_fragment" />
+        tools:layout="@layout/nearby_places_fragment" />
     <fragment
         android:id="@+id/fullscreenImageFragment"
         android:name="com.example.guide.ui.fullscreenImage.FullscreenImageFragment"
@@ -183,5 +183,10 @@
         android:name="com.example.guide.ui.review.ReviewFragment"
         android:label="review_fragment"
         tools:layout="@layout/review_layout" />
+    <fragment
+        android:id="@+id/fullscreenGalleryFragment"
+        android:name="com.example.guide.ui.fullscreenGallery.FullscreenGalleryFragment"
+        android:label="fullscreen_gallery_fragment"
+        tools:layout="@layout/fullscreen_gallery_fragment" />
 
 </navigation>

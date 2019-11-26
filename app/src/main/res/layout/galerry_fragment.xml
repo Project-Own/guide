@@ -3,50 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.gallery.GalleryFragment"
-    android:background="@color/white"
-    >
+    android:background="@color/white">
+
 
 
 
     <LinearLayout
+        android:layout_marginTop="@dimen/title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/title_background"
-            android:text="Gallery"
 
-            android:textSize="@dimen/title" />
-
-        <com.example.guide.CustomNestedScrollView2
-            android:id="@+id/scroll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <LinearLayout
-        android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager
-                android:id="@+id/horizontal_cycle"
-                android:layout_width="match_parent"
-                android:layout_height="550dp"
-                android:layout_gravity="center"
-                android:layout_alignParentTop="true"
-                app:icvp_center_page_scale_offset="30dp"
-                app:icvp_interpolator="@android:anim/accelerate_decelerate_interpolator"
-                app:icvp_max_page_scale="0.9"
-                app:icvp_medium_scaled="false"
-                app:icvp_min_page_scale="0.55"
-                app:icvp_min_page_scale_offset="5dp"
-                app:icvp_scroll_duration="250" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:padding="16dp"
@@ -56,8 +26,6 @@
                 android:layout_width="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="bottom" />
-        </LinearLayout>
-        </com.example.guide.CustomNestedScrollView2>
     </LinearLayout>
 
     <ImageButton

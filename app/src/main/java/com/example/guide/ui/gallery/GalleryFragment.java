@@ -1,12 +1,10 @@
 package com.example.guide.ui.gallery;
 
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +20,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.example.guide.Model.Places;
 import com.example.guide.R;
 import com.example.guide.adapters.GalleryAdapter;
-import com.example.guide.adapters.InfiniteScrollAdapter;
 import com.example.guide.interfaces.GalleryTagsListInterface;
 import com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager;
 
@@ -47,17 +44,15 @@ public class GalleryFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.galerry_fragment, container, false);
 
-        pager = v.findViewById(R.id.horizontal_cycle);
-
 
         recyclerView = v.findViewById(R.id.places_recyclerView);
         StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(spanCount, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mLayoutManager);
-        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) recyclerView.getLayoutParams();
-// Changes the height and width to the specified *pixels*
-        params.height = Resources.getSystem().getDisplayMetrics().heightPixels;
-        params.width = LinearLayout.LayoutParams.MATCH_PARENT;
-        recyclerView.setLayoutParams(params);
+//        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) recyclerView.getLayoutParams();
+//// Changes the height and width to the specified *pixels*
+//        params.height = Resources.getSystem().getDisplayMetrics().heightPixels;
+//        params.width = LinearLayout.LayoutParams.MATCH_PARENT;
+//        recyclerView.setLayoutParams(params);
         return v;
     }
 
@@ -74,8 +69,8 @@ public class GalleryFragment extends Fragment {
 
 
                 Bundle bundle = new Bundle();
-                bundle.putString("image", tagName);
-                Navigation.findNavController(getActivity(),R.id.my_nav_host_fragment).navigate(R.id.action_nav_gallery_to_fullscreenImageFragment, bundle);
+                bundle.putInt("position", position);
+                Navigation.findNavController(getActivity(),R.id.my_nav_host_fragment).navigate(R.id.action_nav_gallery_to_fullscreenGalleryFragment, bundle);
 //                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
 //                View mView = getLayoutInflater().inflate(R.layout.dialog_custom_layout, null);
 //                PhotoView photoView = mView.findViewById(R.id.imageView);
@@ -94,8 +89,6 @@ public class GalleryFragment extends Fragment {
             public void onChanged(List<Places> places) {
                 adapter = new GalleryAdapter(places, recyclerView, getContext(),  galleryTagsListInterface);
                 recyclerView.setAdapter(adapter);
-                InfiniteScrollAdapter infiAdapter = new InfiniteScrollAdapter(places, getContext(), galleryTagsListInterface);
-                pager.setAdapter(infiAdapter);
 
             }
         });

@@ -2,16 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/white">
-    <TextView
+    <LinearLayout
         android:id="@+id/empty_view_not_connected"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="32dp"
-        android:text="no_internet_connection"
-        android:textSize="24sp"
-        android:gravity="center"/>
+        android:background="#30222222"
+
+        >
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/no_internet_animation" />
+
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

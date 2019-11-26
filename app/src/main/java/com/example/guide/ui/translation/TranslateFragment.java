@@ -22,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -71,7 +72,7 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.translate_fragment, container, false);
         activityRunning = true;
-        TextView mEmptyTextView = (TextView) v.findViewById(R.id.empty_view_not_connected);
+        LinearLayout mEmptyTextView = (LinearLayout) v.findViewById(R.id.empty_view_not_connected);
         mSpinnerLanguageFrom = (Spinner) v.findViewById(R.id.spinner_language_from);
         mSpinnerLanguageTo = (Spinner) v.findViewById(R.id.spinner_language_to);
         Button mButtonTranslate = (Button) v.findViewById(R.id.button_translate);         //      Translate button to translate text

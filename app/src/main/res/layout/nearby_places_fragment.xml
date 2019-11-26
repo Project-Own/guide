@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.guide.ui.nearbyPlaces.NearbyPlacesViewModel" />
+    </data>
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewNearby"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="match_parent"
+        />
+
+    <Spinner
+        android:layout_gravity="bottom"
+        android:id="@+id/spinnerNearby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:onItemSelected="@{(parent,view,pos,id)->viewModel.spinnerTypeSelected(parent,view,pos,id)}"
+        android:spinnerMode="dropdown" />
+</FrameLayout>
+</layout>
