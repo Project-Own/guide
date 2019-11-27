@@ -18,9 +18,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:background="@color/cardview_dark_background">
+            android:background="#c58c85">
 
             <LinearLayout
                 android:layout_width="100dp"
@@ -48,19 +48,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Name:"
-                    android:textStyle="bold"
-                   />
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/roll"
-                    android:layout_marginVertical="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                   android:text="Roll:"/>
+                    android:layout_marginVertical="10dp"
+                    android:text="Roll:" />
+
                 <TextView
                     android:id="@+id/email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email:"/>
+                    android:text="Email:" />
 
             </LinearLayout>
 
