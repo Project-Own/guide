@@ -7,10 +7,10 @@
             name="viewModel"
             type="com.example.guide.ui.weather.WeatherViewModel" />
     </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:tools="http://schemas.android.com/tools"
         android:background="@drawable/bg_gradient"
         android:orientation="vertical"
         android:padding="25dp">
@@ -58,13 +58,16 @@
                     android:layout_below="@+id/addressContainer"
                     android:orientation="vertical">
 
-                    <ImageView
+
+                    <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/weatherImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        tools:src="@drawable/ic_launcher_foreground" />
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true" />
+
                 </LinearLayout>
 
                 <LinearLayout

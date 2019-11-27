@@ -32,7 +32,7 @@
             android:orientation="vertical">
 
 
-            <TextView
+            <com.codesgood.views.JustifiedTextView
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:text="Places to Visit"
@@ -75,7 +75,7 @@
                 android:layout_height="1dp"
                 android:layout_margin="12dp"
                 android:background="@color/divider" />
-            <TextView
+            <com.codesgood.views.JustifiedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
@@ -84,7 +84,7 @@
                 android:textSize="20sp"
                 />
 
-            <TextView
+            <com.codesgood.views.JustifiedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"

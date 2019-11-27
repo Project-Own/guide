@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,8 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.guide.Model.Weather.Weather;
 import com.example.guide.Model.Weather.WeatherData;
 import com.example.guide.R;
@@ -29,7 +27,7 @@ public class WeatherFragment extends Fragment {
     private View loadingView;
     private int shortAnimationDuration;
     TextView errorTextView;
-    private ImageView weatherImage;
+    private LottieAnimationView weatherImage;
     String iconName = "10d";
     SwipeRefreshLayout swipeRefreshLayout;
     WeatherFragmentBinding binding;
@@ -72,17 +70,20 @@ public class WeatherFragment extends Fragment {
 
                 String weatherDescription = "";
                 for (Weather weather : weatherData.getWeather()) {
-                    weatherDescription = weather.getDescription() + "\n";
+                     weatherDescription = weather.getDescription() + "\n";
                     iconName = weather.getIcon();
                 }
-                String weatherIconUrl = "https://openweathermap.org/img/wn/" + iconName + "@2x.png";
 
-                Glide.with(getActivity())
-                        .load(weatherIconUrl)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .error(R.drawable.ic_close_black_24dp)
-                        .into(weatherImage)
-                ;
+
+                try {
+
+                     weatherImage.setAnimation(getActivity().getResources()
+                             .getIdentifier("w"+iconName, "raw", getActivity().getPackageName()));
+                }catch (Exception e){
+                    weatherImage.setAnimation(getActivity().getResources()
+                            .getIdentifier("w"+iconName.substring(0,1), "raw", getActivity().getPackageName()));
+                }
+
 
 
             }

@@ -23,7 +23,7 @@
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/siddha" />
 
-        <TextView
+        <com.codesgood.views.JustifiedTextView
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:gravity="center"
@@ -51,7 +51,7 @@
                 android:background="@drawable/rectangle"
                 android:orientation="vertical">
 
-                <TextView
+                <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -60,7 +60,7 @@
                     android:textColor="@color/primaryText"
                     android:textSize="20sp" />
 
-                <TextView
+                <com.codesgood.views.JustifiedTextView
                     android:layout_margin="8dp"
                     android:id="@+id/abstractTextView"
                     android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                     android:layout_margin="12dp"
                     android:background="@color/divider" />
 
-                <TextView
+                <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -83,7 +83,7 @@
                     android:text="Ticket Information"
                     android:textColor="@color/primaryText"
                     android:textSize="20sp" />
-                <TextView
+                <com.codesgood.views.JustifiedTextView
 
                     android:layout_margin="8dp"
                     android:id="@+id/ticketInfoTextView"
@@ -92,14 +92,14 @@
                     android:text="@{viewModel.infoData.price}" />
 
 
-                <TextView
+                <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:text="Note:"
                     android:textColor="@color/primaryText"
                     android:textSize="18sp" />
-                <TextView
+                <com.codesgood.views.JustifiedTextView
 
                     android:layout_marginLeft="8dp"
                     android:id="@+id/infoTicketTextView"
@@ -120,7 +120,7 @@
                     android:layout_margin="12dp"
                     android:background="@color/divider" />
 
-                <TextView
+                <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -129,7 +129,7 @@
                     android:text="More About Bhaktapur"
                     android:textColor="@color/primaryText"
                     android:textSize="20sp" />
-                <TextView
+                <com.codesgood.views.JustifiedTextView
                     android:id="@+id/infoTextView"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"

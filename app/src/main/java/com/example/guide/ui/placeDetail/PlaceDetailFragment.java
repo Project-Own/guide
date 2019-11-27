@@ -124,7 +124,8 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
                         break;
                     case 10:
                         name += trans;
-                        textView.setMovementMethod(new ScrollingMovementMethod());
+                           textView.setMovementMethod(new ScrollingMovementMethod());
+
                         break;
                     default:
                         name += trans;
@@ -214,11 +215,13 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("image", imageName);
+
                 Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment).navigate(R.id.action_placeDetailFragment3_to_fullscreenImageFragment, bundle);
 //                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
 //                View mView = getLayoutInflater().inflate(R.layout.dialog_custom_layout, null);
@@ -319,6 +322,21 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
         t1.speak(message, TextToSpeech.QUEUE_FLUSH, null);
     }
 
+    @Override
+    public void onPause() {
+        if (t1 != null) {
+            t1.stop();
+            b1.setImageDrawable(getResources().getDrawable(R.drawable.ic_volume_up_black_24dp));
+        }
+        super.onPause();
 
+    }
 
+    @Override
+    public void onDestroy() {
+
+        t1.shutdown();
+
+        super.onDestroy();
+    }
 }

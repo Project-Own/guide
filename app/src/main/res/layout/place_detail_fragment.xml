@@ -116,7 +116,7 @@
 
         app:layout_constraintTop_toBottomOf="@id/divider" />
 
- <TextView
+ <com.codesgood.views.JustifiedTextView
         android:id="@+id/contentText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
