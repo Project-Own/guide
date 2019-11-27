@@ -92,6 +92,7 @@ public class ForexViewModel extends AndroidViewModel {
     }
 
     private void loadSpinner() {
+
     }
 
 

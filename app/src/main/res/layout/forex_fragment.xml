@@ -111,7 +111,10 @@
 
                         <include layout="@layout/recipe_placeholder_item" />
 
-                        <include layout="@layout/recipe_placeholder_item" />
+                        <include
+                            layout="@layout/recipe_placeholder_item"
+                            android:layout_width="390dp"
+                            android:layout_height="167dp" />
 
                     </LinearLayout>
 
@@ -229,10 +232,15 @@
             android:layout_height="match_parent"
             android:background="#30222222"
             android:visibility="@{viewModel.isBusy ? View.VISIBLE : View.GONE}"
-
+            android:clickable="true"
             >
 
-            <com.airbnb.lottie.LottieAnimationView
+            <androidx.cardview.widget.CardView
+                android:padding="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animation_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -241,6 +249,7 @@
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/anim_coin" />
 
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 </FrameLayout>

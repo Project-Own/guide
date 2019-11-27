@@ -157,6 +157,7 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
                         button.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                              if(isNetworkAvailable()){
                                 boolean simulateRoute = true;
                                 NavigationLauncherOptions options = NavigationLauncherOptions.builder()
                                         .directionsRoute(currentRoute)
@@ -164,6 +165,10 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
                                         .build();
 // Call this method with Context from within an Activity
                                 NavigationLauncher.startNavigation(getActivity(), options);
+
+                              }else{
+                                  buildAlertMessageNoInternetConnection();
+                              }
                             }
                         });
 

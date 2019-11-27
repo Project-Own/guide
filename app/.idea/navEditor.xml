@@ -281,6 +281,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="fullscreenGalleryFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1601" />
+                            <option name="y" value="2176" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="fullscreenImageFragment">
                     <value>
                       <LayoutPositions>
@@ -382,7 +394,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_nav_gallery_to_fullscreenImageFragment">
+                            <entry key="action_nav_gallery_to_fullscreenGalleryFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
