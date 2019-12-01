@@ -1,0 +1,884 @@
+{
+   "html_attributions" : [],
+   "next_page_token" : "CqQCGwEAAJ1p1e5sVQHPQwL1tgSExrn3_mVCdCQizCQ5PFviIgy6iYLI-8yqh7PnJ0IZJL-0shJ9-acON5PJblnpGMYEucFWbJqE-dYXcEyjrJuxQLuM3lHLmLFG4INwnVP27bHtHRtZHwBvpJ36AWm236hpnusHksvehTC5CkIvejaX2fwI5RgjLD7zTQJqTX2ygLex04rfUnh1sj5d1kIIHKRB69XslCX4--V3yYodYr0qrFhXFp8E8g3h3V8gEg-KQO-WfIeA42xuMVpcta6vBRXpOi5va8mv4RLeGBX_6MKmmopz3WvsmVifxaeI4Oo6PijIEhPGqYaZFooocwDOHLt3Kl5KV3wLJS7bzGvW6qJH8QYhiFM1WwNSpI2he80PCkkyyxIQgVQYNd26QAfv5_fiolduDhoU-zGIJNJfSJYi6Ul0pHe6YTqcg_I",
+   "results" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.672371,
+               "lng" : 85.427083
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6737258302915,
+                  "lng" : 85.42843278029152
+               },
+               "southwest" : {
+                  "lat" : 27.6710278697085,
+                  "lng" : 85.4257348197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "a8e3dcab1727ad1f4462c3b379ec9cc8584531e4",
+         "name" : "Citizens Bank International, Bhaktapur Branch",
+         "place_id" : "ChIJiUU0xGEa6zkRD5HzDC5TFi0",
+         "plus_code" : {
+            "compound_code" : "MCCG+WR Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCG+WR"
+         },
+         "rating" : 2,
+         "reference" : "ChIJiUU0xGEa6zkRD5HzDC5TFi0",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6654215,
+               "lng" : 85.4268879
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6668150302915,
+                  "lng" : 85.4282420302915
+               },
+               "southwest" : {
+                  "lat" : 27.6641170697085,
+                  "lng" : 85.42554406970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "a78722e3f24f69e7932f37a619a4f49466483745",
+         "name" : "Bank of Kathmandu",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102255010810414015363/photos\"\u003epradeep amatya\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA90pfewnEclyFtQKy_JYH1l-vgc8uwJdMfBxG1hnEhIt4c8KFqpvy4wVKDx0_BXQn2jCjomgT28icqg87A7z_b_q4TZVVO6P-bqNQ6nFlrI6gh-wX2zZzuVm_AdYzwfiqEhDHyWfqcI0Fu1eXmdTDST6rGhRlQOtmT1bGPdykDoEGfKZvYw2Ksg",
+               "width" : 4000
+            }
+         ],
+         "place_id" : "ChIJU9MALKYa6zkR3Oi0OeALrvY",
+         "plus_code" : {
+            "compound_code" : "MC8G+5Q Suryabinayak, Nepal",
+            "global_code" : "7MV7MC8G+5Q"
+         },
+         "rating" : 4,
+         "reference" : "ChIJU9MALKYa6zkR3Oi0OeALrvY",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 7,
+         "vicinity" : "Araniko Highway, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6727585,
+               "lng" : 85.4245698
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6740426302915,
+                  "lng" : 85.4259168302915
+               },
+               "southwest" : {
+                  "lat" : 27.6713446697085,
+                  "lng" : 85.42321886970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "329b1a5aa9b1780c1058af844f6fc5efcb0d95b2",
+         "name" : "Bank of Kathmandu Limited",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3120,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/110512730219053502515/photos\"\u003eAadesh Shrestha\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAtNBZcWQH-xeFTqdRL9wDXWmXn_0QmotnHtTtLTbvE388KkehwPpGf08CNBrNyQKWJRa7urRfXx60hVpewJlXBd_CzZia7TIhD-G9oPW9t4QCC9KoTWIvJ09EmYwEyLZGEhAH-3UV6jnOyNS4Z0_B2kg1GhR6Q_GXqy0NUUlUwHCbY9cSUC8Fdg",
+               "width" : 4160
+            }
+         ],
+         "place_id" : "ChIJBQDB2KQa6zkRpuX0FD7pN5k",
+         "plus_code" : {
+            "compound_code" : "MCFF+4R Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFF+4R"
+         },
+         "rating" : 2.3,
+         "reference" : "ChIJBQDB2KQa6zkRpuX0FD7pN5k",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 3,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6654328,
+               "lng" : 85.424544
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6669065802915,
+                  "lng" : 85.42589348029151
+               },
+               "southwest" : {
+                  "lat" : 27.6642086197085,
+                  "lng" : 85.42319551970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "75323ec972eb3f9b79fdfb07f13c854e5099ce68",
+         "name" : "Civil Bank",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2376,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115673712367160397574/photos\"\u003eJeevan Dhakal\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAQ3mFmv2yqWanJvEOh9Gr4BpYjJJofLUHvn0bJ5FVlcff1EMTDfhKlgvsuQYFBA6mkcZW9Fq7qCk1PGozTq4jzm2cKbnuKYP4XCbjB9-dRzFm9_LJppRhGcCCY2DP-mz4EhC54PbFEy4A6GsiswXG57UeGhQRSDqst-jhiVjWV87bgCg4L1AJ1A",
+               "width" : 1511
+            }
+         ],
+         "place_id" : "ChIJewTv-KYa6zkR5Gv4G-QxmzM",
+         "plus_code" : {
+            "compound_code" : "MC8F+5R Suryabinayak, Nepal",
+            "global_code" : "7MV7MC8F+5R"
+         },
+         "rating" : 3.5,
+         "reference" : "ChIJewTv-KYa6zkR5Gv4G-QxmzM",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 4,
+         "vicinity" : "Araniko Highway, Suryabinayak"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6723755,
+               "lng" : 85.42665219999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6737674302915,
+                  "lng" : 85.4280440302915
+               },
+               "southwest" : {
+                  "lat" : 27.6710694697085,
+                  "lng" : 85.4253460697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "ee8acc9affde3263ff1adef9e368de4a584680de",
+         "name" : "Citizens Bank",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3264,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104480480101403421457/photos\"\u003eSaroj Suwal\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAvxmurTqaGWO9UNmgtu20JNpfAs-fSwOZKnj34oSzqV1J7LrtD_FWgczIYwRVhSxgQC2j3u1jGELt0D4Zpm39-cOI78g-573ZMJD6C2nVf7RrG4EnFtAisM6hVm4EVnICEhBR0LAB80yXq77sWXeHnPlmGhTWzdv1jAKBnehY1JwHNbf1zlwZSw",
+               "width" : 1836
+            }
+         ],
+         "place_id" : "ChIJl01AXaUa6zkRYs6T13G0m-Q",
+         "plus_code" : {
+            "compound_code" : "MCCG+XM Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCG+XM"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJl01AXaUa6zkRYs6T13G0m-Q",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 5,
+         "vicinity" : "खौमा सडक, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.672049,
+               "lng" : 85.42330500000001
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6734688302915,
+                  "lng" : 85.42464573029152
+               },
+               "southwest" : {
+                  "lat" : 27.6707708697085,
+                  "lng" : 85.4219477697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "79e7379c1e6149c1a7b797b46fa82bf21e5d24c3",
+         "name" : "Deva Bikas Bank",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1920,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/101811141838549876454/photos\"\u003eYewNop Xtha\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAiyWUwXODouI-BRzSbdb_Um-VE0-jO_7xO15paJDI365WtJfZRqwcYylTwsEZVb8e41nzaj_VdGl-JEQ_zj5aaYBjydzGKmPy4DWRWmrNvyCe0q072rz7T7X1Mcr9v56CEhDc6VN-q0h4Zga-PybjLxM-GhTmkt8DalH8vkx66a9vfYX9SdPnsA",
+               "width" : 1080
+            }
+         ],
+         "place_id" : "ChIJC7TClKQa6zkRaCEtrsIyrss",
+         "plus_code" : {
+            "compound_code" : "MCCF+R8 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCF+R8"
+         },
+         "rating" : 3.5,
+         "reference" : "ChIJC7TClKQa6zkRaCEtrsIyrss",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "atm", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "भक्तपुर बसपार्क, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6660929,
+               "lng" : 85.42336589999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6673853802915,
+                  "lng" : 85.42471928029151
+               },
+               "southwest" : {
+                  "lat" : 27.6646874197085,
+                  "lng" : 85.42202131970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "bfe12757373368cceba45b8ef19083877e2c182a",
+         "name" : "Prabhu Bank",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3456,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/100992887530066940646/photos\"\u003eIvan Suwal\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAXHfEy8XhEAaSP97nmx-7Q8RG97WA1kw8JYTTyBuNgVwQDe2ZK_FQElh_ccENvVO6zt6rxyc4lIfEqgOO61Jc3g5bH62czpXy8JwnzGnTbsh8ZMozNKCofcGfinik0hz6EhDTyQpEgz35zu4ep-OHRmw_GhQVjreyGJANW1bTTksM2cn05eVVhA",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJkXiDMKYa6zkR-w5PQClRzwY",
+         "plus_code" : {
+            "compound_code" : "MC8F+C8 Bhaktapur, Nepal",
+            "global_code" : "7MV7MC8F+C8"
+         },
+         "rating" : 2.7,
+         "reference" : "ChIJkXiDMKYa6zkR-w5PQClRzwY",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 11,
+         "vicinity" : "Araniko Highway, Suryabinayak"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67194409999999,
+               "lng" : 85.4227128
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6733587802915,
+                  "lng" : 85.4240354302915
+               },
+               "southwest" : {
+                  "lat" : 27.67066081970849,
+                  "lng" : 85.42133746970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "1064c06c279ab946392a9edfc7f788cc50d70dab",
+         "name" : "Agricultural Development Bank Ltd. Bhaktapur Branch",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 4000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102255010810414015363/photos\"\u003epradeep amatya\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAnUpz_K8gv29kl0iPU9kUphPenQzez6RAH5d3UIl8NFv3sGVR4khVqvmU536JZO52wzEuhifxduhdCOgiWiym1kSHM2jYgsbGKWTvKfOIPzWk6dhDlQCQhlHvysBDp-y4EhAaU6MxLBr4ma4EH1bRbvL3GhRAafC8gsBDQD_zqvlDv_SffpLrnw",
+               "width" : 3000
+            }
+         ],
+         "place_id" : "ChIJN2I2l6Qa6zkR-zch265Llmw",
+         "plus_code" : {
+            "compound_code" : "MCCF+Q3 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCF+Q3"
+         },
+         "rating" : 4,
+         "reference" : "ChIJN2I2l6Qa6zkR-zch265Llmw",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "मिनी बसपार्क, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6651427,
+               "lng" : 85.42567489999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6664937802915,
+                  "lng" : 85.4269729302915
+               },
+               "southwest" : {
+                  "lat" : 27.6637958197085,
+                  "lng" : 85.42427496970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "10134dfe69ee64b1a60ad36c1d1c8867be8656c6",
+         "name" : "Nepal Investment Bank",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 4128,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111965354371804336211/photos\"\u003eBode Dharmapur\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA-rm0lI8eRfaWClhipCVYM0GbZRgnLTxtdoWdIrDPwiN_853tOAtVM0pIdtu9zmxVo9C1Y-z6MzX8Ajirs4kGuqQEaoRWvds2xR7TNJAmva_vWdxObGuGh0v_qG-sTT9-EhD-tq8OQaXgqsqoWAqKppxcGhST70znLKJisZgT8hHHD3T6kTJpTA",
+               "width" : 3096
+            }
+         ],
+         "place_id" : "ChIJi0yatKca6zkRG2nSB59vvOI",
+         "plus_code" : {
+            "compound_code" : "MC8G+37 Suryabinayak, Nepal",
+            "global_code" : "7MV7MC8G+37"
+         },
+         "rating" : 3.4,
+         "reference" : "ChIJi0yatKca6zkRG2nSB59vvOI",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 18,
+         "vicinity" : "F099, Suryabinayak"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6658022,
+               "lng" : 85.42633939999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6670861302915,
+                  "lng" : 85.42767633029149
+               },
+               "southwest" : {
+                  "lat" : 27.6643881697085,
+                  "lng" : 85.42497836970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "02bd82078a5c9bf15339830c49ec6d17bc6a8867",
+         "name" : "NIC ASIA Bank Ltd. Bhaktapur Branch",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1920,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111965354371804336211/photos\"\u003eBode Dharmapur\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAzpDBdwCoFvqWAE0vGM3LPxgQjiVCVNtCCchXFZLDADUKUE3Zp3Fxj3H2AjZAKnmkNxUol0FWCDc3uO3OdckI8pYKu_Ww2yfPgBSsh2w6i1avHIeEMFhKOkmsOkH8Lkc1EhAurRHFWRhgNunbmnAfKv12GhR-Upfs1cE4Y969AW0l6y2qjDgcsw",
+               "width" : 1080
+            }
+         ],
+         "place_id" : "ChIJv1UAOqYa6zkRJ7MU2xMwfZE",
+         "plus_code" : {
+            "compound_code" : "MC8G+8G Bhaktapur, Nepal",
+            "global_code" : "7MV7MC8G+8G"
+         },
+         "rating" : 2.9,
+         "reference" : "ChIJv1UAOqYa6zkRJ7MU2xMwfZE",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 17,
+         "vicinity" : "ग पलि, Suryabinayak"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6660348,
+               "lng" : 85.4249749
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6672541302915,
+                  "lng" : 85.4263208302915
+               },
+               "southwest" : {
+                  "lat" : 27.6645561697085,
+                  "lng" : 85.4236228697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "2390f9dd48999abee7747ff179514e6afaec1f41",
+         "name" : "Janata Bank Nepal",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102255010810414015363/photos\"\u003epradeep amatya\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAN1RLhELvVeSFKALsC3TiU6ilnDhZdLt2qkaTwv62Kmy6b4MRv27SdAAllskpqFQpRZHZGMSZgodd8TCsZP6nako50Wq4MxdajPR7qZd-x4ap3vy-owrw6hB-ZT4WcPNJEhDigT2Za0DC2_loH63o-77tGhS9gDT3cFnclt_U3rsGs_DFbH3_0Q",
+               "width" : 4000
+            }
+         ],
+         "place_id" : "ChIJneIRN6Ya6zkRQoi-_E9AYUY",
+         "plus_code" : {
+            "compound_code" : "MC8F+CX Bhaktapur, Nepal",
+            "global_code" : "7MV7MC8F+CX"
+         },
+         "rating" : 3,
+         "reference" : "ChIJneIRN6Ya6zkRQoi-_E9AYUY",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 4,
+         "vicinity" : "Araniko Highway 101, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.66591919999999,
+               "lng" : 85.4249715
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6672669802915,
+                  "lng" : 85.4263972802915
+               },
+               "southwest" : {
+                  "lat" : 27.66456901970849,
+                  "lng" : 85.42369931970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "fa7e658c29ed7f03d9c6c0c62db8fdc342654e57",
+         "name" : "Sanima Bank Ltd. Suryabinayak Branch",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3456,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111365323669461960943/photos\"\u003eSagun Raj Lage\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAkPqc_RN8TQUYsOBVWV5XiRauDoKHXGyiLq7-GgOyZMmPR1u1D1uhLTm5o2tiT2AXphmU-OR5aGWEeWpTldJHRVvC4g7Mbzgo2Y3hGrKOMlB8Z2ZYx08wwbD54liTwIB0EhAR1_rmodW0vlk_S5pWlHQ0GhRWeOXtt5EWdF7Q_D5wCt5gQ5VRLQ",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJowCWW6Ya6zkRv55RinUY74s",
+         "plus_code" : {
+            "compound_code" : "MC8F+9X Bhaktapur, Nepal",
+            "global_code" : "7MV7MC8F+9X"
+         },
+         "rating" : 3.5,
+         "reference" : "ChIJowCWW6Ya6zkRv55RinUY74s",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 8,
+         "vicinity" : "Suryavinayak Sadak, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6654396,
+               "lng" : 85.42462950000001
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6669098802915,
+                  "lng" : 85.4259789802915
+               },
+               "southwest" : {
+                  "lat" : 27.6642119197085,
+                  "lng" : 85.4232810197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "36b3af1210e234b1c52359d29a053b5a6b985a05",
+         "name" : "N M B Bank",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3456,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111365323669461960943/photos\"\u003eSagun Raj Lage\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAACgHYew09qodVcjIbDLHpn0rQiQ12fr6irp6xN36HolFBe3T38IhOFqmWdL5l7lB2Qs8_4cPMuoNl6GySFi5dgDFJxlOt2JPUfIk7TMkN2Mi4Z2BRtE37W9EA3baTvEvNEhDJFvo6OepegTAsy4XFpBYJGhSnUx6OxTSFcpHYoFZkXdqmDX_j0Q",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJQy3sV6Ya6zkRBXzQsTBY-Vg",
+         "plus_code" : {
+            "compound_code" : "MC8F+5V Suryabinayak, Nepal",
+            "global_code" : "7MV7MC8F+5V"
+         },
+         "rating" : 4.7,
+         "reference" : "ChIJQy3sV6Ya6zkRBXzQsTBY-Vg",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 6,
+         "vicinity" : "Araniko Highway 101, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671153,
+               "lng" : 85.4381233
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6725172302915,
+                  "lng" : 85.43939908029151
+               },
+               "southwest" : {
+                  "lat" : 27.66981926970849,
+                  "lng" : 85.4367011197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "4ee92c28ef97a240fc9fcac33aa6d0ccf990e04c",
+         "name" : "Jyoti Bikash Bank Limited",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 540,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/100782531102622766692/photos\"\u003eJyoti Bikash Bank Limited\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAkiBRVKhALhQMjvC1OBzvr4D7XYWxY-FT52DBAHS-k72G1iekn54TH4j90ya_b-aMYf7dSbs6w98P6yFDKx4dsx12oILLmvgxW2VFz28toD21GOikK5O2CbwsWCVIcymzEhCG_70twxBFhlpWQcIzYyE0GhRZVR5oThCvQ5dG7msSo59sAxSu8Q",
+               "width" : 1440
+            }
+         ],
+         "place_id" : "ChIJP1aHt1IF6zkRO85N6d2ZcYM",
+         "plus_code" : {
+            "compound_code" : "MCCQ+F6 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCQ+F6"
+         },
+         "rating" : 2.8,
+         "reference" : "ChIJP1aHt1IF6zkRO85N6d2ZcYM",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 5,
+         "vicinity" : "Jagati-KamalBinayak Road, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67231139999999,
+               "lng" : 85.4384439
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6736750302915,
+                  "lng" : 85.43970218029149
+               },
+               "southwest" : {
+                  "lat" : 27.6709770697085,
+                  "lng" : 85.43700421970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "2c5ed17e57b7ab201ef0ad5e3181c8419af995f4",
+         "name" : "Central Finance Ltd.",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJLXdbxFIF6zkRIlBJksce6JM",
+         "plus_code" : {
+            "compound_code" : "MCCQ+W9 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCQ+W9"
+         },
+         "rating" : 4,
+         "reference" : "ChIJLXdbxFIF6zkRIlBJksce6JM",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 5,
+         "vicinity" : "Garud Kundal Road, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6654432,
+               "lng" : 85.42338699999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6668713802915,
+                  "lng" : 85.4247422302915
+               },
+               "southwest" : {
+                  "lat" : 27.66417341970849,
+                  "lng" : 85.42204426970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "f1e29e230dfeb69545b6c7e7ac6ed1841336d8a7",
+         "name" : "Everest Bank Ltd. Bhaktapur Branch",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3456,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111365323669461960943/photos\"\u003eSagun Raj Lage\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAAclQ7yb3m5YoeE7c0-15kf7aNI8HGTCo30y7FMsDImQYham4tTDjPQuO5HcIXPvxjqhxh2c9anbywZb3pT-oUahzNEgqYEtE4rfO-ZcoeSFCXcbRZpx-jmhTQ1EVA-tsEhCkeM5nRSLjIJTKlkxJQ4cVGhQ54AVz6N741Xn4LlMNXXNOCH-QNw",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJUy_m56Ya6zkRgFbIXK_z1Jw",
+         "plus_code" : {
+            "compound_code" : "MC8F+59 Suryabinayak, Nepal",
+            "global_code" : "7MV7MC8F+59"
+         },
+         "rating" : 3.5,
+         "reference" : "ChIJUy_m56Ya6zkRgFbIXK_z1Jw",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 19,
+         "vicinity" : "Araniko Highway, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6657045,
+               "lng" : 85.42148259999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6670174302915,
+                  "lng" : 85.4228604802915
+               },
+               "southwest" : {
+                  "lat" : 27.6643194697085,
+                  "lng" : 85.4201625197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "b26d4136b140cb89718551bb0ed2d7067521ec9e",
+         "name" : "Century Commercial Bank Ltd. Bhaktapur Branch",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3456,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111365323669461960943/photos\"\u003eSagun Raj Lage\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAq0fhpGQO_--M2hXRBF6lNbTa_CGBysQGA05hmTf3-mEjFsajgsa-PWQVtAbPurxCl3THbmRelZtEVt7T5bkYU1asVwRbQhd98y5-BtzoxzFGsyJR11IMn8PyvK-CHYtlEhANQX-DzeDIAhF8KdnMN5uYGhSZ_Pu1uaq6YLkizYPL2er3OiKDjg",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJ_1sSMKEa6zkRPckAHtNLT_w",
+         "plus_code" : {
+            "compound_code" : "MC8C+7H Suryabinayak, Nepal",
+            "global_code" : "7MV7MC8C+7H"
+         },
+         "rating" : 3.7,
+         "reference" : "ChIJ_1sSMKEa6zkRPckAHtNLT_w",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 9,
+         "vicinity" : "Suryabinayak"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.677397,
+               "lng" : 85.4372637
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6787994802915,
+                  "lng" : 85.4385882302915
+               },
+               "southwest" : {
+                  "lat" : 27.6761015197085,
+                  "lng" : 85.43589026970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "f64ade70ee386c9fb5ba8c77666fd841cd139549",
+         "name" : "Nepal Bank Ltd. Bhaktapur Branch",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 4000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102255010810414015363/photos\"\u003epradeep amatya\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAy8fLQtPeYI1jEB8fFgLExr08wBaGsaVA77lvSPkELCgBnnIYLAJBLSieLrfwEpu9ZUnsTy-3zSZEi3DgD5Sf2KYvo45fB2BUdFJ4Hh4LuQ9FYINq4Zn6VJNcKEflj2YrEhC8OgmP33S-9wKhodNKNgV1GhSe6dYM5ofNKo6TKWBo5YT3gq1few",
+               "width" : 3000
+            }
+         ],
+         "place_id" : "ChIJ4V3hK7Ma6zkRwimJ6y1jz1Y",
+         "plus_code" : {
+            "compound_code" : "MCGP+XW Bhaktapur, Nepal",
+            "global_code" : "7MV7MCGP+XW"
+         },
+         "rating" : 3.7,
+         "reference" : "ChIJ4V3hK7Ma6zkRwimJ6y1jz1Y",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 3,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6735944,
+               "lng" : 85.4394155
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6749115302915,
+                  "lng" : 85.4407713302915
+               },
+               "southwest" : {
+                  "lat" : 27.6722135697085,
+                  "lng" : 85.43807336970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "59b3ede422f9226c1eea35ef2b7718f098f86be7",
+         "name" : "Siddhartha Bank Ltd. Kamalbinayak, Chyamhasingh Branch",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3096,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115019722603505730690/photos\"\u003eRabi Shrestha\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAP2ys3fvJwKW2Bcfq3g5I9fvTstQSRvgg0MkWxY_8GcCXCjQH35FKBvvfVd7GOJl2g1aWnS-0AChKLteVUEkoI541LqEtV84uPlqifs6Lktl2pFiLhbPBJNohu1QSJXOAEhB5tdawRlPm81900CWJue4dGhR4ngnCmYpsKigjPbBbROZZAognjw",
+               "width" : 4128
+            }
+         ],
+         "place_id" : "ChIJYzMxm1IF6zkR3SKjR-Fz4QA",
+         "plus_code" : {
+            "compound_code" : "MCFQ+CQ Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFQ+CQ"
+         },
+         "rating" : 3.7,
+         "reference" : "ChIJYzMxm1IF6zkR3SKjR-Fz4QA",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 6,
+         "vicinity" : "Jagati-KamalBinayak Road, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671919,
+               "lng" : 85.430089
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6731786302915,
+                  "lng" : 85.43138293029151
+               },
+               "southwest" : {
+                  "lat" : 27.6704806697085,
+                  "lng" : 85.4286849697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bank_dollar-71.png",
+         "id" : "648216c68b3fa8a1211943ea4c930fef0f26ddc5",
+         "name" : "Himalayan Bank",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 540,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114214661703265481676/photos\"\u003eamu00003\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAyxqq5Z4OYUtVn0Xs1T8BgJ0GW6CwzWTnAqMh0GxPpCA6TccUZzr9VpYegGHfhHna_H23DDAx3ivsZhWVMtgO3aDrXTrh-GSlN7zXYMktkR0kvk3qN2MXHk3tEP494y6DEhAQNfu1Ai2QYZrapFTqkeIeGhT1le6PHcC5-F_habI_R-KerduvMQ",
+               "width" : 720
+            }
+         ],
+         "place_id" : "ChIJ68PcTa4a6zkRoU_23CzJnII",
+         "plus_code" : {
+            "compound_code" : "MCCJ+Q2 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCJ+Q2"
+         },
+         "rating" : 3.1,
+         "reference" : "ChIJ68PcTa4a6zkRoU_23CzJnII",
+         "scope" : "GOOGLE",
+         "types" : [ "bank", "finance", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 15,
+         "vicinity" : "रत्न भवन, Bhaktapur"
+      }
+   ],
+   "status" : "OK"
+}

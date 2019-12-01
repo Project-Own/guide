@@ -30,4 +30,5 @@
     <color name="chef">#777</color>
     <color name="timestamp">#777</color>
     <color name="background_blur">#30222222</color>
+    <color name="black_semi_transparent">#60000000</color>
 </resources>

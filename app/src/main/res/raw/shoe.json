@@ -1,0 +1,722 @@
+{
+   "html_attributions" : [],
+   "results" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.682026,
+               "lng" : 85.4301483
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6834203302915,
+                  "lng" : 85.43158393029151
+               },
+               "southwest" : {
+                  "lat" : 27.6807223697085,
+                  "lng" : 85.4288859697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "b35df058b0b795be306a00d39201b18d4f8af535",
+         "name" : "Planet Bhaktapur Hotel",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 720,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115929321934415557807/photos\"\u003ePlanet Bhaktapur Hotel\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAAY0ZCD7eWjV_zR71qE9af7axViXqk3oDN6clYnN1gkMuUls7YkZPeBwQQm9TPLErgD3-YwLprvIlipNIb1G2niAhyohpeW1dZoKHFwCnqsiJ-bgf6TD_aQL_O5UW2YIYEhCMTYSg6Z5jVA9tAZE_aYhUGhSrzzFCGTG_KdykF_T6ToGflfh-cw",
+               "width" : 960
+            }
+         ],
+         "place_id" : "ChIJG2xdVFYF6zkRhGMTfyFJUp8",
+         "plus_code" : {
+            "compound_code" : "MCJJ+R3 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCJJ+R3"
+         },
+         "rating" : 4.6,
+         "reference" : "ChIJG2xdVFYF6zkRhGMTfyFJUp8",
+         "scope" : "GOOGLE",
+         "types" : [
+            "travel_agency",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 171,
+         "vicinity" : "7, cha vdc, Mandev Marg, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.672193,
+               "lng" : 85.42844199999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6735158802915,
+                  "lng" : 85.42979118029152
+               },
+               "southwest" : {
+                  "lat" : 27.6708179197085,
+                  "lng" : 85.42709321970851
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "a28cf64d9d2c6e6f59565e681798c02d7e78b725",
+         "name" : "Trekking in Nepal Info ( P. ) Ltd.",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 750,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/112957506262404190430/photos\"\u003eTrekking in Nepal Info ( P. ) Ltd.\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAP45B5_8bvVsD5IWV6JHaHVj0jErk_VTnVINbrSrGcJNv0HxL8ZZi7dGpzlRd6X79wrV4DP0Apsu_zLD_OPymC7AsBbmIf_B-lExK8Z_lYTeIW6e-lK77OYaEgsSJN3m3EhCLfwdAXRW806idV0ugXyn5GhRo5DQDX5xYwjpFcNDoULvtcN4taw",
+               "width" : 1000
+            }
+         ],
+         "place_id" : "ChIJCca9la8a6zkRKdCp4qNCaOU",
+         "plus_code" : {
+            "compound_code" : "MCCH+V9 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+V9"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJCca9la8a6zkRKdCp4qNCaOU",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 6,
+         "vicinity" : "Bhaktapur Durbar Square, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671301,
+               "lng" : 85.42948
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6726010302915,
+                  "lng" : 85.43084143029151
+               },
+               "southwest" : {
+                  "lat" : 27.66990306970849,
+                  "lng" : 85.42814346970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "8cc7da33c141c3b83cbafa72407f3e0a15a703f4",
+         "name" : "Himalayan Moment Pvt. Ltd",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1174,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/117731842830493188382/photos\"\u003eBimalendra Prajapati\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAATbAEbktK4ps18NKCGJWG8IzQt3Yic8qfKNQcjJpdlBmqCZ2Z0Z3RL8Jd5vWtFPSgP7RnVzG2BCd0UxIMJQ2qEy3BymU0faXdx0xsVQrpea9DDQf2NoKSFIko2jyCfnflEhAFtV5esrTM57t5hQ-4mK0tGhQ5SckGJyEeKJU4ALumcwemdMSUPw",
+               "width" : 1000
+            }
+         ],
+         "place_id" : "ChIJ70BQ464a6zkRSZJsb93k1eQ",
+         "plus_code" : {
+            "compound_code" : "MCCH+GQ Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+GQ"
+         },
+         "rating" : 5,
+         "reference" : "ChIJ70BQ464a6zkRSZJsb93k1eQ",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Taumadhi Square, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6660906,
+               "lng" : 85.4227721
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6673951802915,
+                  "lng" : 85.42411403029152
+               },
+               "southwest" : {
+                  "lat" : 27.66469721970849,
+                  "lng" : 85.4214160697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "1ec2d5aafa3fb3a22838a9ddc12bbfb080cca2f8",
+         "name" : "Marker Stone Travels & Tours Pvt. Ltd.",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJ0-tPxKYa6zkR651_ELFICkE",
+         "plus_code" : {
+            "compound_code" : "MC8F+C4 Bhaktapur, Nepal",
+            "global_code" : "7MV7MC8F+C4"
+         },
+         "rating" : 2.3,
+         "reference" : "ChIJ0-tPxKYa6zkR651_ELFICkE",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 3,
+         "vicinity" : "Araniko Highway, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.666291,
+               "lng" : 85.4273194
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6676300802915,
+                  "lng" : 85.4286326802915
+               },
+               "southwest" : {
+                  "lat" : 27.6649321197085,
+                  "lng" : 85.42593471970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "33a21cd0ddfe1de90a46ba1b3dd6600fdb687803",
+         "name" : "Rasbita International Travel & Tours Pvt. Ltd., Bhaktapur Branch",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2448,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102103396164142208476/photos\"\u003echandra prakash shrestha\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAVXE39XnDLa1YDa18wJuaOiqSbapZGgLMO_9DUJBhsppA_pfn8XXpAnz8HXFLxLS0oFm7oAYBWlV_tvauAEyak-bIGK5aN9_iSBLDJicj41jNTShUW1FOCLhDrcAwbb5zEhCXmfphuE6tzum-spVU8U4eGhR6xZqewlRcygSPfOIMjuPFk8eU3A",
+               "width" : 3264
+            }
+         ],
+         "place_id" : "ChIJHWQ_nqga6zkRaGnfmBQ5Amo",
+         "plus_code" : {
+            "compound_code" : "MC8G+GW Bhaktapur, Nepal",
+            "global_code" : "7MV7MC8G+GW"
+         },
+         "rating" : 5,
+         "reference" : "ChIJHWQ_nqga6zkRaGnfmBQ5Amo",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "Bhulancha Road, Suryabinayak, 4, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.676762,
+               "lng" : 85.43631999999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6780757802915,
+                  "lng" : 85.43767643029149
+               },
+               "southwest" : {
+                  "lat" : 27.6753778197085,
+                  "lng" : 85.43497846970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "9670bfd9312846dcb11c2acbd862148948bba537",
+         "name" : "Samsara Resort (Hotel)",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1536,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102336777692317878851/photos\"\u003eSamsara Resort (Hotel)\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAACu1NSXpXRzzQihHEN4nSq0PaJmfJ4oFktLDZMwu3fj2D2OJS2L57KYzUee7x_MYVQDu4WnewuqTgrjmXLXVidWRfGPuPluNXKT-nJpSzx9f1GQplGNUZCbIAwFskenqkEhBV5wRmY8bipTS4HchHFmNjGhSRt6czRxmFzVb8dtIRJ8ZkbFfNOg",
+               "width" : 2048
+            }
+         ],
+         "place_id" : "ChIJJUkO3rIa6zkR_NTKlzz6Lfg",
+         "plus_code" : {
+            "compound_code" : "MCGP+PG Kathmandu, Nepal",
+            "global_code" : "7MV7MCGP+PG"
+         },
+         "rating" : 5,
+         "reference" : "ChIJJUkO3rIa6zkR_NTKlzz6Lfg",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "4, Bhagwati Marg, काठमाडौँ"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.667377,
+               "lng" : 85.42530599999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6686800302915,
+                  "lng" : 85.42664268029149
+               },
+               "southwest" : {
+                  "lat" : 27.66598206970849,
+                  "lng" : 85.42394471970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "99b27eafefed4e24f2c3d11dbde789d2ec745c7e",
+         "name" : "iTrekNepal",
+         "photos" : [
+            {
+               "height" : 2592,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/106571133275988402328/photos\"\u003eMadhusudan Gautam\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAJvkua0kbS557qM4BUrDJmWCv8hgZOZhOt_rZQ1N-atS4MiE7qi6_VU-2iyZZBubri4stAEJNHLh8bu0mQK4TWoN5_99HPMTt8bD36BS-nc3op_VjFWokXyho-tk45wFBEhB0TJi2sOsYfzpGHpvvbWMlGhSF8ft70qe5Ww68KV6DkfP5nbnx2w",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJtcUWcKYa6zkRsYl_BFJRwk8",
+         "plus_code" : {
+            "compound_code" : "MC8G+X4 Bhaktapur, Nepal",
+            "global_code" : "7MV7MC8G+X4"
+         },
+         "rating" : 4.8,
+         "reference" : "ChIJtcUWcKYa6zkRsYl_BFJRwk8",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 4,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671363,
+               "lng" : 85.4300617
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6727364302915,
+                  "lng" : 85.43138023029151
+               },
+               "southwest" : {
+                  "lat" : 27.6700384697085,
+                  "lng" : 85.4286822697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "8857ff8ca5a26bf22f54fd381a94a7eea470ab1d",
+         "name" : "Nepal in Style Travels and Tours",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJp9QMVK4a6zkRYSc2Adro8yI",
+         "plus_code" : {
+            "compound_code" : "MCCJ+G2 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCJ+G2"
+         },
+         "rating" : 5,
+         "reference" : "ChIJp9QMVK4a6zkRYSc2Adro8yI",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6710221,
+               "lng" : 85.4298197
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6724909302915,
+                  "lng" : 85.43112603029151
+               },
+               "southwest" : {
+                  "lat" : 27.6697929697085,
+                  "lng" : 85.42842806970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "e3629589ba4f052685e87c1b5a6c19c688b43294",
+         "name" : "Cast Holiday",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJtcySdgEb6zkRDMwdEHlquns",
+         "plus_code" : {
+            "compound_code" : "MCCH+CW Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+CW"
+         },
+         "reference" : "ChIJtcySdgEb6zkRDMwdEHlquns",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "vicinity" : "Byasi Gate, Byasi Bhaktapur, Nagarkot Road, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6723955,
+               "lng" : 85.4274317
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6737058802915,
+                  "lng" : 85.4288123802915
+               },
+               "southwest" : {
+                  "lat" : 27.67100791970849,
+                  "lng" : 85.4261144197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "27ba3ff54bff103674abda4d2fc1a0d56d25055f",
+         "name" : "Bhaktapur Tourism Information Center",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1280,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104165472536415770700/photos\"\u003eAnik Maity\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAbHYWv8H8s-CRHkIPgM-w-n8MEsB4ou3Z8YKGL7nFmcA6-KR4coBZJmwGF3AvbTZA01vPd884UIxfBzt0xP4YbraNSh9LRL4BSaKc9-hDM6K8paU7ODag12l2smsagBY9EhDmY2bkaeU4jtlDDsKgGGH3GhSmCbuWbTXb93RZWc8Ny3x9Qyuxfw",
+               "width" : 960
+            }
+         ],
+         "place_id" : "ChIJuUrT9K8a6zkR8Ttv1EEqJ4E",
+         "plus_code" : {
+            "compound_code" : "MCCG+XX Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCG+XX"
+         },
+         "rating" : 4,
+         "reference" : "ChIJuUrT9K8a6zkR8Ttv1EEqJ4E",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6727485,
+               "lng" : 85.4253135
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6740955302915,
+                  "lng" : 85.4266636302915
+               },
+               "southwest" : {
+                  "lat" : 27.6713975697085,
+                  "lng" : 85.42396566970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "f71814429b9fe7f9feae6bc4f74688853da2e725",
+         "name" : "Ready For Nepal",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJ_ZbRRboa6zkRN01dNBghUGs",
+         "plus_code" : {
+            "compound_code" : "MCFG+34 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFG+34"
+         },
+         "rating" : 4,
+         "reference" : "ChIJ_ZbRRboa6zkRN01dNBghUGs",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 4,
+         "vicinity" : "Itachhe Tole, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.669799,
+               "lng" : 85.4255355
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6711900802915,
+                  "lng" : 85.42690598029151
+               },
+               "southwest" : {
+                  "lat" : 27.6684921197085,
+                  "lng" : 85.4242080197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "e1438d527e70da797849cd33aa95cf31b0a7e8fc",
+         "name" : "Nepal Trek Ways Pvt. Ltd.",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 6000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/113497564452377172795/photos\"\u003eNepal Trek Ways Pvt. Ltd.\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAZrM1_A14ihLAJvt9EDnIO0PJSkSlOrU0EVyCgIdyPAHl34nBOulPqrVpzzu5XaM99rPsivSTgc1rU_y9UTs8ZEe1gYPAxOAJxAcagNnkvgulCSkNl5z2sNfLN_nG0_gzEhBCYiwbIyRPLJI-rlJNSpMkGhRapf_1InKp49cuGasxjOqCj8vxxg",
+               "width" : 8000
+            }
+         ],
+         "place_id" : "ChIJFbi2YaYa6zkRE5Af1beaY-Y",
+         "plus_code" : {
+            "compound_code" : "MC9G+W6 Bhaktapur, Nepal",
+            "global_code" : "7MV7MC9G+W6"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJFbi2YaYa6zkRE5Af1beaY-Y",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 7,
+         "vicinity" : "Araniko Highway 101, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.665971,
+               "lng" : 85.425979
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6671985802915,
+                  "lng" : 85.4273116302915
+               },
+               "southwest" : {
+                  "lat" : 27.6645006197085,
+                  "lng" : 85.42461366970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "f7b050c008753186b7b34273d5baaf8c305e0e20",
+         "name" : "GLOBAL PEACE TOURS AND TRAVELS",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJcfqGOKYa6zkRuLQZhsjxkkA",
+         "plus_code" : {
+            "compound_code" : "MC8G+99 Bhaktapur, Nepal",
+            "global_code" : "7MV7MC8G+99"
+         },
+         "reference" : "ChIJcfqGOKYa6zkRuLQZhsjxkkA",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "vicinity" : "Ga Pali Road, Suryabinayak"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6659267,
+               "lng" : 85.42429319999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6672062802915,
+                  "lng" : 85.42564063029151
+               },
+               "southwest" : {
+                  "lat" : 27.6645083197085,
+                  "lng" : 85.42294266970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "4e71bd17ff984c456ea078bb41a4a09e45eab2f0",
+         "name" : "Ticket Counter Suryabinayak",
+         "place_id" : "ChIJtwxEh2gb6zkRieub9SggOnw",
+         "plus_code" : {
+            "compound_code" : "MC8F+9P Bhaktapur, Nepal",
+            "global_code" : "7MV7MC8F+9P"
+         },
+         "reference" : "ChIJtwxEh2gb6zkRieub9SggOnw",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "vicinity" : "बाराहीस्थान मार्ग, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.66363789999999,
+               "lng" : 85.4259802
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6649846802915,
+                  "lng" : 85.42736493029149
+               },
+               "southwest" : {
+                  "lat" : 27.6622867197085,
+                  "lng" : 85.42466696970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "a1346c5920e807c7c226db453a7a19fe9f5146e4",
+         "name" : "Adventure Hunt Treks (P) Ltd.",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 460,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104161374580116959542/photos\"\u003eAshok Kasti\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAHigvVrbfLI1i5KSjhjj4fAWJJSV-dyNF8i_spn344Ide8F--zfLkLeDBbZVAuV7-fHX9umuNH3UxPY7QpPyV8ZagAJOXUXqjUqW5nVXnYb3-NCrxl16nRJu_3uLBXglFEhB7HoLe6sYFVvQRfxxmw_i7GhS2pRss1BxTqh3ofy3tzHtCvaL4DA",
+               "width" : 460
+            }
+         ],
+         "place_id" : "ChIJeytQlaca6zkRtWtbt8znuoY",
+         "plus_code" : {
+            "compound_code" : "MC7G+F9 Suryabinayak, Nepal",
+            "global_code" : "7MV7MC7G+F9"
+         },
+         "reference" : "ChIJeytQlaca6zkRtWtbt8znuoY",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "vicinity" : "Suryabinayak"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6653417,
+               "lng" : 85.4226415
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6666625302915,
+                  "lng" : 85.42405863029151
+               },
+               "southwest" : {
+                  "lat" : 27.6639645697085,
+                  "lng" : 85.42136066970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "958542e0d787471fcce45b1b8de60cec85ab6394",
+         "name" : "N.B. Everest Travels and Tours Pvt. Ltd.",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3173,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115942147970048071921/photos\"\u003eBhim Sapkota\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAUsrCJ7Dwhdx8XHXwYKYDAKtV_XPAdEKSNO10yVrv9GZ9U1NSBVoOZ8iCSafW_Z3TyCHRLo1eNrG7GRC1lwGl7D5OfJZuzhMtyv8oTWuNBxR8QNt_eleg3q_8wwKJc8-4EhAc1xtyJ7dYsxrkmRubGmKJGhQhQTbvRdG1uNtUSuy-kzl8Y6LL_g",
+               "width" : 5994
+            }
+         ],
+         "place_id" : "ChIJ315F5KUb6zkRLA8esFYRPSM",
+         "plus_code" : {
+            "compound_code" : "MC8F+43 Suryabinayak, Nepal",
+            "global_code" : "7MV7MC8F+43"
+         },
+         "rating" : 4,
+         "reference" : "ChIJ315F5KUb6zkRLA8esFYRPSM",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Katunje-8, Pandu Bazar, House No. 180, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6633441,
+               "lng" : 85.4187555
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6647032302915,
+                  "lng" : 85.42009743029151
+               },
+               "southwest" : {
+                  "lat" : 27.66200526970849,
+                  "lng" : 85.41739946970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "d43e2dc2c45e2bee924842b849629af4655c12bf",
+         "name" : "Life Time Nepal Treks & Tours Pvt. Ltd",
+         "place_id" : "ChIJoYlxUi4b6zkRtHBAEeWQOF0",
+         "plus_code" : {
+            "compound_code" : "MC79+8G Suryabinayak, Nepal",
+            "global_code" : "7MV7MC79+8G"
+         },
+         "reference" : "ChIJoYlxUi4b6zkRtHBAEeWQOF0",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "vicinity" : "Unnamed Road, सुर्यविनायक"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6772943,
+               "lng" : 85.4314318
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6786418802915,
+                  "lng" : 85.43279768029151
+               },
+               "southwest" : {
+                  "lat" : 27.67594391970849,
+                  "lng" : 85.43009971970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "78eac258806eea147ebe422cbb3ae740032e4a88",
+         "name" : "TAJI LAJI PUCHA",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJmyVkqVwb6zkR6HcOvHlwz60",
+         "plus_code" : {
+            "compound_code" : "MCGJ+WH Bhaktapur, Nepal",
+            "global_code" : "7MV7MCGJ+WH"
+         },
+         "reference" : "ChIJmyVkqVwb6zkR6HcOvHlwz60",
+         "scope" : "GOOGLE",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ],
+         "vicinity" : "Dekocha, Bhaktapur"
+      }
+   ],
+   "status" : "OK"
+}

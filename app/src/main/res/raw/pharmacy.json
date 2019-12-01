@@ -1,0 +1,722 @@
+{
+   "html_attributions" : [],
+   "next_page_token" : "CqQCHwEAAF36ypRIJcFoqshk_yMIt67RGZItDbyYVnSwOXoUpIO82rXpn40CGRVZXPMlLgcyUgSNP47EGLB6Rbao3haUiB7FEYdFOqocnjHENmhM1TiOTFLYo7bqhv1GGpAV_P4_TJHP6TNBrK6pvbkTdkSuGdRhc0xsr7-S4ziBkwDYqSxLOKDWoJ8ENajwc8B6zYlPYWjQi3zNSmuSiKdt5Q3BCd9LKTzqU4-1_ID-QTDk8E3zNBDL261SnA4-q3Jqv29rSjyPujrPvYrcBCTfxqbVDwPwwYXJJYoweqHPM5p_eEFkb5yPnl7t7r3rrh8TGu1huHrT08iV39WnnZgTCcDoRczWcj2XgmVtCsQjodI5-oEKnvf9GKYvtiAE6JczRQcuBRIQatR7AsDPWYeoYMlDp02XFhoUPx-LFal7bGqoQ4asbjAwZPD_q2s",
+   "results" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6719859,
+               "lng" : 85.42951479999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6733461302915,
+                  "lng" : 85.4308707302915
+               },
+               "southwest" : {
+                  "lat" : 27.6706481697085,
+                  "lng" : 85.4281727697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "9db970556f11b4cc1d7ea76e5552c48915ff9112",
+         "name" : "Pasa Veterinary Clinic",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2448,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/109735190499462642874/photos\"\u003eSanjay darshandhari\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAAEtwZwMKStpex1jnEMfVJdekse4xyBtkoWHsdNxe1zwHyznS2ZPVtJszjxgov3p5WbbrFWuRUfqHuJC2K8DnmbX7I0zXpEZZMch0aIJs7oITLtIeYtt37ECp_qrCN1zbEhCGJeeQAyuHinq3mG-Ib4o2GhQd0UsXO7PU30ixpxEFOtlx3FuZsA",
+               "width" : 3264
+            }
+         ],
+         "place_id" : "ChIJ_YqIKBUb6zkRcaN35UvAh2w",
+         "plus_code" : {
+            "compound_code" : "MCCH+QR Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+QR"
+         },
+         "rating" : 5,
+         "reference" : "ChIJ_YqIKBUb6zkRcaN35UvAh2w",
+         "scope" : "GOOGLE",
+         "types" : [
+            "pharmacy",
+            "veterinary_care",
+            "health",
+            "point_of_interest",
+            "store",
+            "establishment"
+         ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6710221,
+               "lng" : 85.4298197
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6724909302915,
+                  "lng" : 85.43112603029151
+               },
+               "southwest" : {
+                  "lat" : 27.6697929697085,
+                  "lng" : 85.42842806970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "c62b1c7e9ab9f3b048ca8f532c1168e8b6679720",
+         "name" : "Bhim Medico",
+         "place_id" : "ChIJfVZRMMAb6zkRajXCoLwkd5c",
+         "plus_code" : {
+            "compound_code" : "MCCH+CW Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+CW"
+         },
+         "rating" : 4,
+         "reference" : "ChIJfVZRMMAb6zkRajXCoLwkd5c",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Jagati"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6704488,
+               "lng" : 85.42877999999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6718198802915,
+                  "lng" : 85.4301165802915
+               },
+               "southwest" : {
+                  "lat" : 27.6691219197085,
+                  "lng" : 85.42741861970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png",
+         "id" : "cd9d186c618f5ea1f86773a57ed4e7598f62c809",
+         "name" : "Oriental Pharmacy & Optical Center",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJt54yDK8a6zkR8CVNKvfJ6Hg",
+         "plus_code" : {
+            "compound_code" : "MCCH+5G Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+5G"
+         },
+         "rating" : 4.7,
+         "reference" : "ChIJt54yDK8a6zkR8CVNKvfJ6Hg",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 3,
+         "vicinity" : "बोलाछें सडक, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6728737,
+               "lng" : 85.42989369999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6742141802915,
+                  "lng" : 85.43124333029151
+               },
+               "southwest" : {
+                  "lat" : 27.6715162197085,
+                  "lng" : 85.42854536970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "77024eca787e22035a929f90bae4bb082fcda4f9",
+         "name" : "Bhaktapur Pharmacy",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 5312,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104856195984839631426/photos\"\u003eJack Taylor\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAlUhqaaWntHgN-K-Lk6IqtXCflVGSIpgUUP7NnQR2SirrmTZUO6IzgQ1bBJq6Hhse7eepDMYMI5pw_GhWPerdEduYfXxoDAymhRMT7RXrXWt9lLdasdlYJ_uc967q4SBvEhA_SOhAI-6cmF5PqENjpU3UGhTa7rQ9s1SbtgKBqqGLlVzv2qysUA",
+               "width" : 2988
+            }
+         ],
+         "place_id" : "ChIJIW5eM64a6zkRF5gbdKnE_ig",
+         "plus_code" : {
+            "compound_code" : "MCFH+4X Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFH+4X"
+         },
+         "rating" : 3,
+         "reference" : "ChIJIW5eM64a6zkRF5gbdKnE_ig",
+         "scope" : "GOOGLE",
+         "types" : [
+            "drugstore",
+            "pharmacy",
+            "health",
+            "point_of_interest",
+            "store",
+            "establishment"
+         ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67259,
+               "lng" : 85.431493
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6739617302915,
+                  "lng" : 85.43284518029151
+               },
+               "southwest" : {
+                  "lat" : 27.6712637697085,
+                  "lng" : 85.43014721970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "3badf0b749c96511c2a5776f289dea610ed2b093",
+         "name" : "Dev Pharmacy",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJDwlGE64a6zkRZnoEae4MZus",
+         "plus_code" : {
+            "compound_code" : "MCFJ+2H Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFJ+2H"
+         },
+         "reference" : "ChIJDwlGE64a6zkRZnoEae4MZus",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "vicinity" : "Sukul Dhoka Marg, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.672461,
+               "lng" : 85.431653
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6738647802915,
+                  "lng" : 85.4330056302915
+               },
+               "southwest" : {
+                  "lat" : 27.6711668197085,
+                  "lng" : 85.4303076697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "e827be5fbb2efaa51dd3dbe5dd9a77ba439790c8",
+         "name" : "Krishna Pharmacy",
+         "place_id" : "ChIJGd89ba4a6zkRlq627IxC4aU",
+         "plus_code" : {
+            "compound_code" : "MCCJ+XM Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCJ+XM"
+         },
+         "reference" : "ChIJGd89ba4a6zkRlq627IxC4aU",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "vicinity" : "Nagarkot Road, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6735543,
+               "lng" : 85.43146039999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6749065302915,
+                  "lng" : 85.4326611802915
+               },
+               "southwest" : {
+                  "lat" : 27.6722085697085,
+                  "lng" : 85.4299632197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "4ad4bca7e2a12c843e42f8b22e0246f7712656fa",
+         "name" : "Khowpa Pharmacy",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJkwXnG64a6zkRX-yzq3gbcmo",
+         "plus_code" : {
+            "compound_code" : "MCFJ+CH Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFJ+CH"
+         },
+         "rating" : 5,
+         "reference" : "ChIJkwXnG64a6zkRX-yzq3gbcmo",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.672572,
+               "lng" : 85.4322657
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6739347802915,
+                  "lng" : 85.4334911302915
+               },
+               "southwest" : {
+                  "lat" : 27.6712368197085,
+                  "lng" : 85.43079316970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "b375d82f28491f7e075d34dba4f7d2d9add714df",
+         "name" : "Laxmi Vet Pharma",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJ_3XQmtob6zkR5dLGDaTeswE",
+         "plus_code" : {
+            "compound_code" : "MCFJ+2W Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFJ+2W"
+         },
+         "reference" : "ChIJ_3XQmtob6zkR5dLGDaTeswE",
+         "scope" : "GOOGLE",
+         "types" : [
+            "pharmacy",
+            "veterinary_care",
+            "health",
+            "point_of_interest",
+            "store",
+            "establishment"
+         ],
+         "vicinity" : "Damla Galli, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6709277,
+               "lng" : 85.4255572
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6722722802915,
+                  "lng" : 85.42691773029151
+               },
+               "southwest" : {
+                  "lat" : 27.6695743197085,
+                  "lng" : 85.4242197697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "6fce651b8cf79c0ffae4ea9d9a84d55a5892c25e",
+         "name" : "Ajima Waasa Pasah",
+         "place_id" : "ChIJIVbrCaUa6zkRz17RYNKHiF8",
+         "plus_code" : {
+            "compound_code" : "MCCG+96 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCG+96"
+         },
+         "rating" : 1,
+         "reference" : "ChIJIVbrCaUa6zkRz17RYNKHiF8",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "भक्तपुर मार्ग, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6717086,
+               "lng" : 85.4341383
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6730554302915,
+                  "lng" : 85.4354986802915
+               },
+               "southwest" : {
+                  "lat" : 27.6703574697085,
+                  "lng" : 85.4328007197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "78e935632e7df50a1e1c0104813df563fc6fe045",
+         "name" : "Bhaisharjya Medical Shop",
+         "place_id" : "ChIJ4_n6sK0a6zkRXgSz_kj7SC0",
+         "plus_code" : {
+            "compound_code" : "MCCM+MM Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCM+MM"
+         },
+         "rating" : 2.5,
+         "reference" : "ChIJ4_n6sK0a6zkRXgSz_kj7SC0",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "इनाचो-6, माको गल्लि"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6715337,
+               "lng" : 85.4343411
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6728630302915,
+                  "lng" : 85.43560358029151
+               },
+               "southwest" : {
+                  "lat" : 27.6701650697085,
+                  "lng" : 85.43290561970851
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "b9143979a53e45da6997cc7974c428150b212d59",
+         "name" : "Shakya Clinic शाक्य क्लिनिक",
+         "place_id" : "ChIJ_YRWrq0a6zkReRL0aBOkbhI",
+         "plus_code" : {
+            "compound_code" : "MCCM+JP Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCM+JP"
+         },
+         "rating" : 4,
+         "reference" : "ChIJ_YRWrq0a6zkReRL0aBOkbhI",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "Inacho - Hanumanghat Road 6, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6751952,
+               "lng" : 85.42583870000001
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6764827302915,
+                  "lng" : 85.42715563029151
+               },
+               "southwest" : {
+                  "lat" : 27.6737847697085,
+                  "lng" : 85.4244576697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "4783828845f3f620ac8dc64657ffa32509faf713",
+         "name" : "R. K. Optics",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJv2A4wLoa6zkR-bnCrl5KNiQ",
+         "plus_code" : {
+            "compound_code" : "MCGG+38 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCGG+38"
+         },
+         "rating" : 3.3,
+         "reference" : "ChIJv2A4wLoa6zkR-bnCrl5KNiQ",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 3,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6717227,
+               "lng" : 85.42396979999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6730716802915,
+                  "lng" : 85.42531878029151
+               },
+               "southwest" : {
+                  "lat" : 27.6703737197085,
+                  "lng" : 85.42262081970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "dc166b00de3afd4a337334cadbac19920bd75aa6",
+         "name" : "Rasu Pharmacy",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJKZ-c76Qa6zkRyKkk9aipq7o",
+         "plus_code" : {
+            "compound_code" : "MCCF+MH Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCF+MH"
+         },
+         "rating" : 4,
+         "reference" : "ChIJKZ-c76Qa6zkRyKkk9aipq7o",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "भक्तपुर मार्ग, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6714804,
+               "lng" : 85.4239642
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6728638302915,
+                  "lng" : 85.4253169802915
+               },
+               "southwest" : {
+                  "lat" : 27.6701658697085,
+                  "lng" : 85.42261901970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "5a6d300546a5439ca6a89873b9b250e0fa3a0a54",
+         "name" : "Jiwanta Pharmacy",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJda2nNLUb6zkRdLXxQOtkoQo",
+         "plus_code" : {
+            "compound_code" : "MCCF+HH Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCF+HH"
+         },
+         "reference" : "ChIJda2nNLUb6zkRdLXxQOtkoQo",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6677125,
+               "lng" : 85.4328453
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6690580302915,
+                  "lng" : 85.43419003029149
+               },
+               "southwest" : {
+                  "lat" : 27.6663600697085,
+                  "lng" : 85.43149206970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "090a6973cc844ce51b319457371a45c0d3f66707",
+         "name" : "M.S. Medical",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJK5Ah_Ksa6zkRz2S9bGy2Q-Q",
+         "plus_code" : {
+            "compound_code" : "MC9M+34 Bhaktapur, Nepal",
+            "global_code" : "7MV7MC9M+34"
+         },
+         "reference" : "ChIJK5Ah_Ksa6zkRz2S9bGy2Q-Q",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "vicinity" : "आदर्श मार्ग, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6760897,
+               "lng" : 85.4319744
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6774137302915,
+                  "lng" : 85.4333418302915
+               },
+               "southwest" : {
+                  "lat" : 27.6747157697085,
+                  "lng" : 85.43064386970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "b0001969d99f126290c289b422c756725587e02b",
+         "name" : "Jhingu Wasa Pasa Pharmacy",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3456,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/103465013649067843406/photos\"\u003eSanjeev Koju\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAv_j3HBrm8Dubu-_2yTpWVVsVV-zFXqkFA-I3DC1MhNOUEg5Qbqqe1V5Way_Ctao7TI14zsgk0WvX3pP4O32jQWHq3XSMAprVjFQroaFU8wUnV4d7cX5mP78uV_pRkqeFEhBcWjbM2vit983NXhqJyOIZGhT6CLkUydVpg1Dtn73OSObbnQyQkQ",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJD70W7k0b6zkR0Pl6MS_Mh44",
+         "plus_code" : {
+            "compound_code" : "MCGJ+CQ Bhaktapur, Nepal",
+            "global_code" : "7MV7MCGJ+CQ"
+         },
+         "rating" : 5,
+         "reference" : "ChIJD70W7k0b6zkR0Pl6MS_Mh44",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : ""
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6759139,
+               "lng" : 85.4336404
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6772739302915,
+                  "lng" : 85.4350293302915
+               },
+               "southwest" : {
+                  "lat" : 27.6745759697085,
+                  "lng" : 85.43233136970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "5bc171f62380f64d983b929cf24963bfecfa11e3",
+         "name" : "Kamal Medical Store",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJg19XP7Ia6zkRWnxwDbwu-YY",
+         "plus_code" : {
+            "compound_code" : "MCGM+9F Bhaktapur, Nepal",
+            "global_code" : "7MV7MCGM+9F"
+         },
+         "reference" : "ChIJg19XP7Ia6zkRWnxwDbwu-YY",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "vicinity" : "Nagarkot Road, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671772,
+               "lng" : 85.42224299999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6731260802915,
+                  "lng" : 85.4236246302915
+               },
+               "southwest" : {
+                  "lat" : 27.67042811970849,
+                  "lng" : 85.42092666970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "01456fd220617eb6bbd6961da66455cfc6ceff1f",
+         "name" : "Alfaz Medical Hall",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "place_id" : "ChIJl8tKnKQa6zkRoMtuugcbjG8",
+         "plus_code" : {
+            "compound_code" : "MCCC+PV Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCC+PV"
+         },
+         "reference" : "ChIJl8tKnKQa6zkRoMtuugcbjG8",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "vicinity" : "दुधपाटी -17, सिद्धपोखरी"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67171799999999,
+               "lng" : 85.422119
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6731168302915,
+                  "lng" : 85.42343823029151
+               },
+               "southwest" : {
+                  "lat" : 27.6704188697085,
+                  "lng" : 85.4207402697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "b77ca6766023e4cc36ea9357adccb46566cad790",
+         "name" : "Service Medical Hall",
+         "place_id" : "ChIJayiFnaQa6zkR0iaK0msAieE",
+         "plus_code" : {
+            "compound_code" : "MCCC+MR Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCC+MR"
+         },
+         "reference" : "ChIJayiFnaQa6zkR0iaK0msAieE",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "vicinity" : "Nagarkot Road 17, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671696,
+               "lng" : 85.422078
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6730949302915,
+                  "lng" : 85.42339528029152
+               },
+               "southwest" : {
+                  "lat" : 27.6703969697085,
+                  "lng" : 85.42069731970851
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/pharmacy_cross-71.png",
+         "id" : "aa19fa136fa4b73375caceff02094d2e8c98003f",
+         "name" : "Doleshwor Pharmacy",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "place_id" : "ChIJP3B_YqMa6zkR4sSEDakwZ9E",
+         "plus_code" : {
+            "compound_code" : "MCCC+MR Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCC+MR"
+         },
+         "reference" : "ChIJP3B_YqMa6zkR4sSEDakwZ9E",
+         "scope" : "GOOGLE",
+         "types" : [ "pharmacy", "health", "point_of_interest", "store", "establishment" ],
+         "vicinity" : "सिद्धपोखरी, Bhaktapur"
+      }
+   ],
+   "status" : "OK"
+}

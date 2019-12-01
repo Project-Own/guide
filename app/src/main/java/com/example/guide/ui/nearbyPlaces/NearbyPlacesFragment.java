@@ -1,8 +1,6 @@
 package com.example.guide.ui.nearbyPlaces;
 
-import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +22,6 @@ import com.example.guide.adapters.NearbyAdapter;
 import com.example.guide.databinding.NearbyPlacesFragmentBinding;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.List;
 
@@ -63,6 +60,31 @@ public class NearbyPlacesFragment extends Fragment {
         binding.setViewModel(mViewModel);
         binding.setLifecycleOwner(this);
 
+        mViewModel.loadResult().observe(getActivity(), new Observer<List<Result>>() {
+            @Override
+            public void onChanged(List<Result> results) {
+                NearbyAdapter nearbyAdapter = new NearbyAdapter(results, recyclerView, getContext());
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+                recyclerView.setLayoutManager(mLayoutManager);
+                recyclerView.setAdapter(nearbyAdapter);
+                recyclerView.hasFixedSize();
+            }
+        });
+
+
+        mViewModel.loadSpinnerData().observe(getActivity(), new Observer<String[]>() {
+            @Override
+            public void onChanged(String[] s) {
+
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, s);
+                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                convertPlacesSpinner.setAdapter(arrayAdapter);
+
+            }
+        });
+
+/*
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
                     @Override
@@ -102,6 +124,7 @@ public class NearbyPlacesFragment extends Fragment {
                         }
                     }
                 });
+*/
 
 
           }

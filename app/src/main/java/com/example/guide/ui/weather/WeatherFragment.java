@@ -1,6 +1,7 @@
 package com.example.guide.ui.weather;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,8 +81,7 @@ public class WeatherFragment extends Fragment {
                      weatherImage.setAnimation(getActivity().getResources()
                              .getIdentifier("w"+iconName, "raw", getActivity().getPackageName()));
                 }catch (Exception e){
-                    weatherImage.setAnimation(getActivity().getResources()
-                            .getIdentifier("w"+iconName.substring(0,1), "raw", getActivity().getPackageName()));
+                    Log.i("Weather Fragment", e.getLocalizedMessage());
                 }
 
 

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.guide.ui.offlineMap.OfflineMapViewModel" />
+    </data>
+
+<FrameLayout xmlns:mapbox="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -14,10 +23,8 @@
             android:id="@+id/mapView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            mapbox:mapbox_cameraBearing="300"
             mapbox:mapbox_cameraTargetLat="27.726761"
             mapbox:mapbox_cameraTargetLng="85.45900"
-            mapbox:mapbox_cameraTilt="60"
             mapbox:mapbox_cameraZoom="16" >
 
             <Button
@@ -26,10 +33,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="56dp"
                 android:layout_marginEnd="16dp"
+                android:visibility="gone"
                 android:background="@color/mapbox_offline_material_grey_200"
-                android:enabled="false"
+
                 android:text="Start navigation"
                 android:textColor="@color/mapbox_offline_white" />
         </com.mapbox.mapboxsdk.maps.MapView>
@@ -48,5 +56,15 @@
         android:paddingRight="25dp"
         android:visibility="gone" />
 
+    <Spinner
+        android:layout_gravity="bottom"
+        android:id="@+id/spinnerNearby"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_margin="8dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:onItemSelected="@{(parent,view,pos,id)->viewModel.spinnerTypeSelected(parent,view,pos,id)}"
+        android:spinnerMode="dropdown" />
 
 </FrameLayout>
+</layout>

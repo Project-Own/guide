@@ -1,0 +1,945 @@
+{
+   "html_attributions" : [],
+   "next_page_token" : "CrQCIwEAAJZGL1TyDnoCUSmRayrHylc4f0cM284Xn1CPWhxT6zjDJED4qK_tclTtBsFlN6UWDX7oz7Y7WlHMPN0DOzI5jCtQEjSolPUwTx_m_9X-CaxEHzkDS-aG2K6atL3svc-Uydu8hciz1jfH22CGN-Xg5xc1Ekxhk7j7PYH-QlC4dRE31Ob94a3O-iSqpE8Ih8226o3TmBuDP2YGK5SVjYMpOFFEG8QSXJ2b-Ov6ydmk82SsI7aSKJMeM1zSEGBbESu6C56RSP4yV5yQdAj_mAKPyx47cCj28VGJ0Br2tCuQpE2a5AhYnLdhwGdRAs_8hh4_cP3phZsgQd612b3OnPXXlrJC3852n8-yZNrufrRNZNXCeT4ZedlS6Ffdo3F70MYxa1pVrOZk_EO2_6EGD4_EOjYSECFaJmzyW39bbTPhzVsjJvwaFPGTirhsBkmm7YFIujOmxglBXZNG",
+   "results" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6734967,
+               "lng" : 85.4353074
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6748365302915,
+                  "lng" : 85.43662983029151
+               },
+               "southwest" : {
+                  "lat" : 27.67213856970849,
+                  "lng" : 85.43393186970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "a31ef507784e0a69b09116c081fdd1a64d0f5295",
+         "name" : "Dattatraya Temple दत्तात्रय मन्दिर",
+         "photos" : [
+            {
+               "height" : 1362,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/107199855895683623861/photos\"\u003eFahmi Adimara\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAQZBX6TWeZB1XCGOpRY2Y3slmo9c7yTor0lnazeTqiHNKKkcga--L_5fEq1NAGzHIv_5gATtEGExkPcLm1p_9_Xewqgr3Cdp6DNbkTb6OVdQ5iuxp3ElPmd7x8CVfg90VEhAZog8sPPtAkdLC_S8skvSHGhSAtSzPm2pb9dBptvEuT0wMUb4GOQ",
+               "width" : 2048
+            }
+         ],
+         "place_id" : "ChIJAQBseq0a6zkR9JGKydTPjsI",
+         "plus_code" : {
+            "compound_code" : "MCFP+94 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFP+94"
+         },
+         "rating" : 4.6,
+         "reference" : "ChIJAQBseq0a6zkR9JGKydTPjsI",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 27,
+         "vicinity" : "Mako Galli, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6723271,
+               "lng" : 85.42895790000001
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6736280802915,
+                  "lng" : 85.4302912302915
+               },
+               "southwest" : {
+                  "lat" : 27.6709301197085,
+                  "lng" : 85.4275932697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "38207e64085a7fa29e185baa5ad6515d52b2c9e0",
+         "name" : "Pumpkin Temple (Farsi Dewal)",
+         "photos" : [
+            {
+               "height" : 2448,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111039352568612752888/photos\"\u003eBryan Liang\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAU5ZgSudj4mhySVbe_0XtzdiDhD0oWRCoQpqTpil3K6vv-VYoFTEOjGN6l8BtiZ4RTFMZWFCc8AAl7-QbQnYWJHW0G7niKsCHnGV6Nmz_jTPYn9NPq2MxgH6Sa2CHVYisEhCF-WhC_w4IjYxrIwPGU0cDGhRbOPO2N3pINVcXbbOiH_jrlaw4GQ",
+               "width" : 3264
+            }
+         ],
+         "place_id" : "ChIJPzxOv68a6zkRsdtkTxaZ0Qo",
+         "plus_code" : {
+            "compound_code" : "MCCH+WH Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+WH"
+         },
+         "rating" : 4.5,
+         "reference" : "ChIJPzxOv68a6zkRsdtkTxaZ0Qo",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "tourist_attraction",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 21,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67150669999999,
+               "lng" : 85.4293308
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6728556802915,
+                  "lng" : 85.43067978029151
+               },
+               "southwest" : {
+                  "lat" : 27.67015771970849,
+                  "lng" : 85.42798181970851
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "6ff4371f5b77a2ea965dc36de602a18b1532a2ba",
+         "name" : "Siddhi Laxmi Devi",
+         "photos" : [
+            {
+               "height" : 4160,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/109732328220499333054/photos\"\u003eRajan Dahal\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAKu8QgcSlDbjEtprrVBnWrT5CyLUrOU9nCdkow2Vg5GX2tJgcXJcnpq2fewUxMZV9ptXha1n-w7iSVqlf8_gEtZ8H-Itx6XILf1JRaDjRqyNdbKajZmu2uyphS7Id7m6wEhCFBza1Cc-62vdBFVT4aFa5GhS4aok9XijQWCLrdt0e4JE6IJQhVQ",
+               "width" : 3120
+            }
+         ],
+         "place_id" : "ChIJJ6gYqa8a6zkRFJDIx5aTIsw",
+         "plus_code" : {
+            "compound_code" : "MCCH+JP Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+JP"
+         },
+         "rating" : 4.7,
+         "reference" : "ChIJJ6gYqa8a6zkRFJDIx5aTIsw",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 3,
+         "vicinity" : "Rammandir Road 12, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671262,
+               "lng" : 85.4292342
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6726109802915,
+                  "lng" : 85.43058318029151
+               },
+               "southwest" : {
+                  "lat" : 27.6699130197085,
+                  "lng" : 85.4278852197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "a5da331869a10a4e2684c995e5d1ea98b2c3d6e7",
+         "name" : "Nyatapola Pagoda",
+         "photos" : [
+            {
+               "height" : 4032,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/100616281134699277261/photos\"\u003ePrajwol Rana\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAAZ5c8r4bJvynjdXCoWTvMCH9D6Ou1E-yy8NRGJHQlJbmSxue3-W9CeaLfxoa2-rku1lhLnOOZIfE8KZbi9KATHrxzgyLXqlZDcPRAyj5LFlGJQvzvlhi5UH9L6ANGpTYEhCFBH5B8HPRDDQboMF7yllTGhTyiBJYyjwgMsWvSt7pUBh2Amwi1g",
+               "width" : 2268
+            }
+         ],
+         "place_id" : "ChIJNbg0qa8a6zkR69x_2ABhIcI",
+         "plus_code" : {
+            "compound_code" : "MCCH+GM Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+GM"
+         },
+         "rating" : 4.8,
+         "reference" : "ChIJNbg0qa8a6zkR69x_2ABhIcI",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 8,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6713841,
+               "lng" : 85.4297002
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6726742802915,
+                  "lng" : 85.43107413029151
+               },
+               "southwest" : {
+                  "lat" : 27.6699763197085,
+                  "lng" : 85.42837616970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "78b7720f144c694abc79a4476e68e3b39270673c",
+         "name" : "Lord Bishnu Narayan Temple",
+         "photos" : [
+            {
+               "height" : 1152,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/106597495768526010960/photos\"\u003eNiraj Bhusal\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAldJaiEbFYLR-u3aYJkZNMg8PiDOSOhRTW46lEdqO1Eo7RbIbTd5TtlUrbHn7b78c_GyMPl2D7YOt3gz6Goqtu-pekNQLzZ3Nyzou4JyDW1Zz3MPMjXkLtIRswu1qKPBjEhAOGzHhdd8HtGxrj5IxM0LnGhRe9C-U-heNn218m14jywhk9-cong",
+               "width" : 2048
+            }
+         ],
+         "place_id" : "ChIJo-dFq68a6zkRPTCZoaPuqh8",
+         "plus_code" : {
+            "compound_code" : "MCCH+HV Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+HV"
+         },
+         "reference" : "ChIJo-dFq68a6zkRPTCZoaPuqh8",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "vicinity" : "kwachhen 11 bhaktapur, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6720094,
+               "lng" : 85.4292583
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6733909302915,
+                  "lng" : 85.4306289802915
+               },
+               "southwest" : {
+                  "lat" : 27.6706929697085,
+                  "lng" : 85.4279310197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "ba9780dd1779ce271dff78de9c122d56c4db04dc",
+         "name" : "Dattatreya Temple",
+         "photos" : [
+            {
+               "height" : 2322,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/112483346428330828594/photos\"\u003erishi pokhrel\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAm09ydrFQnZCa599vvl0a7DZYV4B7_UdaXfck-9NFAX9My0rdlPm9L9itThkUlU2kZXxD4piC5vpmAftvF9J4P_DVCXjffQV0y-ZO9nEAmmp8CAYyl24jsLY5DV0omv6lEhAqNgkGdLfzjaKhEsv0Rr6GGhRlUPGijfC3z0ny0rq72kGCPiihSA",
+               "width" : 4128
+            }
+         ],
+         "place_id" : "ChIJL-iksK8a6zkRpW3vgn-xmAo",
+         "plus_code" : {
+            "compound_code" : "MCCH+RP Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+RP"
+         },
+         "rating" : 4.7,
+         "reference" : "ChIJL-iksK8a6zkRpW3vgn-xmAo",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 9,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.672054,
+               "lng" : 85.4293589
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6734230802915,
+                  "lng" : 85.43072128029151
+               },
+               "southwest" : {
+                  "lat" : 27.6707251197085,
+                  "lng" : 85.42802331970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "056c7acd08004aa8b49c49214588a628eda60084",
+         "name" : "Manakamana temple",
+         "photos" : [
+            {
+               "height" : 4160,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104467880000726245745/photos\"\u003eHeavy Equipment Engineering Hub\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAACi6qnu8h_07KsIpAVMIloi-kQUUPAk9vn7f9JCVoyznMtZ9lAv56ZWW34F48qnImwkqudFcBsglOPsEmH8zEOIiKYNUa0vNjrMCMMas0aHP-rKlgEtvMvTxTHLoTdyDfEhCF5FTbI0j_iWVDxrXzc5DzGhQhQK6wqL-om8aYhDvA1Y21VxPtcQ",
+               "width" : 2352
+            }
+         ],
+         "place_id" : "ChIJkeglsa8a6zkRQa7nSW8C_OQ",
+         "plus_code" : {
+            "compound_code" : "MCCH+RP Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+RP"
+         },
+         "rating" : 4.1,
+         "reference" : "ChIJkeglsa8a6zkRQa7nSW8C_OQ",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 9,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6711029,
+               "lng" : 85.4295061
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6724546802915,
+                  "lng" : 85.43080868029151
+               },
+               "southwest" : {
+                  "lat" : 27.6697567197085,
+                  "lng" : 85.4281107197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "bfee9ed19cffa5c07fd4dd5ef194acb72d9894a3",
+         "name" : "Bhairavnath Temple भैरवनाथ मन्दिर",
+         "photos" : [
+            {
+               "height" : 3265,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104026903844882012605/photos\"\u003eNabin K. Sapkota\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAVFXbPv6pjXB0FIqb5L6PX2LpBJ4K46XQpn9_bfVd5efEPZEm8guct65bF6ZN9s2539o3OMjr0-tS_x2LWNPa9iqD_ngKIIfASaE8WiE67-TzN_HDzNv1YfUScTua9v4aEhBFVqi-YeCgsOxJ1jj_gbkZGhQ-PuFO9ELt7JQnklCLilzvz0LIHQ",
+               "width" : 4898
+            }
+         ],
+         "place_id" : "ChIJ5TQcqq8a6zkRwuej0_11AHM",
+         "plus_code" : {
+            "compound_code" : "MCCH+CR Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+CR"
+         },
+         "rating" : 4.9,
+         "reference" : "ChIJ5TQcqq8a6zkRwuej0_11AHM",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 36,
+         "vicinity" : "Taumadhi, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6721151,
+               "lng" : 85.42890899999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6734331802915,
+                  "lng" : 85.4302998302915
+               },
+               "southwest" : {
+                  "lat" : 27.6707352197085,
+                  "lng" : 85.42760186970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "34bda3421b70caca08fcb001b44faecb4fe0e92a",
+         "name" : "Twin Stone Lions",
+         "photos" : [
+            {
+               "height" : 373,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102325880837590647048/photos\"\u003eShaurabh Raj Sangum\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAcwPhpZm9Zn3Z3Oz8C5tO1qRaetGOv2UcEJ-KbSObVPjlrNCsWveHhjGJE_Zo96xhYiUA_RwLQ1UcqEYmHvR-VUVy0Wxf3WDBxx2dJ3g8syATFGRAnINhG2IzUzT4TuRREhCRcIgU-WfpM6skSGzYYERMGhSF8I9FSQga9jcduYkQ7oEsEyAakQ",
+               "width" : 544
+            }
+         ],
+         "place_id" : "ChIJDeZbua8a6zkREFJigtsfNXs",
+         "plus_code" : {
+            "compound_code" : "MCCH+RH Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+RH"
+         },
+         "rating" : 5,
+         "reference" : "ChIJDeZbua8a6zkREFJigtsfNXs",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6709921,
+               "lng" : 85.4295089
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6723442302915,
+                  "lng" : 85.4308058302915
+               },
+               "southwest" : {
+                  "lat" : 27.6696462697085,
+                  "lng" : 85.4281078697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "eddb5a022b95871f0a522fe8cd6dd4ef759f10ac",
+         "name" : "Bhailah dyah",
+         "photos" : [
+            {
+               "height" : 1296,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104914980990950011073/photos\"\u003eWrackAce Marz\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAai25vWBkY9YrHr39Yg9bU_onXO9U5-yjoc9jBCu8IBPxgDmT15FR_mCzY16WMo4Bz611T3jkqlCqYP29c-ZnK06pTHLmGZn5RMEFDjrD_QILqZtgQ3ztK1gRmpOxkR9pEhC3TdPIti2nlU0hVMxFSAipGhRCpn64IjvkbzgQHXwtQr7uJTFewA",
+               "width" : 1936
+            }
+         ],
+         "place_id" : "ChIJM9oCqq8a6zkRvL6inhgQ1Ow",
+         "plus_code" : {
+            "compound_code" : "MCCH+9R Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+9R"
+         },
+         "rating" : 3,
+         "reference" : "ChIJM9oCqq8a6zkRvL6inhgQ1Ow",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6720435,
+               "lng" : 85.42876649999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6734032302915,
+                  "lng" : 85.43011903029149
+               },
+               "southwest" : {
+                  "lat" : 27.6707052697085,
+                  "lng" : 85.42742106970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "cb2c92db62592f4d7f06ecb866bb87bac31f9dd4",
+         "name" : "Siddhi Lakshmi Temple",
+         "photos" : [
+            {
+               "height" : 4176,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104220316155803635549/photos\"\u003eŁukasz Nowak\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA4xVPil40rOks2vYZGBm3vi6e8jhJDas4qcmqZTJzw6OqeWmSxaWW96s9awhnXXEEvAiS9ZuJS8UFFBEFOlFYRGtwZu2POUg-3sRY-d-H9IAVdPvSsLOJonAzN-SFivH0EhCk5mZtdftIOnp7MqiBOAgtGhSoDjRBlJMMiRovyh32l6VKdOIs3A",
+               "width" : 2784
+            }
+         ],
+         "place_id" : "ChIJD7ktZqwa6zkR2V_p3dXIxrU",
+         "plus_code" : {
+            "compound_code" : "MCCH+RG Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+RG"
+         },
+         "rating" : 5,
+         "reference" : "ChIJD7ktZqwa6zkR2V_p3dXIxrU",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 4,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6710197,
+               "lng" : 85.429717
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6724765802915,
+                  "lng" : 85.43102758029151
+               },
+               "southwest" : {
+                  "lat" : 27.6697786197085,
+                  "lng" : 85.42832961970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "1b3b8114d845c7e8e2d002ee7e69f366d02678f5",
+         "name" : "Betal Temple बेताल मन्दिर",
+         "photos" : [
+            {
+               "height" : 1440,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114177093946406068776/photos\"\u003eBishal Chhetry\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAzTxKOPjpiLBCl6BCrVs2L7csUaQZoysSN-6JI5Wqufv89IgZQgmAssSgxHWp5CNDFIrfhevQM2LNzdSDCxGhvM3_mmh46OoH5Jp7HjiPqNzrM1HE8vlxcO08YgsaS7erEhAnnTzbI8FL_hWWiJ28X89mGhQo87sDYnIjjNCG_pwNG6QaPFHtMQ",
+               "width" : 1080
+            }
+         ],
+         "place_id" : "ChIJp_mdqq8a6zkRCxNpA4VidFo",
+         "plus_code" : {
+            "compound_code" : "MCCH+CV Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+CV"
+         },
+         "rating" : 2.7,
+         "reference" : "ChIJp_mdqq8a6zkRCxNpA4VidFo",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 3,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6720385,
+               "lng" : 85.4287279
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6734135802915,
+                  "lng" : 85.43008968029152
+               },
+               "southwest" : {
+                  "lat" : 27.6707156197085,
+                  "lng" : 85.4273917197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "e84f46ef04e5af72c6a54e28ed9a2b686c856e02",
+         "name" : "Siddhi Laxmi Temple",
+         "photos" : [
+            {
+               "height" : 3648,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/105925153852327321752/photos\"\u003eGerhard Knöchel\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAANMPzaQDKkolZP9Rfgj9x6QYqgmkZp9BhFUdH9_fjxDUbpLAD5Xx5CDB_3mbJL2bbMM6mB2BigoFEGmVOFXDT4uxJXzxn9DqNdDfFcYGh8T6lXlWmXGyjUvMxXfrJnvD0EhC3360PbgOM64cLcbwZj2MmGhSNnC0rQeoPoiw4c4KzZELZ4V3jfg",
+               "width" : 5472
+            }
+         ],
+         "place_id" : "ChIJm0DUva8a6zkRnrp4XxHXs0s",
+         "plus_code" : {
+            "compound_code" : "MCCH+RF Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+RF"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJm0DUva8a6zkRnrp4XxHXs0s",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "tourist_attraction",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 16,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6721203,
+               "lng" : 85.4288035
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6734197302915,
+                  "lng" : 85.4301361802915
+               },
+               "southwest" : {
+                  "lat" : 27.6707217697085,
+                  "lng" : 85.42743821970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "d5a7e62bf218444ca1ee39e5e04fffbb3026b362",
+         "name" : "Bhagwati",
+         "photos" : [
+            {
+               "height" : 1280,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/105420103100767050191/photos\"\u003eJulian F\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAvMKASN796JqkjQLmSxvtkm5c94r_wWSBW4SmCah4o-3XYyqcXq2hvdPafsWYJYN3ALSG141Fbc8eXD2EsF9viFVGrj8ZptylGdfoC9qLSIZ7-KchFdDPrAiPgUZDLAI_EhCD89hDq2Ljy6YsyO45cpCCGhQ7J_9Tp6ksSUY1ur75Iqak78au8A",
+               "width" : 1920
+            }
+         ],
+         "place_id" : "ChIJ76mlvq8a6zkR39E4IOaTu1Y",
+         "plus_code" : {
+            "compound_code" : "MCCH+RG Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+RG"
+         },
+         "rating" : 5,
+         "reference" : "ChIJ76mlvq8a6zkR39E4IOaTu1Y",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Rammandir Road 12, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6720165,
+               "lng" : 85.4286669
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6733701802915,
+                  "lng" : 85.4300240802915
+               },
+               "southwest" : {
+                  "lat" : 27.6706722197085,
+                  "lng" : 85.4273261197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "d803d39dfd9a06ea91c61f28a1af39ee76316f6a",
+         "name" : "Lapan Mahadev Temple",
+         "photos" : [
+            {
+               "height" : 296,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102325880837590647048/photos\"\u003eShaurabh Raj Sangum\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAANXe4cTpO7JjdUDjiduC_k2Q5rK1dzzB94EwpB54krBq-xxK7hDkG6YO1Miu06eDKH8jcjy57hjzkHOyK6PmpfbD3KkFTcigrgzFAwliUzGgc7YGDdg89zXwEqq5wp2C8EhCtVqHqC0UorNA_9ixHioGGGhS0Y5uCni5bREWVTRzRUmoDha3yfQ",
+               "width" : 635
+            }
+         ],
+         "place_id" : "ChIJ3Tvhvq8a6zkR6D38p1BGyiw",
+         "plus_code" : {
+            "compound_code" : "MCCH+RF Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+RF"
+         },
+         "reference" : "ChIJ3Tvhvq8a6zkR6D38p1BGyiw",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671654,
+               "lng" : 85.42848499999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.67300298029151,
+                  "lng" : 85.42983398029151
+               },
+               "southwest" : {
+                  "lat" : 27.6703050197085,
+                  "lng" : 85.42713601970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "098118ad88525516ef79806dbbe2dc578172d7af",
+         "name" : "Guhyeshwari Temple",
+         "photos" : [
+            {
+               "height" : 720,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114214661703265481676/photos\"\u003eamu00003\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA0SZkMaFjmxWYmn8kFsEqlkBopbovX8_ZQ7QKBddaFZIHBL1PTx1rJcPK5VO-JHjce5hjuu13sqBQLf_7x2UvKzHT1U-StasdNfCdlTuhRtlsYM0nCSfjF7w_Zn9S5KSWEhDCAjXh4oCX8zpjq6kg_wnoGhSgT-aY3B_ASqzIjwH_5mDALxaDzw",
+               "width" : 540
+            }
+         ],
+         "place_id" : "ChIJ3TUQmK8a6zkRpApY6CVS0HE",
+         "plus_code" : {
+            "compound_code" : "MCCH+M9 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+M9"
+         },
+         "rating" : 5,
+         "reference" : "ChIJ3TUQmK8a6zkRpApY6CVS0HE",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.670841,
+               "lng" : 85.42933409999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6721886302915,
+                  "lng" : 85.4307058802915
+               },
+               "southwest" : {
+                  "lat" : 27.66949066970849,
+                  "lng" : 85.42800791970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "1fce500416bb00c54495111b485988ac52e88db1",
+         "name" : "Saraswati temple",
+         "photos" : [
+            {
+               "height" : 3264,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104603759595027587316/photos\"\u003eSushil Pawn\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAn3vmiKzoyAycQa2wLrB5_0IBlsqbucce1zW25uE2x1bMlFP9mThCqvqR8Pt3HLqAaIHtrSSBn6LP-6RvzJx0XbfCtc77gnc9peLaSfncTXgR3V_f_ALsD_6h0ZtWZk1YEhDPxRVkJ5xk5BcECOcDaab0GhRLhkCga5AALjekfHXn6Af1SPpgMg",
+               "width" : 2448
+            }
+         ],
+         "place_id" : "ChIJJTjKB68a6zkR2D4LFwq9udQ",
+         "plus_code" : {
+            "compound_code" : "MCCH+8P Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+8P"
+         },
+         "rating" : 5,
+         "reference" : "ChIJJTjKB68a6zkR2D4LFwq9udQ",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6720409,
+               "lng" : 85.428574
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6734206802915,
+                  "lng" : 85.42994233029151
+               },
+               "southwest" : {
+                  "lat" : 27.6707227197085,
+                  "lng" : 85.4272443697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "0f5324f80c97aa287d525fe875cdd092e55eed64",
+         "name" : "Chyasin Mandap च्यासिंङ मण्डप",
+         "photos" : [
+            {
+               "height" : 4128,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104153481430370553201/photos\"\u003eShadow Ayush\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAxFYbe4MvWHw_QTVyD4Na2zHb716Kt-fIS1tj3Ie-ADwAEXSUvRGt6ZM7SWZExJaaH7mpzq7lntCsijPfKPbassIYocIVoH4ePK9t9mhRQisXF9TwAfeuDRqXvTSy4t1kEhDqa2xQSKr6kTS4Q2u0cIUaGhQXGgfdL9-Y0FH8eY0gd21S50h1Vg",
+               "width" : 3096
+            }
+         ],
+         "place_id" : "ChIJvTHtva8a6zkRc0KnRvilg70",
+         "plus_code" : {
+            "compound_code" : "MCCH+RC Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+RC"
+         },
+         "rating" : 5,
+         "reference" : "ChIJvTHtva8a6zkRc0KnRvilg70",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6717971,
+               "lng" : 85.4284574
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6731460802915,
+                  "lng" : 85.42980638029151
+               },
+               "southwest" : {
+                  "lat" : 27.6704481197085,
+                  "lng" : 85.42710841970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "ab28ade51265b203f10caddb20c0b3ae7d700943",
+         "name" : "Pashupatinath Temple",
+         "photos" : [
+            {
+               "height" : 1565,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/109441426457805664854/photos\"\u003eJacky Linton\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAmv0HllNPcVv7n8gUan--Fr7CVauEwVKvPpOFvW7ZfdCw7hteCwal-nWHS9en5wxB3L_jm-AkOW6yyaUzVQORiCfFOVEyphjrISnsi_NUmog_8OgybonVHhb3B_Wth6kOEhB1HH2BN3xl34OfdsrS_TmzGhSMgVMtU1WI-jB0KwaUX5lnRiwbgw",
+               "width" : 2048
+            }
+         ],
+         "place_id" : "ChIJSRcJl68a6zkRL9n1xXIpdeQ",
+         "plus_code" : {
+            "compound_code" : "MCCH+P9 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+P9"
+         },
+         "rating" : 4.7,
+         "reference" : "ChIJSRcJl68a6zkRL9n1xXIpdeQ",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 58,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6723782,
+               "lng" : 85.4289529
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.67365618029151,
+                  "lng" : 85.43027873029149
+               },
+               "southwest" : {
+                  "lat" : 27.6709582197085,
+                  "lng" : 85.42758076970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+         "id" : "8372c59d210e5ceefe1fee9d78edd50143d75eb8",
+         "name" : "Shilu Mahadev Temple (Fasi Degah)",
+         "photos" : [
+            {
+               "height" : 3096,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104153481430370553201/photos\"\u003eShadow Ayush\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA-rg1DgMZo55vadhUHVpltskJaImBaLrO8Ewr2aqQM5QjA-v_cUXn1OLLEwX93oPCunyOWgIvxz043SbjSRq3CIhUnHmpfAPE_ekWKvUYJEpA5xsHmXR0hQVvL0Ih0PemEhCTmzquL6mOvqmgCCvBgUS8GhT3DHkiAarwKFzkOMVweFKUWhFryw",
+               "width" : 4128
+            }
+         ],
+         "place_id" : "ChIJ6YavuK8a6zkR_kNLcrOGyhk",
+         "plus_code" : {
+            "compound_code" : "MCCH+XH Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+XH"
+         },
+         "rating" : 4,
+         "reference" : "ChIJ6YavuK8a6zkR_kNLcrOGyhk",
+         "scope" : "GOOGLE",
+         "types" : [
+            "hindu_temple",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      }
+   ],
+   "status" : "OK"
+}

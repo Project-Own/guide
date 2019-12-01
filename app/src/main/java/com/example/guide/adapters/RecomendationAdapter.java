@@ -69,7 +69,6 @@ public class RecomendationAdapter extends RecyclerView.Adapter<RecomendationAdap
         holder.price.setText("Price: " + recomendation.get(position).getPrice());
         holder.phone.setText("Phone No: " + recomendation.get(position).getPhone());
         holder.vicinity.setText("Vicinity: " + recomendation.get(position).getVicinity());
-        holder.description.setText("Description:\n" + recomendation.get(position).getDescription());
         Glide.with(holder.itemView)
                 .load(context.getResources()
                         .getIdentifier(recomendation.get(position).getPhoto(), "drawable", context.getPackageName()))
@@ -114,7 +113,6 @@ public class RecomendationAdapter extends RecyclerView.Adapter<RecomendationAdap
         TextView name;
         TextView rating;
         TextView phone;
-        TextView description;
         TextView price;
         TextView vicinity;
         ImageView photo;
@@ -124,7 +122,6 @@ public class RecomendationAdapter extends RecyclerView.Adapter<RecomendationAdap
             name = itemView.findViewById(R.id.recommendationName);
             rating = itemView.findViewById(R.id.recommendationRating);
             phone = itemView.findViewById(R.id.recommendationPhone);
-            description = itemView.findViewById(R.id.recommendationDescription);
             price = itemView.findViewById(R.id.recommendationPrice);
             vicinity = itemView.findViewById(R.id.recommendationVicinity);
             photo = itemView.findViewById(R.id.recommendationImage);

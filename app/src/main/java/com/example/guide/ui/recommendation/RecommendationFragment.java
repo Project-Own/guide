@@ -132,6 +132,7 @@ public class RecommendationFragment extends Fragment {
             }
         });
 
+
         mViewModel.loadRecommendedPlaces().observe(this, new Observer<List<Recommendation>>() {
             @Override
             public void onChanged(List<Recommendation> recommendations) {

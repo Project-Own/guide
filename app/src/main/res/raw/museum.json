@@ -1,0 +1,804 @@
+{
+   "html_attributions" : [],
+   "next_page_token" : "CqQCHQEAALCAzsf0gB0YdnKt0f1VCQlnmZkg5jaohU94YSXyWjhf5xTT_hiqNZYRChZNYLQT455GL6TqVcu9hfA1rOeScobXC9r6Bh0O6d2s251LswjxXdqOrIn8iBUAJNkmODSi01-XDxdXJL62cak7bp0g6WZccLA3H7GhIczquSGev1BRGpw321OEdEOyDFGRDIhG7FAULGYG88vfbY4MwUpoyv59P2UM2ReA56g4yLE1UvP6aFjsJpaWrgWMYchvZZoHzceXswn1hbD6Livacg34DIF8LQehmsc3VUoGou4_INNOeMJTRAZpOwlKZh-yyklbT1uil00iGip9pVemZut5LlEaK1g_dr1AvAUASztf7IUyXh7Zhy1GauQ-l8pgkWQ5exIQVz432E2lohsT4RykdZn4NxoUxNfOoQjUdufQZtwIv_RH7Yv8rS4",
+   "results" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.673221,
+               "lng" : 85.435858
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6745664302915,
+                  "lng" : 85.43711718029149
+               },
+               "southwest" : {
+                  "lat" : 27.6718684697085,
+                  "lng" : 85.43441921970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "c7003e9fd5cb5f424492e945faf11376e4a68a14",
+         "name" : "The Peacock Shop",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 4032,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/108346258901413431116/photos\"\u003eSteve Gilmer\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAXZ8s-AKt5O5Yh_n2ehPsY6Naj92xSUzhiQhqOfwFElGqS4CZXmNWHVlCkDF_09fYzBIy4Xq-1H2w4ReKz3yyGVRf2lXnfJr0TmoLgUY6bCo4M6yn-1VlCNy6MKTXueBzEhCFgn4KfXiaPoARliUCQvQzGhTNXH8oCLoEwJc-LVsqOUFKJuFqdQ",
+               "width" : 3024
+            }
+         ],
+         "place_id" : "ChIJM_bgbq0a6zkR-flmS7CU1Y0",
+         "plus_code" : {
+            "compound_code" : "MCFP+78 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFP+78"
+         },
+         "rating" : 4.9,
+         "reference" : "ChIJM_bgbq0a6zkR-flmS7CU1Y0",
+         "scope" : "GOOGLE",
+         "types" : [
+            "tourist_attraction",
+            "museum",
+            "place_of_worship",
+            "point_of_interest",
+            "store",
+            "establishment"
+         ],
+         "user_ratings_total" : 11,
+         "vicinity" : "Behind Dattatraya Temple Near the Peacock Window, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671276,
+               "lng" : 85.42954999999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6725948302915,
+                  "lng" : 85.4309066802915
+               },
+               "southwest" : {
+                  "lat" : 27.6698968697085,
+                  "lng" : 85.42820871970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "e1c10897df3617cbb04c2b5aee7744d094327e0b",
+         "name" : "Masterpiece Handicrafts",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 401,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/116983574697892148422/photos\"\u003eMasterpiece Handicrafts\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAiVfvudvOIyEHWQ994EBT2dZCYAJ9HV5p7VDLHepbQnmxgWEcP3qTkp_QpLbBSUXrqmZe3Dc2BO9UQ5o-Czwemh6YvOo8C85ix18dTzzBgOD4jxufriVLMku5Y7cuhWdfEhD7hqteQDcihz8N4pLi9SPSGhQqnQECMFjmKqns3IMh0A0mLKZ28A",
+               "width" : 403
+            }
+         ],
+         "place_id" : "ChIJR63Dq68a6zkRC0kpmP0efAs",
+         "plus_code" : {
+            "compound_code" : "MCCH+GR Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+GR"
+         },
+         "rating" : 5,
+         "reference" : "ChIJR63Dq68a6zkRC0kpmP0efAs",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Taumadi Marg, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6704582,
+               "lng" : 85.4285338
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6717899802915,
+                  "lng" : 85.4298926802915
+               },
+               "southwest" : {
+                  "lat" : 27.6690920197085,
+                  "lng" : 85.42719471970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "d0d6baca1908cd91a8e8999fcaf5a976d3906b90",
+         "name" : "Gurkha Khukuri House & Pashmina Shop",
+         "photos" : [
+            {
+               "height" : 1572,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/103166088236406698274/photos\"\u003eCarole Beausoleil\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAXD1yVvB_JNSIVCNCYLZQuTlLdU46y2myeOvnIC-XU7DfPviCw2iVIumzMcmu5lm2as6W5CT_m6bzvg4E3WrCZJuHlQEbcx5H2mqAlSZXMp2DOMdsJJvUEDj7j94rq-9kEhAOCiCkX9zk-bJu4TDpu6kGGhQYn9oqI4WrgdHigUCv3dUbVOZZ1Q",
+               "width" : 1687
+            }
+         ],
+         "place_id" : "ChIJq8wnDa8a6zkR8k6TAgUcu74",
+         "plus_code" : {
+            "compound_code" : "MCCH+5C Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+5C"
+         },
+         "rating" : 3.5,
+         "reference" : "ChIJq8wnDa8a6zkR8k6TAgUcu74",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "Talako, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.670107,
+               "lng" : 85.4284079
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6714636302915,
+                  "lng" : 85.4297388302915
+               },
+               "southwest" : {
+                  "lat" : 27.6687656697085,
+                  "lng" : 85.42704086970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "200cd40af9b367661511e12eb7de3396733595e7",
+         "name" : "Nyatapola Crafts",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 4160,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/106478904861219961512/photos\"\u003eManika Kayastha\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAXTP6pfm6lzZFxDTwuYd5bopNZvoobiLTmvfyMr9-3b-uEk4OqxN9g_CJAkvbUWgxcsN-FG8HQ282taaC992zXGd_na8oJvw0PFyq4NBugMO2Hx-e3wDRyOjwLGb6tFWUEhDoVsxt3HaMUnYEtZS_s35eGhQZh3TIS-0d0SHBNe2coizb7150Mw",
+               "width" : 2336
+            }
+         ],
+         "place_id" : "ChIJT_8Pba8a6zkRlC6XXrnlb1M",
+         "plus_code" : {
+            "compound_code" : "MCCH+29 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+29"
+         },
+         "rating" : 4.5,
+         "reference" : "ChIJT_8Pba8a6zkRlC6XXrnlb1M",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "बोलाछें सडक, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6746185,
+               "lng" : 85.4365298
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6760547802915,
+                  "lng" : 85.4376738302915
+               },
+               "southwest" : {
+                  "lat" : 27.67335681970849,
+                  "lng" : 85.43497586970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "ceb59929078af8214e2bf0cede4dd724a0e32432",
+         "name" : "Toni Hagen House",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 4128,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/116655672575738571484/photos\"\u003eKhem Raj Katel\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA0hl2pACpujTC0Tk0U8yQplkxF-8lsl-lLKA_VfSuPZcGk-pTokjssHPhwa4GrTI4tN4TO5w5wmKKv_wOmU9zCYAlofZTjIBcvVT2-ad8e13ArnAP4dcAavD0XaB1AJgbEhBqMsspuDdutcWxzvA53AL2GhSqCxQthWekJ8S4wZ-NpGukkeOvkA",
+               "width" : 3096
+            }
+         ],
+         "place_id" : "ChIJnWLro7Ia6zkRzmH1buJB9fY",
+         "plus_code" : {
+            "compound_code" : "MCFP+RJ Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFP+RJ"
+         },
+         "rating" : 4.7,
+         "reference" : "ChIJnWLro7Ia6zkRzmH1buJB9fY",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 3,
+         "vicinity" : "Navadurga - Ganchhen Road, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67128,
+               "lng" : 85.4295559
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6725980302915,
+                  "lng" : 85.43091588029151
+               },
+               "southwest" : {
+                  "lat" : 27.6699000697085,
+                  "lng" : 85.42821791970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "86115a9dd2b7ed8b4673cf52f3800c3b3f9be89a",
+         "name" : "Bhaktapur Wood Carving Workshop",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJVSTCq68a6zkREVLKC-h10E8",
+         "plus_code" : {
+            "compound_code" : "MCCH+GR Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+GR"
+         },
+         "rating" : 2,
+         "reference" : "ChIJVSTCq68a6zkREVLKC-h10E8",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "Taumadi Marg, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671394,
+               "lng" : 85.429001
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6727429802915,
+                  "lng" : 85.43034998029151
+               },
+               "southwest" : {
+                  "lat" : 27.6700450197085,
+                  "lng" : 85.42765201970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "0929904a103f9fa64152adde0d00caf872165402",
+         "name" : "New Handicraft Kyuriyo Shop",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJ-U0spK8a6zkRr40iqFwkMPw",
+         "plus_code" : {
+            "compound_code" : "MCCH+HJ Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+HJ"
+         },
+         "reference" : "ChIJ-U0spK8a6zkRr40iqFwkMPw",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "vicinity" : "Taumadhi Tole, Degamana"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671274,
+               "lng" : 85.429655
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6726217302915,
+                  "lng" : 85.4310043802915
+               },
+               "southwest" : {
+                  "lat" : 27.6699237697085,
+                  "lng" : 85.42830641970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "b0b2c2f8fadc9962ed34ca0682488c7e71da11bb",
+         "name" : "Royal Pashmina Industry",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJH5agq68a6zkRTY4ObrmNTzU",
+         "plus_code" : {
+            "compound_code" : "MCCH+GV Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+GV"
+         },
+         "rating" : 3,
+         "reference" : "ChIJH5agq68a6zkRTY4ObrmNTzU",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Taumadi Marg, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671462,
+               "lng" : 85.4288189
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6728109802915,
+                  "lng" : 85.43016788029149
+               },
+               "southwest" : {
+                  "lat" : 27.6701130197085,
+                  "lng" : 85.42746991970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "0aa9d8d65a7a653336c1a6a3075d70ef55764a6f",
+         "name" : "New Treasure Himalayan Art & Craft Collection",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1920,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/110168781810586415164/photos\"\u003eAswin Dhakal\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRZAAAAscLRgock3z7vYWq7kvtEw0tLPz2vCWJcEsCN6M9fItYFT1nk7IO-Hh991RP7JqgS0pRaSX3Fsyafb_psrBdJT40dzZ4AWN1cpuaSVJLl8A4UHICTwhB3BgclrbZ0wvCcEhD_yetGGEI7HUDVk2hvuE8lGhQspf4sWlM56SlK70IMtG80EwW4Og",
+               "width" : 2560
+            }
+         ],
+         "place_id" : "ChIJz7uNo68a6zkR9KMj1S7kKZE",
+         "plus_code" : {
+            "compound_code" : "MCCH+HG Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+HG"
+         },
+         "rating" : 4,
+         "reference" : "ChIJz7uNo68a6zkR9KMj1S7kKZE",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Durbar Square"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671167,
+               "lng" : 85.4290379
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6725159802915,
+                  "lng" : 85.43038688029149
+               },
+               "southwest" : {
+                  "lat" : 27.6698180197085,
+                  "lng" : 85.42768891970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "37ab8cf04ea9600bf6d0155833f90a5bec981470",
+         "name" : "Localhandicrafts",
+         "place_id" : "ChIJE2Gsp68a6zkRu73U9rWIZKc",
+         "plus_code" : {
+            "compound_code" : "MCCH+FJ Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+FJ"
+         },
+         "reference" : "ChIJE2Gsp68a6zkRu73U9rWIZKc",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "vicinity" : "Taumadi Marg, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6719783,
+               "lng" : 85.42874669999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6733423302915,
+                  "lng" : 85.43010063029151
+               },
+               "southwest" : {
+                  "lat" : 27.67064436970849,
+                  "lng" : 85.4274026697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "157158f45b2b4672e4d4ccb2c1d30891c844c92b",
+         "name" : "National Art Museum",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2736,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104140433545442990244/photos\"\u003eむさしじろう\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAwl51cTjvwQfCGgHMPteuTdpGXddt7yZziRVdkRy_sWAIZJliB2Ai4ubudOxXw3kEE5HO0bJVrjxdranZ2RQOb0GWywYDG0iJiMpNc1X2lnwElDujGJXfhs4TKdgv4UfMEhC_hsqZ1zJHwRCcQvzd143IGhRlSZrHmfZeBN1h8YBcyzF1TyLMZA",
+               "width" : 3648
+            }
+         ],
+         "place_id" : "ChIJLXd6cK0a6zkRbQSMuVStuZg",
+         "plus_code" : {
+            "compound_code" : "MCCH+QF Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+QF"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJLXd6cK0a6zkRbQSMuVStuZg",
+         "scope" : "GOOGLE",
+         "types" : [ "tourist_attraction", "museum", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 26,
+         "vicinity" : "Durbar Square, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6710221,
+               "lng" : 85.4298197
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6724909302915,
+                  "lng" : 85.43112603029151
+               },
+               "southwest" : {
+                  "lat" : 27.6697929697085,
+                  "lng" : 85.42842806970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "64a8f384ba64cc3f66f91ea0b1c61c027f060557",
+         "name" : "Pujarimath Museum",
+         "place_id" : "ChIJAQAAAK8a6zkRRFdb9UkUhCo",
+         "reference" : "ChIJAQAAAK8a6zkRRFdb9UkUhCo",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6710221,
+               "lng" : 85.4298197
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6724909302915,
+                  "lng" : 85.43112603029151
+               },
+               "southwest" : {
+                  "lat" : 27.6697929697085,
+                  "lng" : 85.42842806970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "c607eb451ff26ff31feb15054ad50bfa582fcd59",
+         "name" : "Handicrafts bkt",
+         "place_id" : "ChIJuWy65yob6zkRzI5dH37IDiU",
+         "plus_code" : {
+            "compound_code" : "MCCH+CW Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+CW"
+         },
+         "reference" : "ChIJuWy65yob6zkRzI5dH37IDiU",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671465,
+               "lng" : 85.4285529
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6728139802915,
+                  "lng" : 85.4299018802915
+               },
+               "southwest" : {
+                  "lat" : 27.6701160197085,
+                  "lng" : 85.42720391970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "0af960c9d3b0389b0127ae581a596452a47b0b37",
+         "name" : "Souvenir Shop",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 4128,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/106578427859159070642/photos\"\u003eYamuna Kayastha\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAw4Xe4zwhUOiFOor2XKhtBkugIEX1yIeUODlczpHGixe8zC4qFK_hCl9ntpV9dIam81QAPaCV4WddScD8T1dCHXwZh1p9xekctGBfzoOsxUfUu9Kb7FYYpabJRUHP1lhzEhDRwr4aqHLG1m1k5c-aDdW8GhQLVPPsJm2flvNAXoWZwuR7wL1ZEw",
+               "width" : 3096
+            }
+         ],
+         "place_id" : "ChIJC0Zxoq8a6zkR7aeJ4xsc_hs",
+         "plus_code" : {
+            "compound_code" : "MCCH+HC Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+HC"
+         },
+         "rating" : 5,
+         "reference" : "ChIJC0Zxoq8a6zkR7aeJ4xsc_hs",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "Degamana, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671792,
+               "lng" : 85.4302189
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6731296802915,
+                  "lng" : 85.43158778029151
+               },
+               "southwest" : {
+                  "lat" : 27.6704317197085,
+                  "lng" : 85.42888981970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "e746c120b115524a5273e81f76b34b0893be50d8",
+         "name" : "Handmade Paper Shop",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJK7cYTq4a6zkRXRQ8Dh-0pBI",
+         "plus_code" : {
+            "compound_code" : "MCCJ+P3 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCJ+P3"
+         },
+         "reference" : "ChIJK7cYTq4a6zkRXRQ8Dh-0pBI",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6722176,
+               "lng" : 85.42825789999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6735273802915,
+                  "lng" : 85.42960413029149
+               },
+               "southwest" : {
+                  "lat" : 27.6708294197085,
+                  "lng" : 85.42690616970847
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "9d0a62aad9a5fc8296e48aaf8907ccd66e4999ce",
+         "name" : "Bhaktapur Art Museum",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1082,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115454709485534448061/photos\"\u003eManandhar AG\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAKtYRDpu9mVWfmxzPRYfZrXDXc6axGGAM5IE0H5yMkRf2XWMA33McEQRg_rDQoC8Ck8dpuidlqXS2g6Y8v6x9fWv2HxivXODKWTijAJMzKCsd-NEi2qNfXP4Shrjv3lb1EhCqV7xX-uNGokr5gUEarIfUGhQZubAcCeAgLlSJhEJ0Sf_hiXy5HQ",
+               "width" : 2048
+            }
+         ],
+         "place_id" : "ChIJgf9klK8a6zkRmzhd80CdoAE",
+         "plus_code" : {
+            "compound_code" : "MCCH+V8 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+V8"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJgf9klK8a6zkRmzhd80CdoAE",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 6,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6721867,
+               "lng" : 85.4281221
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6735269302915,
+                  "lng" : 85.4294704802915
+               },
+               "southwest" : {
+                  "lat" : 27.6708289697085,
+                  "lng" : 85.42677251970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "46c4a6da28621fd8d2fefbe38622bf7178dc74bc",
+         "name" : "Lion Gate Palace",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2592,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104582555709021975442/photos\"\u003eRoma Neus\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAP7dSTXfe4AMQHFrX_yND4M-wQ3MbANv-RXlOxgQasckvOZCymyaFoNGqeKE2fmIiv3LCOeeDl1PJ5YwJWn_uI8rZMESA3_c_p7YXQ5lfUbzSvw2Wf5Sjf8tR2KDzIx27EhAtXQKbpPq-t27jL9olqqJOGhSg070KC3JKQkEsU5hJpzKkU9XeMQ",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJdY3Ik68a6zkRFV_MooSbQzM",
+         "plus_code" : {
+            "compound_code" : "MCCH+V6 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+V6"
+         },
+         "rating" : 4.1,
+         "reference" : "ChIJdY3Ik68a6zkRFV_MooSbQzM",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "tourist_attraction", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 9,
+         "vicinity" : "Durbar Square, Bhaktapur, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67221,
+               "lng" : 85.4280699
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6735298302915,
+                  "lng" : 85.42941688029151
+               },
+               "southwest" : {
+                  "lat" : 27.6708318697085,
+                  "lng" : 85.42671891970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "269d5ef5fcde8cd86494aa52c7cc777bbd3ef1e9",
+         "name" : "National Art Museum",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3456,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/101665558159171469104/photos\"\u003eSuresh Kawan\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAog_pQ4rImOPSwQQtwAie28Miv8kyTbGCNmS1J4WNEtdXmeQ9MOcpbQ9RLHumcTAySfQRf9kUb4pPOEpMmQr0o8xPdCCQT8U97cone-Iu6uT5Wnzgcbo7umcLMHXdI8-4EhB02yUnTuYME6s3uMCHk25_GhTbU0R4JmtB-_Oz3q5QBhJFYoUWDA",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJtWOuk68a6zkR0HbZEMpl9rI",
+         "plus_code" : {
+            "compound_code" : "MCCH+V6 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+V6"
+         },
+         "rating" : 4,
+         "reference" : "ChIJtWOuk68a6zkR0HbZEMpl9rI",
+         "scope" : "GOOGLE",
+         "types" : [ "tourist_attraction", "museum", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 3,
+         "vicinity" : "Durbar Squars, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671528,
+               "lng" : 85.427893
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6728769802915,
+                  "lng" : 85.42924198029149
+               },
+               "southwest" : {
+                  "lat" : 27.6701790197085,
+                  "lng" : 85.42654401970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "63b01545c04f2dd4526a321303e2c47c31814d68",
+         "name" : "Krishna Wood Carving Products",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJF4XUmq8a6zkRIgaBdisg-aM",
+         "plus_code" : {
+            "compound_code" : "MCCH+J5 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+J5"
+         },
+         "reference" : "ChIJF4XUmq8a6zkRIgaBdisg-aM",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "vicinity" : "Durbar Square, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671804,
+               "lng" : 85.427877
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6731529802915,
+                  "lng" : 85.42922598029151
+               },
+               "southwest" : {
+                  "lat" : 27.67045501970849,
+                  "lng" : 85.42652801970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+         "id" : "565d8ab97677abe2fdb481e80bca91047bc12d4d",
+         "name" : "Namaste Pashmina Center",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2448,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/106597495768526010960/photos\"\u003eNiraj Bhusal\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAENAl5Q3fmiaVp6aK_E6ijfJKI-rVWT-MMKrawLe21N8Sjh1--aheMFVfoY_ga063tRHm4-BiPIddzYpmAd3Iys2mVzNrfZlJQp7mF1nbsyg8xLQ8aKJB5sHfpd0_ODexEhD1Ae4wucOF44e-ZkNQraIfGhT3nqxv8XaEtKtRqMRt56lZDTjyag",
+               "width" : 3264
+            }
+         ],
+         "place_id" : "ChIJJy3fj68a6zkRfN-ZtM_eIWI",
+         "plus_code" : {
+            "compound_code" : "MCCH+P5 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+P5"
+         },
+         "reference" : "ChIJJy3fj68a6zkRfN-ZtM_eIWI",
+         "scope" : "GOOGLE",
+         "types" : [ "museum", "point_of_interest", "establishment" ],
+         "vicinity" : "इच्छु गल्ली, Bhaktapur"
+      }
+   ],
+   "status" : "OK"
+}

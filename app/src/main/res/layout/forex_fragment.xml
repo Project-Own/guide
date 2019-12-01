@@ -127,10 +127,12 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/conversionButton"
+
         android:layout_width="wrap_content"
+        android:layout_margin="16dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:src="@drawable/calendar"
+        android:src="@drawable/ic_compare_arrows_black_24dp"
         android:onClick="@{()-> viewModel.onFabClicked()}"
 
         />
@@ -226,31 +228,20 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/loadView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#30222222"
-            android:visibility="@{viewModel.isBusy ? View.VISIBLE : View.GONE}"
-            android:clickable="true"
-            >
-
-            <androidx.cardview.widget.CardView
-                android:padding="16dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
 
                 <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animation_view"
+                android:visibility="@{viewModel.isBusy? View.VISIBLE : View.GONE}"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
+                android:clickable="true"
+                    android:background="@color/black_semi_transparent"
                 app:lottie_rawRes="@raw/anim_coin" />
 
-            </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
 </FrameLayout>
 </layout>

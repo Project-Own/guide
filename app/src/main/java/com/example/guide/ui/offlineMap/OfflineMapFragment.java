@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
@@ -15,19 +16,29 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.guide.Model.MapsButton;
+import com.example.guide.Model.NearbySearch.Result;
 import com.example.guide.R;
+import com.example.guide.databinding.OfflineMapFragmentBinding;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineCallback;
 import com.mapbox.android.core.location.LocationEngineProvider;
@@ -38,10 +49,9 @@ import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.api.directions.v5.models.DirectionsResponse;
 import com.mapbox.api.directions.v5.models.DirectionsRoute;
 import com.mapbox.geojson.Feature;
+import com.mapbox.geojson.FeatureCollection;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
-import com.mapbox.mapboxsdk.camera.CameraPosition;
-import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.geometry.LatLngBounds;
 import com.mapbox.mapboxsdk.location.LocationComponent;
@@ -57,9 +67,20 @@ import com.mapbox.mapboxsdk.offline.OfflineRegion;
 import com.mapbox.mapboxsdk.offline.OfflineRegionError;
 import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
 import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
+import com.mapbox.mapboxsdk.plugins.annotation.OnSymbolClickListener;
+import com.mapbox.mapboxsdk.plugins.annotation.OnSymbolDragListener;
+import com.mapbox.mapboxsdk.plugins.annotation.OnSymbolLongClickListener;
+import com.mapbox.mapboxsdk.plugins.annotation.Symbol;
+import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager;
+import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions;
 import com.mapbox.mapboxsdk.plugins.building.BuildingPlugin;
+import com.mapbox.mapboxsdk.plugins.markerview.MarkerView;
+import com.mapbox.mapboxsdk.plugins.markerview.MarkerViewManager;
 import com.mapbox.mapboxsdk.plugins.traffic.TrafficPlugin;
+import com.mapbox.mapboxsdk.style.expressions.Expression;
+import com.mapbox.mapboxsdk.style.layers.CircleLayer;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
+import com.mapbox.mapboxsdk.style.sources.GeoJsonOptions;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
@@ -68,7 +89,16 @@ import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.lang.ref.WeakReference;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,12 +107,34 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.os.Looper.getMainLooper;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.all;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.division;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.exponential;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.get;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.gte;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.has;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.interpolate;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.literal;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.lt;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.rgb;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.stop;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.toNumber;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleColor;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleRadius;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconAllowOverlap;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconColor;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconIgnorePlacement;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconImage;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconSize;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.textAllowOverlap;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.textColor;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.textField;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.textIgnorePlacement;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.textSize;
 
 public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClickListener,
-        PermissionsListener{
+        PermissionsListener {
 
     // JSON encoding/decoding
     public static final String JSON_CHARSET = "UTF-8";
@@ -115,6 +167,19 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
     private RecyclerView recyclerView;
     private List<MapsButton> mapsButtonList;
 
+    private MarkerView markerView;
+    private MarkerViewManager markerViewManager;
+
+
+
+    private SymbolManager symbolManager;
+    private Symbol symbol;
+    private Spinner convertPlacesSpinner;
+    private OfflineMapFragmentBinding binding;
+    private String MAKI_ICON_MARKER = "marker-15";
+    private List<Symbol> symbols;
+
+
     public static OfflineMapFragment newInstance() {
         return new OfflineMapFragment();
     }
@@ -127,18 +192,31 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
 // object or in the same activity which contains the mapview.
         Mapbox.getInstance(getContext(), getContext().getString(R.string.access_token));
 
+        binding = DataBindingUtil.bind(inflater.inflate(R.layout.offline_map_fragment, container, false));
+
 // This contains the MapView in XML and needs to be called after the access token is configured.
-        View view = inflater.inflate(R.layout.offline_map_fragment, container, false);
+        View view = binding.getRoot();
+
+        List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
+        symbolLayerIconFeatureList.add(Feature.fromGeometry(
+                Point.fromLngLat(-57.225365, -33.213144)));
+        symbolLayerIconFeatureList.add(Feature.fromGeometry(
+                Point.fromLngLat(-54.14164, -33.981818)));
+        symbolLayerIconFeatureList.add(Feature.fromGeometry(
+                Point.fromLngLat(-56.990533, -30.583266)));
 
         mapView = view.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
 
-
-
+        convertPlacesSpinner = view.findViewById(R.id.spinnerNearby);
 
         mapView.getMapAsync(new OnMapReadyCallback() {
+
+
             @Override
             public void onMapReady(@NonNull final MapboxMap map) {
+
+
 
 
                 map.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
@@ -147,28 +225,37 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
 
 
                         mapboxMap = map;
-//Enable locattion Plugin
+
+
+                        // Set up a SymbolManager instance
+                        symbolManager = new SymbolManager(mapView, mapboxMap, style);
+
+
+                      //  markerViewManager = new MarkerViewManager(mapView, mapboxMap);
+
+                        //Enable locattion Plugin
                         enableLocationComponent(style);
 
                         addDestinationIconSymbolLayer(style);
+
 
                         mapboxMap.addOnMapClickListener(OfflineMapFragment.this::onMapClick);
                         button = view.findViewById(R.id.startButton);
                         button.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                              if(isNetworkAvailable()){
-                                boolean simulateRoute = true;
-                                NavigationLauncherOptions options = NavigationLauncherOptions.builder()
-                                        .directionsRoute(currentRoute)
-                                        .shouldSimulateRoute(simulateRoute)
-                                        .build();
+                                if (isNetworkAvailable()) {
+                                    boolean simulateRoute = true;
+                                    NavigationLauncherOptions options = NavigationLauncherOptions.builder()
+                                            .directionsRoute(currentRoute)
+                                            .shouldSimulateRoute(simulateRoute)
+                                            .build();
 // Call this method with Context from within an Activity
-                                NavigationLauncher.startNavigation(getActivity(), options);
+                                    NavigationLauncher.startNavigation(getActivity(), options);
 
-                              }else{
-                                  buildAlertMessageNoInternetConnection();
-                              }
+                                } else {
+                                    buildAlertMessageNoInternetConnection();
+                                }
                             }
                         });
 
@@ -273,14 +360,9 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
 
                                                     if (status.isComplete()) {
 // Download complete
+                                                      //  loadMarker();
                                                         endProgress("offline end progress success");
                                                         // Create new camera position
-                                                        CameraPosition cameraPosition = new CameraPosition.Builder()
-                                                                .target(definition.getBounds().getCenter())
-                                                                .zoom(definition.getMinZoom())
-                                                                .build();
-
-                                                        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), 2000);
 
 
 //// Move camera to new position
@@ -317,15 +399,175 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
                 });
             }
         });
-       return view;
+        return view;
 
     }
+
+//    private void loadSymbol() {
+//
+//        symbolManager.setIconAllowOverlap(true);
+//        symbolManager.setTextAllowOverlap(true);
+//
+//
+//        List<Result> results = new ArrayList<>();
+//        try {
+//            NearbySearchData nearbySearchData = new Gson().fromJson(readRawResource(getContext(), R.raw.bank), NearbySearchData.class);
+//            results = nearbySearchData.getResults();
+//
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        for(Result result : results) {
+//
+//// Add symbol at specified lat/lon
+//            symbol = symbolManager.create(new SymbolOptions()
+//                    .withLatLng(new LatLng(result.getGeometry().getLocation().getLat(), result.getGeometry().getLocation().getLng()))
+//                    .withIconImage(MAKI_ICON_HARBOR)
+//                    .withIconSize(2.0f)
+//                    .withDraggable(true));
+//
+//        }
+//// Add click listener and change the symbol to a cafe icon on click
+//        symbolManager.addClickListener(new OnSymbolClickListener() {
+//            @Override
+//            public void onAnnotationClick(Symbol symbol) {
+//                Toast.makeText(getActivity(),
+//                        "Symbol Clicked", Toast.LENGTH_SHORT).show();
+//                symbol.setIconImage(MAKI_ICON_CAFE);
+//                symbolManager.update(symbol);
+//            }
+//        });
+//
+//// Add long click listener and change the symbol to an airport icon on long click
+//        symbolManager.addLongClickListener((new OnSymbolLongClickListener() {
+//            @Override
+//            public void onAnnotationLongClick(Symbol symbol) {
+//                Toast.makeText(getActivity(),
+//                        "Symbol LongClick message", Toast.LENGTH_SHORT).show();
+//                symbol.setIconImage(MAKI_ICON_AIRPORT);
+//                symbolManager.update(symbol);
+//            }
+//        }));
+//
+//        symbolManager.addDragListener(new OnSymbolDragListener() {
+//            @Override
+//// Left empty on purpose
+//            public void onAnnotationDragStarted(Symbol annotation) {
+//            }
+//
+//            @Override
+//// Left empty on purpose
+//            public void onAnnotationDrag(Symbol symbol) {
+//            }
+//
+//            @Override
+//// Left empty on purpose
+//            public void onAnnotationDragFinished(Symbol annotation) {
+//            }
+//        });
+//
+//
+//    }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(OfflineMapViewModel.class);
-        // TODO: Use the ViewModel
+        symbols = new ArrayList<>();
+
+        binding.setViewModel(mViewModel);
+        binding.setLifecycleOwner(this);
+
+        mViewModel.loadResult().observe(getActivity(), new Observer<List<Result>>() {
+            @Override
+            public void onChanged(List<Result> results) {
+                if (symbolManager != null) {
+
+
+                    if(symbols != null){
+                        symbolManager.delete(symbols);
+                    }
+
+                    symbolManager.setIconAllowOverlap(true);
+                    symbolManager.setTextAllowOverlap(false);
+
+                    List<SymbolOptions> options = new ArrayList<>();
+
+                    for (Result result : results) {
+
+// Add symbol at specified lat/lon
+                        options.add(new SymbolOptions()
+                                .withLatLng(new LatLng(result.getGeometry().getLocation().getLat(), result.getGeometry().getLocation().getLng()))
+                                .withIconImage(mViewModel.getIconName())
+                                .withIconSize(2.0f)
+                                .withTextField(result.getName())
+                                .withIconOffset(new Float[] {0f,-1.5f})
+                                .withTextField(result.getName())
+                                .withTextHaloColor("rgba(255, 255, 255, 100)")
+                                .withTextHaloWidth(5.0f)
+                                .withTextAnchor("top")
+                                .withTextOffset(new Float[] {0f, 1.5f})
+                        );
+
+                    }
+
+                    symbols = symbolManager.create(options);
+
+// Add click listener and change the symbol to a cafe icon on click
+                    symbolManager.addClickListener(new OnSymbolClickListener() {
+                        @Override
+                        public void onAnnotationClick(Symbol symbol) {
+                            Toast.makeText(getActivity(),
+                                    "Symbol Clicked", Toast.LENGTH_SHORT).show();
+                            symbolManager.update(symbol);
+                        }
+                    });
+
+// Add long click listener and change the symbol to an airport icon on long click
+                    symbolManager.addLongClickListener((new OnSymbolLongClickListener() {
+                        @Override
+                        public void onAnnotationLongClick(Symbol symbol) {
+                            Toast.makeText(getActivity(),
+                                    "Calculating navigation route", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }));
+
+                    symbolManager.addDragListener(new OnSymbolDragListener() {
+                        @Override
+// Left empty on purpose
+                        public void onAnnotationDragStarted(Symbol annotation) {
+                        }
+
+                        @Override
+// Left empty on purpose
+                        public void onAnnotationDrag(Symbol symbol) {
+                        }
+
+                        @Override
+// Left empty on purpose
+                        public void onAnnotationDragFinished(Symbol annotation) {
+                        }
+                    });
+                }
+            }
+
+            });
+
+
+        mViewModel.loadSpinnerData().observe(getActivity(), new Observer<String[]>() {
+            @Override
+            public void onChanged(String[] s) {
+
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, s);
+                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                convertPlacesSpinner.setAdapter(arrayAdapter);
+
+            }
+        });
     }
 
 
@@ -435,6 +677,12 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (markerViewManager != null) {
+            markerViewManager.onDestroy();
+        }
+        if(symbolManager != null){
+            symbolManager.onDestroy();
+        }
         mapView.onDestroy();
     }
 
@@ -459,13 +707,13 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
         progressBar.setProgress(percentage);
     }
 
-    private void endProgress( String message ) {
+    private void endProgress(String message) {
 // Don't notify more than once
         if (isEndNotified) {
             return;
         }
 
-        if(message == null){
+        if (message == null) {
             message = new String("");
 
         }
@@ -503,8 +751,8 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
             buildAlertMessageNoGps();
 
 
-        }else{
-            if(isNetworkAvailable()) {
+        } else {
+            if (isNetworkAvailable()) {
 
 
                 if (mapboxMap != null) {
@@ -519,10 +767,10 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
                     }
 
                     getRoute(originPoint, destinationPoint);
-                    button.setEnabled(true);
+                    button.setVisibility(View.VISIBLE);
                     button.setBackgroundResource(R.color.mapbox_blue);
                 }
-            }else{
+            } else {
                 buildAlertMessageNoInternetConnection();
             }
         }
@@ -666,5 +914,140 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
     }
 
 
+    private void addClusteredGeoJsonSource(@NonNull Style loadedMapStyle) {
+
+        // Add a new source from the GeoJSON data and set the 'cluster' option to true.
+        try {
+            String tinyCountriesJson = null;
+            FeatureCollection featureCollection;
+                tinyCountriesJson = readRawResource( getContext(),R.raw.cluster);
+                featureCollection = FeatureCollection.fromJson(tinyCountriesJson);
+
+
+            loadedMapStyle.addSource(
+
+
+                    // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes from
+                    // 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
+                    new GeoJsonSource("earthquakes",
+                            new URI("https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"),
+                            new GeoJsonOptions()
+                                    .withCluster(true)
+                                    .withClusterMaxZoom(14)
+                                    .withClusterRadius(50)
+                    )
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        //Creating a marker layer for single data points
+        SymbolLayer unclustered = new SymbolLayer("unclustered-points", "earthquakes");
+
+        unclustered.setProperties(
+                iconImage("cross-icon-id"),
+                iconSize(
+                        division(
+                                get("mag"), literal(4.0f)
+                        )
+                ),
+                iconColor(
+                        interpolate(exponential(1), get("mag"),
+                                stop(2.0, rgb(0, 255, 0)),
+                                stop(4.5, rgb(0, 0, 255)),
+                                stop(7.0, rgb(255, 0, 0))
+                        )
+                )
+        );
+        unclustered.setFilter(has("mag"));
+        loadedMapStyle.addLayer(unclustered);
+
+        // Use the earthquakes GeoJSON source to create three layers: One layer for each cluster category.
+        // Each point range gets a different fill color.
+        int[][] layers = new int[][]{
+                new int[]{150, ContextCompat.getColor(getContext(), R.color.mapbox_navigation_route_layer_congestion_red)},
+                new int[]{20, ContextCompat.getColor(getContext(), R.color.mapbox_plugins_green)},
+                new int[]{0, ContextCompat.getColor(getContext(), R.color.mapbox_blue)}
+        };
+
+        for (int i = 0; i < layers.length; i++) {
+            //Add clusters' circles
+            CircleLayer circles = new CircleLayer("cluster-" + i, "earthquakes");
+            circles.setProperties(
+                    circleColor(layers[i][1]),
+                    circleRadius(18f)
+            );
+
+            Expression pointCount = toNumber(get("point_count"));
+
+            // Add a filter to the cluster layer that hides the circles based on "point_count"
+            circles.setFilter(
+                    i == 0
+                            ? all(has("point_count"),
+                            gte(pointCount, literal(layers[i][0]))
+                    ) : all(has("point_count"),
+                            gte(pointCount, literal(layers[i][0])),
+                            lt(pointCount, literal(layers[i - 1][0]))
+                    )
+            );
+            loadedMapStyle.addLayer(circles);
+        }
+
+        //Add the count labels
+        SymbolLayer count = new SymbolLayer("count", "earthquakes");
+        count.setProperties(
+                textField(Expression.toString(get("point_count"))),
+                textSize(12f),
+                textColor(Color.WHITE),
+                textIgnorePlacement(true),
+                textAllowOverlap(true)
+        );
+        loadedMapStyle.addLayer(count);
+    }
+
+
+    public static String readRawResource(Context context,@RawRes int rawResource) throws IOException {
+            String json = "";
+
+                Writer writer = new StringWriter();
+                char[] buffer = new char[1024];
+                try (InputStream is = context.getResources().openRawResource(rawResource)) {
+                    Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                    int numRead;
+                    while ((numRead = reader.read(buffer)) != -1) {
+                        writer.write(buffer, 0, numRead);
+                    }
+                }
+                json = writer.toString();
+
+            return json;
+    }
+
+    public void loadMarker(Result result){
+
+            if(markerView != null){
+                markerViewManager.removeMarker(markerView);
+            }
+            // Use an XML layout to create a View object
+            View customView = LayoutInflater.from(getActivity()).inflate(
+                    R.layout.marker_view_bubble, null);
+            customView.setLayoutParams(new FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
+
+// Set the View's TextViews with content
+            TextView titleTextView = customView.findViewById(R.id.marker_window_title);
+            titleTextView.setText(result.getName());
+
+            TextView snippetTextView = customView.findViewById(R.id.marker_window_snippet);
+            snippetTextView.setText(result.getVicinity());
+
+// Use the View to create a MarkerView which will eventually be given to
+// the plugin's MarkerViewManager class
+            markerView = new MarkerView(new LatLng(result.getGeometry().getLocation().getLat(), result.getGeometry().getLocation().getLng()), customView);
+            markerViewManager.addMarker(markerView);
+
+
+    }
 
 }

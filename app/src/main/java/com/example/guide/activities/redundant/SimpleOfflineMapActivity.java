@@ -3,17 +3,24 @@ package com.example.guide.activities.redundant;
 import android.Manifest;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.guide.R;
@@ -33,6 +40,7 @@ import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.api.directions.v5.models.DirectionsResponse;
 import com.mapbox.api.directions.v5.models.DirectionsRoute;
 import com.mapbox.geojson.Feature;
+import com.mapbox.geojson.FeatureCollection;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
@@ -54,9 +62,11 @@ import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
 import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
 import com.mapbox.mapboxsdk.plugins.building.BuildingPlugin;
 import com.mapbox.mapboxsdk.plugins.traffic.TrafficPlugin;
+import com.mapbox.mapboxsdk.style.expressions.Expression;
 import com.mapbox.mapboxsdk.style.layers.Layer;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
+import com.mapbox.mapboxsdk.style.sources.Source;
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
 import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
@@ -64,16 +74,49 @@ import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.lang.ref.WeakReference;
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import timber.log.Timber;
 
+import static com.mapbox.mapboxsdk.style.expressions.Expression.concat;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.division;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.downcase;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.get;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.literal;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.match;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.number;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.pi;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.product;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.rgba;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.step;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.stop;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.string;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.upcase;
+import static com.mapbox.mapboxsdk.style.expressions.Expression.zoom;
+import static com.mapbox.mapboxsdk.style.layers.Property.ICON_ANCHOR_BOTTOM;
+import static com.mapbox.mapboxsdk.style.layers.Property.TEXT_ANCHOR_TOP;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconAllowOverlap;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconAnchor;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconIgnorePlacement;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconImage;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconOffset;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconSize;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.textAnchor;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.textColor;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.textField;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.textSize;
 
 // classes needed to add a marker
 // classes to calculate a route
@@ -143,6 +186,7 @@ public class SimpleOfflineMapActivity extends AppCompatActivity implements Mapbo
                                     public void onStyleLoaded(@NonNull final Style style) {
 
 
+                                        new LoadDataTask(SimpleOfflineMapActivity.this).execute();
                                         mapboxMap = map;
 //Enable locattion Plugin
                                         enableLocationComponent(style);
@@ -591,6 +635,218 @@ public class SimpleOfflineMapActivity extends AppCompatActivity implements Mapbo
                 Toast.makeText(activity, exception.getLocalizedMessage(),
                         Toast.LENGTH_SHORT).show();
             }
+        }
+    }
+
+    private static class LoadDataTask extends AsyncTask<Void, Void, FeatureCollection> {
+
+        private WeakReference<SimpleOfflineMapActivity> activity;
+
+        LoadDataTask(SimpleOfflineMapActivity activity) {
+            this.activity = new WeakReference<>(activity);
+        }
+
+        @Override
+        protected FeatureCollection doInBackground(Void... params) {
+
+            try {
+                // read local geojson from raw folder
+                String tinyCountriesJson = activity.get().readRawResource( R.raw.cluster);
+
+                return FeatureCollection.fromJson(tinyCountriesJson);
+
+            } catch (IOException exception) {
+                Timber.e(exception);
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(FeatureCollection featureCollection) {
+            super.onPostExecute(featureCollection);
+            SimpleOfflineMapActivity activity = this.activity.get();
+            if (featureCollection == null || activity == null) {
+                return;
+            }
+
+            activity.onDataLoaded(featureCollection);
+        }
+    }
+
+    public String readRawResource(@RawRes int rawResource) throws IOException {
+        String json = "";
+
+        Writer writer = new StringWriter();
+        char[] buffer = new char[1024];
+        try (InputStream is = getResources().openRawResource(rawResource)) {
+            Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            int numRead;
+            while ((numRead = reader.read(buffer)) != -1) {
+                writer.write(buffer, 0, numRead);
+            }
+        }
+        json = writer.toString();
+
+        return json;
+    }
+
+    private static final String SOURCE_ID = "com.mapbox.mapboxsdk.style.layers.symbol.source.id";
+    private static final String LAYER_ID = "com.mapbox.mapboxsdk.style.layers.symbol.layer.id";
+    private static final String FEATURE_ID = "brk_name";
+    private static final String FEATURE_RANK = "scalerank";
+    private static final String FEATURE_NAME = "name_sort";
+    private static final String FEATURE_TYPE = "type";
+    private static final String FEATURE_REGION = "continent";
+
+    public void onDataLoaded(@NonNull FeatureCollection featureCollection) {
+        if (mapView.isDestroyed()) {
+            return;
+        }
+
+        // create expressions
+        Expression iconImageExpression = string(get(literal(FEATURE_ID)));
+        Expression iconSizeExpression = division(number(get(literal(FEATURE_RANK))), literal(2.0f));
+        Expression textSizeExpression = product(get(literal(FEATURE_RANK)), pi());
+        Expression textFieldExpression = concat(upcase(literal("a ")), upcase(string(get(literal(FEATURE_TYPE)))),
+                downcase(literal(" IN ")), string(get(literal(FEATURE_REGION)))
+        );
+        Expression textColorExpression = match(get(literal(FEATURE_RANK)),
+                literal(1), rgba(255, 0, 0, 1.0f),
+                literal(2), rgba(0, 0, 255.0f, 1.0f),
+                rgba(0.0f, 255.0f, 0.0f, 1.0f)
+        );
+
+        rgba(
+                division(literal(255), get(FEATURE_RANK)),
+                literal(0.0f),
+                literal(0.0f),
+                literal(1.0f)
+        );
+
+        // create symbol layer
+        SymbolLayer symbolLayer = new SymbolLayer(LAYER_ID, SOURCE_ID)
+                .withProperties(
+                        // icon configuration
+                        iconImage(iconImageExpression),
+                        iconAllowOverlap(false),
+                        iconSize(iconSizeExpression),
+                        iconAnchor(ICON_ANCHOR_BOTTOM),
+                        iconOffset(step(zoom(), literal(new float[] {0f, 0f}),
+                                stop(1, new Float[] {0f, 0f}),
+                                stop(10, new Float[] {0f, -35f})
+                        )),
+
+                        // text field configuration
+                        textField(textFieldExpression),
+                        textSize(textSizeExpression),
+                        textAnchor(TEXT_ANCHOR_TOP),
+                        textColor(textColorExpression)
+                );
+
+        // add a geojson source to the map
+        Source source = new GeoJsonSource(SOURCE_ID, featureCollection);
+        mapboxMap.getStyle().addSource(source);
+
+        // add symbol layer
+        mapboxMap.getStyle().addLayer(symbolLayer);
+
+        // get expressions
+        Expression iconImageExpressionResult = symbolLayer.getIconImage().getExpression();
+        Expression iconSizeExpressionResult = symbolLayer.getIconSize().getExpression();
+        Expression textSizeExpressionResult = symbolLayer.getTextSize().getExpression();
+        Expression textFieldExpressionResult = symbolLayer.getTextField().getExpression();
+        Expression textColorExpressionResult = symbolLayer.getTextColor().getExpression();
+
+        // log expressions
+        Timber.e(iconImageExpressionResult.toString());
+        Timber.e(iconSizeExpressionResult.toString());
+        Timber.e(textSizeExpressionResult.toString());
+        Timber.e(textFieldExpressionResult.toString());
+        Timber.e(textColorExpressionResult.toString());
+
+        // reset expressions
+        symbolLayer.setProperties(
+                iconImage(iconImageExpressionResult),
+                iconSize(iconSizeExpressionResult),
+                textSize(textSizeExpressionResult),
+                textField(textFieldExpressionResult),
+                textColor(textColorExpressionResult)
+        );
+
+        new GenerateSymbolTask(mapboxMap, getBaseContext()).execute(featureCollection);
+    }
+
+    private static class GenerateSymbolTask extends AsyncTask<FeatureCollection, Void, HashMap<String, Bitmap>> {
+
+        private MapboxMap mapboxMap;
+        private WeakReference<Context> context;
+
+        GenerateSymbolTask(MapboxMap mapboxMap, Context context) {
+            this.mapboxMap = mapboxMap;
+            this.context = new WeakReference<>(context);
+        }
+
+        @SuppressWarnings("WrongThread")
+        @Override
+        protected HashMap<String, Bitmap> doInBackground(FeatureCollection... params) {
+            HashMap<String, Bitmap> imagesMap = new HashMap<>();
+            Context context = this.context.get();
+            List<Feature> features = params[0].features();
+            if (context != null && features != null) {
+                for (Feature feature : features) {
+                    String countryName = feature.getStringProperty(FEATURE_ID);
+                    TextView textView = new TextView(context);
+                    textView.setBackgroundColor(context.getResources().getColor(R.color.mapbox_navigation_route_layer_blue));
+                    textView.setPadding(10, 5, 10, 5);
+                    textView.setTextColor(Color.WHITE);
+                    textView.setText(countryName);
+                    imagesMap.put(countryName, SimpleOfflineMapActivity.SymbolGenerator.generate(textView));
+                }
+            }
+            return imagesMap;
+        }
+
+        @Override
+        protected void onPostExecute(HashMap<String, Bitmap> bitmapHashMap) {
+            super.onPostExecute(bitmapHashMap);
+            mapboxMap.getStyle(new Style.OnStyleLoaded() {
+                @Override
+                public void onStyleLoaded(@NonNull Style style) {
+                    style.addImagesAsync(bitmapHashMap);
+                }
+            });
+        }
+    }
+
+
+    /**
+     * Utility class to generate Bitmaps for Symbol.
+     * <p>
+     * Bitmaps can be added to the map with
+     * </p>
+     */
+    private static class SymbolGenerator {
+
+        /**
+         * Generate a Bitmap from an Android SDK View.
+         *
+         * @param view the View to be drawn to a Bitmap
+         * @return the generated bitmap
+         */
+        public static Bitmap generate(@NonNull View view) {
+            int measureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+            view.measure(measureSpec, measureSpec);
+
+            int measuredWidth = view.getMeasuredWidth();
+            int measuredHeight = view.getMeasuredHeight();
+
+            view.layout(0, 0, measuredWidth, measuredHeight);
+            Bitmap bitmap = Bitmap.createBitmap(measuredWidth, measuredHeight, Bitmap.Config.ARGB_8888);
+            bitmap.eraseColor(Color.TRANSPARENT);
+            Canvas canvas = new Canvas(bitmap);
+            view.draw(canvas);
+            return bitmap;
         }
     }
 

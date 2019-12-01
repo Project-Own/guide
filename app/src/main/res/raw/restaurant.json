@@ -1,0 +1,904 @@
+{
+   "html_attributions" : [],
+   "next_page_token" : "CrQCIQEAAKb8Aozv5Y1GURjOqpeqOfA8mTHcHXN3-YbVlWNkHE_xCYWF5kcaLA3yW7o5_S80F3Njmk1MQZpogTYLLGFP6mpDDk9eFVohNn0I3ZmrsImkd7G_osqZQ405FZEK46EjzJUB7GgKoUj20_5d188YgmZS8wG4trpKYGaRf3nIjz4ZClGVIGTO7LYhmEpigiDBpR1MRZJMaReRUqgj7LzqHJIzqqVJQrHCNCPWmDuHDwXXe0pMwA9bnPh3ylr9KHV_vXIzefY06wFHTr6OL97DzHc063X3syw7I-ho1ehNgqOR2gfjb7fsB6frK2fIdU6BoSrqbJx0eZ_YZViTIV_1Bx9qxDPYjQfp9vZu9AN9AiS4I3hrgfUQ1iUdwzya0PoozgLjrWoqpaFnSmnyUHOo-JUSEM7fjMvPYSrqcDVF9R8Ch9UaFCKU6vp1BoFY1qSeUU6cslQErwK7",
+   "results" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.682026,
+               "lng" : 85.4301483
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6834203302915,
+                  "lng" : 85.43158393029151
+               },
+               "southwest" : {
+                  "lat" : 27.6807223697085,
+                  "lng" : 85.4288859697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "b35df058b0b795be306a00d39201b18d4f8af535",
+         "name" : "Planet Bhaktapur Hotel",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 720,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115929321934415557807/photos\"\u003ePlanet Bhaktapur Hotel\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAgj_OIFq-TmhmJBee760hVH0JurxQ7nqoOyNW8fxfJnvGPLLOKatPsL1fW-0kt4PQYHU3Er0wwXlP4wnPvOYsssyBW_AwdHHovmzc28wwgojcd5IqtGAD35FLlEykQMBBEhCeOvjiCrEchITn_PDm8pdTGhTJR964fx1L1bi8XBpVuGhCojn2mg",
+               "width" : 960
+            }
+         ],
+         "place_id" : "ChIJG2xdVFYF6zkRhGMTfyFJUp8",
+         "plus_code" : {
+            "compound_code" : "MCJJ+R3 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCJJ+R3"
+         },
+         "rating" : 4.6,
+         "reference" : "ChIJG2xdVFYF6zkRhGMTfyFJUp8",
+         "scope" : "GOOGLE",
+         "types" : [
+            "travel_agency",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 171,
+         "vicinity" : "7, cha vdc, Mandev Marg, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.672088,
+               "lng" : 85.4273297
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6734376302915,
+                  "lng" : 85.4286527302915
+               },
+               "southwest" : {
+                  "lat" : 27.6707396697085,
+                  "lng" : 85.4259547697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "90d3cf388e882dd887155268f0e89b08a25fae2f",
+         "name" : "Khwapa Chhen Guest House and Restaurant",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 721,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114053462713718650012/photos\"\u003eKhwapa Chhen Guest House and Restaurant\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA8k4qw0ZI4B5vdUeglNiRAOyMVEz0qGoG1-MetoFvyXJLoM1htwwnKiq6bgRAjNzgAKsC144iE5Mg7BV4BvvMNSX7Rnj22WoaxN7rBYw2jzIsa3946tffIn1ArZ4HlW1UEhA862tEwBlKgb_AL55MBr2gGhTPrjHayIKlIwT2IRyr5a7Uz_WJHA",
+               "width" : 1280
+            }
+         ],
+         "place_id" : "ChIJkTceiq8a6zkRSq1ETM8us2Y",
+         "plus_code" : {
+            "compound_code" : "MCCG+RW Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCG+RW"
+         },
+         "rating" : 4,
+         "reference" : "ChIJkTceiq8a6zkRSq1ETM8us2Y",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 39,
+         "vicinity" : "3, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671735,
+               "lng" : 85.4286391
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6730839802915,
+                  "lng" : 85.42998808029151
+               },
+               "southwest" : {
+                  "lat" : 27.6703860197085,
+                  "lng" : 85.4272901197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "d65a1bd14ba02966a8a20db09afd2a84875511ed",
+         "name" : "Shiva's Cafe Corner",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 676,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/113184846018745931049/photos\"\u003eShiva&#39;s Cafe Corner\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAj8BWsSAmbucxrUFplQtGR1bBoRE7UnT33SZyPzdewq_6w3w6aQ1N3I3rt6ARn6j1l6GBDTk_d8JqVy1ydIpqkZGXRuE6bzHAPefUJ_kyaKH9dEelq78b6CZVDelAd2E9EhDJEUhFruZfM5Noykg1zlHmGhTr1H4N5BbQh62easE9cwVf3bZ1JQ",
+               "width" : 1200
+            }
+         ],
+         "place_id" : "ChIJR18ava8a6zkRmxw9hwKONY0",
+         "plus_code" : {
+            "compound_code" : "MCCH+MF Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+MF"
+         },
+         "rating" : 3.3,
+         "reference" : "ChIJR18ava8a6zkRmxw9hwKONY0",
+         "scope" : "GOOGLE",
+         "types" : [
+            "restaurant",
+            "lawyer",
+            "cafe",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 26,
+         "vicinity" : "Durbar Square5, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6713615,
+               "lng" : 85.4298628
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6726975802915,
+                  "lng" : 85.43122608029151
+               },
+               "southwest" : {
+                  "lat" : 27.66999961970849,
+                  "lng" : 85.42852811970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "c8f3611e540ce662904577e2fa7d6acbf3413ba8",
+         "name" : "Black Olive Restro & Bar",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 4608,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114586045039586810980/photos\"\u003eamit prajapati\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAP5tH7vVtdt18bayEuu-CEMmCjzhBzx4EIxBB7LL4usMeLBRZ_7qS9W8MUC60_aLt_CpEkw-bd657aF3Lo-ngoLHEIAGtkqu9-CYlO4Gt080hRFMRhE1x8wVx-EuMj2fhEhA0XX9XRYMoTv4Okb5c451oGhTomlDB7bcz7TaUJsyOHT--QBwCEQ",
+               "width" : 2112
+            }
+         ],
+         "place_id" : "ChIJ0cWsr68a6zkREGPug0NXRXg",
+         "plus_code" : {
+            "compound_code" : "MCCH+GW Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+GW"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJ0cWsr68a6zkREGPug0NXRXg",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "bar", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 4,
+         "vicinity" : "Taumadhi Square, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6712234,
+               "lng" : 85.42951049999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6725848302915,
+                  "lng" : 85.43085628029149
+               },
+               "southwest" : {
+                  "lat" : 27.6698868697085,
+                  "lng" : 85.42815831970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "c2509b1a53828fb2922932546c6451546046095a",
+         "name" : "Siddhi Home Hotel Bhaktapur",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 850,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/107848846569179994153/photos\"\u003eSiddhi Home Hotel Bhaktapur\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAWOqcMFz1nmZX30hCbzkjozkbBGnG0z5cxq1PBFRG8009TxFpJ7YoR_awJMdjrqtcjbcm38Nnj9S6w1uD6nBsQmiIUcjF2hDZGaNBgcPeZKpsY5gaViQ9STPK3dYqqMsdEhA2jgrVMhNRye0nNC-V3bgkGhQCii9uzJL3JaJphVLeWpZHWf_lTw",
+               "width" : 1280
+            }
+         ],
+         "place_id" : "ChIJE07pq68a6zkRPmMMS0BWhwY",
+         "plus_code" : {
+            "compound_code" : "MCCH+FR Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+FR"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJE07pq68a6zkRPmMMS0BWhwY",
+         "scope" : "GOOGLE",
+         "types" : [
+            "cafe",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 27,
+         "vicinity" : "Taumadhi Square, 05"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.670878,
+               "lng" : 85.42886899999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6722174302915,
+                  "lng" : 85.4302677302915
+               },
+               "southwest" : {
+                  "lat" : 27.6695194697085,
+                  "lng" : 85.4275697697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "2c332d87f9db4789f17b4e36868c7ae4ffe40652",
+         "name" : "Bhadgaon Guest House",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 366,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/106310002072603489435/photos\"\u003eBhadgaon Guest House\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAokUY4HU9zljXCwsrpTIXfn1tk3E8JwCxzqm6GweOVkHP6gvY8NQWj8DmTAluFSrudi0vcQhb363qSAktTc4tQTpXjak2rjFMQeYiGm1SH8tdwTAX0PYrzKWSVtFbDhk5EhBAoFQ1kQEJjupoSnCd9UQCGhRuRsIWy_BvJrDZHE4aM56gae6b8w",
+               "width" : 550
+            }
+         ],
+         "place_id" : "ChIJnUOTCa8a6zkR0TkBqKQVzBI",
+         "plus_code" : {
+            "compound_code" : "MCCH+9G Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+9G"
+         },
+         "rating" : 4,
+         "reference" : "ChIJnUOTCa8a6zkR0TkBqKQVzBI",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 50,
+         "vicinity" : "Tamaudhi Square, Bhaktapur - 11, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.672624,
+               "lng" : 85.4296362
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.67392673029151,
+                  "lng" : 85.43096378029151
+               },
+               "southwest" : {
+                  "lat" : 27.6712287697085,
+                  "lng" : 85.4282658197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "c8ec603ee2e658d85e99dd73604d9a86ea6b9034",
+         "name" : "Vajra Guest House & Rooftop Restaurant",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 2176,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/101466532941343199976/photos\"\u003eHolidays to Nepal\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAArzcqVOAx-cTxI4xTU61lEo_ituOe6GUX8t03x7yxLVonmSMh_RdbaXKJBZhby9XIzupHGoAsI7CoNmq-l2irm5wJ5iGlga8RoiwKO75ZqXBUeHOdRRt55-jh6bcqKlUJEhACZH9W9_TYlR80PXO4BbgHGhRXPowzq6p1V0ZgV87DNefg5-qenA",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJAAAAAAAAAAARCwN5WdzZTyc",
+         "plus_code" : {
+            "compound_code" : "MCFH+2V Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFH+2V"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJAAAAAAAAAAARCwN5WdzZTyc",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "lodging", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 95,
+         "vicinity" : "Nagarkot Road 10, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6667617,
+               "lng" : 85.4256602
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6680885802915,
+                  "lng" : 85.4270484802915
+               },
+               "southwest" : {
+                  "lat" : 27.6653906197085,
+                  "lng" : 85.4243505197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "0de4f9661f66a48f2ef577487a86c3a7a154196b",
+         "name" : "Hada Ice Cream",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2117,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/103007440295801985356/photos\"\u003eUrusha Prajapati\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAApQBLSyOXrLWUyYmb_9GMEhdGABe653hBZD9y5XPhOKO8RzmdD4bqawa8JRcgOmTDgycwi-zxkmMaWm3wD-QGslxKq7ctSRKwWcZJm2Qas_o70kZdWeV-EZ4_mBxO51TAEhBrPMC86A0UuNnvVzNaU0LuGhSCz_EPHv_zgjAm3_UFUMPSD8FbXg",
+               "width" : 1440
+            }
+         ],
+         "place_id" : "ChIJUxfIa6Ya6zkReOAJVaNC_HA",
+         "plus_code" : {
+            "compound_code" : "MC8G+P7 Bhaktapur, Nepal",
+            "global_code" : "7MV7MC8G+P7"
+         },
+         "price_level" : 1,
+         "rating" : 3.9,
+         "reference" : "ChIJUxfIa6Ya6zkReOAJVaNC_HA",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 165,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6714972,
+               "lng" : 85.4216134
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.67287943029151,
+                  "lng" : 85.4229364802915
+               },
+               "southwest" : {
+                  "lat" : 27.6701814697085,
+                  "lng" : 85.42023851970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "87321b9e2ee478724db80324130e8c33ebba5bd8",
+         "name" : "Tryst Fast Food Restaurant",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/108300669153101194281/photos\"\u003eAakash Kumar Jaiswal\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRZAAAAqUra6JxkgxRjtdrcMwqUj1Q9s3Foxayu0umJYvc5bZrJ4bn2geQLz1p6x8U3xSJ5vxu-j_SIpcpTmPeOncpliA-gpQyv3zlAmK1iGWYHme8d7fdM1K8xICPoxZ5ku_N4EhDBXOHByroRG6BuiIZ5GRFoGhRFrf8AyDMnpdKj4NWk3KVnwCOzDA",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJ-0XTZKMa6zkR6NQX_8UNDD4",
+         "plus_code" : {
+            "compound_code" : "MCCC+HJ Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCC+HJ"
+         },
+         "price_level" : 2,
+         "rating" : 3.4,
+         "reference" : "ChIJ-0XTZKMa6zkR6NQX_8UNDD4",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 124,
+         "vicinity" : "Nagarkot Road, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6656021,
+               "lng" : 85.42277179999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6669889802915,
+                  "lng" : 85.42412813029151
+               },
+               "southwest" : {
+                  "lat" : 27.6642910197085,
+                  "lng" : 85.42143016970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "0e16447995f23cec875b6b4693f212cb8c10a53b",
+         "name" : "Bhaktapur Sekuwa Corner & Fastfood Restaurant",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 480,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102965561121805183972/photos\"\u003eRam Krishna Suwal\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAnqqw-Z1RzRicdOCSjlw1vDGCRS_hvGK-0A7bjeGmk9Pa4euSNuOwLyaeUwqWZyaJQZ1CgLU4wzumNrKCbZU6CiDRO5NFD4jGrSZ4ISlCqFV-qaTkurLZ2vKi3HjYJ5YvEhDQFYIVNOEBNxEQwHQuppsYGhQ4sY8sUCxlZudNpyYI89WRcpEqaA",
+               "width" : 720
+            }
+         ],
+         "place_id" : "ChIJS71926Ya6zkRQG4qCYwD9dA",
+         "plus_code" : {
+            "compound_code" : "MC8F+64 Suryabinayak, Nepal",
+            "global_code" : "7MV7MC8F+64"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJS71926Ya6zkRQG4qCYwD9dA",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 12,
+         "vicinity" : "Araniko Highway 101, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6767171,
+               "lng" : 85.4371762
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6780542302915,
+                  "lng" : 85.4384548802915
+               },
+               "southwest" : {
+                  "lat" : 27.6753562697085,
+                  "lng" : 85.4357569197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "9517237864414adc56712f8156dbb3d0e1a9ab2b",
+         "name" : "Lawaju Mithaai Bhandar Pasal",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJNe4i0bIa6zkREmNoZKJtcM0",
+         "plus_code" : {
+            "compound_code" : "MCGP+MV Bhaktapur, Nepal",
+            "global_code" : "7MV7MCGP+MV"
+         },
+         "rating" : 3.4,
+         "reference" : "ChIJNe4i0bIa6zkREmNoZKJtcM0",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 21,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6783917,
+               "lng" : 85.43632599999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.67970783029151,
+                  "lng" : 85.43762903029149
+               },
+               "southwest" : {
+                  "lat" : 27.6770098697085,
+                  "lng" : 85.43493106970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "0f6c5f54fc127fd8bd64c1937a004a42eb350365",
+         "name" : "Yaatu Crimson Restaurant & Grill",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 4128,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/117329637177787991440/photos\"\u003eNeelam Sharma\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAApbaFG_ddYU_XgFLguHcYYV3DQm2nqtIpU3f7J8ma9v_mTu8A9JGU1adoFn-MdlC_ZTLTpfuRVFV0SkYThLNVkdbDr6vf8hqdYVDyFeB8lf4vXigptc1SUz1WQPub5sNsEhAmloYy3j9oKkHzl3l4QotPGhQn2Fi33eERe1xHiA9x77k27Fg4XQ",
+               "width" : 3096
+            }
+         ],
+         "place_id" : "ChIJkd4xObMa6zkRQ8ERav8pub4",
+         "plus_code" : {
+            "compound_code" : "MCHP+9G Bhaktapur, Nepal",
+            "global_code" : "7MV7MCHP+9G"
+         },
+         "rating" : 3.4,
+         "reference" : "ChIJkd4xObMa6zkRQ8ERav8pub4",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 8,
+         "vicinity" : "कमलविनायक चलचित्र मन्दिर, 4,, गरुड कुण्डल सडक, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6819548,
+               "lng" : 85.4304743
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6833849802915,
+                  "lng" : 85.43174693029151
+               },
+               "southwest" : {
+                  "lat" : 27.6806870197085,
+                  "lng" : 85.42904896970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "d9e47a771cddec31e365fb0c78f7b8347373ac0e",
+         "name" : "La Bella Nepali Restaurant",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 1920,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/100859751192580113462/photos\"\u003ebikechef cristiano Sabatini\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAygePcSwa94pZzUu0KPEmsArbBbcPFAcRUoA0SJtKpJmy6pAPpwX7Gq7iIeJYbwTwmMnkuS15BtGGpU30_jwk60jmhIespbpHx7YvQhJr5hpwN9KHfO-LZb39h_u5LMn5EhD00v3_SmxCdvw-v068UFJ7GhRHzNG8leOs6M7tb8YdPIqe8UfG9A",
+               "width" : 1080
+            }
+         ],
+         "place_id" : "ChIJCeDBvbYa6zkRMJxq6ZNKZq4",
+         "plus_code" : {
+            "compound_code" : "MCJJ+Q5 Changunarayan, Nepal",
+            "global_code" : "7MV7MCJJ+Q5"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJCeDBvbYa6zkRMJxq6ZNKZq4",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 24,
+         "vicinity" : "7, cha Jhaukel vdc, Mandev Marg, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671596,
+               "lng" : 85.42918
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6729449802915,
+                  "lng" : 85.43052898029151
+               },
+               "southwest" : {
+                  "lat" : 27.67024701970849,
+                  "lng" : 85.42783101970851
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "1ea2be3f4803ab9e27136f00d6b0f32e80d7e170",
+         "name" : "Pagoda Guest House and Restaurant",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 712,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/116935944207060223387/photos\"\u003ePagoda Guest House\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA4cLFnHjcw-pgjQOwJ4I6wzhRrPad395C9Kdfo2hxFVIFTBv5pnTHNpBRlZQXTUXf-CCM0YqXvf3rAa9U6cWq5M7ldee4jllW_-n1R18mefCRt102c5fix8jPm5Rr8O-REhAq_x-EEoXvDWrsQqmUqUelGhSiwImduTNNfIRcmwLTyzCgQqiu3w",
+               "width" : 720
+            }
+         ],
+         "place_id" : "ChIJN3WIr68a6zkRR19CL00-Nns",
+         "plus_code" : {
+            "compound_code" : "MCCH+JM Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+JM"
+         },
+         "rating" : 4.6,
+         "reference" : "ChIJN3WIr68a6zkRR19CL00-Nns",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 22,
+         "vicinity" : "Taumadhi Square"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6716354,
+               "lng" : 85.4293433
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6729843802915,
+                  "lng" : 85.4306922802915
+               },
+               "southwest" : {
+                  "lat" : 27.6702864197085,
+                  "lng" : 85.42799431970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "f55ea1bcf6ba95dbd16e2d7d09ef9f2b4240afd4",
+         "name" : "The Golden Eyes Restaurant & Cafe - Bhaktapur",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1960,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/108348513722740216487/photos\"\u003eMan Jo\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAqSfnFkZnl2XXeVkkanhKNKLMy2YHOkUFQ-xhKFhe05dfHsTrysiojhA2M4HMy7HccnmN6JOczvk1ptoWIbk8Awlorbu_Ez6cCnqLQXIhsyoFp_LF4xt3y4Hv88hgjJy8EhAfXb-wsbCkat3xr6J28hT2GhQ4zSNJvK_JhMDD7XbotnxGPmbLxg",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJibMm_G8b6zkR5MOB6jXdEog",
+         "plus_code" : {
+            "compound_code" : "MCCH+MP Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+MP"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJibMm_G8b6zkR5MOB6jXdEog",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 3,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6716378,
+               "lng" : 85.4293426
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6729867802915,
+                  "lng" : 85.43069158029151
+               },
+               "southwest" : {
+                  "lat" : 27.67028881970849,
+                  "lng" : 85.42799361970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "2450df46cd55cebf8fbb9321b8be406eb422e5f8",
+         "name" : "The Golden Eyes Cafe & Restaurant",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3648,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/112318039573424891587/photos\"\u003ePRIRODA PRIRODA\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAowKODvssp6rfqb4bB3WuWmv9c68baLX0vZDBAkS0rQeh4Cu7MFmdWdI3fmYvNeyX5MD8BdeM2ECNE7xcImmu0LgcsH84z2zq_BcGSlYu86dEd7b4vn08XuKclCcXJGasEhD1Sqp_Jv48LgpiTdc8eQBoGhSA8NT7zRrLzoe4H0ufa9Tcrq72UQ",
+               "width" : 5472
+            }
+         ],
+         "place_id" : "ChIJL_ReX70b6zkRvJu84qyluio",
+         "plus_code" : {
+            "compound_code" : "MCCH+MP Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+MP"
+         },
+         "rating" : 1,
+         "reference" : "ChIJL_ReX70b6zkRvJu84qyluio",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.671699,
+               "lng" : 85.4294096
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6730479802915,
+                  "lng" : 85.4307585802915
+               },
+               "southwest" : {
+                  "lat" : 27.6703500197085,
+                  "lng" : 85.42806061970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "e9d4361d254a06f80352e40b46e84ea9f4e897a2",
+         "name" : "The Golden Eyes Restaurant & Cafe- Bhaktapur",
+         "photos" : [
+            {
+               "height" : 3648,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/112318039573424891587/photos\"\u003ePRIRODA PRIRODA\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAJbOlmnMAJe43LBK7aoucZoJTcktuZF2ogNjyk5Qh-Tar8shZpVfiolB_q1e-M4DOJhdXl3E_M2DfM5RaUbZkATYJ4wu1vGkeHc0_dlyjnMcjobwzEefyt4gLvCFJ6TIjEhAqSgU_itmgwf5JbmgpuUrLGhTr0n8lblltgBge5aaGguquROGQNA",
+               "width" : 5472
+            }
+         ],
+         "place_id" : "ChIJG1jD5VIb6zkR46txX0LvQPA",
+         "plus_code" : {
+            "compound_code" : "MCCH+MQ Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+MQ"
+         },
+         "rating" : 1,
+         "reference" : "ChIJG1jD5VIb6zkR46txX0LvQPA",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6717071,
+               "lng" : 85.42940469999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6730560802915,
+                  "lng" : 85.4307536802915
+               },
+               "southwest" : {
+                  "lat" : 27.6703581197085,
+                  "lng" : 85.4280557197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "771eb577a1e5de3f57c65fff1534139803bdc9d2",
+         "name" : "The Golden Eyes Restaurant & Cafe - Bhaktapur",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "place_id" : "ChIJ-1gXvewb6zkRQSeG9pq3fK8",
+         "plus_code" : {
+            "compound_code" : "MCCH+MQ Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+MQ"
+         },
+         "reference" : "ChIJ-1gXvewb6zkRQSeG9pq3fK8",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur, Behind Nayatapola Temple"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6718004,
+               "lng" : 85.4293368
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6731493802915,
+                  "lng" : 85.43068578029151
+               },
+               "southwest" : {
+                  "lat" : 27.6704514197085,
+                  "lng" : 85.42798781970851
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "7b32f1a880c42d5c4da88b9e99b46cfdc0e27b4a",
+         "name" : "Hole In The Wall - Bara-Wo Newari Food",
+         "photos" : [
+            {
+               "height" : 4032,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/112927585303540814400/photos\"\u003eIndah N\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAASwrt-SjczNRqyulCfPf5EvAewIS-8SS8J4d976OfQ1HM8LCGSKIfs7ArWdvRH_T2pizmRdlhEVHGuC3M2wnT2D9QuQJiTlNx09eZb7SgI6v9DZbTacERJZn5GqOS7YdyEhCNlefJ_yYnAg3iefK5eFuTGhSuj8j1yYmoVPEvULbj9pM7HPXnCA",
+               "width" : 3024
+            }
+         ],
+         "place_id" : "ChIJR0PGsa8a6zkRx5LjjNtmYf0",
+         "plus_code" : {
+            "compound_code" : "MCCH+PP Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+PP"
+         },
+         "price_level" : 1,
+         "rating" : 4,
+         "reference" : "ChIJR0PGsa8a6zkRx5LjjNtmYf0",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 40,
+         "vicinity" : "Rammandir Road 12, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6717609,
+               "lng" : 85.4291843
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6731098802915,
+                  "lng" : 85.43053328029151
+               },
+               "southwest" : {
+                  "lat" : 27.6704119197085,
+                  "lng" : 85.42783531970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "61c310fbfa96e20dcce9d4e06a92937953d5bd4c",
+         "name" : "sukunda restaurant",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 540,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/117769641041859294725/photos\"\u003ekyarol dhoju\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRZAAAAZCjNae7FUvdI-HlJU28CNs1EkuCwPf5qWyvYCoKdS-uzE1cFE_KurHNGMA96ozjFb1kntZT0Gkh0kUlQSIM4xU8N2q2K1tQDWpWcZH5_C61_SZ92qaLxZ2x1woI12I1EEhBMva5-usZ8P5S792d0xSx-GhS2ib-wuZr6gXyeZSxQceDOEpyTaw",
+               "width" : 720
+            }
+         ],
+         "place_id" : "ChIJbxfGoBUb6zkR3hpl-JjzzEw",
+         "plus_code" : {
+            "compound_code" : "MCCH+PM Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+PM"
+         },
+         "rating" : 4,
+         "reference" : "ChIJbxfGoBUb6zkR3hpl-JjzzEw",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 8,
+         "vicinity" : "Tamaudhi 11, भक्तपुर"
+      }
+   ],
+   "status" : "OK"
+}

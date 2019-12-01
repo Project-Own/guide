@@ -1,0 +1,872 @@
+{
+   "html_attributions" : [],
+   "next_page_token" : "CqQCHgEAALFmOxobCujbF49NOrtG_6tD1uLx7PFjdg6l58wU20shl9At9sk5RYLToqIcoeci5-trYrGj6y4k06WkZYa1TO5No2sZH-2U7WotBT7U1kPr09OR_7AXFfc1sxZsp3hVjv-z9i8VxRDunpwzHVnDRbtRjakUCZXb4JgoSHBS2UH9kCibUXIJhWI2uTPQgC8sBvjLAHQnFqQikBALN49fDcGTfs2VkhKyXVmhiGhPnqLtV7anaDn7gCcKpTmhAnlqxpbRl0EY-E60jWSHlaPDaMMmC0zFJ36KG8iSGOQ3aa5dDpuJBUXCmznqiuChca4kVX_COz1wrm-ftM5kPwGfuJREZtDv0bWudK0UBehrLwtQ1Zc_EevqyYtAV37mql_BMxIQxA-hJphgwClIVrfU0lCHRxoUu_uMYRBH9ChEsbGnLu0DKOxCWno",
+   "results" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6701497,
+               "lng" : 85.4282602
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6714798302915,
+                  "lng" : 85.4296535302915
+               },
+               "southwest" : {
+                  "lat" : 27.6687818697085,
+                  "lng" : 85.4269555697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "462285ccfb0dabfb77581ca268f8204679a56965",
+         "name" : "Cosy Hotel",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3168,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115954190689630165704/photos\"\u003eCosy Hotel\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA8p7xAlDgQh5Zp3BNRi3EJRDNqsFRp4ojKTaYT-nBfHeKS29H-83dqH2oF-CgveClbI6xHeJWyM9Lx6Lj3qZrWjpcCQ-2K7C4kek7IzV2ro5ULbZ1Fa4mFAi7XzFXkZHTEhBSHRhu_3ofMedwlRFqe61aGhRXcOPZT9mD2V8DSD6UQuuH7VU3pQ",
+               "width" : 4752
+            }
+         ],
+         "place_id" : "ChIJdWa4ba8a6zkRqzTo0QT7CqU",
+         "plus_code" : {
+            "compound_code" : "MCCH+38 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+38"
+         },
+         "rating" : 3.9,
+         "reference" : "ChIJdWa4ba8a6zkRqzTo0QT7CqU",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 41,
+         "vicinity" : "Pottery Square,, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6728553,
+               "lng" : 85.4255331
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6741988302915,
+                  "lng" : 85.4268857302915
+               },
+               "southwest" : {
+                  "lat" : 27.6715008697085,
+                  "lng" : 85.4241877697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "5044d3af12761c29bebdc67ac856fb4fe3461aad",
+         "name" : "THAGU CHHEN",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 288,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111952303437299027340/photos\"\u003eTHAGU CHHEN\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAWmM-uPluzrl8K253E5VT7k3iy4LrDBpC1AC84AX-8I4S_xGon9m-DftqW5phqIKD2GV_m59mMKE13kWUhxPt2aOcZgTWEC42liswWfYI3CCqPniqYN0ZTWo45mP68lD1EhA9vk3sp-CKUaRPBj-qJsy1GhSR0RhO26zPC_QTbuADeMBt64vRZw",
+               "width" : 432
+            }
+         ],
+         "place_id" : "ChIJ2VAEO6Ua6zkRHuRDNlT5wtQ",
+         "plus_code" : {
+            "compound_code" : "MCFG+46 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFG+46"
+         },
+         "rating" : 4.1,
+         "reference" : "ChIJ2VAEO6Ua6zkRHuRDNlT5wtQ",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 36,
+         "vicinity" : "Itachhen-15, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67328759999999,
+               "lng" : 85.43499369999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6747211802915,
+                  "lng" : 85.4363123802915
+               },
+               "southwest" : {
+                  "lat" : 27.67202321970849,
+                  "lng" : 85.43361441970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "efd14dbcaea16cd64a5377e53c2a75466a68c840",
+         "name" : "Peacock Guest House",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2304,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/113099982358029224465/photos\"\u003e1neclick Online Pvt Ltd\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA6e47cddMxbxkKHSHhHIwuvgI4uJbNwCuhOB1M4dMq1Cork3lGdgG7GdsPUJoHoVa3fPqJyUqOJQdldTwdGiw80DomV9-7lyiEF_aBeUGwhvdB39Eu-UD_Y_jygieP-WMEhBp7ZNrZCmSwSoFRvcc642kGhSA38v7QgU_k0_4oUmmGlljua-BSw",
+               "width" : 3456
+            }
+         ],
+         "place_id" : "ChIJx4FWna0a6zkRULbhkazRG_o",
+         "plus_code" : {
+            "compound_code" : "MCFM+8X Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFM+8X"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJx4FWna0a6zkRULbhkazRG_o",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 99,
+         "vicinity" : "Dattatraya Temple, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.682026,
+               "lng" : 85.4301483
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6834203302915,
+                  "lng" : 85.43158393029151
+               },
+               "southwest" : {
+                  "lat" : 27.6807223697085,
+                  "lng" : 85.4288859697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "b35df058b0b795be306a00d39201b18d4f8af535",
+         "name" : "Planet Bhaktapur Hotel",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 720,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115929321934415557807/photos\"\u003ePlanet Bhaktapur Hotel\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAT1j_Tx-JbYoKx-p0zzcvSGku81qWvFyi4lCwXC-1Z8Z3jiYRhzrh7ovPP1eRRzF2voeO60ZT1V_cv5fh7ppWNQzpQs8i3uDuo1RnbVQLAwleYt1rq9wsljSIx7AnLgeyEhAuIy_3CNtYi_djC2rdxQn-GhT4Er1QUw9PVLlJd9JsELu3MHPsYA",
+               "width" : 960
+            }
+         ],
+         "place_id" : "ChIJG2xdVFYF6zkRhGMTfyFJUp8",
+         "plus_code" : {
+            "compound_code" : "MCJJ+R3 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCJJ+R3"
+         },
+         "rating" : 4.6,
+         "reference" : "ChIJG2xdVFYF6zkRhGMTfyFJUp8",
+         "scope" : "GOOGLE",
+         "types" : [
+            "travel_agency",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 171,
+         "vicinity" : "7, cha vdc, Mandev Marg, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6728161,
+               "lng" : 85.4289928
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6741626802915,
+                  "lng" : 85.4302507302915
+               },
+               "southwest" : {
+                  "lat" : 27.6714647197085,
+                  "lng" : 85.4275527697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "4aa9090f20387f7282bd445f8acdfb3e8e889cce",
+         "name" : "Hotel Sweet home",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2268,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115496571309884436557/photos\"\u003eНиколай Максимович\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAOmQii0HWsJchP0_j1vGo43IOH5Hrn_u0txgfGYLaCXQcU2WVrErHE2b8x_Jz5hmyMvjot8fSUMb-cMB9-mi7pNafD4vAB3qT3WqekKY5okifsWgu9dCDQC9vyhJ_7M5xEhDCO8zZQG019xuxP73P5zb4GhQ1n9438N9ApKv5z_wfSc5hy5Joug",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJt1bWTK4a6zkRusyX-I846yY",
+         "plus_code" : {
+            "compound_code" : "MCFH+4H Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFH+4H"
+         },
+         "rating" : 4,
+         "reference" : "ChIJt1bWTK4a6zkRusyX-I846yY",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 21,
+         "vicinity" : "Bhaktapur-10, Bhaktapur Darbar Square, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6678004,
+               "lng" : 85.4250234
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6691493802915,
+                  "lng" : 85.4263723802915
+               },
+               "southwest" : {
+                  "lat" : 27.6664514197085,
+                  "lng" : 85.42367441970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "7fdadd4908a7cf6fa88621eb175182f640c3a10b",
+         "name" : "Hotel Heritage",
+         "photos" : [
+            {
+               "height" : 366,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/116681690750277038355/photos\"\u003eHotel Heritage\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAq8N1AhMegXmpfC5K96TpxjRs9YRyYnnYjcyJilzX6Br9lStFvCL82NmJ4eU16bB7KBbiYmm6TKCqBWmTTujLlUMEXorHKkwkAVUAnSTK3LbDej2E3bmSUA-QRJ9T_sNTEhC2ac5E720K_etH_bXsdUoAGhQlkNrZPAvzbPHis8NRblGBDXlsNQ",
+               "width" : 550
+            }
+         ],
+         "place_id" : "ChIJIynDeKYa6zkRrd4L_jg5E9o",
+         "plus_code" : {
+            "compound_code" : "MC9G+42 Bhaktapur, Nepal",
+            "global_code" : "7MV7MC9G+42"
+         },
+         "rating" : 4.2,
+         "reference" : "ChIJIynDeKYa6zkRrd4L_jg5E9o",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 187,
+         "vicinity" : "Nagarkot Road 10, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6836885,
+               "lng" : 85.4300836
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6850686802915,
+                  "lng" : 85.4314376302915
+               },
+               "southwest" : {
+                  "lat" : 27.6823707197085,
+                  "lng" : 85.42873966970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "88bfd72e6974a1305fc7dae9e316a78a586735f5",
+         "name" : "Destination Agro Farm",
+         "place_id" : "ChIJU9AwTLYa6zkR23ZZ16PENwE",
+         "rating" : 5,
+         "reference" : "ChIJU9AwTLYa6zkR23ZZ16PENwE",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "Mandev Marg, Changunarayan"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6655772,
+               "lng" : 85.4263218
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6669566802915,
+                  "lng" : 85.42767553029151
+               },
+               "southwest" : {
+                  "lat" : 27.6642587197085,
+                  "lng" : 85.4249775697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "34786b1be2c06f366c95a69c8d10bc72d759312e",
+         "name" : "Kalinchowk Heaven Resort",
+         "place_id" : "ChIJm9ElMaYa6zkRvhpJVW3rj18",
+         "plus_code" : {
+            "compound_code" : "MC8G+6G Bhaktapur, Nepal",
+            "global_code" : "7MV7MC8G+6G"
+         },
+         "rating" : 4,
+         "reference" : "ChIJm9ElMaYa6zkRvhpJVW3rj18",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Araniko Highway 77"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.672088,
+               "lng" : 85.4273297
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6734376302915,
+                  "lng" : 85.4286527302915
+               },
+               "southwest" : {
+                  "lat" : 27.6707396697085,
+                  "lng" : 85.4259547697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "90d3cf388e882dd887155268f0e89b08a25fae2f",
+         "name" : "Khwapa Chhen Guest House and Restaurant",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 721,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114053462713718650012/photos\"\u003eKhwapa Chhen Guest House and Restaurant\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAq_Up7GbftFofQuNxeUokyea6VL6tLgcAs7eBr1hTC7EDeWnOiH1TXVj_wOHOkaEeex-ITnwr0yk1_gNOK4-DMO3gwgUPL8oSF9wkS4iwHxofipaFvYwbs-QrjTBjopXmEhBrRfKjK21NE9wVRsyG3qmqGhRJ3M5gGXZvOH22NAWvUXazZ6we3g",
+               "width" : 1280
+            }
+         ],
+         "place_id" : "ChIJkTceiq8a6zkRSq1ETM8us2Y",
+         "plus_code" : {
+            "compound_code" : "MCCG+RW Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCG+RW"
+         },
+         "rating" : 4,
+         "reference" : "ChIJkTceiq8a6zkRSq1ETM8us2Y",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 39,
+         "vicinity" : "3, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6701215,
+               "lng" : 85.428484
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6714929302915,
+                  "lng" : 85.42978018029152
+               },
+               "southwest" : {
+                  "lat" : 27.6687949697085,
+                  "lng" : 85.4270822197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "18aaae96a44c25ccc8e9f0950b7338cad1e80157",
+         "name" : "Subha Guest House",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1365,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/101158806257000106447/photos\"\u003eSubha Guest House\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAtO3dfGACa7R-CTJt15TVPr-6ti-HPy6lH7m7DhVSkvMIXyvl6wCXVHZxaukMga0LYtD9BP_7Oen4BZYzkSNASOw2175DDlDcwBymjOzGiG4v5tb4UBb1dWLD983udpukEhBzjJXyfroYLgNg118_wSK0GhTVMNtTQMV1NL5WYN3_sMYcbXoAtA",
+               "width" : 2048
+            }
+         ],
+         "place_id" : "ChIJL26IZq8a6zkRewmr3eVBizs",
+         "plus_code" : {
+            "compound_code" : "MCCH+29 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+29"
+         },
+         "rating" : 4,
+         "reference" : "ChIJL26IZq8a6zkRewmr3eVBizs",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 89,
+         "vicinity" : "Bolachhen-4, Pottery Square, Bhaktapur 44800 Bhaktapur 44800, Bagmati, Nepal"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6722335,
+               "lng" : 85.430578
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6735778802915,
+                  "lng" : 85.43193183029152
+               },
+               "southwest" : {
+                  "lat" : 27.6708799197085,
+                  "lng" : 85.4292338697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "86201ec15231b840887aab69f8e6bb19c7ee7f09",
+         "name" : "Ganesh Guest House",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2610,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102819957668004988270/photos\"\u003eLinus Gmeiner\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAACr0vhng8HuUONGfFSXVreXUlx_gQHprI1WR94KZ3cpCqzOaHhzpWkl0MPkcgkqVNp8wt3FO1KaUtCUooQPGSCoxV4oIUcDSTtjRSiIqSzK0l30BdIuqzTF3CN7cDtmcAEhCRvGqQ_62a3k_dkibVTzPxGhSMeZkxzM3983OUe3iY4laWF3c5cQ",
+               "width" : 4640
+            }
+         ],
+         "place_id" : "ChIJG2xdVFYF6zkRj-EJmoqReEE",
+         "plus_code" : {
+            "compound_code" : "MCCJ+V6 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCJ+V6"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJG2xdVFYF6zkRj-EJmoqReEE",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 25,
+         "vicinity" : "Unnamed Road, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6700457,
+               "lng" : 85.4283631
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6713985802915,
+                  "lng" : 85.42970333029149
+               },
+               "southwest" : {
+                  "lat" : 27.6687006197085,
+                  "lng" : 85.42700536970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "b004f3527b1210bb01c3c39b763fdebbf154385d",
+         "name" : "Nytapola Guest House",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 428,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102970505870124274607/photos\"\u003eNyatapola Guest House\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAMurTbbaQ20S4_1Qk6jw2aD44ceusmecFt6EfU4YXdqoevu92NcHPy3AQf8_3buoiIHHDKAm7RNTlQnHdKHNke8yLkoQS_Ezul_YGs6tjkLmr-ZeMpzU61Jr3-hGVRYbREhC1UMqI4FjVZhsBQZwjde3XGhQmah505k8DQflcgZ04QqH0zZsf5g",
+               "width" : 640
+            }
+         ],
+         "place_id" : "ChIJSyyTbK8a6zkR3gO0ALyIMTU",
+         "plus_code" : {
+            "compound_code" : "MCCH+28 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+28"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJSyyTbK8a6zkR3gO0ALyIMTU",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 49,
+         "vicinity" : "Taumadi, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6700676,
+               "lng" : 85.42825789999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6714069802915,
+                  "lng" : 85.4296286302915
+               },
+               "southwest" : {
+                  "lat" : 27.6687090197085,
+                  "lng" : 85.42693066970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "e2e57ae81879bbe45e6c00aca5a10ac52ceb9c94",
+         "name" : "Nepa Guest House",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 2560,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111987181626891467808/photos\"\u003eBinod Prajapati\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA5V-DezMM4JRd9unnUk-J9X-H4QddfcppY5C7-rh9pE7jvxM9y6gnFhvCKt1K4hTFg2K-H3stOZoyMd-we_KXFuibTagSTukfL_mPkQyKPmq85_9SqrnAFghmlWClSyWEEhCq-d6IAiH5q4F5wyQCU4VmGhS5xdAPqUA6_8jzyqOZVCBpmaj-tw",
+               "width" : 1536
+            }
+         ],
+         "place_id" : "ChIJC5N5bq8a6zkREg3mLqsitlc",
+         "plus_code" : {
+            "compound_code" : "MCCH+28 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+28"
+         },
+         "rating" : 5,
+         "reference" : "ChIJC5N5bq8a6zkREg3mLqsitlc",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 4,
+         "vicinity" : "Bolachhen Sadak, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67041790000001,
+               "lng" : 85.4287076
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6717365802915,
+                  "lng" : 85.4299510802915
+               },
+               "southwest" : {
+                  "lat" : 27.6690386197085,
+                  "lng" : 85.4272531197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "38e64594f80bae791931e2e52e238ca230f46662",
+         "name" : "Himalaya Guest House & Chillout Roof Top",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 320,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/117455619716327117298/photos\"\u003eHimalaya Guest House\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRZAAAABqIz5z7LbnKGXRFAvie4sPSx3434wRyyAt2SBIFxvZYQ3BvwBjhVP4XvNrXp9WCzU-nnzfpHjr18AgbPpGZj9aYKZJ4j5QU7JkrqgVFCw7qIFv_dJi6XwHofFne2_vjQEhCtTYg1UC3yARBBsG7W9tngGhRSEorr02XjvmK3f8ygSCYNKB6eYw",
+               "width" : 960
+            }
+         ],
+         "place_id" : "ChIJs7mwDa8a6zkRkXXubEjO5Z4",
+         "plus_code" : {
+            "compound_code" : "MCCH+5F Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+5F"
+         },
+         "rating" : 3.7,
+         "reference" : "ChIJs7mwDa8a6zkRkXXubEjO5Z4",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 28,
+         "vicinity" : "Gahiti, Rammandir Road, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.670596,
+               "lng" : 85.42938699999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6719581802915,
+                  "lng" : 85.43074048029149
+               },
+               "southwest" : {
+                  "lat" : 27.6692602197085,
+                  "lng" : 85.42804251970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "8eb484db455bdf8e84cca71178d042f2b4ce95c9",
+         "name" : "Siddhi Laxmi Guest House and Cafe",
+         "photos" : [
+            {
+               "height" : 960,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/118340531573352965540/photos\"\u003eSundar Rizal\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAqQ9UAAAD9tCcegQYHaO01ClXTMzneS31Bq-CGcVu_nt1WyJa_YprNCL4mqLXkdSGPZ-nnesdOJu1FCzesWOJ-LhL-VP9yMKhMdjRE5XpuvISMO0CIhTjx3TFPRnsQ-zyEhAyVDIyqVyj9x1jPnzvHm-pGhRhQDlI64tODXW2O_4e-ap7cnm4jQ",
+               "width" : 528
+            }
+         ],
+         "place_id" : "ChIJ3yo7BK8a6zkRuVq6e2KAHx8",
+         "plus_code" : {
+            "compound_code" : "MCCH+6Q Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+6Q"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJ3yo7BK8a6zkRuVq6e2KAHx8",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 10,
+         "vicinity" : "Nepal"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67244239999999,
+               "lng" : 85.4293093
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6738172802915,
+                  "lng" : 85.4306062802915
+               },
+               "southwest" : {
+                  "lat" : 27.6711193197085,
+                  "lng" : 85.42790831970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "2aa44d4cefab2b717914efdd81a2731369e51e72",
+         "name" : "Mountain Guest House",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 2592,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/116922136094541752975/photos\"\u003eMountain Guest House\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA4f9uFdcBQVjM2nTZVW_OwVZejTW03D3f-ee6dh6SYoyolkFd89uU9QNZsSitV5CUEsJu1uQv_P7xEg4xGlghBDRhYEFjasKYQpcNBM0V1hIo3W_BoYyOrJaPZF61NxttEhCIzvvfqYm9SDWEwNrqTuUjGhRmfaddujc8tDx9fE-VLu4QszHX7w",
+               "width" : 3888
+            }
+         ],
+         "place_id" : "ChIJ-Sn4yK8a6zkRS8uIr0TU3vo",
+         "plus_code" : {
+            "compound_code" : "MCCH+XP Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+XP"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJ-Sn4yK8a6zkRS8uIr0TU3vo",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 37,
+         "vicinity" : "Durbar square, Balakhu"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6706349,
+               "lng" : 85.4217857
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.67198108029151,
+                  "lng" : 85.4230862802915
+               },
+               "southwest" : {
+                  "lat" : 27.6692831197085,
+                  "lng" : 85.42038831970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "95ec1d7580c796182688276b97ed829d4b677a70",
+         "name" : "Krishna House",
+         "photos" : [
+            {
+               "height" : 2000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/107942748950089728987/photos\"\u003eKris por el mundo\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAz23w6DbvOHHLalTvP-ZLyq1mhP9YStfIDrMJDqxtKxfImjnZO81ifCQlaS35oDMfPfb9WPuAKkZ_MtdN4YA2puMlTi1gqyyr4pSgSGcolGkLxYkArF3sLUR7cG5JIxKyEhCM6l9AO76e674Tm9KuUWiYGhSsJte1XDhtzllFS30F0ttbz_2urQ",
+               "width" : 3008
+            }
+         ],
+         "place_id" : "ChIJie-OgaMa6zkR3TQzR6iEU40",
+         "plus_code" : {
+            "compound_code" : "MCCC+7P Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCC+7P"
+         },
+         "rating" : 4.7,
+         "reference" : "ChIJie-OgaMa6zkR3TQzR6iEU40",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 18,
+         "vicinity" : "Dudhpati, Ward No. 17, Bhaktapur, Nepal, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6734657,
+               "lng" : 85.4357014
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6748129802915,
+                  "lng" : 85.43704053029151
+               },
+               "southwest" : {
+                  "lat" : 27.6721150197085,
+                  "lng" : 85.43434256970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "39901e88c6b2a5c2aea033d6fef3b5cce1d970db",
+         "name" : "Unique Guest House",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 1024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115572689379177647763/photos\"\u003eKrishna Bhakta Prajapati\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRZAAAA2tVAda1c_hT1tWSJeNuLajgc6sCdGJ8DFlQwVRT-44lQ0J8YbBX-W4OzvNX9e8rnAWOimrZmaA04vxBktOgSFS4Y4WL6fchLfX0pUUngtBkdFgPXSOCR5Ky76wlNWUosEhC9uFkS-MZNTU5M_L41NjaUGhSo47cUkfmaEIf8mTtsKdfbviuXKA",
+               "width" : 768
+            }
+         ],
+         "place_id" : "ChIJUVkk8K8a6zkRuYA7MTMo6x0",
+         "plus_code" : {
+            "compound_code" : "MCFP+97 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFP+97"
+         },
+         "rating" : 4,
+         "reference" : "ChIJUVkk8K8a6zkRuYA7MTMo6x0",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 4,
+         "vicinity" : "Way to peacock window -1, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6743025,
+               "lng" : 85.4339013
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6756916302915,
+                  "lng" : 85.43512618029152
+               },
+               "southwest" : {
+                  "lat" : 27.6729936697085,
+                  "lng" : 85.4324282197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "02a6e905e948ff611c9f93e6ecd4687e381c1f71",
+         "name" : "Milla Guesthouse",
+         "photos" : [
+            {
+               "height" : 3464,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102254314571314329495/photos\"\u003eRichard Lundholm\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAuHYBKVCXoBDdx4N89dMEK7okM2pgroCONNUb-_YlAYv1NVu831jOmU-LT-6A1tjL6GKDnlBI-cA6GoLx1vfVQo5LdpZwVHbrvassLSQOimJ_-xrtgnsMHP26LEtZrVHLEhCjI6g27b04uOE2fExKehDmGhTBLVSf2lhjaOu5U5mGRCFKzJEo4A",
+               "width" : 4618
+            }
+         ],
+         "place_id" : "ChIJbwZPdLIa6zkR0M8BAhfOAL4",
+         "plus_code" : {
+            "compound_code" : "MCFM+PH Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFM+PH"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJbwZPdLIa6zkR0M8BAhfOAL4",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 18,
+         "vicinity" : "Devli 4 Bhaktapur, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6713618,
+               "lng" : 85.4297126
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6726635302915,
+                  "lng" : 85.4310816302915
+               },
+               "southwest" : {
+                  "lat" : 27.6699655697085,
+                  "lng" : 85.4283836697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+         "id" : "9ed0632022878e48b32a1b7eae2b7d9319a19b20",
+         "name" : "Sunny Guest House & cafe",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3120,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/112448715149836829876/photos\"\u003eAayam Prajapati\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAuQ17tDw2IY3kutVx0cyTPc7QRFDXs05-q1fp_EM0khsSnKB4KprAgCd_MaH7Wmzyprq9DgqDzKDAnazuK_z4JlXXw6SOKbVsH7d2NepQ6wxH_N5-Syjdf-jv0J1VKB1qEhDRm7m91BZc5wQ0NtKIn9I0GhTnfGAbKblrYVCFlV_LA84j_im2yA",
+               "width" : 4160
+            }
+         ],
+         "place_id" : "ChIJA0afq68a6zkRM1VDBZO1GIc",
+         "plus_code" : {
+            "compound_code" : "MCCH+GV Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+GV"
+         },
+         "rating" : 4.9,
+         "reference" : "ChIJA0afq68a6zkRM1VDBZO1GIc",
+         "scope" : "GOOGLE",
+         "types" : [ "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 7,
+         "vicinity" : "Near Nyatapola Temple, Taumadi Marg, Taumadi"
+      }
+   ],
+   "status" : "OK"
+}

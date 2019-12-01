@@ -1,0 +1,247 @@
+{
+   "html_attributions" : [],
+   "results" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.672396,
+               "lng" : 85.4279789
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6736352802915,
+                  "lng" : 85.42927998029151
+               },
+               "southwest" : {
+                  "lat" : 27.6709373197085,
+                  "lng" : 85.4265820197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/civic_building-71.png",
+         "id" : "8c37973ec827ce292372179b9c37d0aeaccf0525",
+         "name" : "Metropolitan Police Sector",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 540,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114214661703265481676/photos\"\u003eamu00003\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA7u_GfySo8KbWRQ8SuPW21pRWGrWPrH4nunyA0flboBQY-L5jAgBLYExawaTFquFMjLWbGgrhxH3lI1McSs0ZZrVAjBFJKWIy7JsAin1hNqOmxtYGrjQp-0wHgtx5ilSzEhCDq_NN56rSJilPfWBUEoHPGhSfMH_kDaRdzE7AwI48mMxtBoeEVg",
+               "width" : 720
+            }
+         ],
+         "place_id" : "ChIJ4RLJkq8a6zkR4CIww2ff9Hw",
+         "plus_code" : {
+            "compound_code" : "MCCH+X5 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+X5"
+         },
+         "reference" : "ChIJ4RLJkq8a6zkR4CIww2ff9Hw",
+         "scope" : "GOOGLE",
+         "types" : [ "police", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6735703,
+               "lng" : 85.42845199999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6749288802915,
+                  "lng" : 85.42984788029149
+               },
+               "southwest" : {
+                  "lat" : 27.67223091970849,
+                  "lng" : 85.42714991970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/civic_building-71.png",
+         "id" : "2b24eadf0414a0a646b25872395756497480c528",
+         "name" : "Metropolitan Police Circle, Bhaktapur",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "place_id" : "ChIJ_91k468a6zkRpogEqpy36f0",
+         "plus_code" : {
+            "compound_code" : "MCFH+C9 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFH+C9"
+         },
+         "rating" : 4,
+         "reference" : "ChIJ_91k468a6zkRpogEqpy36f0",
+         "scope" : "GOOGLE",
+         "types" : [ "police", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6736389,
+               "lng" : 85.42803959999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6750996302915,
+                  "lng" : 85.4294435802915
+               },
+               "southwest" : {
+                  "lat" : 27.6724016697085,
+                  "lng" : 85.4267456197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/civic_building-71.png",
+         "id" : "5ca21c8a6e0785c6729fef99ac5fa4a710d3bf80",
+         "name" : "District Police Office",
+         "place_id" : "ChIJ24kJ468a6zkRh3We8SZ9JJc",
+         "plus_code" : {
+            "compound_code" : "MCFH+F6 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFH+F6"
+         },
+         "reference" : "ChIJ24kJ468a6zkRh3We8SZ9JJc",
+         "scope" : "GOOGLE",
+         "types" : [
+            "police",
+            "local_government_office",
+            "point_of_interest",
+            "establishment"
+         ],
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6809489,
+               "lng" : 85.4298548
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6823127302915,
+                  "lng" : 85.43104323029151
+               },
+               "southwest" : {
+                  "lat" : 27.6796147697085,
+                  "lng" : 85.42834526970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/civic_building-71.png",
+         "id" : "7b58d0d69b3681db3f169cc4881afb98c6d98c59",
+         "name" : "Byasi Police",
+         "place_id" : "ChIJMUjAjukb6zkRxkbMvdJimrk",
+         "plus_code" : {
+            "compound_code" : "MCJH+9W Changunarayan, Nepal",
+            "global_code" : "7MV7MCJH+9W"
+         },
+         "reference" : "ChIJMUjAjukb6zkRxkbMvdJimrk",
+         "scope" : "GOOGLE",
+         "types" : [ "police", "point_of_interest", "establishment" ],
+         "vicinity" : "Mandev Marg, Changunarayan"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6655041,
+               "lng" : 85.43841809999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6669028802915,
+                  "lng" : 85.4397998802915
+               },
+               "southwest" : {
+                  "lat" : 27.6642049197085,
+                  "lng" : 85.4371019197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/civic_building-71.png",
+         "id" : "f3dc9215e1079a1ef11866b62bb24457d9e38168",
+         "name" : "Jagati Police Station",
+         "photos" : [
+            {
+               "height" : 3000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/108721028148512373495/photos\"\u003eDev Sharma\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAcCDDwzGEzCr4MWmtWdFkCgcA-GH8aedGLhspibVkZmRJWeVZlYmBljKEZRFMi0uJT20o5uTHL7doVWSm4X-Qw1j-PKLhOpLhA0pKqatwxhIISXKz-Uoq-OuSsg9rF9pYEhCFEsaDRYy7hdTzkIdGAnXoGhR7eoimGwhkD7YSpEN0piKuXDHejA",
+               "width" : 4000
+            }
+         ],
+         "place_id" : "ChIJr9gt0FQF6zkRbLSyK7u_hrk",
+         "plus_code" : {
+            "compound_code" : "MC8Q+69 Suryabinayak, Nepal",
+            "global_code" : "7MV7MC8Q+69"
+         },
+         "rating" : 3.8,
+         "reference" : "ChIJr9gt0FQF6zkRbLSyK7u_hrk",
+         "scope" : "GOOGLE",
+         "types" : [ "police", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 15,
+         "vicinity" : "Araniko Highway, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6642198,
+               "lng" : 85.44167109999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6655432302915,
+                  "lng" : 85.4429968802915
+               },
+               "southwest" : {
+                  "lat" : 27.6628452697085,
+                  "lng" : 85.4402989197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/civic_building-71.png",
+         "id" : "740c419ce1c7ef51d9bf92f90c5f0737283d09a1",
+         "name" : "प्रहरी चेकिङग पोेष्ट",
+         "place_id" : "ChIJoR4JM1cF6zkRZzotYaRrw7I",
+         "plus_code" : {
+            "compound_code" : "MC7R+MM Bhaktapur, Nepal",
+            "global_code" : "7MV7MC7R+MM"
+         },
+         "reference" : "ChIJoR4JM1cF6zkRZzotYaRrw7I",
+         "scope" : "GOOGLE",
+         "types" : [ "police", "point_of_interest", "establishment" ],
+         "vicinity" : "Araniko Highway, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6734306,
+               "lng" : 85.4279657
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6748454302915,
+                  "lng" : 85.42944498029151
+               },
+               "southwest" : {
+                  "lat" : 27.6721474697085,
+                  "lng" : 85.4267470197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/civic_building-71.png",
+         "id" : "635b88a26e41f2661042700f02bbf24b781372e9",
+         "name" : "District Police Station",
+         "place_id" : "ChIJd-Fw5K8a6zkRcNz0PP4Io_g",
+         "reference" : "ChIJd-Fw5K8a6zkRcNz0PP4Io_g",
+         "scope" : "GOOGLE",
+         "types" : [ "police", "premise", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur"
+      }
+   ],
+   "status" : "OK"
+}

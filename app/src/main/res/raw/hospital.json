@@ -1,0 +1,755 @@
+{
+   "html_attributions" : [],
+   "next_page_token" : "CqQCHwEAALKHQKg9dJJahwaZ-5HCrOWPwkIbgppGM9qG32zMC2nfksBg7C9S1ued6L5c60iLgHugj8spzlDZkJwVvDf99DnWQ__UshCZHKmeKHnUdM4xUR-7AudrcXgpFZRqJ3wWqbBadYPsVWLod1hiB8p-Z2pdIspsPvWEH0h4D7b4xkmBcT85o1OP2Tp1nywYXt-A39KfZ2i-Yij3GYgZmFybCWOm1lfPUMNCJrowgvAbWeA4H0OvpKj4nmhFdLyXU6fV7gNyw7rFiYzQtv8MqZpb6g5Pd73blr16qCY8jXgiXjkHMewsMprWLnAkLpx6dY6GDhjC36Otg6x-3mi0_Zbp8AWXboMfIeveq6qK4wM1Xf4RNsrEWGqPrpol5DqJwPCr6hIQm0zmyGT7LSWe4dqe-RMKyxoUUMhpECUJTA8DfsagLtklnhCnfkQ",
+   "results" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6681481,
+               "lng" : 85.4326554
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6694081302915,
+                  "lng" : 85.4339599802915
+               },
+               "southwest" : {
+                  "lat" : 27.6667101697085,
+                  "lng" : 85.4312620197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "d3b9461ea5453923854e31ebebc21d9e1e4dfdf9",
+         "name" : "Siddhi Memorial Women and Children Hospital",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/101574936870100730697/photos\"\u003ePravin Adhikari\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAsLMvle3_ZdUD1YpZugqVb1BzWbuTg9SLyURv7srEliOJO1XdNpZciOXZzeDsfr4EQ81854Loz_8R1TAca06x_4mahvvEKwYZpeg_3PnCVKXYWzdgLe83AeURM4nVASKwEhDTCGrcFnB5WA6i5568Nk_-GhSQsU04-uVLu7t9vbb6B6AHF6w46A",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJjQOxAawa6zkR3c8cByBgaK4",
+         "plus_code" : {
+            "compound_code" : "MC9M+73 Bhaktapur, Nepal",
+            "global_code" : "7MV7MC9M+73"
+         },
+         "rating" : 4.2,
+         "reference" : "ChIJjQOxAawa6zkR3c8cByBgaK4",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 21,
+         "vicinity" : "आदर्श मार्ग, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6729067,
+               "lng" : 85.42161539999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6743533802915,
+                  "lng" : 85.42325393029149
+               },
+               "southwest" : {
+                  "lat" : 27.67165541970849,
+                  "lng" : 85.42055596970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "39683938eb2f33bdea2eb92a7ea0c17be9a5cb81",
+         "name" : "Human Organ Transplant Centre धर्मभक्त हस्पिटल",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115230271982464278595/photos\"\u003eHare ram sah\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAOYjzWivxHVa5U0u6ephnQhklc2_4xtahAsaqjNmaNjCvs_QganNMIgdtTi7NVeNHUyH-hfaLfZoWrfjZhyfQAX3WrME4tRKGn4TecwXNJ-eLF7KCcSSUwvCw3N1YUk-YEhCIuVkmuyvMtSKLJSbqzmK_GhRl2coPYzHg2XaixXBetXLSaiqtzA",
+               "width" : 4000
+            }
+         ],
+         "place_id" : "ChIJMSrsWaMa6zkR8Q9vJt1c1e0",
+         "plus_code" : {
+            "compound_code" : "MCFC+5J Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFC+5J"
+         },
+         "rating" : 4,
+         "reference" : "ChIJMSrsWaMa6zkR8Q9vJt1c1e0",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 28,
+         "vicinity" : "Bhaktapur Hospital & Human Organ Transplant Centre, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6719206,
+               "lng" : 85.4219708
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6732138802915,
+                  "lng" : 85.42335508029151
+               },
+               "southwest" : {
+                  "lat" : 27.6705159197085,
+                  "lng" : 85.42065711970851
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "359417edb54b86d1478bbc242d30295b5be859d3",
+         "name" : "Bhaktapur Hospital",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102008168153632410555/photos\"\u003eBnod Raut\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRZAAAAn5fpKnKhaOXopbCGtJtRMY4FKdvIHYJmDeepP5lchYSJPBgAOgz46Pe5wFKeompKwHB_hIz2Dy1WgMPEkkFdZFPzQ5CMR4_PGhOKcb9D5sDbMMZhxHXRIKFlVf4RZOmuEhCuP-J4Zh-QlOq56Xb1C-_-GhS8I2XEMQM-WS_WmWoocDsd88etgw",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJAQAAAK8a6zkRQcGshLECmWA",
+         "plus_code" : {
+            "compound_code" : "MCCC+QQ Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCC+QQ"
+         },
+         "rating" : 3.8,
+         "reference" : "ChIJAQAAAK8a6zkRQcGshLECmWA",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 8,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6723494,
+               "lng" : 85.42167569999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6734239302915,
+                  "lng" : 85.4231987302915
+               },
+               "southwest" : {
+                  "lat" : 27.6707259697085,
+                  "lng" : 85.4205007697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "52e58741929d72c14b35d4dd9488d339b05f0fed",
+         "name" : "Bhaktapur Hospital भक्तपुर अस्पताल",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 1080,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/101811141838549876454/photos\"\u003eYewNop Xtha\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA4OBhh2unGzMLBFxlYruZPWr8VUOt3yVqATA5cMaQRSkZFQWwy7DP2GjbRFTQkhEvWKFXpgcZ-q1MwhVlVe5nqK23Sexuy3Z95hcshMdDCJ0ZE3HGV6036uJ2STIpd5RtEhCarPsc0WT07FCqpkU8au9GGhQyNFFvZQH0cplFwYT7Wfj3VBcURw",
+               "width" : 1920
+            }
+         ],
+         "place_id" : "ChIJzwOjXqMa6zkRdEpmL-gU1S0",
+         "plus_code" : {
+            "compound_code" : "MCCC+WM Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCC+WM"
+         },
+         "rating" : 4.5,
+         "reference" : "ChIJzwOjXqMa6zkRdEpmL-gU1S0",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 4,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.677696,
+               "lng" : 85.42411659999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6788401802915,
+                  "lng" : 85.42573938029149
+               },
+               "southwest" : {
+                  "lat" : 27.6761422197085,
+                  "lng" : 85.42304141970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "0c90e8a67c4d09f1c136edf7a2b80b7b1d8885e8",
+         "name" : "District Community Eye Centre, Bhaktapur",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJfQLCsLsa6zkR5k2_nxjxro0",
+         "plus_code" : {
+            "compound_code" : "MCHF+3J Bhaktapur, Nepal",
+            "global_code" : "7MV7MCHF+3J"
+         },
+         "rating" : 3,
+         "reference" : "ChIJfQLCsLsa6zkR5k2_nxjxro0",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6731567,
+               "lng" : 85.4222913
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6744724302915,
+                  "lng" : 85.4236343802915
+               },
+               "southwest" : {
+                  "lat" : 27.6717744697085,
+                  "lng" : 85.4209364197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "0658793a1baa8c74aea35095d26a512fbfe86880",
+         "name" : "Bhaktapur Cancer Hospital",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3120,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/110558411112558603091/photos\"\u003ePushpendra khadka\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAO6iZyYnLhNeKGgfzbJ2-JnHz6rgmJjWvANs26MkTh_hkbIZv5PP3Gh-sqcqxigLogH0xCwlofUL-IY-kY4GdVmD0y2zqksDBlyuLCbuw1aGYdFhy56h_a3WWcwPTwTjUEhDdyRtHoRKWrz1RyQ1nhDuOGhQSRHVDKcLlIu-ZX0HVRH4LYdZ-Tg",
+               "width" : 4160
+            }
+         ],
+         "place_id" : "ChIJp1EoX6Ma6zkRqdmvSsdAo4A",
+         "plus_code" : {
+            "compound_code" : "MCFC+7W Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFC+7W"
+         },
+         "rating" : 4.2,
+         "reference" : "ChIJp1EoX6Ma6zkRqdmvSsdAo4A",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 67,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6710221,
+               "lng" : 85.4298197
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6724909302915,
+                  "lng" : 85.43112603029151
+               },
+               "southwest" : {
+                  "lat" : 27.6697929697085,
+                  "lng" : 85.42842806970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "5afdecd57b2ac80459b096d7da729b31735a7d8a",
+         "name" : "amar sanjivini",
+         "place_id" : "ChIJRdQOvg0b6zkRQBvZt3vlFKY",
+         "plus_code" : {
+            "compound_code" : "MCCH+CW Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+CW"
+         },
+         "reference" : "ChIJRdQOvg0b6zkRQBvZt3vlFKY",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6710221,
+               "lng" : 85.4298197
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6724909302915,
+                  "lng" : 85.43112603029151
+               },
+               "southwest" : {
+                  "lat" : 27.6697929697085,
+                  "lng" : 85.42842806970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "65fac7f85b18bfa8b8d69865e2ead3c9299a22ae",
+         "name" : "Janta Clinic Pathology",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJh6mjnxIb6zkRzMEDzlI0ASY",
+         "plus_code" : {
+            "compound_code" : "MCCH+CW Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+CW"
+         },
+         "reference" : "ChIJh6mjnxIb6zkRzMEDzlI0ASY",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur 2 near bkhatapur cancer hospital"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6710221,
+               "lng" : 85.4298197
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6724909302915,
+                  "lng" : 85.43112603029151
+               },
+               "southwest" : {
+                  "lat" : 27.6697929697085,
+                  "lng" : 85.42842806970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "d4cd0fe3194ae53b4bd22dbfc2deb947b4cfef3e",
+         "name" : "Rajendra suwal",
+         "place_id" : "ChIJO_j-mCMb6zkRWGQReFFjI6E",
+         "plus_code" : {
+            "compound_code" : "MCCH+CW Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+CW"
+         },
+         "reference" : "ChIJO_j-mCMb6zkRWGQReFFjI6E",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6705363,
+               "lng" : 85.4303762
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6719576802915,
+                  "lng" : 85.4317413802915
+               },
+               "southwest" : {
+                  "lat" : 27.6692597197085,
+                  "lng" : 85.42904341970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "0ba400fa9c5a1f0a61b6c6ba3ba3c11c6c145d3a",
+         "name" : "जनस्वास्थ्य सेवा केन्द्र",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJpxJF-q4a6zkRU3sfq5B4Jmo",
+         "plus_code" : {
+            "compound_code" : "MCCJ+65 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCJ+65"
+         },
+         "rating" : 4,
+         "reference" : "ChIJpxJF-q4a6zkRU3sfq5B4Jmo",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Araniko Hwy, भक्तपुर"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.670123,
+               "lng" : 85.428788
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6715467802915,
+                  "lng" : 85.42996098029151
+               },
+               "southwest" : {
+                  "lat" : 27.6688488197085,
+                  "lng" : 85.42726301970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "15c22b3feee697af78cf95743d6632487f41a194",
+         "name" : "Community Clinic Bhaktapur",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJJek5Eq8a6zkRsyixFuGohzk",
+         "plus_code" : {
+            "compound_code" : "MCCH+2G Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCH+2G"
+         },
+         "reference" : "ChIJJek5Eq8a6zkRsyixFuGohzk",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "vicinity" : "Lakolachhen Road, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67144,
+               "lng" : 85.43143099999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6727339802915,
+                  "lng" : 85.4327091802915
+               },
+               "southwest" : {
+                  "lat" : 27.6700360197085,
+                  "lng" : 85.43001121970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "4bd25bb9f340d4272aba48b60238ca537931219b",
+         "name" : "Bhaktapur Heart and Diabetic Centre",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3840,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/113341671509818441479/photos\"\u003eRupak Maharjan\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRZAAAAtjMKEbN6CLKsXs0ltXKLARvxZ5hJ4qxZRXhQyDSSUQhwyd2J23t1c9JmxqAS_dVr3ygOUi7iXUYbfooxRE1IJlBIHS3VvsV3RjBAfuwPzNMaGG1LOmt3mzGO6CkhvoOEEhAqZxzSet3VVD7iLuZwW5BqGhRHbmtJua07gy-jcF05ci5nLMyu2g",
+               "width" : 2160
+            }
+         ],
+         "place_id" : "ChIJRVRVYa4a6zkRiHo6ERcCwyA",
+         "plus_code" : {
+            "compound_code" : "MCCJ+HH Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCJ+HH"
+         },
+         "rating" : 4.5,
+         "reference" : "ChIJRVRVYa4a6zkRiHo6ERcCwyA",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "health", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6729014,
+               "lng" : 85.4257889
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6742708302915,
+                  "lng" : 85.42713563029152
+               },
+               "southwest" : {
+                  "lat" : 27.67157286970849,
+                  "lng" : 85.4244376697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "366f49e669e7ecca36ae75c03edc8df6983a2082",
+         "name" : "Laxmi Opticals",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJbQAAOaUa6zkRRYgyygD4MTQ",
+         "plus_code" : {
+            "compound_code" : "MCFG+58 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFG+58"
+         },
+         "rating" : 4,
+         "reference" : "ChIJbQAAOaUa6zkRRYgyygD4MTQ",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 3,
+         "vicinity" : "Nagarkot Road, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6715039,
+               "lng" : 85.42420059999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6728408802915,
+                  "lng" : 85.42554763029149
+               },
+               "southwest" : {
+                  "lat" : 27.6701429197085,
+                  "lng" : 85.42284966970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "39a42c1155e2652de375a840dcc1d29743838935",
+         "name" : "National Center for Rheumatic Diseases",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJuSMFgsob6zkRMiv9M_9Nlgk",
+         "plus_code" : {
+            "compound_code" : "MCCF+JM Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCF+JM"
+         },
+         "reference" : "ChIJuSMFgsob6zkRMiv9M_9Nlgk",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.669653,
+               "lng" : 85.434023
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6709847802915,
+                  "lng" : 85.43540793029149
+               },
+               "southwest" : {
+                  "lat" : 27.6682868197085,
+                  "lng" : 85.43270996970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "8aa910e76a102c7a4b9b85f1916729c1ae14de2f",
+         "name" : "Charity Donation Department",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJH9H5aawa6zkRH_JxgVvJvcA",
+         "plus_code" : {
+            "compound_code" : "MC9M+VJ Bhaktapur, Nepal",
+            "global_code" : "7MV7MC9M+VJ"
+         },
+         "reference" : "ChIJH9H5aawa6zkRH_JxgVvJvcA",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "vicinity" : "Araniko Highway, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.66803849999999,
+               "lng" : 85.4260745
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6696205802915,
+                  "lng" : 85.42723438029151
+               },
+               "southwest" : {
+                  "lat" : 27.6669226197085,
+                  "lng" : 85.42453641970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "dbc0b39c9b7032c1327d209767c51a3eeb83fb26",
+         "name" : "Tathali Health Post",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJO7sf3qUa6zkRo-tqcGYxWx0",
+         "plus_code" : {
+            "compound_code" : "MC9G+6C Bhaktapur, Nepal",
+            "global_code" : "7MV7MC9G+6C"
+         },
+         "reference" : "ChIJO7sf3qUa6zkRo-tqcGYxWx0",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "health", "point_of_interest", "establishment" ],
+         "vicinity" : "Rammandir Road, Suryabinayak"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.67034779999999,
+               "lng" : 85.42319859999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6716969802915,
+                  "lng" : 85.42454678029151
+               },
+               "southwest" : {
+                  "lat" : 27.66899901970849,
+                  "lng" : 85.42184881970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "30fef7a94f0928059eaf3d085422f198e34232f6",
+         "name" : "Rcrd Community Building",
+         "place_id" : "ChIJtyveZqQa6zkRNXCbi0vq4Ys",
+         "plus_code" : {
+            "compound_code" : "MCCF+47 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCF+47"
+         },
+         "reference" : "ChIJtyveZqQa6zkRNXCbi0vq4Ys",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6715071,
+               "lng" : 85.4228609
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6728398302915,
+                  "lng" : 85.42421223029149
+               },
+               "southwest" : {
+                  "lat" : 27.67014186970849,
+                  "lng" : 85.42151426970848
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "132c1d7a7061c3b7bdf135f27888398892563873",
+         "name" : "Om Pandava Medical Hall",
+         "place_id" : "ChIJmcHWj6Qa6zkR0XDczToflFo",
+         "plus_code" : {
+            "compound_code" : "MCCF+J4 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCF+J4"
+         },
+         "reference" : "ChIJmcHWj6Qa6zkR0XDczToflFo",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "vicinity" : "Nagarkot Road, Bhaktapur"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6732152,
+               "lng" : 85.4226802
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6745933302915,
+                  "lng" : 85.42397058029151
+               },
+               "southwest" : {
+                  "lat" : 27.67189536970849,
+                  "lng" : 85.42127261970849
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "a0ee8919f679a28f8f705b6cdc7a6b7ce30460e4",
+         "name" : "Dr.Lalpathlabs CC Bhaktapur",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1840,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/108781183195785146222/photos\"\u003eKnee Run\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAh2seOPvUle-VYOEMlm9Mz72EipGoUgzamaNNc9KLaacahShxAGrC1TLeuRs9YUSzNZ7ZvjNHM4ecnB_F6rfnzYAjVldw37FB69hdcsnWLH-yQj_gpXdxKLc-2m0jH4iVEhAWunsdWPit0v8572r-EW4yGhR9TXU1BIMaHKxbsZtA9vOC-GGQxQ",
+               "width" : 3264
+            }
+         ],
+         "place_id" : "ChIJ9V2zkoUb6zkRdBsk6DBdTTQ",
+         "plus_code" : {
+            "compound_code" : "MCFF+73 Bhaktapur, Nepal",
+            "global_code" : "7MV7MCFF+73"
+         },
+         "rating" : 5,
+         "reference" : "ChIJ9V2zkoUb6zkRdBsk6DBdTTQ",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "Bhaktapur 2 near Bkhatapur cancer hospital"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 27.6716792,
+               "lng" : 85.4223657
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 27.6730283802915,
+                  "lng" : 85.4237161302915
+               },
+               "southwest" : {
+                  "lat" : 27.67033041970849,
+                  "lng" : 85.42101816970847
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+         "id" : "18414007089f767e3e9f48542fb2530cba1830e9",
+         "name" : "Sewaa Dental Home",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 4560,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114164747957679427309/photos\"\u003ethe ramilan\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAwX-runUkXs3r8sQz8yfuimQmEAVy5ALwhGg0afo9KYMuIPUq6OmFFAqoVVRA0fdsUPnhSBGsv0-7xzeR23l3U3UMxpUQXYa6rn_QbSs9ZOJsOXeTSUt_FvDDLR4dyFC2EhBwv3eUccTV-0Q12laMPiHEGhQm1rAt_BcXoNaUG-9C3P4zBErH7w",
+               "width" : 2160
+            }
+         ],
+         "place_id" : "ChIJezKGnKQa6zkRFuhxcZWwAdw",
+         "plus_code" : {
+            "compound_code" : "MCCC+MW Bhaktapur, Nepal",
+            "global_code" : "7MV7MCCC+MW"
+         },
+         "reference" : "ChIJezKGnKQa6zkRFuhxcZWwAdw",
+         "scope" : "GOOGLE",
+         "types" : [ "hospital", "point_of_interest", "establishment" ],
+         "vicinity" : "Bhaktapur"
+      }
+   ],
+   "status" : "OK"
+}
