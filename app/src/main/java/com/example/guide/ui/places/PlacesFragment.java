@@ -40,7 +40,7 @@ public class PlacesFragment extends Fragment {
         View view =  inflater.inflate(R.layout.places_fragment, container, false);
         recyclerView = view.findViewById(R.id.places_recyclerView);
         titleText = view.findViewById(R.id.titleText);
-        titleText.setText("Food");
+        titleText.setText("Heritage");
         mLayoutManager = new LinearLayoutManager(getContext());
 
         return view;

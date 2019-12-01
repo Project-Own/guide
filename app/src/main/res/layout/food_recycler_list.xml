@@ -19,6 +19,10 @@
         app:cardCornerRadius="25dp"
         tools:cardCornerRadius="25dp">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <ImageView
             android:id="@+id/food_recycler_list_image"
             android:layout_width="match_parent"
@@ -29,6 +33,22 @@
             android:transitionName="image_this"
 
             app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/modalText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="24dp"
+                android:textColor="@color/textIcons"
+                android:shadowColor="@color/black"
+                android:textSize="30sp"
+                tools:text="Hello Man"
+                tools:textColor="@color/primaryText" />
+
+        </FrameLayout>
+
+
     </androidx.cardview.widget.CardView>
 
     <TextView

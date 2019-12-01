@@ -96,6 +96,7 @@ public class RecommendationViewModel extends AndroidViewModel {
 
         recomendationsPlaces.add(new Recommendation("The Peacock Window", "", "", "", "", "One of Nepal's most precious woodcarvings and national art treasures - there are several craft stores along the same street worth visiting", "peacockw"));
 
+
         recommendationList.setValue(recomendationsPlaces);
     }
 
@@ -110,6 +111,18 @@ public class RecommendationViewModel extends AndroidViewModel {
                 " Temple the city's oldest edifice dating back to 1472 AD, " +
                 "the guest house is where you can start your exploration trip from.", "shiva"));
 
+        recomendations.add(new Recommendation("Bhaktapur Paradise Hotel", "5/5", "01-5092720/01-5092723", "Suryabinayak", "NPR 6,604 per night", "Nestled on a hillside just outside the UNESCO World Heritage city know as a \"living museum of Nepal history,\" the Bhaktapur Paradise is a unique and luxurious refuge just outside urban Kathmandu." +
+                " Each of the hotel's extra-large bedrooms have picture windows that afford spectacular views of the Himalayan peaks and the idyllic countryside. Completed in 2015, the hotel's Newari style architecture and furnishings provide guests a wonderful combination of traditional design and comfortable luxury.", "peacock"));
+
+        recomendations.add(new Recommendation("Hotel Heritage", "4.5/5", "01-6611628/29/30,01-6618132/ 01-6612850 ", "Gapali", "NPR 12,904 per night", "Hotel Heritage in Bhaktapur is an authentic experience of Nepal’s ancient cultural heritage and its glory. Built upon cultural Newari tradition, reflecting the beauty of art and architecture of ancient" +
+                " Nepal and incorporating Nepal's rich tradition and culture, Hotel Heritage stands alone.", "peacock"));
+
+
+
+        recomendations.add(new Recommendation("Heart of Bhaktapur Guest House", "5/5", "016612034 ", "Gapali", "NPR 1,792 per night", "Planning to visit Nepal? Heart of Bhaktapur Guest House offers a clean and quiet stay in the centre of culturally rich Bhaktapur. Enjoy a simple but tasteful breakfast on our rooftop, with a " +
+                "magnificent view on the valley and the mountains. After an enervating but tiring trekking; to start or end an eventful journey; or just to have the chance to visit interesting sights in Kathmandu Valley? We provide the perfect place for you to stay! You will experience a family stay with us with big heart.", "peacock"));
+
+        recomendations.add(new Recommendation("Bhaktapur Paradise Hotel", "5/5", "01-6611628/29/30,01-6618132/ 01-6612850 ", "Gapali", "NPR 6,604 per night", "Hotel", "peacock"));
 
         hotelList.setValue(recomendations);
     }

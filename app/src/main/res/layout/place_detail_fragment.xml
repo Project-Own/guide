@@ -60,7 +60,6 @@
 
 
     <View
-
         android:id="@+id/bgView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -123,16 +122,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-condensed"
         android:nestedScrollingEnabled="false"
-
-         android:paddingLeft="14dp"
+        android:paddingLeft="14dp"
         android:paddingTop="14dp"
         android:paddingRight="14dp"
         android:transitionName="text_this"
         android:paddingBottom="60dp"
         android:text="thi sifsadfjbakjsdbfjabsdfbkasdfkljasdkfakjsdnfkasbdkdsssssssssssssssssssssssssssssssssssssssssssssssssssssssssc
         sdfbaksdbfkjabsdjfbasdbfajsbdfjabsdkfbakjsbdkfabskdfkajsbfkjasbdkjfbkjasdbfkjasbdkjfbaskjdbfkasdfkmaskdjfbajksdnfkjasbdfjkasf\nshdfjahsdjfhakjsdfhkjasdhfkjahdsf\nadsjhfjhdkfjhsdjfhasjdfhkas "
-        android:textSize="14sp"
+        android:textSize="17sp"
+        android:textStyle="italic"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

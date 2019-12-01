@@ -80,6 +80,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         TextView description;
         ImageView imageView;
         CardView cardView;
+        TextView name;
         Boolean click;
 
 
@@ -88,6 +89,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
             description = itemView.findViewById(R.id.food_recycler_list_text);
             imageView = itemView.findViewById(R.id.food_recycler_list_image);
             cardView = itemView.findViewById(R.id.food_recycler_list_cardview);
+            name = itemView.findViewById(R.id.modalText);
 
         }
 
@@ -104,6 +106,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 //                }
                 FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder()
                         .addSharedElement(cardView, "image_this")
+                        .addSharedElement(description,"text_this")
                         .build();
 
                 itemView.playSoundEffect(SoundEffectConstants.CLICK);
