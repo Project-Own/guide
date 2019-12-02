@@ -29,6 +29,7 @@ import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.guide.R;
 import com.github.florent37.shapeofview.shapes.ArcView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -54,7 +55,8 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
     CardView cardView;
     ArcView arc;
     Drawable drawable;
-    String imageName;
+    String name, description, imageName;
+    FloatingActionButton floatingActionButton;
 
 
     int shortAnimationDuration;
@@ -80,6 +82,8 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
         arc = v.findViewById(R.id.myShape);
         cardView = v.findViewById(R.id.tq);
         b1 = v.findViewById(R.id.botton);
+        floatingActionButton = v.findViewById(R.id.floatingButton);
+
         motionLayout.setTransitionListener(new MotionLayout.TransitionListener() {
             @Override
             public void onTransitionStarted(MotionLayout motionLayout, int i, int i1) {
@@ -146,9 +150,9 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
             public void onTransitionTrigger(MotionLayout motionLayout, int i, boolean b, float v) {          }
         });
 
-        String description = getArguments().getString("description");
+        description = getArguments().getString("description");
         imageName = getArguments().getString("image");
-        String name = getArguments().getString("name");
+        name = getArguments().getString("name");
 
         Pattern p = Pattern.compile("1(.*?)*");
         Matcher m = p.matcher(description);
@@ -157,8 +161,7 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
             textView.append(m.group(1)+"\n\n");
         }
 
-
-        //textView.setText(description);
+        textView.setText(description);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             textView.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
         }
@@ -241,6 +244,21 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
 //                alertDialog.show();
             }
         });
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("redirect", "marker");
+                bundle.putDouble("latitude", getArguments().getDouble("lat"));
+                bundle.putDouble("longitude", getArguments().getDouble("long"));
+                bundle.putString("title", name);
+                bundle.putString("description", description);
+
+                Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment).navigate(R.id.action_placeDetailFragment3_to_nav_map, bundle);
+
+            }
+        });
         // This callback will only be called when MyFragment is at least Started.
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
@@ -298,7 +316,6 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
                 // btnSpeak.setEnabled(true);
 
             }
-
 
         } else {
             Log.e("TTS", "Initilization Failed!");

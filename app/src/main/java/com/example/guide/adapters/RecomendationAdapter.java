@@ -95,6 +95,8 @@ public class RecomendationAdapter extends RecyclerView.Adapter<RecomendationAdap
                 bundle.putString("name", recomendation.get(position).getName());
                 bundle.putString("description", recomendation.get(position).getDescription());
                 bundle.putString("image", recomendation.get(position).getPhoto());
+                bundle.putDouble("lat", recomendation.get(position).getLat());
+                bundle.putDouble("long", recomendation.get(position).getLang());
                 navController.navigate(R.id.action_nav_home_to_placeDetailFragment3, bundle);
             }
         });

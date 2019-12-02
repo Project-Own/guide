@@ -88,13 +88,9 @@
 
     <fragment
         android:id="@+id/nav_map"
-        android:name="com.example.guide.ui.offlineMap.OfflineMapFragment"
+        android:name="com.example.guide.ui.map.MapFragment"
         android:label="Map Fragment"
-        tools:layout="@layout/offline_map_fragment" >
-        <action
-            android:id="@+id/action_nav_map_to_simpleOfflineMapActivity"
-            app:destination="@id/simpleOfflineMapActivity" />
-    </fragment>
+        tools:layout="@layout/map_fragment" />
 
 
     <fragment
@@ -161,12 +157,10 @@
         <action
             android:id="@+id/action_placeDetailFragment3_to_fullscreenImageFragment"
             app:destination="@id/fullscreenImageFragment" />
+        <action
+            android:id="@+id/action_placeDetailFragment3_to_nav_map"
+            app:destination="@id/nav_map" />
     </fragment>
-    <activity
-        android:id="@+id/simpleOfflineMapActivity"
-        android:name="com.example.guide.activities.redundant.SimpleOfflineMapActivity"
-        android:label="activity_simple_offline"
-        tools:layout="@layout/activity_simple_offline" />
 
     <fragment
         android:id="@+id/nav_settings"

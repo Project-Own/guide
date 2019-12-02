@@ -18,46 +18,28 @@ import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Cache;
-import com.android.volley.NetworkResponse;
-import com.android.volley.ParseError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpHeaderParser;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.example.guide.CustomRenderer;
 import com.example.guide.Model.Geofence.MyLatLng;
-import com.example.guide.Model.MapsButton;
 import com.example.guide.Model.MarkerItem;
-import com.example.guide.Model.NearbySearch.NearbySearchData;
-import com.example.guide.Model.NearbySearch.Result;
 import com.example.guide.R;
 import com.example.guide.activities.MainActivity;
-import com.example.guide.adapters.MapsButtonAdapter;
+import com.example.guide.databinding.MapFragmentBinding;
 import com.example.guide.interfaces.IOnLoadLocationListener;
 import com.example.guide.interfaces.TagsListInterface;
 import com.firebase.geofire.GeoFire;
@@ -73,7 +55,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.Dash;
 import com.google.android.gms.maps.model.Dot;
@@ -86,14 +67,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.gson.Gson;
 import com.google.maps.android.clustering.ClusterManager;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
@@ -102,10 +80,6 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -155,12 +129,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
     int i = 0;
     private float GEOFENCE_RADIUS = 0.02f; // 0.5 = 500m
     private List<LatLng> heritageArea;
-    private RecyclerView recyclerView;
-    private List<MapsButton> mapsButtonList;
-    private Context context = getContext();
-    private AppCompatActivity activity;
-    private FloatingActionButton floatingActionButton;
-    private List<Marker> nearbyMarkerList = new ArrayList<>();
+    private MapFragmentBinding binding;
+    private Spinner convertPlacesSpinner;
+    private double latitude, longitude;
 
     public static Bitmap changeBitmapColor(Bitmap sourceBitmap, int color) {
         Bitmap resultBitmap = sourceBitmap.copy(sourceBitmap.getConfig(), true);
@@ -173,6 +144,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
     }
 
     List<Marker> bathroomMarker = new ArrayList<>();
+     List<Marker> counterMarker = new ArrayList<>();
+
+     Toolbar toolbar;
 
     public static MapFragment newInstance() {
         return new MapFragment();
@@ -181,9 +155,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.map_fragment, container, false);
-        floatingActionButton = view.findViewById(R.id.navigation_button);
+        binding = DataBindingUtil.bind(inflater.inflate(R.layout.map_fragment, container, false));
+        View view = binding.getRoot();
+        convertPlacesSpinner = view.findViewById(R.id.spinnerNearby);
 
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.setVisibility(View.GONE);
         Dexter.withActivity(getActivity())
                 .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(new PermissionListener() {
@@ -191,39 +168,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
                     public void onPermissionGranted(PermissionGrantedResponse response) {
                         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
 
-                        DrawerLayout drawer = view.findViewById(R.id.drawer_layout1);
-                        NavigationView navigationView = view.findViewById(R.id.nav_view);
 
-                        recyclerView = view.findViewById(R.id.maps_recycler);
-                        mapsButtonList = new ArrayList<>();
-
-                        mapsButtonList.add(new MapsButton("ATM"));
-                        mapsButtonList.add(new MapsButton("Restaurant"));
-                        mapsButtonList.add(new MapsButton("Police"));
-                        mapsButtonList.add(new MapsButton("Cafe"));
-                        mapsButtonList.add(new MapsButton("Lodging"));
-                        mapsButtonList.add(new MapsButton("Museum"));
-                        mapsButtonList.add(new MapsButton("Pharmacy"));
-                        mapsButtonList.add(new MapsButton("Hospital"));
-                        mapsButtonList.add(new MapsButton("Hindu Temple"));
-                        mapsButtonList.add(new MapsButton("Bank"));
-                        mapsButtonList.add(new MapsButton("Travel Agency"));
-                        mapsButtonList.add(new MapsButton("RestRoom"));
-
-                        tagsListInterface = new TagsListInterface() {
-                            @Override
-                            public void onTagClicked(String tagName, int position) {
-                                if (mMap != null) {
-                                    getNearbySearchData(position);
-
-                                }
-                            }
-                        };
-
-                        MapsButtonAdapter adapter = new MapsButtonAdapter(mapsButtonList, context, tagsListInterface);
-                        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-                        recyclerView.setLayoutManager(mLayoutManager);
-                        recyclerView.setAdapter(adapter);
 
 
 
@@ -261,14 +206,70 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment).navigate(R.id.action_nav_map_to_simpleOfflineMapActivity);
-            }
-        });
         mViewModel = ViewModelProviders.of(this).get(MapViewModel.class);
-        // TODO: Use the ViewModel
+        binding.setViewModel(mViewModel);
+        binding.setLifecycleOwner(this);
+
+
+
+            mClusterManager = new ClusterManager<MarkerItem>(getContext(), mMap);
+
+
+            mViewModel.loadSpinnerData().observe(this, new Observer<String[]>() {
+                @Override
+                public void onChanged(String[] strings) {
+                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, strings);
+                    arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                    convertPlacesSpinner.setAdapter(arrayAdapter);
+                }
+            });
+
+            convertPlacesSpinner.setVisibility(View.VISIBLE);
+
+            mViewModel.loadResult().observe(this, new Observer<List<MarkerOptions>>() {
+                @Override
+                public void onChanged(List<MarkerOptions> markerOptionsList) {
+
+                    if (mMap != null) {
+
+
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(27.671635, 85.429339), 15));
+                        CustomRenderer clusterRenderer = new CustomRenderer(getContext(), mMap, mClusterManager);
+
+                        // Point the map's listeners at the listeners implemented by the cluster
+                        // manager.
+                        mMap.setOnCameraIdleListener(mClusterManager);
+                        mMap.setOnMarkerClickListener(mClusterManager);
+                        mClusterManager.setRenderer(clusterRenderer);
+
+                        mClusterManager.clearItems();
+                        mClusterManager.getClusterMarkerCollection().clear();
+                        mClusterManager.cluster();
+                        // Initialize the manager with the context and the map.
+                        // (Activity extends context, so we can pass 'this' in the constructor.)
+
+
+                        if (markerOptionsList == null) {
+                            return;
+                        }
+// Create a cluster item for the marker and set the title and snippet using the constructor.
+                        for (MarkerOptions markerOptions : markerOptionsList) {
+                            MarkerItem infoWindowItem = new MarkerItem(markerOptions);
+                            mClusterManager.addItem(infoWindowItem);
+                            mClusterManager.cluster();
+                        }
+
+                    }
+
+                }
+
+            });
+
+
+
+
+
     }
 
     private void addUserMarker() {
@@ -405,13 +406,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
         mClusterManager = new ClusterManager<>(getContext(), mMap);
         customRenderer = new CustomRenderer(getContext(), mMap, mClusterManager);
 
+        String redirect = getArguments().getString("redirect");
+
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.setMyLocationEnabled(true);
 
 
         int fillColorArgb = getResources().getColor(R.color.fillColorRgb);
 
-        int strokeColorArgb = Color.HSVToColor(90, new float[]{0, 0, 0});
+        int strokeColorArgb = Color.HSVToColor(20, new float[]{0, 0, 0});
 
         polygonOptions = new PolygonOptions()
                 .addAll(
@@ -464,12 +467,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
                 .clickable(true)
                 .strokeJointType(JointType.ROUND) //Bevel,round,default
                 .strokeWidth(POLYGON_STROKE_WIDTH_PX)
-                .strokePattern(Arrays.asList(DASH, GAP)) // dot-(Dot,Gap){....} dash-(Dash,Gap){---} mixed-(dot,gap,dash,gap)
+                 // dot-(Dot,Gap){....} dash-(Dash,Gap){---} mixed-(dot,gap,dash,gap)
 
         ;
 
-        mMap.setBuildingsEnabled(true);
-        mMap.setTrafficEnabled(true);
         mMap.setLatLngBoundsForCameraTarget(BHAKTAPUR);
 
         mMutalbePolygon = mMap.addPolygon(polygonOptions);
@@ -482,22 +483,45 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
                 .position(new LatLng(27.671635, 85.429339), 8600f, 6500f);
         mMap.addGroundOverlay(bhaktapurMap);
 */
-
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(new LatLng(27.671635, 85.429339))      // Sets the center of the map to Mountain View
-                .zoom(10)                   // Sets the zoom
-                .bearing(-90)
+                .zoom(12)                   // Sets the zoom
                 .tilt(30)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
 
         mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
+
+
+        if(redirect!=null){
+            switch (redirect){
+                case "counter":
+                    mViewModel.loadResultList(getArguments().getInt("counter"));
+                    break;
+                case "marker":
+                    latitude = getArguments().getDouble("latitude");
+                    longitude = getArguments().getDouble("longitude");
+                    String title = getArguments().getString("title");
+                    MarkerOptions markerOptions = new MarkerOptions().position(new LatLng(latitude, longitude))
+                            .title(title)
+                            .snippet(getArguments().getString("description"));
+                    mMap.addMarker(markerOptions);
+                    mMap.animateCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude, longitude)));
+
+                    break;
+                default:
+
+            }
+        }
+
         cameraPosition = new CameraPosition.Builder()
                 .target(new LatLng(27.671635, 85.429339))      // Sets the center of the map to Mountain View
                 .zoom(13)                   // Sets the zoom
                 .tilt(30)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+
 
 
         if (fusedLocationProviderClient != null) {
@@ -634,6 +658,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
         }
     }
 
+    @Override
+    public void onDestroy() {
+        toolbar.setVisibility(View.VISIBLE);
+        super.onDestroy();
+    }
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -665,280 +695,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
         }
     }
 
-    public void getNearbySearchData(int position) {
-
-        boolean quitFunc = false;
-
-        mClusterManager.clearItems();
-        mClusterManager.getClusterMarkerCollection().clear();
-        mClusterManager.cluster();
-        // Initialize the manager with the context and the map.
-        // (Activity extends context, so we can pass 'this' in the constructor.)
-        mClusterManager = new ClusterManager<MarkerItem>(getContext(), mMap);
-        CustomRenderer clusterRenderer = new CustomRenderer(getContext(), mMap, mClusterManager);
-        // Point the map's listeners at the listeners implemented by the cluster
-        // manager.
-        mMap.setOnCameraIdleListener(mClusterManager);
-        mMap.setOnMarkerClickListener(mClusterManager);
-        mClusterManager.setRenderer(clusterRenderer);
-
-        switch (position) {
-            case 0:
-                TYPE = "atm";
-                break;
-            case 1:
-                TYPE = "restaurant";
-                break;
-            case 2:
-                TYPE = "police";
-                break;
-            case 3:
-                TYPE = "cafe";
-                break;
-            case 4:
-                TYPE = "lodging";
-                break;
-            case 5:
-                TYPE = "museum";
-                break;
-            case 6:
-                TYPE = "pharmacy";
-                break;
-            case 7:
-                TYPE = "hospital";
-                break;
-            case 8:
-                TYPE = "hindu_temple";
-                break;
-            case 9:
-                TYPE = "bank";
-                break;
-            case 10:
-                TYPE = "travel_agency";
-                break;
-            case 11:
-                placeBathroomMarker();
-                quitFunc = true;
-                break;
-            default:
-                TYPE = "hindu_temple";
-
-        }
-        if (quitFunc) {
-            return;
-        }
-        clearBathroomarker();
-
-        searchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + LOCATION + "&radius=" + RADIUS + "&type=" + TYPE + /*"&keyword=" + KEYWORD +*/ "&key=" + searchApiKey;
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, searchUrl, null, response -> {
-
-            /***************************************/
-            NearbySearchData nearbySearchData = new Gson().fromJson(response.toString(), NearbySearchData.class);
-
-            List<Result> results = nearbySearchData.getResults();
-            for (Result result : results) {
-
-                double lat = result.getGeometry().getLocation().getLat();
-                double lng = result.getGeometry().getLocation().getLng();
-
-                String url = result.getIcon();
-
-                MarkerOptions markerOptions = new MarkerOptions()
-                        .position(new LatLng(lat, lng))
-                        .title(result.getName())
-                        .snippet("Vicinity :" + result.getVicinity());
-                Glide.with(getContext()).asBitmap().load(url)
-                        .fitCenter().diskCacheStrategy(DiskCacheStrategy.ALL).into(new SimpleTarget<Bitmap>() {
-                    @Override
-                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                        if (resource != null) {
-                            //  Bitmap circularBitmap = getRoundedCornerBitmap(bitmap, 150);
-                            //   BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(changeBitmapColor(resource,i));
-                            markerOptions.icon(BitmapDescriptorFactory.fromBitmap(resource));
-                        }
-                    }
-
-                });
-
-// Create a cluster item for the marker and set the title and snippet using the constructor.
-                MarkerItem infoWindowItem = new MarkerItem(markerOptions);
-                mClusterManager.addItem(infoWindowItem);
-                mClusterManager.cluster();
-
-            }
-            /***************************************/
 
 
-            Log.i("MainActivity", "" + response);
-
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("Volley", error.toString());
-            }
-        }) {
-            @Override
-            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
-                try {
-                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
-                    if (cacheEntry == null) {
-                        cacheEntry = new Cache.Entry();
-                    }
-                    final long cacheHitButRefreshed = 3 * 60 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
-                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
-                    long now = System.currentTimeMillis();
-                    final long softExpire = now + cacheHitButRefreshed;
-                    final long ttl = now + cacheExpired;
-                    cacheEntry.data = response.data;
-                    cacheEntry.softTtl = softExpire;
-                    cacheEntry.ttl = ttl;
-                    String headerValue;
-                    headerValue = response.headers.get("Date");
-                    if (headerValue != null) {
-                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
-                    }
-                    headerValue = response.headers.get("Last-Modified");
-                    if (headerValue != null) {
-                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
-                    }
-                    cacheEntry.responseHeaders = response.headers;
-                    final String jsonString = new String(response.data,
-                            HttpHeaderParser.parseCharset(response.headers));
-
-
-                    return Response.success(new JSONObject(jsonString), cacheEntry);
-                } catch (UnsupportedEncodingException | JSONException e) {
-                    return Response.error(new ParseError(e));
-                }
-            }
-
-            @Override
-            protected void deliverResponse(JSONObject response) {
-                super.deliverResponse(response);
-            }
-
-            @Override
-            protected VolleyError parseNetworkError(VolleyError volleyError) {
-                return super.parseNetworkError(volleyError);
-            }
-
-            @Override
-            public void deliverError(VolleyError error) {
-                super.deliverError(error);
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(jsonObjectRequest);
-    }
-
-    private void clearBathroomarker() {
-
-
-        for (Marker markerOptions : bathroomMarker) {
-            if (mMap != null) {
-                markerOptions.remove();
-
-            }
-        }
-    }
-
-    private void placeBathroomMarker() {
-
-        List<MarkerOptions> toiletList = new ArrayList<>();
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.673527, 85.438918))
-                .title("Chyamashing Public Toilet")
-                .snippet("Vicinity :" + "Chyamasing"));
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.673812, 85.435212))
-                .title("Dattatry Public Toilet")
-                .snippet("Vicinity :" + "Dattatray"));
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.672618, 85.428886))
-                .title("Durbar Square Public Toilet")
-                .snippet("Vicinity :" + "Durbar Square"));
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.668656, 85.427561))
-                .title("Pottery Public Toilet")
-                .snippet("Vicinity :" + "Pottery Square"));
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.667747, 85.427190))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Pottery Square"));
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.667822, 85.424338))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Near Barahi Temple"));
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.671592,85.423147))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Siddha Pukhu"));
-
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.672382,85.427373))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Durbar Square"));
-
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.674380,85.427993))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Tourist Bus Park"));
-
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.675298,85.430040))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Byasi"));
-
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.675185,85.431792))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Thalachhen Tole"));
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.676077,85.431792))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Mahalaxmi"));
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.676542,85.435062))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Mahalaxmi ko Mathi"));
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.675890,85.436637))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Kwathandau"));
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.673438,85.438294))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Chyamhasingh"));
-
-        toiletList.add(new MarkerOptions()
-                .position(new LatLng(27.668201,85.431662))
-                .title("Tourist Ticket Counter")
-                .snippet("Vicinity :" + "Bhelukhel"));
-
-
-
-
-        for (MarkerOptions markerOptions : toiletList) {
-            if (mMap != null) {
-                bathroomMarker.add(mMap.addMarker(markerOptions));
-
-            }
-        }
-    }
 
 
 

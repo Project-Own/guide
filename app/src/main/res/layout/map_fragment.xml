@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.guide.ui.map.MapViewModel" />
+    </data>
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.map.MapFragment">
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/maps_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:background="@color/colorPrimary"
 
-        />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/navigation_button"
+    <Spinner
+        android:layout_gravity="top|center"
+        android:id="@+id/spinnerNearby"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_navigation"
-        android:layout_gravity="bottom"
         android:layout_margin="8dp"
-        />
-
+        android:background="@android:drawable/btn_dropdown"
+        android:onItemSelected="@{(parent,view,pos,id)->viewModel.spinnerTypeSelected(parent,view,pos,id)}"
+        android:spinnerMode="dropdown" />
 
 </FrameLayout>
+</layout>

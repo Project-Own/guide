@@ -34,7 +34,10 @@ public class InfoFragment extends Fragment {
         ticket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment).navigate(R.id.action_nav_map_to_simpleOfflineMapActivity);
+                Bundle bundle = new Bundle();
+                bundle.putString("redirect","counter");
+                bundle.putInt("counter", 12);
+                Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment).navigate(R.id.action_nav_home_to_nav_map, bundle);
             }
         });
         return binding.getRoot();

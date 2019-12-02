@@ -305,6 +305,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="infoFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1608" />
+                            <option name="y" value="3002" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="landingFragment">
                     <value>
                       <LayoutPositions>
@@ -485,18 +497,9 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="754" />
-                            <option name="y" value="2860" />
+                            <option name="x" value="1266" />
+                            <option name="y" value="3320" />
                           </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_nav_map_to_simpleOfflineMapActivity">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -598,19 +601,12 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_placeDetailFragment3_to_nav_map">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="simpleOfflineMapActivity">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="1439" />
-                            <option name="y" value="3173" />
-                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

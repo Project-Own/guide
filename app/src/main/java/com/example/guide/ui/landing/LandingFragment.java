@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,6 +36,7 @@ public class LandingFragment extends Fragment {
     private Button mBackButton;
 
     private int mCurrentPage;
+    private Toolbar toolbar;
 
     public static LandingFragment newInstance() {
         return new LandingFragment();
@@ -44,7 +46,8 @@ public class LandingFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.landing_fragment, container, false);
-
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.setVisibility(View.GONE);
         mslider = v.findViewById(R.id.slider);
         mdotLayout = v.findViewById(R.id.dots);
 
@@ -96,7 +99,7 @@ public class LandingFragment extends Fragment {
     }
 
     public void addDotsIndicator(int position){
-        mdots=new TextView[3];
+        mdots=new TextView[4];
         mdotLayout.removeAllViews();
 
         for (int i=0; i < mdots.length; i++) {
@@ -164,4 +167,9 @@ public class LandingFragment extends Fragment {
         }
     };
 
+    @Override
+    public void onDestroy() {
+        toolbar.setVisibility(View.VISIBLE);
+        super.onDestroy();
+    }
 }

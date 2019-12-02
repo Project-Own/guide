@@ -76,7 +76,6 @@ import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions;
 import com.mapbox.mapboxsdk.plugins.building.BuildingPlugin;
 import com.mapbox.mapboxsdk.plugins.markerview.MarkerView;
 import com.mapbox.mapboxsdk.plugins.markerview.MarkerViewManager;
-import com.mapbox.mapboxsdk.plugins.traffic.TrafficPlugin;
 import com.mapbox.mapboxsdk.style.expressions.Expression;
 import com.mapbox.mapboxsdk.style.layers.CircleLayer;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
@@ -105,6 +104,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import timber.log.Timber;
 
 import static android.os.Looper.getMainLooper;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -197,13 +197,6 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
 // This contains the MapView in XML and needs to be called after the access token is configured.
         View view = binding.getRoot();
 
-        List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
-        symbolLayerIconFeatureList.add(Feature.fromGeometry(
-                Point.fromLngLat(-57.225365, -33.213144)));
-        symbolLayerIconFeatureList.add(Feature.fromGeometry(
-                Point.fromLngLat(-54.14164, -33.981818)));
-        symbolLayerIconFeatureList.add(Feature.fromGeometry(
-                Point.fromLngLat(-56.990533, -30.583266)));
 
         mapView = view.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
@@ -227,47 +220,8 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
                         mapboxMap = map;
 
 
-                        // Set up a SymbolManager instance
-                        symbolManager = new SymbolManager(mapView, mapboxMap, style);
-
-
-                      //  markerViewManager = new MarkerViewManager(mapView, mapboxMap);
-
-                        //Enable locattion Plugin
-                        enableLocationComponent(style);
-
-                        addDestinationIconSymbolLayer(style);
-
-
-                        mapboxMap.addOnMapClickListener(OfflineMapFragment.this::onMapClick);
-                        button = view.findViewById(R.id.startButton);
-                        button.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                if (isNetworkAvailable()) {
-                                    boolean simulateRoute = true;
-                                    NavigationLauncherOptions options = NavigationLauncherOptions.builder()
-                                            .directionsRoute(currentRoute)
-                                            .shouldSimulateRoute(simulateRoute)
-                                            .build();
-// Call this method with Context from within an Activity
-                                    NavigationLauncher.startNavigation(getActivity(), options);
-
-                                } else {
-                                    buildAlertMessageNoInternetConnection();
-                                }
-                            }
-                        });
-
-//Set up traffic congestion
-                        TrafficPlugin trafficPlugin = new TrafficPlugin(mapView, map, style);
-                        trafficPlugin.setVisibility(true); // Enable the traffic view
-
-                        //Set up Building Plugin
-                        buildingPlugin = new BuildingPlugin(mapView, map, style);
-                        buildingPlugin.setMinZoomLevel(15f);
-                        buildingPlugin.setVisibility(true);
 // Set up the OfflineManager
+
                         offlineManager = OfflineManager.getInstance(getActivity());
 
 // Create a bounding box for the offline region
@@ -364,10 +318,6 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
                                                         endProgress("offline end progress success");
                                                         // Create new camera position
 
-
-//// Move camera to new position
-                                                        map.setMinZoomPreference(2);
-//                                                        map.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                                                     } else if (status.isRequiredResourceCountPrecise()) {
 // Switch to determinate state
                                                         setPercentage((int) Math.round(percentage));
@@ -394,81 +344,58 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
                                             Log.e("Error: %s", error);
                                         }
                                     });
+
+
+                            // Set up a SymbolManager instance
+                            symbolManager = new SymbolManager(mapView, mapboxMap, style);
+
+
+                            //  markerViewManager = new MarkerViewManager(mapView, mapboxMap);
+
+                            //Enable locattion Plugin
+                            enableLocationComponent(style);
+
+                            addDestinationIconSymbolLayer(style);
+                            mapboxMap.addOnMapClickListener(OfflineMapFragment.this::onMapClick);
+                            button = view.findViewById(R.id.startButton);
+                            button.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    if (isNetworkAvailable()) {
+                                        boolean simulateRoute = true;
+                                        NavigationLauncherOptions options = NavigationLauncherOptions.builder()
+                                                .directionsRoute(currentRoute)
+                                                .shouldSimulateRoute(simulateRoute)
+                                                .build();
+// Call this method with Context from within an Activity
+                                        NavigationLauncher.startNavigation(getActivity(), options);
+
+                                    } else {
+                                        buildAlertMessageNoInternetConnection();
+                                    }
+                                }
+                            });
+//
+//
+////Set up traffic congestion
+//                            TrafficPlugin trafficPlugin = new TrafficPlugin(mapView, map, style);
+//                            trafficPlugin.setVisibility(true); // Enable the traffic view
+//
+//                            //Set up Building Plugin
+//                            buildingPlugin = new BuildingPlugin(mapView, map, style);
+//                            buildingPlugin.setMinZoomLevel(15f);
+//                            buildingPlugin.setVisibility(true);
                         }
                     }
+
                 });
             }
+
         });
         return view;
 
     }
 
-//    private void loadSymbol() {
-//
-//        symbolManager.setIconAllowOverlap(true);
-//        symbolManager.setTextAllowOverlap(true);
-//
-//
-//        List<Result> results = new ArrayList<>();
-//        try {
-//            NearbySearchData nearbySearchData = new Gson().fromJson(readRawResource(getContext(), R.raw.bank), NearbySearchData.class);
-//            results = nearbySearchData.getResults();
-//
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        for(Result result : results) {
-//
-//// Add symbol at specified lat/lon
-//            symbol = symbolManager.create(new SymbolOptions()
-//                    .withLatLng(new LatLng(result.getGeometry().getLocation().getLat(), result.getGeometry().getLocation().getLng()))
-//                    .withIconImage(MAKI_ICON_HARBOR)
-//                    .withIconSize(2.0f)
-//                    .withDraggable(true));
-//
-//        }
-//// Add click listener and change the symbol to a cafe icon on click
-//        symbolManager.addClickListener(new OnSymbolClickListener() {
-//            @Override
-//            public void onAnnotationClick(Symbol symbol) {
-//                Toast.makeText(getActivity(),
-//                        "Symbol Clicked", Toast.LENGTH_SHORT).show();
-//                symbol.setIconImage(MAKI_ICON_CAFE);
-//                symbolManager.update(symbol);
-//            }
-//        });
-//
-//// Add long click listener and change the symbol to an airport icon on long click
-//        symbolManager.addLongClickListener((new OnSymbolLongClickListener() {
-//            @Override
-//            public void onAnnotationLongClick(Symbol symbol) {
-//                Toast.makeText(getActivity(),
-//                        "Symbol LongClick message", Toast.LENGTH_SHORT).show();
-//                symbol.setIconImage(MAKI_ICON_AIRPORT);
-//                symbolManager.update(symbol);
-//            }
-//        }));
-//
-//        symbolManager.addDragListener(new OnSymbolDragListener() {
-//            @Override
-//// Left empty on purpose
-//            public void onAnnotationDragStarted(Symbol annotation) {
-//            }
-//
-//            @Override
-//// Left empty on purpose
-//            public void onAnnotationDrag(Symbol symbol) {
-//            }
-//
-//            @Override
-//// Left empty on purpose
-//            public void onAnnotationDragFinished(Symbol annotation) {
-//            }
-//        });
-//
-//
-//    }
 
 
     @Override
@@ -664,6 +591,32 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
     @Override
     public void onPause() {
         super.onPause();
+        if (offlineManager != null) {
+            offlineManager.listOfflineRegions(new OfflineManager.ListOfflineRegionsCallback() {
+                @Override
+                public void onList(OfflineRegion[] offlineRegions) {
+                    if (offlineRegions.length > 0) {
+// delete the last item in the offlineRegions list which will be yosemite offline map
+                        offlineRegions[(offlineRegions.length - 1)].delete(new OfflineRegion.OfflineRegionDeleteCallback() {
+                            @Override
+                            public void onDelete() {
+
+                            }
+
+                            @Override
+                            public void onError(String error) {
+                                Timber.e("On delete error: %s", error);
+                            }
+                        });
+                    }
+                }
+
+                @Override
+                public void onError(String error) {
+                    Timber.e("onListError: %s", error);
+                }
+            });
+        }
         mapView.onPause();
     }
 
@@ -768,6 +721,7 @@ public class OfflineMapFragment extends Fragment implements MapboxMap.OnMapClick
 
                     getRoute(originPoint, destinationPoint);
                     button.setVisibility(View.VISIBLE);
+                    button.setEnabled(true);
                     button.setBackgroundResource(R.color.mapbox_blue);
                 }
             } else {

@@ -4,12 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.guide.R;
 
 public class SliderAdapter extends PagerAdapter {
@@ -18,21 +18,24 @@ public class SliderAdapter extends PagerAdapter {
     public SliderAdapter(Context context){
         this.context=context;
     }
-    public int[] slide_images={
-            R.drawable.eat_icon,
-            R.drawable.sleep_icon,
-            R.drawable.code_icon
+    public String[] slide_images={
+            "exchange",
+           "location",
+            "conversation",
+           "map_location"
     };
 
     public String[] slide_headings = {"Information",
             "Navigate",
             "Understand",
+            "HEllo"
     };
 
     public String[] slide_desc={
             "Be Informative:\nForeign Exchange Rate",
             "Navigate Through Maps and Markers",
-            "Understand Local Heritage and Culture"
+            "Understand Local Heritage and Culture",
+            "sdsdfdsfsdsf sd sd sd sd"
     };
 
     @Override
@@ -50,13 +53,13 @@ public class SliderAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         layoutInflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view =layoutInflater.inflate(R.layout.slider_layout,container,false);
-        ImageView slideImageView=view.findViewById(R.id.imageView2);
+        LottieAnimationView slideImageView=view.findViewById(R.id.imageView2);
         TextView slideTextView1=view.findViewById(R.id.textView);
         TextView slideTextView=view.findViewById(R.id.textView3);
-        slideImageView.setImageResource(slide_images[position]);
         slideTextView.setText(slide_headings[position]);
         slideTextView1.setText(slide_desc[position]);
-
+        slideImageView.setAnimation(context.getResources()
+                .getIdentifier(slide_images[position], "raw", context.getPackageName()));
         container.addView(view);
 
         return view;

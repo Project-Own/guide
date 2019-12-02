@@ -86,9 +86,8 @@ DrawerLayout drawer;
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.my_nav_host_fragment);
 
-            if(drawer.isDrawerOpen(GravityCompat.START)){
                 drawer.closeDrawer(GravityCompat.START);
-            }
+
             return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                     || super.onSupportNavigateUp();
 

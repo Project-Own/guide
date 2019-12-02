@@ -75,7 +75,7 @@ public class RecommendationViewModel extends AndroidViewModel {
     private void loadRecommendedPlacesList() {
         List<Recommendation> recomendationsPlaces = new ArrayList<>();
         recomendationsPlaces.add(new Recommendation("Bhaktapur Durbar Square", "", "", "", "", "one of the largest ancient squares in Nepal filled to the " +
-                "\n brim with temples, cultural carvings and buildings ", "durbarsquare",,));
+                "\n brim with temples, cultural carvings and buildings ", "durbarsquare"));
         recomendationsPlaces.add(new Recommendation("Basantapur Chowk", "", "", "", "", "two famous sculptures that cost a man his hands \n" +
                 "\n", "basantapur"));
         recomendationsPlaces.add(new Recommendation("The Palace of Fifty-five Windows", "", "", "", "", "a masterpiece of wood carving The Golden Gate: one of " +

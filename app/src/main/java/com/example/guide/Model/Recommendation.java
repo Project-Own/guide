@@ -29,6 +29,17 @@ public class Recommendation {
         this.lat=lat;
         this.lang= lang;
     }
+    public Recommendation(String name, String rating, String phone, String vicinity, String price, String description, String photo) {
+        this.name = name;
+        this.rating = rating;
+        this.phone = phone;
+        this.vicinity = vicinity;
+        this.price = price;
+        this.description = description;
+        this.photo = photo;
+        this.lat=lat;
+        this.lang= lang;
+    }
 
     public Recommendation(String name, String rating, String phone, String vicinity, String price, String description,double lat, double lang) {
         this.name = name;
