@@ -406,8 +406,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
         mClusterManager = new ClusterManager<>(getContext(), mMap);
         customRenderer = new CustomRenderer(getContext(), mMap, mClusterManager);
 
-        String redirect = getArguments().getString("redirect");
-
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.setMyLocationEnabled(true);
 
@@ -493,24 +491,28 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
         // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
 
 
-        if(redirect!=null){
-            switch (redirect){
-                case "counter":
-                    mViewModel.loadResultList(getArguments().getInt("counter"));
-                    break;
-                case "marker":
-                    latitude = getArguments().getDouble("latitude");
-                    longitude = getArguments().getDouble("longitude");
-                    String title = getArguments().getString("title");
-                    MarkerOptions markerOptions = new MarkerOptions().position(new LatLng(latitude, longitude))
-                            .title(title)
-                            .snippet(getArguments().getString("description"));
-                    mMap.addMarker(markerOptions);
-                    mMap.animateCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude, longitude)));
+        if(getArguments() != null) {
+            String redirect = getArguments().getString("redirect");
 
-                    break;
-                default:
+            if (redirect != null) {
+                switch (redirect) {
+                    case "counter":
+                        mViewModel.loadResultList(getArguments().getInt("counter"));
+                        break;
+                    case "marker":
+                        latitude = getArguments().getDouble("latitude");
+                        longitude = getArguments().getDouble("longitude");
+                        String title = getArguments().getString("title");
+                        MarkerOptions markerOptions = new MarkerOptions().position(new LatLng(latitude, longitude))
+                                .title(title)
+                                .snippet(getArguments().getString("description"));
+                        mMap.addMarker(markerOptions);
+                        mMap.animateCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude, longitude)));
 
+                        break;
+                    default:
+
+                }
             }
         }
 
