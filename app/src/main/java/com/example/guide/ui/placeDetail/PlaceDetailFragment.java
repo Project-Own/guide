@@ -33,6 +33,8 @@ import com.github.florent37.shapeofview.shapes.ArcView;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
 
@@ -148,8 +150,15 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
         imageName = getArguments().getString("image");
         String name = getArguments().getString("name");
 
+        Pattern p = Pattern.compile("1(.*?)*");
+        Matcher m = p.matcher(description);
 
-        textView.setText(description);
+        while(m.find()){
+            textView.append(m.group(1)+"\n\n");
+        }
+
+
+        //textView.setText(description);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             textView.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
         }
@@ -289,6 +298,7 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
                 // btnSpeak.setEnabled(true);
 
             }
+
 
         } else {
             Log.e("TTS", "Initilization Failed!");

@@ -9,7 +9,16 @@ public class Recommendation {
     private String description;
     private String photo;
 
-    public Recommendation(String name, String rating, String phone, String vicinity, String price, String description, String photo) {
+
+
+    private double lat;
+
+
+
+    private  double lang;
+
+
+    public Recommendation(String name, String rating, String phone, String vicinity, String price, String description, String photo,double lat, double lang) {
         this.name = name;
         this.rating = rating;
         this.phone = phone;
@@ -17,23 +26,29 @@ public class Recommendation {
         this.price = price;
         this.description = description;
         this.photo = photo;
+        this.lat=lat;
+        this.lang= lang;
     }
 
-    public Recommendation(String name, String rating, String phone, String vicinity, String price, String description) {
+    public Recommendation(String name, String rating, String phone, String vicinity, String price, String description,double lat, double lang) {
         this.name = name;
         this.rating = rating;
         this.phone = phone;
         this.vicinity = vicinity;
         this.price = price;
         this.description = description;
+        this.lat=lat;
+        this.lang= lang;
     }
 
-    public Recommendation(String name, String rating, String phone, String vicinity, String price) {
+    public Recommendation(String name, String rating, String phone, String vicinity, String price,double lat, double lang) {
         this.name = name;
         this.rating = rating;
         this.phone = phone;
         this.vicinity = vicinity;
         this.price = price;
+        this.lat=lat;
+        this.lang= lang;
     }
 
     public String getPhoto() {
@@ -90,6 +105,19 @@ public class Recommendation {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getLang() {return lang; }
+
+    public void setLang(double lang) {
+        this.lang = lang;
+    }
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
     }
 
 
