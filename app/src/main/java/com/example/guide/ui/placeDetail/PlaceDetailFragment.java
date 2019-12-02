@@ -154,7 +154,7 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
         imageName = getArguments().getString("image");
         name = getArguments().getString("name");
 
-        Pattern p = Pattern.compile("1(.*?)*");
+        Pattern p = Pattern.compile("26(.*?)62");
         Matcher m = p.matcher(description);
 
         while(m.find()){

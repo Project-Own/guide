@@ -8,15 +8,8 @@ public class Recommendation {
     private String price;
     private String description;
     private String photo;
-
-
-
     private double lat;
-
-
-
-    private  double lang;
-
+    private double lang;
 
     public Recommendation(String name, String rating, String phone, String vicinity, String price, String description, String photo,double lat, double lang) {
         this.name = name;
@@ -26,9 +19,10 @@ public class Recommendation {
         this.price = price;
         this.description = description;
         this.photo = photo;
-        this.lat=lat;
-        this.lang= lang;
+        this.lat = lat;
+        this.lang = lang;
     }
+
     public Recommendation(String name, String rating, String phone, String vicinity, String price, String description, String photo) {
         this.name = name;
         this.rating = rating;
@@ -37,29 +31,14 @@ public class Recommendation {
         this.price = price;
         this.description = description;
         this.photo = photo;
-        this.lat=lat;
-        this.lang= lang;
     }
 
-    public Recommendation(String name, String rating, String phone, String vicinity, String price, String description,double lat, double lang) {
+    public Recommendation(String name, String rating, String phone, String vicinity, String price) {
         this.name = name;
         this.rating = rating;
         this.phone = phone;
         this.vicinity = vicinity;
         this.price = price;
-        this.description = description;
-        this.lat=lat;
-        this.lang= lang;
-    }
-
-    public Recommendation(String name, String rating, String phone, String vicinity, String price,double lat, double lang) {
-        this.name = name;
-        this.rating = rating;
-        this.phone = phone;
-        this.vicinity = vicinity;
-        this.price = price;
-        this.lat=lat;
-        this.lang= lang;
     }
 
     public String getPhoto() {
@@ -118,11 +97,6 @@ public class Recommendation {
         this.name = name;
     }
 
-    public double getLang() {return lang; }
-
-    public void setLang(double lang) {
-        this.lang = lang;
-    }
     public double getLat() {
         return lat;
     }
@@ -131,5 +105,12 @@ public class Recommendation {
         this.lat = lat;
     }
 
+    public double getLang() {
+        return lang;
+    }
+
+    public void setLang(double lang) {
+        this.lang = lang;
+    }
 
 }

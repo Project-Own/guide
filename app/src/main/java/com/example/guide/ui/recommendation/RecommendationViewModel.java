@@ -103,24 +103,25 @@ public class RecommendationViewModel extends AndroidViewModel {
     private void loadHotelList() {
 
         List<Recommendation> recomendations = new ArrayList<>();
-        recomendations.add(new Recommendation("Peacock Guest House", "4.5/5", "01-6611829", "Datattreya Square", "NPR 4031 per night", "On the main square stands this well run guesthouse with clean well decorated rooms in Newari design.", "peacock",27.673276, 85.434988));
-        recomendations.add(new Recommendation("Milla Guest House", "5/5", " 9851027012/9851024137", "Datattreya Square", "NPR 7932 per night", "Highly rated hotel and have bery good reputation locally", "milla",27.674297,85.433901));
+        recomendations.add(new Recommendation("Peacock Guest House", "4.5/5", "01-6611829", "Datattreya Square", "NPR 4031 per night", "On the main square stands this well run guesthouse with clean well decorated rooms in Newari design.", "peacock",27.673285,85.434994));
+        recomendations.add(new Recommendation("Milla Guest House", "5/5", " 9851027012/9851024137", "Datattreya Square", "NPR 7932 per night", "Highly rated hotel and have bery good reputation locally", "milla",27.674297, 85.433901));
         recomendations.add(new Recommendation("Thagu Chenn", "5/5", "01-6612043/9851152541", "Bhaktapur Durbar Square", "NPR 6643 per night", "Located just 50m away from UNESCO enlisted Bhaktapur Durbar Square, THAGU CHHEN, is a heritage boutique Bed and Breakfast " +
-                "initiated as a step towards preserving culture with a sustainable and green approach", "thagu"));
+                "initiated as a step towards preserving culture with a sustainable and green approach", "thagu",27.672854, 85.425530));
         recomendations.add(new Recommendation("Shiva Guest House 1 & 2", "4.5/5", "01-6613912/01-6610740", "Bhaktapur Durbar Square", "NPR 1158 per  night", "Eco-Friendly Heritage Guest House. SHIVA GUEST HOUSE-pleasantly located in the heart of the Durbar Square is your address in Bhaktapur. Standing next to the Yaksheshwor" +
                 " Temple the city's oldest edifice dating back to 1472 AD, " +
-                "the guest house is where you can start your exploration trip from.", "shiva"));
+                "the guest house is where you can start your exploration trip from.", "shiva",27.671887, 85.428659));
 
         recomendations.add(new Recommendation("Bhaktapur Paradise Hotel", "5/5", "01-5092720/01-5092723", "Suryabinayak", "NPR 6,604 per night", "Nestled on a hillside just outside the UNESCO World Heritage city know as a \"living museum of Nepal history,\" the Bhaktapur Paradise is a unique and luxurious refuge just outside urban Kathmandu." +
-                " Each of the hotel's extra-large bedrooms have picture windows that afford spectacular views of the Himalayan peaks and the idyllic countryside. Completed in 2015, the hotel's Newari style architecture and furnishings provide guests a wonderful combination of traditional design and comfortable luxury.", "peacock"));
+                " Each of the hotel's extra-large bedrooms have picture windows that afford spectacular views of the Himalayan peaks and the idyllic countryside. Completed in 2015, the hotel's Newari style architecture and furnishings provide guests a wonderful combination of traditional design and comfortable luxury.", "peacock",27.659055, 85.423324));
 
         recomendations.add(new Recommendation("Hotel Heritage", "4.5/5", "01-6611628/29/30,01-6618132/ 01-6612850 ", "Gapali", "NPR 12,904 per night", "Hotel Heritage in Bhaktapur is an authentic experience of Nepal’s ancient cultural heritage and its glory. Built upon cultural Newari tradition, reflecting the beauty of art and architecture of ancient" +
-                " Nepal and incorporating Nepal's rich tradition and culture, Hotel Heritage stands alone.", "peacock"));
+                " Nepal and incorporating Nepal's rich tradition and culture, Hotel Heritage stands alone.", "peacock",27.667795, 85.425024));
 
 
 
-        recomendations.add(new Recommendation("Heart of Bhaktapur Guest House", "5/5", "016612034 ", "Gapali", "NPR 1,792 per night", "Planning to visit Nepal? Heart of Bhaktapur Guest House offers a clean and quiet stay in the centre of culturally rich Bhaktapur. Enjoy a simple but tasteful breakfast on our rooftop, with a " +
-                "magnificent view on the valley and the mountains. After an enervating but tiring trekking; to start or end an eventful journey; or just to have the chance to visit interesting sights in Kathmandu Valley? We provide the perfect place for you to stay! You will experience a family stay with us with big heart.", "peacock"));
+        recomendations.add(new Recommendation("Heart of Bhaktapur Guest House", "5/5", "016612034 ", "Taumadhi", "NPR 1,792 per night", "Planning to visit Nepal? Heart of Bhaktapur Guest House offers a clean and quiet stay in the centre of culturally rich Bhaktapur. Enjoy a simple but tasteful breakfast on our rooftop, with a " +
+                "magnificent view on the valley and the mountains. After an enervating but tiring trekking; to start or end an eventful journey; or just to have the chance to visit interesting sights in Kathmandu Valley? We provide the perfect place for you to stay! You will experience a family stay with us with big heart.", "peacock",27.670219, 85.430157));
+
 
         recomendations.add(new Recommendation("Bhaktapur Paradise Hotel", "5/5", "01-6611628/29/30,01-6618132/ 01-6612850 ", "Gapali", "NPR 6,604 per night", "Hotel", "peacock"));
 
