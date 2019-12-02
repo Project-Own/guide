@@ -362,8 +362,9 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
     @Override
     public void onDestroy() {
 
-        t1.shutdown();
-
+        if(t1!= null) {
+            t1.shutdown();
+        }
         super.onDestroy();
     }
 }

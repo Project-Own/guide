@@ -305,18 +305,6 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="infoFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="1608" />
-                            <option name="y" value="3002" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="landingFragment">
                     <value>
                       <LayoutPositions>
