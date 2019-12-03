@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.guide.Model.Recommendation;
 import com.example.guide.R;
 import com.example.guide.adapters.RecomendationAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class RecommendationFragment extends Fragment {
 
     private RecommendationViewModel mViewModel;
     private RecyclerView hotelRecyclerView, placesRecyclerView;
-    private ImageButton placesLeft, placesRight, hotelLeft, hotelRight;
+    private FloatingActionButton placesLeft, placesRight, hotelLeft, hotelRight;
     private int hotelPosition = 0;
     private int placePosition = 0;
     private int visibleItemCount, totalItemCount, coun;
@@ -79,10 +79,10 @@ public class RecommendationFragment extends Fragment {
                         totalItemCount = mLayoutManager.getItemCount();
                         firstVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findFirstVisibleItemPosition();
                         lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
-                        hotelPosition = lastVisibleItem;
-                        if (hotelPosition <= 1) {
+                        hotelPosition = firstVisibleItemPosition;
+                        if (hotelPosition == 0 || firstVisibleItemPosition == 0) {
                             hotelLeft.setVisibility(View.INVISIBLE);
-                        } else if (hotelPosition == recommendations.size()) {
+                        } else if (hotelPosition == recommendations.size() || lastVisibleItem == recommendations.size()) {
                             hotelRight.setVisibility(View.INVISIBLE);
                         } else {
                             hotelLeft.setVisibility(View.VISIBLE);
@@ -97,10 +97,10 @@ public class RecommendationFragment extends Fragment {
                         totalItemCount = mLayoutManager.getItemCount();
                         firstVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findFirstVisibleItemPosition();
                         lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
-                        hotelPosition = lastVisibleItem;
-                        if (hotelPosition <= 1) {
+                        hotelPosition = firstVisibleItemPosition;
+                        if (hotelPosition == 0 || firstVisibleItemPosition == 0) {
                             hotelLeft.setVisibility(View.INVISIBLE);
-                        } else if (hotelPosition == recommendations.size()) {
+                        } else if (hotelPosition == recommendations.size() || lastVisibleItem == recommendations.size()) {
                             hotelRight.setVisibility(View.INVISIBLE);
                         } else {
                             hotelLeft.setVisibility(View.VISIBLE);
@@ -121,7 +121,8 @@ public class RecommendationFragment extends Fragment {
                 hotelRight.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (hotelPosition < recommendations.size()) {
+                        if (hotelPosition < recommendations.size()-1) {
+                            hotelPosition++;
                             hotelRecyclerView.scrollToPosition(hotelPosition);
                         }
                     }
@@ -146,10 +147,10 @@ public class RecommendationFragment extends Fragment {
                         totalItemCount = mPlacesLayoutManager.getItemCount();
                         firstVisibleItemPosition = ((LinearLayoutManager) mPlacesLayoutManager).findFirstVisibleItemPosition();
                         lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
-                        placePosition = lastVisibleItem;
-                        if (placePosition <= 1) {
+                        placePosition = firstVisibleItemPosition;
+                        if (placePosition == 0 || firstVisibleItemPosition == 0) {
                             placesLeft.setVisibility(View.INVISIBLE);
-                        } else if (placePosition == recommendations.size()) {
+                        } else if (placePosition == recommendations.size() || lastVisibleItem == recommendations.size()) {
                             placesRight.setVisibility(View.INVISIBLE);
                         } else {
                             placesRight.setVisibility(View.VISIBLE);
@@ -164,10 +165,10 @@ public class RecommendationFragment extends Fragment {
                         totalItemCount = mPlacesLayoutManager.getItemCount();
                         firstVisibleItemPosition = ((LinearLayoutManager) mPlacesLayoutManager).findFirstVisibleItemPosition();
                         lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
-
-                        if (placePosition <= 1) {
+                        placePosition = firstVisibleItemPosition;
+                        if (placePosition == 0 || firstVisibleItemPosition ==0 ) {
                             placesLeft.setVisibility(View.INVISIBLE);
-                        } else if (placePosition == recommendations.size()) {
+                        } else if (placePosition == recommendations.size() || lastVisibleItem==recommendations.size()) {
                             placesRight.setVisibility(View.INVISIBLE);
                         } else {
                             placesRight.setVisibility(View.VISIBLE);
@@ -189,7 +190,7 @@ public class RecommendationFragment extends Fragment {
                 placesRight.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (placePosition < recommendations.size()) {
+                        if (placePosition < recommendations.size()-1) {
                             placePosition++;
                             placesRecyclerView.scrollToPosition(placePosition);
 

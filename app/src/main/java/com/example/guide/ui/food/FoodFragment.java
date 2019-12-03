@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.guide.Model.Places;
 import com.example.guide.R;
 import com.example.guide.adapters.FoodAdapter;
-import com.example.guide.adapters.PlacesAdapter;
 
 import java.util.List;
 
@@ -54,7 +53,7 @@ public class FoodFragment extends Fragment {
         mViewModel.loadFood().observe(this, new Observer<List<Places>>() {
             @Override
             public void onChanged(List<Places> places) {
-                PlacesAdapter adapter = new PlacesAdapter(places, recyclerView, getContext(), navController);
+                FoodAdapter adapter = new FoodAdapter(places, recyclerView, getContext(), navController);
                 recyclerView.setLayoutManager(mLayoutManager);
                 recyclerView.setAdapter(adapter);
                 recyclerView.setHasFixedSize(true);

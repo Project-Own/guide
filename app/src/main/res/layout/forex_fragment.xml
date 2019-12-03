@@ -229,6 +229,7 @@
         </LinearLayout>
 
 
+
                 <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animation_view"
                 android:visibility="@{viewModel.isBusy? View.VISIBLE : View.GONE}"

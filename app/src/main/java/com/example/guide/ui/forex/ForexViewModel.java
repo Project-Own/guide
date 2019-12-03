@@ -441,10 +441,18 @@ public class ForexViewModel extends AndroidViewModel {
 
             for (String s : pairList) {
 
-                if (s.contains(listCurrecyName[integer[0]])) {
-                    ratio = (Double) forexList.get(listPosition);
-                    break;
+                Log.i("sdf", s.substring(3));
+                if(s.substring(0,3).equals("USD")) {
+                    if (s.substring(3).contains(listCurrecyName[integer[0]])) {
+                        if(listCurrecyName[integer[0]].equals("USD") || listCurrecyName[integer[0]].equals("BMD") || listCurrecyName[integer[0]].equals("CUC")){
+                            ratio = (Double) 1.0;
+                        }else {
+                            ratio = (Double) forexList.get(listPosition) * 1.0;
+                            Log.i("PRICE", ratio.toString());
+                        }
+                        break;
 
+                    }
                 }
                 listPosition++;
             }
@@ -465,11 +473,17 @@ public class ForexViewModel extends AndroidViewModel {
             int listPosition = 0;
             Double ratio = 0.0;
             for (String s : pairList) {
+                if(s.substring(0,3).equals("USD")) {
+                    if (s.substring(3).contains(listCurrecyName[integer[0]])) {
+                       if(listCurrecyName[integer[0]].equals("USD") || listCurrecyName[integer[0]].equals("BMD") || listCurrecyName[integer[0]].equals("CUC")){
+                           ratio = (Double) 1.0;
+                       }else {
+                           ratio = (Double) forexList.get(listPosition);
+                           Log.i("PRICE", ratio.toString());
+                       }
+                        break;
 
-                if (s.contains(listCurrecyName[integer[0]])) {
-                    ratio = (Double) forexList.get(listPosition);
-                    break;
-
+                    }
                 }
                 listPosition++;
             }

@@ -97,7 +97,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                     case 0:
                         aClass = R.id.action_nav_home_to_nav_map;
                         break;
-                    case 1:
+                    case 6:
                         aClass = R.id.action_nav_home_to_nav_weather;
                         break;
                     case 2:
@@ -106,16 +106,16 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                     case 3:
                         aClass = R.id.action_nav_home_to_nav_food;
                         break;
-                    case 4:
+                    case 7:
                         aClass = R.id.action_nav_home_to_nav_calendar;
                         break;
-                    case 5:
+                    case 1:
                         aClass = R.id.action_nav_home_to_nav_currency;
                         break;
-                    case 6:
+                    case 4:
                         aClass = R.id.action_nav_home_to_nav_translator;
                         break;
-                    case 7:
+                    case 5:
                         aClass = R.id.action_nav_home_to_nav_gallery;
                         break;
 
