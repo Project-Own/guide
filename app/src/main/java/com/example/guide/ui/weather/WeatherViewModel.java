@@ -1,6 +1,9 @@
 package com.example.guide.ui.weather;
 
 import android.app.Application;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -38,6 +41,7 @@ public class WeatherViewModel extends AndroidViewModel {
 
     private MutableLiveData<WeatherData> mWeatherData;
     public MutableLiveData<Boolean> isLoading;
+    public MutableLiveData<Boolean> isDataAvaialable;
     public void onRefresh() {
         isLoading.setValue(true);
         getWeatherData();
@@ -56,6 +60,7 @@ public class WeatherViewModel extends AndroidViewModel {
         this.sunset = new MutableLiveData<String>();
         this.status = new MutableLiveData<String>();
         this.isLoading = new MutableLiveData<>();
+        this.isDataAvaialable = new MutableLiveData<>();
     }
 
     public MutableLiveData<WeatherData> loadData(){
@@ -108,12 +113,13 @@ public class WeatherViewModel extends AndroidViewModel {
                 status.setValue(weatherDescription);
 
                 isLoading.setValue(false);
-            }
+                }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("Volley", error.toString());
-//                crossfadeOnFail();
+                isLoading.setValue(false);
+                //                crossfadeOnFail();
             }
         }) {
             @Override
@@ -170,5 +176,21 @@ public class WeatherViewModel extends AndroidViewModel {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplication());
         requestQueue.add(jsonObjectRequest);
     }
+
+    public boolean isDataEmpty() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getApplication().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        Boolean isAvailable = activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+        if(!isAvailable && weatherData==null ){
+           isDataAvaialable.setValue(false);
+            return true;
+        }else {
+            isDataAvaialable.setValue(true);
+            return false;
+        }
+
+    }
+
 
 }

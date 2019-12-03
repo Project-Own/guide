@@ -1,7 +1,6 @@
 package com.example.guide.ui.placeDetail;
 
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
@@ -11,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,6 +27,12 @@ import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.guide.R;
 import com.github.florent37.shapeofview.shapes.ArcView;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.HashSet;
@@ -37,9 +41,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
-
-public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInitListener {
+public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInitListener, OnMapReadyCallback {
 
     private PlaceDetailViewModel mViewModel;
     TextToSpeech t1;
@@ -49,14 +51,14 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
     TextView textView;
     TextView titleText;
     Boolean contentTextFullscreen = false;
-    ImageButton b1;
+    FloatingActionButton b1;
     ImageView imageView;
     View divider;
-    CardView cardView;
+    CardView cardView, cardViewMap;
     ArcView arc;
     Drawable drawable;
     String name, description, imageName;
-    FloatingActionButton floatingActionButton;
+    FloatingActionButton navigation;
 
 
     int shortAnimationDuration;
@@ -82,7 +84,12 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
         arc = v.findViewById(R.id.myShape);
         cardView = v.findViewById(R.id.tq);
         b1 = v.findViewById(R.id.botton);
-        floatingActionButton = v.findViewById(R.id.floatingButton);
+        cardViewMap = v.findViewById(R.id.cardViewMap);
+        navigation = v.findViewById(R.id.navigation);
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
         motionLayout.setTransitionListener(new MotionLayout.TransitionListener() {
             @Override
@@ -157,17 +164,17 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
         Pattern p = Pattern.compile("26(.*?)62");
         Matcher m = p.matcher(description);
 
+
         while(m.find()){
             textView.append(m.group(1)+"\n\n");
         }
-
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            textView.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
+        if(textView.getText().equals("")){
+            textView.setText(description);
         }
 
-        titleText.setText(name);
 
+
+        titleText.setText(name);
 
         if (!imageName.equals("")) {
             Glide.with(this)
@@ -245,7 +252,8 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
             }
         });
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+
+        navigation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
@@ -256,9 +264,10 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
                 bundle.putString("description", description);
 
                 Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment).navigate(R.id.action_placeDetailFragment3_to_nav_map, bundle);
-
             }
         });
+
+
         // This callback will only be called when MyFragment is at least Started.
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
@@ -366,5 +375,15 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
             t1.shutdown();
         }
         super.onDestroy();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        // Add a marker in Sydney, Australia, and move the camera.
+        LatLng sydney = new LatLng(getArguments().getDouble("lat"), getArguments().getDouble("long"));
+        googleMap.addMarker(new MarkerOptions().position(sydney).title(name));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 16));
+
     }
 }

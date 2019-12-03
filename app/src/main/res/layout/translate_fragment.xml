@@ -10,17 +10,17 @@
         android:layout_width="match_parent"
        android:orientation="vertical"
         android:layout_height="match_parent"
-        android:background="#30222222"
-
+        android:background="@color/colorPrimaryLight"
+        android:gravity="center"
         >
         <TextView
             android:gravity="center"
             android:textSize="24sp"
             android:textColor="@color/white"
             android:shadowColor="@color/black"
-            android:shadowDx="-10"
-            android:shadowDy="-20"
-            android:shadowRadius="20"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="10"
             android:layout_marginTop="50dp"
             android:text="NO INTERNET CONNECTION"
 

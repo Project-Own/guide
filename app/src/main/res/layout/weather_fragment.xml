@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.example.guide.ui.weather.WeatherViewModel" />
     </data>
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_gradient"
@@ -379,6 +380,5 @@
                 android:textColor="@color/primaryText"
                 android:visibility="gone" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    </RelativeLayout>
+    </FrameLayout>
 </layout>

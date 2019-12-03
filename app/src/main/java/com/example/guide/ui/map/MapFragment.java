@@ -234,7 +234,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
                     if (mMap != null) {
 
 
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(27.671635, 85.429339), 15));
                         CustomRenderer clusterRenderer = new CustomRenderer(getContext(), mMap, mClusterManager);
 
                         // Point the map's listeners at the listeners implemented by the cluster
@@ -251,6 +250,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
 
 
                         if (markerOptionsList == null) {
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(27.671635, 85.429339), 15));
+
                             return;
                         }
 // Create a cluster item for the marker and set the title and snippet using the constructor.
@@ -507,7 +508,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
                                 .title(title)
                                 .snippet(getArguments().getString("description"));
                         mMap.addMarker(markerOptions);
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15));
 
                         break;
                     default:

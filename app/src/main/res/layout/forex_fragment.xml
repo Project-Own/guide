@@ -134,6 +134,7 @@
         android:layout_gravity="bottom|right"
         android:src="@drawable/ic_compare_arrows_black_24dp"
         android:onClick="@{()-> viewModel.onFabClicked()}"
+        android:clickable="@{viewModel.isBusy ? true : false}"
 
         />
 
@@ -230,18 +231,6 @@
 
 
 
-                <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/animation_view"
-                android:visibility="@{viewModel.isBusy? View.VISIBLE : View.GONE}"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                android:clickable="true"
-                    android:background="@color/black_semi_transparent"
-                app:lottie_rawRes="@raw/anim_coin" />
 
 
 </FrameLayout>
