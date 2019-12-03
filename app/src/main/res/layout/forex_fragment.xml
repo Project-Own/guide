@@ -134,7 +134,7 @@
         android:layout_gravity="bottom|right"
         android:src="@drawable/ic_compare_arrows_black_24dp"
         android:onClick="@{()-> viewModel.onFabClicked()}"
-        android:clickable="@{viewModel.isBusy ? true : false}"
+        android:clickable="@{viewModel.isBusy ? false : true}"
 
         />
 

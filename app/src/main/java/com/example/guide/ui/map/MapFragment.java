@@ -250,10 +250,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
 
 
                         if (markerOptionsList == null) {
-                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(27.671635, 85.429339), 15));
 
                             return;
                         }
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(27.671635, 85.429339), 15));
+
 // Create a cluster item for the marker and set the title and snippet using the constructor.
                         for (MarkerOptions markerOptions : markerOptionsList) {
                             MarkerItem infoWindowItem = new MarkerItem(markerOptions);
