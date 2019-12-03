@@ -35,7 +35,7 @@
             <com.codesgood.views.JustifiedTextView
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:text="Places to Visit"
+                android:text="Highlights of Bhaktapur"
                 android:textColor="@color/primaryText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

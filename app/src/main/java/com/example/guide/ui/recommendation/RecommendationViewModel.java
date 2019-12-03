@@ -74,27 +74,27 @@ public class RecommendationViewModel extends AndroidViewModel {
 
     private void loadRecommendedPlacesList() {
         List<Recommendation> recomendationsPlaces = new ArrayList<>();
-        recomendationsPlaces.add(new Recommendation("Bhaktapur Durbar Square", "", "", "", "", "one of the largest ancient squares in Nepal filled to the " +
-                "\n brim with temples, cultural carvings and buildings ", "durbarsquare"));
-        recomendationsPlaces.add(new Recommendation("Basantapur Chowk", "", "", "", "", "two famous sculptures that cost a man his hands \n" +
-                "\n", "basantapur"));
-        recomendationsPlaces.add(new Recommendation("The Palace of Fifty-five Windows", "", "", "", "", "a masterpiece of wood carving The Golden Gate: one of " +
-                "\n the most intricate and well decorated gates in the world", "durbarsquare"));
-        recomendationsPlaces.add(new Recommendation("Pashupatinath Temple", "", "", "", "", "impressive wooden temple", "pasupati"));
+        recomendationsPlaces.add(new Recommendation("Bhaktapur Durbar Square", "", "", "", "", "One of the largest ancient squares in Nepal filled to the " +
+                "brim with temples, cultural carvings and buildings ", "durbarsquare",27.672072, 85.428103));
+        recomendationsPlaces.add(new Recommendation("Basantapur Chowk", "", "", "", "", "Two famous sculptures that cost a man his hands "
+                , "basantapur",27.672073, 85.428103));
+        recomendationsPlaces.add(new Recommendation("The Palace of Fifty-five Windows", "", "", "", "", "The masterpiece of wood carving The Golden Gate: one of " +
+                " the most intricate and well decorated gates in the world", "durbarsquare",27.672126, 85.428555));
+        recomendationsPlaces.add(new Recommendation("Pashupatinath Temple", "", "", "", "", "Impressive wooden temple", "pasupati",27.671796, 85.428456));
         recomendationsPlaces.add(new Recommendation("Vatsala Durga Temple & Taleju Bell", "", "", "", "", "Stone temple with bell built by King Jagat Prakash Malla " +
-                "\n (currently - 2017/18- under reconstruction however you can give donations directly to its rebuilding) ", "vatsala"));
-        recomendationsPlaces.add(new Recommendation("Siddhi Laxmi Temple", "", "", "", "", "A stone temple built in the 17th-century (currently - 2017/18- under reconstuction)\n" +
-                "\n", "siddhilaxmi"));
-        recomendationsPlaces.add(new Recommendation("Pottery Square", "", "", "", "", "Watch Bhaktapur's famous pottery as it's made in this idyllic traditional square filled with potters and their wares. ", "potters"));
+                " (currently - 2017/18- under reconstruction however you can give donations directly to its rebuilding) ", "vatsala",27.671946, 85.428427));
+        recomendationsPlaces.add(new Recommendation("Siddhi Laxmi Temple", "", "", "", "", "A stone temple built in the 17th-century (currently - 2017/18- under reconstuction)"
+                , "siddhilaxmi"));
+        recomendationsPlaces.add(new Recommendation("Pottery Square", "", "", "", "", "Watch Bhaktapur's famous pottery as it's made in this idyllic traditional square filled with potters and their wares. ", "potters",27.669874, 85.427764));
         recomendationsPlaces.add(new Recommendation("Royal Curd", "", "", "", "", "Take a time out and eat some of Bhaktapur's famous curd", "kingcurd"));
         recomendationsPlaces.add(new Recommendation("Side streets of Bhaktapur", "", "", "", "", "Spend hours wandering off down the side " +
-                "\n streets of the city enjoying local handicraft stores, " +
-                "\n artisans, local cafes and countless ancient buildings ", "alley"));
-        recomendationsPlaces.add(new Recommendation("Taumadhi Square", "", "", "", "", "a huge square with the tallest temple in Nepal", "nightpolo"));
+                " streets of the city enjoying local handicraft stores, " +
+                " artisans, local cafes and countless ancient buildings ", "alley"));
+        recomendationsPlaces.add(new Recommendation("Taumadhi Square", "", "", "", "", "A huge square with the tallest temple in Nepal", "nightpolo",27.671142, 85.429272));
 
-        recomendationsPlaces.add(new Recommendation("Dattatreya Square", "", "", "", "", "the oldest royal square in Nepal filled with things to see and do.", "datattreya"));
+        recomendationsPlaces.add(new Recommendation("Dattatreya Square", "", "", "", "", "The oldest royal square in Nepal filled with things to see and do.", "datattreya",27.673488, 85.435055));
 
-        recomendationsPlaces.add(new Recommendation("The Peacock Window", "", "", "", "", "One of Nepal's most precious woodcarvings and national art treasures - there are several craft stores along the same street worth visiting", "peacockw"));
+        recomendationsPlaces.add(new Recommendation("The Peacock Window", "", "", "", "", "One of Nepal's most precious woodcarvings and national art treasures - there are several craft stores along the same street worth visiting", "peacockw",27.673246, 85.435667));
 
 
         recommendationList.setValue(recomendationsPlaces);
@@ -107,20 +107,20 @@ public class RecommendationViewModel extends AndroidViewModel {
         recomendations.add(new Recommendation("Milla Guest House", "5/5", " 9851027012/9851024137", "Datattreya Square", "NPR 7932 per night", "Highly rated hotel and have bery good reputation locally", "milla",27.674297, 85.433901));
         recomendations.add(new Recommendation("Thagu Chenn", "5/5", "01-6612043/9851152541", "Bhaktapur Durbar Square", "NPR 6643 per night", "Located just 50m away from UNESCO enlisted Bhaktapur Durbar Square, THAGU CHHEN, is a heritage boutique Bed and Breakfast " +
                 "initiated as a step towards preserving culture with a sustainable and green approach", "thagu",27.672854, 85.425530));
-        recomendations.add(new Recommendation("Shiva Guest House 1 & 2", "4.5/5", "01-6613912/01-6610740", "Bhaktapur Durbar Square", "NPR 1158 per  night", "Eco-Friendly Heritage Guest House. SHIVA GUEST HOUSE-pleasantly located in the heart of the Durbar Square is your address in Bhaktapur. Standing next to the Yaksheshwor" +
+        recomendations.add(new Recommendation("Shiva Guest House", "4.5/5", "01-6613912/01-6610740", "Bhaktapur Durbar Square", "NPR 1158 per  night", "Eco-Friendly Heritage Guest House. SHIVA GUEST HOUSE-pleasantly located in the heart of the Durbar Square is your address in Bhaktapur. Standing next to the Yaksheshwor" +
                 " Temple the city's oldest edifice dating back to 1472 AD, " +
                 "the guest house is where you can start your exploration trip from.", "shiva",27.671887, 85.428659));
 
         recomendations.add(new Recommendation("Bhaktapur Paradise Hotel", "5/5", "01-5092720/01-5092723", "Suryabinayak", "NPR 6,604 per night", "Nestled on a hillside just outside the UNESCO World Heritage city know as a \"living museum of Nepal history,\" the Bhaktapur Paradise is a unique and luxurious refuge just outside urban Kathmandu." +
-                " Each of the hotel's extra-large bedrooms have picture windows that afford spectacular views of the Himalayan peaks and the idyllic countryside. Completed in 2015, the hotel's Newari style architecture and furnishings provide guests a wonderful combination of traditional design and comfortable luxury.", "peacock",27.659055, 85.423324));
+                " Each of the hotel's extra-large bedrooms have picture windows that afford spectacular views of the Himalayan peaks and the idyllic countryside. Completed in 2015, the hotel's Newari style architecture and furnishings provide guests a wonderful combination of traditional design and comfortable luxury.", "paradise",27.659055, 85.423324));
 
         recomendations.add(new Recommendation("Hotel Heritage", "4.5/5", "01-6611628/29/30,01-6618132/ 01-6612850 ", "Gapali", "NPR 12,904 per night", "Hotel Heritage in Bhaktapur is an authentic experience of Nepal’s ancient cultural heritage and its glory. Built upon cultural Newari tradition, reflecting the beauty of art and architecture of ancient" +
-                " Nepal and incorporating Nepal's rich tradition and culture, Hotel Heritage stands alone.", "peacock",27.667795, 85.425024));
+                " Nepal and incorporating Nepal's rich tradition and culture, Hotel Heritage stands alone.", "heritage1",27.667795, 85.425024));
 
 
 
         recomendations.add(new Recommendation("Heart of Bhaktapur Guest House", "5/5", "016612034 ", "Taumadhi", "NPR 1,792 per night", "Planning to visit Nepal? Heart of Bhaktapur Guest House offers a clean and quiet stay in the centre of culturally rich Bhaktapur. Enjoy a simple but tasteful breakfast on our rooftop, with a " +
-                "magnificent view on the valley and the mountains. After an enervating but tiring trekking; to start or end an eventful journey; or just to have the chance to visit interesting sights in Kathmandu Valley? We provide the perfect place for you to stay! You will experience a family stay with us with big heart.", "peacock",27.670219, 85.430157));
+                "magnificent view on the valley and the mountains. After an enervating but tiring trekking; to start or end an eventful journey; or just to have the chance to visit interesting sights in Kathmandu Valley? We provide the perfect place for you to stay! You will experience a family stay with us with big heart.", "heartofbkt",27.670219, 85.430157));
 
 
         recomendations.add(new Recommendation("Bhaktapur Paradise Hotel", "5/5", "01-6611628/29/30,01-6618132/ 01-6612850 ", "Gapali", "NPR 6,604 per night", "Hotel", "peacock"));

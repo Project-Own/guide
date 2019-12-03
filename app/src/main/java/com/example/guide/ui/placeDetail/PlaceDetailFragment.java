@@ -161,7 +161,7 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
             textView.append(m.group(1)+"\n\n");
         }
 
-        textView.setText(description);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             textView.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
         }
