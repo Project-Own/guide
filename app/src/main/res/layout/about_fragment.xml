@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background1"
+    android:background="@drawable/bg_gradient"
     >
 
     <com.codesgood.views.JustifiedTextView
@@ -20,7 +20,15 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/aboutRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
+
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="12dp"
+        android:background="@color/white" />
 
     <com.codesgood.views.JustifiedTextView
         android:id="@+id/text13"
@@ -29,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Picture credit to Sunil Shilpakar and Uday Prajapati. You can find them at instagram: shilpee_ss udaya.rise"
+        android:textColor="@color/white"
         />
 
 

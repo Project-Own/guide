@@ -123,7 +123,17 @@ public class RecommendationViewModel extends AndroidViewModel {
                 "magnificent view on the valley and the mountains. After an enervating but tiring trekking; to start or end an eventful journey; or just to have the chance to visit interesting sights in Kathmandu Valley? We provide the perfect place for you to stay! You will experience a family stay with us with big heart.", "heartofbkt",27.670219, 85.430157));
 
 
-        recomendations.add(new Recommendation("Bhaktapur Paradise Hotel", "5/5", "01-6611628/29/30,01-6618132/ 01-6612850 ", "Gapali", "NPR 6,604 per night", "Hotel", "peacock"));
+        recomendations.add(new Recommendation("Krishna's House", "5/5", "01-6610462", "Dudhpati", "NPR 2,560 per night", "Located at medieval Bhaktapur in Kathmandu Valley, Nepal, we as a homestay facility aim to provide an exceptional cultural experience to our guests. Krishna House is an eco–friendly place where you will find a garden with indigenous" +
+                " plants, a variety of trees, birds and a terrace to relax. Our rooms have attached bathrooms and are clean and comfortable. We provide home cooked meals upon request.", "krishna",27.670617, 85.421799));
+
+        recomendations.add(new Recommendation("Pradhan House-Home Stay", "5/5", "N/A", "Dattatrya Square", "NPR 2,296 per night", "The 2-star Pradhan House - Home Stay offers comfort and convenience whether you're on business or holiday in Bhaktapur. Both business travelers and tourists can enjoy the hotel's facilities " +
+                "and services. Take advantage of the hotel's free Wi-Fi in all rooms daily housekeeping fireplace gift/souvenir shop private check in/check out. Guestrooms are designed to provide an optimal level of comfort with welcoming decor and some offering convenient amenities like additional bathroom additional toilet carpeting cleaning products complimentary tea. The hotel offers various" +
+                " recreational opportunities. Convenience and comfort makes Pradhan House - Home Stay the perfect choice for your stay in Bhaktapur. ", "pradhan",27.674527, 85.435731));
+
+        recomendations.add(new Recommendation("Planet Bhaktapur Hotel", "5/5", "985-1047636", "", "NPR 3,649 per night", "We are located on the top of small hill situated 1 km from Bhaktapur Durbar Square (10 minutes walking). 13 rooms with attached bathroom, 24 hour hot water, free wifi in rooms and in garden too. 5 large rooms (mt 7x5) and 8 standard rooms (mt 4.5x4). \" +\n" +
+                "                \"\\\"La Bella Nepali\\\" restaurant on ground floor or in the garden and rooftop terrace can serve Nepali, international and good Italian food. Tour desk helping you traveling around all Nepal (and Tibet too). We organize also tours. Special offer 6 days/6 nights HP with car and driver included to visit the Kathmandu Valley and surrounding places. For anything is not written here, please \" +\n" +
+                "                \"ask and we try to do our best to help You. Namaste ! Francesco and Yam.", "planetbkt",27.682006, 85.430150));
+
 
         hotelList.setValue(recomendations);
     }

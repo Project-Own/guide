@@ -1,10 +1,12 @@
 package com.example.guide.ui.about;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.LayoutInflater;
@@ -53,20 +55,34 @@ public class AboutFragment extends Fragment {
 
         ClickableSpan clickableSpan1  = new ClickableSpan() {
             @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setColor(Color.WHITE);
+            }
+
+            @Override
             public void onClick(@NonNull View widget) {
                 clicked("https://www.instagram.com/shilpee_ss/");
+
             }
         };
 
         ClickableSpan clickableSpan2  = new ClickableSpan() {
             @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setColor(Color.WHITE);
+            }
+
+            @Override
             public void onClick(@NonNull View widget) {
+
                 clicked("https://www.instagram.com/udaya.rise/");
             }
         };
 
-        ss.setSpan(clickableSpan1,86,95, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        ss.setSpan(clickableSpan2,97,107, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(clickableSpan1,87,97, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(clickableSpan2,98,108, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         textView.setText(ss);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
