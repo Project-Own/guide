@@ -471,8 +471,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
 
         ;
 
-        mMap.setLatLngBoundsForCameraTarget(BHAKTAPUR);
-
         mMutalbePolygon = mMap.addPolygon(polygonOptions);
 
 
@@ -513,15 +511,17 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GeoQuer
 
                         break;
                     default:
-                        cameraPosition = new CameraPosition.Builder()
-                                .target(new LatLng(27.671635, 85.429339))      // Sets the center of the map to Mountain View
-                                .zoom(13)                   // Sets the zoom
-                                .tilt(30)                   // Sets the tilt of the camera to 30 degrees
-                                .build();                   // Creates a CameraPosition from the builder
-                        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
                 }
             }
+        }else{
+            cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(27.671635, 85.429339))      // Sets the center of the map to Mountain View
+                    .zoom(13)                   // Sets the zoom
+                    .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+                    .build();                   // Creates a CameraPosition from the builder
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
         }
 
 

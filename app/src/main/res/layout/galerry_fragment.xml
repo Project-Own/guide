@@ -28,12 +28,6 @@
                 android:layout_gravity="bottom" />
     </LinearLayout>
 
-    <ImageButton
-        android:layout_gravity="bottom|end"
-        android:background="@drawable/custom_ripple"
-        android:src="@drawable/ic_up_arrow_foreground"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
 
 
 

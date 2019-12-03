@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.speech.tts.Voice;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
@@ -59,7 +60,7 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
     Drawable drawable;
     String name, description, imageName;
     FloatingActionButton navigation;
-
+    ScrollView scrollView;
 
     int shortAnimationDuration;
     private boolean isPlaying = false;
@@ -86,10 +87,26 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
         b1 = v.findViewById(R.id.botton);
         cardViewMap = v.findViewById(R.id.cardViewMap);
         navigation = v.findViewById(R.id.navigation);
+        scrollView = v.findViewById(R.id.contentTextView);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
+        scrollView.getViewTreeObserver()
+                .addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+                    @Override
+                    public void onScrollChanged() {
+                        if (scrollView.getChildAt(0).getBottom()
+                                <= (scrollView.getHeight() + scrollView.getScrollY())) {
+                            motionLayout.transitionToEnd();
+                        } else if(scrollView.getScrollY() == 0 ) {
+                            //scroll view is not at bottom
+                            motionLayout.transitionToStart();
+                        }
+                    }
+                });
         motionLayout.setTransitionListener(new MotionLayout.TransitionListener() {
             @Override
             public void onTransitionStarted(MotionLayout motionLayout, int i, int i1) {
@@ -103,8 +120,6 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
                 switch (trans) {
                     case 0:
                         name += trans;
-                        textView.setMovementMethod(null);
-                        textView.setVerticalScrollBarEnabled(false);
                         //set the animation
                         break;
                     case 1:
@@ -136,7 +151,7 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
                         break;
                     case 10:
                         name += trans;
-                           textView.setMovementMethod(new ScrollingMovementMethod());
+
 
                         break;
                     default:
@@ -144,7 +159,6 @@ public class PlaceDetailFragment extends Fragment implements TextToSpeech.OnInit
                         break;
 
                 }
-                textView.scrollTo(0, 0);
 
                 //   Log.i("Scroll animation", name);
                 //   Log.i("Scroll animation", name);

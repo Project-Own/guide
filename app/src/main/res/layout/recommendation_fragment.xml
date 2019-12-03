@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="8dp"
-        android:background="@drawable/title_background"
+        android:background="@drawable/title_background1"
         android:padding="8dp"
         android:text="Recommendation"
         android:textColor="@color/primaryText"
@@ -36,6 +36,8 @@
             <com.codesgood.views.JustifiedTextView
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
+
+                android:paddingStart="16dp"
                 android:text="Highlights of Bhaktapur"
                 android:textColor="@color/primaryText"
                 android:layout_width="match_parent"
@@ -61,7 +63,7 @@
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_chevron_left_black_24dp"
                     android:layout_gravity="center_vertical|start"
-                     android:visibility="invisible" />
+                    android:visibility="invisible" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/placesRight"
@@ -80,8 +82,11 @@
             <com.codesgood.views.JustifiedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Bhaktapur Heritage Walk"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+
+                android:paddingStart="16dp"
+                android:text="Recommended Months"
                 android:textColor="@color/primaryText"
                 android:textSize="20sp"
                 />
@@ -109,6 +114,7 @@
 
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
+                android:paddingStart="16dp"
                 android:text="Hotel Recommendation"
                 android:textColor="@color/primaryText"
                 android:layout_width="match_parent"

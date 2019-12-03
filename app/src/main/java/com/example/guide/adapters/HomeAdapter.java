@@ -128,7 +128,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.AboutViewHolde
                     public void run() {
                         navController.navigate(aClass);
                     }
-                }, 10);
+                }, 50);
             }
         });
 

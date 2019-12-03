@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
        android:orientation="vertical"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryLight"
+        android:background="@drawable/bg_gradient"
         android:gravity="center"
         >
         <TextView
@@ -106,7 +106,7 @@
         android:text="@string/new_translate"
         android:textSize="@dimen/translate_text_size"
         android:textColor="@android:color/white"
-        android:background="@drawable/button_shape"/>
+        android:background="@drawable/bg_gradient"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

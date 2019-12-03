@@ -3,36 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/first"
+    android:clickable="true"
+    android:focusable="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:orientation="vertical">
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/food_recycler_list_cardview"
-        android:layout_width="360dp"
+        android:id="@+id/places_recycler_list_cardview"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:transitionName="tq1"
+        android:transitionName="image_this"
         app:cardCornerRadius="25dp"
         tools:cardCornerRadius="25dp">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/food_recycler_list_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="Image"
-            android:scaleType="centerCrop"
-            android:background="@color/white"
-            android:transitionName="image_this"
-
-            app:srcCompat="@drawable/logo" />
+            <ImageView
+                android:id="@+id/places_recycler_list_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Image"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/logo" />
 
             <TextView
                 android:id="@+id/modalText"
@@ -45,24 +44,10 @@
                 android:textSize="30sp"
                 tools:text="Hello Man"
                 tools:textColor="@color/primaryText" />
-
         </FrameLayout>
-
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:background="@color/white"
-        android:id="@+id/food_recycler_list_text"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:singleLine="true"
-        android:text="why would you post thing like this"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        android:transitionName="text_name" />
 
 
 </LinearLayout>

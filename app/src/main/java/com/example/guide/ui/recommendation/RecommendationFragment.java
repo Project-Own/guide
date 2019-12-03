@@ -15,6 +15,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.codesgood.views.JustifiedTextView;
 import com.example.guide.Model.Recommendation;
 import com.example.guide.R;
 import com.example.guide.adapters.RecomendationAdapter;
@@ -33,6 +34,14 @@ public class RecommendationFragment extends Fragment {
     private int firstVisibleItemPosition, lastVisibleItem;
     RecyclerView.LayoutManager mPlacesLayoutManager;
     RecyclerView.LayoutManager mLayoutManager;
+    private String festival = "February/March: Holi\n" +
+            "April: Bisket Jatra\n" +
+            "October: Dashain\n" +
+            "October / November: Tihar\n" +
+            "August–September:Sa:paru\n" +
+            "For this year’s event please check the calendar\n";
+    private JustifiedTextView textView;
+
     public static RecommendationFragment newInstance() {
         return new RecommendationFragment();
     }
@@ -47,6 +56,7 @@ public class RecommendationFragment extends Fragment {
         hotelLeft = v.findViewById(R.id.hotelLeft);
         hotelRight = v.findViewById(R.id.hotelRight);
 
+        textView = v.findViewById(R.id.text1);
         hotelRecyclerView = v.findViewById(R.id.recycleView);
         mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         hotelRecyclerView.setLayoutManager(mLayoutManager);
@@ -64,12 +74,16 @@ public class RecommendationFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         NavController navController = Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment);
+
+        textView.setText(festival);
+
         mViewModel = ViewModelProviders.of(this).get(RecommendationViewModel.class);
         mViewModel.loadHotel().observe(this, new Observer<List<Recommendation>>() {
             @Override
             public void onChanged(List<Recommendation> recommendations) {
                 RecomendationAdapter adapter = new RecomendationAdapter(recommendations, getContext(), hotelRecyclerView, navController);
                 hotelRecyclerView.setAdapter(adapter);
+
 
                 hotelRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                     @Override
@@ -81,12 +95,12 @@ public class RecommendationFragment extends Fragment {
                         lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
                         hotelPosition = firstVisibleItemPosition;
                         if (hotelPosition == 0 || firstVisibleItemPosition == 0) {
-                            hotelLeft.setVisibility(View.INVISIBLE);
+                            hotelLeft.hide();
                         } else if (hotelPosition == recommendations.size() || lastVisibleItem == recommendations.size()) {
-                            hotelRight.setVisibility(View.INVISIBLE);
+                            hotelRight.hide();
                         } else {
-                            hotelLeft.setVisibility(View.VISIBLE);
-                            hotelRight.setVisibility(View.VISIBLE);
+                            hotelLeft.show();
+                            hotelRight.show();
                         }
                     }
 
@@ -99,12 +113,12 @@ public class RecommendationFragment extends Fragment {
                         lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
                         hotelPosition = firstVisibleItemPosition;
                         if (hotelPosition == 0 || firstVisibleItemPosition == 0) {
-                            hotelLeft.setVisibility(View.INVISIBLE);
+                            hotelLeft.hide();
                         } else if (hotelPosition == recommendations.size() || lastVisibleItem == recommendations.size()) {
-                            hotelRight.setVisibility(View.INVISIBLE);
+                            hotelRight.hide();
                         } else {
-                            hotelLeft.setVisibility(View.VISIBLE);
-                            hotelRight.setVisibility(View.VISIBLE);
+                            hotelLeft.show();
+                            hotelRight.show();
                         }
                     }
                 });
@@ -149,12 +163,12 @@ public class RecommendationFragment extends Fragment {
                         lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
                         placePosition = firstVisibleItemPosition;
                         if (placePosition == 0 || firstVisibleItemPosition == 0) {
-                            placesLeft.setVisibility(View.INVISIBLE);
+                            placesLeft.hide();
                         } else if (placePosition == recommendations.size() || lastVisibleItem == recommendations.size()) {
-                            placesRight.setVisibility(View.INVISIBLE);
+                            placesRight.hide();
                         } else {
-                            placesRight.setVisibility(View.VISIBLE);
-                            placesLeft.setVisibility(View.VISIBLE);
+                            placesRight.show();
+                            placesLeft.show();
                         }
                     }
 
@@ -167,12 +181,12 @@ public class RecommendationFragment extends Fragment {
                         lastVisibleItem = firstVisibleItemPosition + visibleItemCount;
                         placePosition = firstVisibleItemPosition;
                         if (placePosition == 0 || firstVisibleItemPosition ==0 ) {
-                            placesLeft.setVisibility(View.INVISIBLE);
+                            placesLeft.hide();
                         } else if (placePosition == recommendations.size() || lastVisibleItem==recommendations.size()) {
-                            placesRight.setVisibility(View.INVISIBLE);
+                            placesRight.hide();
                         } else {
-                            placesRight.setVisibility(View.VISIBLE);
-                            placesLeft.setVisibility(View.VISIBLE);
+                            placesRight.show();
+                            placesLeft.show();
                         }
                     }
                 });

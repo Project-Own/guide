@@ -45,7 +45,7 @@ public class InfoViewModel extends AndroidViewModel {
                 "people which has avoided conflicts for centuries. Every festival and cultural activity, irrespective of its religion, is " +
                 "observed and celebrated with enthusiasm.\n\n Bhaktapur is decorated by the blend of northern art and southern mythological " +
                 "philosophy. These can be seen in the Pagoda and Sikhar style temples, Vihars, Bahis and other cultural and historical" +
-                " heritages. Bhaktapur is living heritage displaying the vibrant depth of Newari culture.";
+                " heritages. Bhaktapur is living heritage displaying the vibrant depth of Newari culture. \n\n\n\n\n\n\n\n\n";
         String infoTicketData = "This ticket covers all of Bhaktapur including, Bhaktapur Durbar Square, Pottery Square, Taumadhi Square and " +
                 "Dattatreya Tole. Ticket can be extended for one week with no extra cost if you are planning to stay in Bhaktapur.\n\nTicket" +
                 " booths are located at all the main entrance streets into the old city of Bhaktapur and there are random \"ticket inspections\" so do hold on to your ticket! \n" +

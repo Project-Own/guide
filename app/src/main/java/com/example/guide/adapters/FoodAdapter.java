@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.navigation.NavController;
-import androidx.navigation.fragment.FragmentNavigator;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.guide.Model.Places;
 import com.example.guide.R;
+import com.example.guide.lib.SpringAnimationType;
+import com.example.guide.lib.SpringyAnimator;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
 
@@ -52,7 +54,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     @Override
     public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.food_recycler_list, parent, false);
+        View view = layoutInflater.inflate(R.layout.places_recycler_list, parent, false);
         mAnimator.onSpringItemCreate(view);
 
         return new FoodViewHolder(view);
@@ -60,13 +62,21 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull FoodViewHolder holder, int position) {
-        holder.description.setText(foodList.get(position).getDescription());
+     //   holder.description.setText(foodList.get(position).getDescription());
         Glide.with(holder.itemView)
                 .load(context.getResources()
                         .getIdentifier(foodList.get(position).getImage(), "drawable", context.getPackageName()))
-
                 .into(holder.imageView);
         holder.bind(foodList.get(position));
+        holder.cardView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 85, 15, 0.8f, 1);
+
+                scaleY.startSpring(holder.cardView);
+                return false;
+            }
+        });
         mAnimator.onSpringItemBind(holder.itemView, position);
 
     }
@@ -86,16 +96,16 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
         FoodViewHolder(@NonNull View itemView) {
             super(itemView);
-            description = itemView.findViewById(R.id.food_recycler_list_text);
-            imageView = itemView.findViewById(R.id.food_recycler_list_image);
-            cardView = itemView.findViewById(R.id.food_recycler_list_cardview);
+        //    description = itemView.findViewById(R.id.places_recycleriew_list_text);
+            imageView = itemView.findViewById(R.id.places_recycler_list_image);
+            cardView = itemView.findViewById(R.id.places_recycler_list_cardview);
             name = itemView.findViewById(R.id.modalText);
 
         }
 
         void bind(Places places) {
 
-            itemView.setOnClickListener(view -> {
+            cardView.setOnClickListener(view -> {
 //                if(listner != null){
 //                    int position = getAdapterPosition();
 //                    if(position != RecyclerView.NO_POSITION){
@@ -104,12 +114,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
 
 //                }
-                FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder()
-                        .addSharedElement(cardView, "image_this")
-                        .addSharedElement(description,"text_this")
-                        .build();
 
-                itemView.playSoundEffect(SoundEffectConstants.CLICK);
+                cardView.playSoundEffect(SoundEffectConstants.CLICK);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -119,9 +125,9 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
                         bundle.putString("name", places.getName());
                         bundle.putString("description", places.getDescription());
                         bundle.putString("image", places.getImage());
-                        navController.navigate(R.id.action_nav_food_to_placeDetailFragment3, bundle, null, extras);
+                        navController.navigate(R.id.action_nav_food_to_placeDetailFragment3, bundle);
                     }
-                }, 100);
+                }, 50);
 
             });
         }

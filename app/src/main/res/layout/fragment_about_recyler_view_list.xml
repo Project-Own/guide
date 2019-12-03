@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:padding="40dp"
-
         app:cardCornerRadius="10dp"
         app:cardElevation="6dp">
 
@@ -20,6 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+
+
             >
 
             <LinearLayout
@@ -28,11 +29,12 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:scaleType="centerCrop"
                     android:id="@+id/about_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="Image"
-                    app:srcCompat="@drawable/code_icon">
+                    app:srcCompat="@drawable/sahas">
 
                 </ImageView>
             </LinearLayout>
@@ -41,6 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_margin="8dp"
                 >
 
                 <TextView

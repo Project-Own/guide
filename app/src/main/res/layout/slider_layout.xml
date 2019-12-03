@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:background="@color/white"
+  android:background="@drawable/bg_gradient"
     android:layout_width="match_parent"
     android:id="@+id/slide_layout"
     android:layout_height="match_parent"
@@ -17,6 +17,7 @@
         android:layout_gravity="top|center"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
+        android:scaleType="centerCrop"
         app:lottie_rawRes="@raw/no_internet_animation" />
 
 

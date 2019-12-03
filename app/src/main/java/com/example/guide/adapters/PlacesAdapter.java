@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.navigation.NavController;
-import androidx.navigation.fragment.FragmentNavigator;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -90,7 +89,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         holder.cardView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 85, 15, 0.8f, 1);
+                final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 1, 50, 0.8f, 1);
 
                 scaleY.startSpring(holder.cardView);
                 return false;
@@ -129,7 +128,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
         void bind(Places places) {
 
-            itemView.setOnClickListener(view -> {
+            cardView.setOnClickListener(view -> {
 //                if(listner != null){
 //                    int position = getAdapterPosition();
 //                    if(position != RecyclerView.NO_POSITION){
@@ -138,13 +137,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
 
 //                }
-                FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder()
-                        .addSharedElement(cardView, "image_this")
-
-                        .build();
-
-
-                itemView.playSoundEffect(SoundEffectConstants.CLICK);
+                cardView.playSoundEffect(SoundEffectConstants.CLICK);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -155,9 +148,9 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                         bundle.putString("name", places.getName());
                         bundle.putString("description", places.getDescription());
                         bundle.putString("image", places.getImage());
-                        navController.navigate(R.id.action_nav_place_to_placeDetailFragment3, bundle, null, extras);
+                        navController.navigate(R.id.action_nav_place_to_placeDetailFragment3, bundle );
                     }
-                }, 100);
+                }, 50);
 
             });
         }

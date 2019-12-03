@@ -8,13 +8,15 @@
 
 
 
-    <com.codesgood.views.JustifiedTextView
+    <TextView
         android:id="@+id/titleText"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         tools:text="Title"
+        android:background="@drawable/title_background"
+        android:padding="10dp"
         android:textSize="@dimen/title"
         />
 
