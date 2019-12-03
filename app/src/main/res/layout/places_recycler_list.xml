@@ -49,17 +49,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/places_recycler_list_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:transitionName="text_this"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        android:singleLine="true"
-        tools:text="asdasdfasddddddddddddddddddfsdfsdfsdfsdfsd+\n+\n+\nd" />
 
 
 </LinearLayout>

@@ -66,7 +66,7 @@ public class FoodViewModel extends AndroidViewModel {
                 "consumed on the festival of Gun Punhi.Kwāti is eaten as a delicacy and for its health benefits and ritual significance." +
                 "Kwati is known to be a healthy food. They say that it cures cold, cough and is one of the best foods for women in their maternity leave.", "kwati"));
 
-        food.add(new Places("Bhuttan", "Bhutan is made out of intestines, liver and stomach of a goat. Goat meat Bhutan" +
+        food.add(new Places("Bhuttan", "Bhuttan is made out of intestines, liver and stomach of a goat. Goat meat Bhutan" +
                 " is a traditional Newari food that is eaten in Nepal especially in festival seasons. It is mostly eaten with beaten rice and " +
                 "goes perfectly as a side dish, appetiser with liquor drinks.", "bhuttan"));
 

@@ -19,23 +19,25 @@ public class SliderAdapter extends PagerAdapter {
         this.context=context;
     }
     public String[] slide_images={
-            "exchange",
-           "location",
             "conversation",
-           "map_location"
+            "map_location",
+            "exchange",
+            "calendar",
+
     };
 
-    public String[] slide_headings = {"Information",
+    public String[] slide_headings = {
+            "Information",
             "Navigate",
-            "Understand",
-            "HEllo"
+            "Forex",
+            "Calendar"
     };
 
     public String[] slide_desc={
-            "Be Informative:\nForeign Exchange Rate",
-            "Navigate Through Maps and Markers",
             "Understand Local Heritage and Culture",
-            "sdsdfdsfsdsf sd sd sd sd"
+            "Navigate through Street of Bhaktapur",
+            "Know your rate",
+            "Pre-plan your stay"
     };
 
     @Override

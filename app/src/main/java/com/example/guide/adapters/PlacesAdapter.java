@@ -81,7 +81,6 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
     @Override
     public void onBindViewHolder(@NonNull PlacesViewHolder holder, int position) {
         holder.name.setText(placesList.get(position).getName());
-        holder.description.setText(placesList.get(position).getDescription());
         Glide.with(holder.itemView)
                 .load(context.getResources()
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
@@ -112,7 +111,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
     }
 
     class PlacesViewHolder extends RecyclerView.ViewHolder {
-        TextView description;
+
         ImageView imageView;
         CardView cardView;
         TextView name;
@@ -121,7 +120,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
         PlacesViewHolder(@NonNull View itemView) {
             super(itemView);
-            description = itemView.findViewById(R.id.places_recycler_list_text);
+
             imageView = itemView.findViewById(R.id.places_recycler_list_image);
             cardView = itemView.findViewById(R.id.places_recycler_list_cardview);
             name = itemView.findViewById(R.id.modalText);
@@ -141,7 +140,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 //                }
                 FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder()
                         .addSharedElement(cardView, "image_this")
-                        .addSharedElement(description, "text_this")
+
                         .build();
 
 
