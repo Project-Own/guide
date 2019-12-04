@@ -321,7 +321,7 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
             Uri baseUri = Uri.parse(BASE_REQ_URL);
             Uri.Builder uriBuilder = baseUri.buildUpon();
             uriBuilder.appendPath("getLangs")
-                    .appendQueryParameter("key", getContext().getString(R.string.translator_api_key))
+                    .appendQueryParameter("key", "trnsl.1.1.20191109T115457Z.b9e9b523e6e84a6c.07b63b812d774c1e07698b00afa937eb4aca6e30")
                     .appendQueryParameter("ui", "en");
             Log.e("String Url ---->", uriBuilder.toString());
             return QueryUtils.fetchLanguages(uriBuilder.toString());

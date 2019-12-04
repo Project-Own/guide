@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +20,6 @@ import com.example.guide.R;
 public class FullscreenImageFragment extends Fragment {
 
     private FullscreenImageViewModel mViewModel;
-    private LinearLayout linearLayout;
 
     public static FullscreenImageFragment newInstance() {
         return new FullscreenImageFragment();
@@ -33,7 +31,6 @@ public class FullscreenImageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fullscreen_image_fragment, container, false);
         String imageName = getArguments().getString("image");
         ImageView imageView = view.findViewById(R.id.fullscreenImageView);
-        linearLayout = view.findViewById(R.id.loadView);
         if (!imageName.equals("")) {
             Glide.with(this)
                     .load(getResources()
@@ -44,7 +41,6 @@ public class FullscreenImageFragment extends Fragment {
                         @Override
                         public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
                             imageView.setImageDrawable(resource);
-                            linearLayout.setVisibility(View.GONE);
                         }
 
                         @Override

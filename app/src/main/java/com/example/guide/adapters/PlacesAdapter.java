@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.guide.Model.Places;
 import com.example.guide.R;
-import com.example.guide.lib.SpringAnimationType;
-import com.example.guide.lib.SpringyAnimator;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimationType;
 import com.example.guide.lib.springyRecyclerView.SpringyAdapterAnimator;
 
@@ -86,8 +83,8 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
                 .into(holder.imageView);
         holder.bind(placesList.get(position));
-
-        holder.itemView.setOnTouchListener(new View.OnTouchListener() {
+/*
+        holder.cardView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 1, 50, 0.8f, 1);
@@ -95,7 +92,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                 scaleY.startSpring(holder.cardView);
                 return false;
             }
-        });
+        });*/
 
 
 
@@ -131,6 +128,62 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         void bind(Places places) {
 
             cardView.setOnClickListener(view -> {
+//                if(listner != null){
+//                    int position = getAdapterPosition();
+//                    if(position != RecyclerView.NO_POSITION){
+//                        listner.onItemClick();
+//                    }
+
+
+//                }
+                cardView.playSoundEffect(SoundEffectConstants.CLICK);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+
+
+                        final Bundle bundle = new Bundle();
+                        bundle.putString("name", places.getName());
+                        bundle.putString("description", places.getDescription());
+                        bundle.putString("image", places.getImage());
+                        bundle.putDouble("lat", places.getLat());
+                        bundle.putDouble("long", places.getLang());
+                        navController.navigate(R.id.action_nav_place_to_placeDetailFragment3, bundle );
+                    }
+                }, 50);
+
+            });
+
+            itemView.setOnClickListener(view -> {
+//                if(listner != null){
+//                    int position = getAdapterPosition();
+//                    if(position != RecyclerView.NO_POSITION){
+//                        listner.onItemClick();
+//                    }
+
+
+//                }
+                cardView.playSoundEffect(SoundEffectConstants.CLICK);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+
+
+                        final Bundle bundle = new Bundle();
+                        bundle.putString("name", places.getName());
+                        bundle.putString("description", places.getDescription());
+                        bundle.putString("image", places.getImage());
+                        bundle.putDouble("lat", places.getLat());
+                        bundle.putDouble("long", places.getLang());
+                        navController.navigate(R.id.action_nav_place_to_placeDetailFragment3, bundle );
+                    }
+                }, 50);
+
+            });
+
+            description.setOnClickListener(view -> {
 //                if(listner != null){
 //                    int position = getAdapterPosition();
 //                    if(position != RecyclerView.NO_POSITION){

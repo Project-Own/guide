@@ -2,9 +2,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@color/white"
-    >
+    android:background="@color/white">
 
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/imageView"
@@ -20,11 +20,14 @@
         android:layout_height="wrap_content">
 
     <TextView
-        android:padding="8dp"
+        android:padding="16dp"
+        android:textSize="15sp"
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:textColor="@color/primaryText"
+        android:layout_marginBottom="20dp"
+        tools:text="dfggdfgdfg"
         />
 
     </androidx.cardview.widget.CardView>

@@ -88,7 +88,7 @@
                 android:paddingBottom="8dp"
 
                 android:paddingStart="16dp"
-                android:text="Recommended Months"
+                android:text="Festive Months"
                 android:textColor="@color/primaryText"
                 android:textSize="20sp"
                 />

@@ -34,11 +34,11 @@ public class RecommendationFragment extends Fragment {
     private int firstVisibleItemPosition, lastVisibleItem;
     RecyclerView.LayoutManager mPlacesLayoutManager;
     RecyclerView.LayoutManager mLayoutManager;
-    private String festival = "February/March: Holi\n" +
-            "April: Bisket Jatra\n" +
-            "October: Dashain\n" +
-            "October / November: Tihar\n" +
-            "August–September:Sa:paru\n" +
+    private String festival = "February/March : Holi\n" +
+            "April : Bisket Jatra\n" +
+            "October : Dashain\n" +
+            "October / November : Tihar\n" +
+            "August–September : Sa:paru\n\n" +
             "For this year’s event please check our calendar\n";
     private JustifiedTextView textView;
 
