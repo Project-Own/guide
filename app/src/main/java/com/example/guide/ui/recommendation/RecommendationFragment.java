@@ -39,7 +39,7 @@ public class RecommendationFragment extends Fragment {
             "October: Dashain\n" +
             "October / November: Tihar\n" +
             "August–September:Sa:paru\n" +
-            "For this year’s event please check the calendar\n";
+            "For this year’s event please check our calendar\n";
     private JustifiedTextView textView;
 
     public static RecommendationFragment newInstance() {

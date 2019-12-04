@@ -125,6 +125,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
                         bundle.putString("name", places.getName());
                         bundle.putString("description", places.getDescription());
                         bundle.putString("image", places.getImage());
+                        bundle.putDouble("lat", places.getLat());
+                        bundle.putDouble("long", places.getLang());
                         navController.navigate(R.id.action_nav_food_to_placeDetailFragment3, bundle);
                     }
                 }, 50);

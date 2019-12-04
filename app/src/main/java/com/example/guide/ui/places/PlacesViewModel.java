@@ -37,14 +37,14 @@ public class PlacesViewModel extends AndroidViewModel {
 
     private void loadPlacesList() {
         places = new ArrayList<>();
-        TextReader txt= (TextReader) new TextReader().execute(new String[]{"Taumadhi Square","taumadhi","nyatapolo"});
-        txt= (TextReader) new TextReader().execute(new String[]{"Pottery Square","pottery","potterysquare"});
-        txt= (TextReader) new TextReader().execute(new String[]{"Durbar Square","durbar","durbarsquare"});
-        txt= (TextReader) new TextReader().execute(new String[]{"Datattreya Square","datattreya","datattreya"});
-        txt= (TextReader) new TextReader().execute(new String[]{"Ta: Pukhu","tapukhu","tapukhu"});
-        txt= (TextReader) new TextReader().execute(new String[]{"Biska Jatra","biska","bisket"});
-        txt= (TextReader) new TextReader().execute(new String[]{"Saparu","saparu","saparu"});
-        txt= (TextReader) new TextReader().execute(new String[]{"Holi","fagu","holi"});
+        TextReader txt= (TextReader) new TextReader().execute(new String[]{"Taumadhi Square","taumadhi","nyatapolo","27.671231", "85.429259"});
+        txt= (TextReader) new TextReader().execute(new String[]{"Pottery Square","pottery","potterysquare","27.669873", "85.427808"});
+        txt= (TextReader) new TextReader().execute(new String[]{"Durbar Square","durbar","durbarsquare","27.672073", "85.428095"});
+        txt= (TextReader) new TextReader().execute(new String[]{"Datattreya Square","datattreya","datattreya","27.673421", "85.435387"});
+        txt= (TextReader) new TextReader().execute(new String[]{"Ta: Pukhu","tapukhu","tapukhu","27.671980", "85.420511"});
+        txt= (TextReader) new TextReader().execute(new String[]{"Biska Jatra","biska","bisket","27.672073", "85.428095"});
+        txt= (TextReader) new TextReader().execute(new String[]{"Saparu","saparu","saparu","27.672073", "85.428095"});
+        txt= (TextReader) new TextReader().execute(new String[]{"Holi","fagu","holi","27.672073", "85.428095"});
 
     }
 
@@ -75,13 +75,14 @@ public class PlacesViewModel extends AndroidViewModel {
                 }
             }
 
-            String[] s= new String[]{fileName[0],sBuffer.toString(),fileName[2]};
+            String[] s= new String[]{fileName[0],sBuffer.toString(),fileName[2],fileName[3],fileName[4]};
             return s;
         }
 
         @Override
         protected void onPostExecute(String[] s) {
-            places.add(new Places(s[0],s[1],s[2]));
+
+            places.add(new Places(s[0],s[1],s[2],Double.valueOf(s[3]),Double.valueOf(s[4])));
             placesList.setValue(places);
             super.onPostExecute(s);
 

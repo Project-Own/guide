@@ -148,6 +148,8 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                         bundle.putString("name", places.getName());
                         bundle.putString("description", places.getDescription());
                         bundle.putString("image", places.getImage());
+                        bundle.putDouble("lat", places.getLat());
+                        bundle.putDouble("long", places.getLang());
                         navController.navigate(R.id.action_nav_place_to_placeDetailFragment3, bundle );
                     }
                 }, 50);
