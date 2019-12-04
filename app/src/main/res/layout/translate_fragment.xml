@@ -49,13 +49,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"/>
-        <ImageView
-            android:id="@+id/image_swap"
-            android:layout_width="0dp"
-            android:layout_weight="0.2"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_home_black_24dp"
-            android:tint="@color/colorDarkGray" />
+
         <Spinner
             android:id="@+id/spinner_language_to"
             android:spinnerMode="dropdown"
@@ -82,7 +76,7 @@
             android:id="@+id/image_listen"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:src="@drawable/mapbox_ic_place"
+            android:src="@drawable/ic_mic_black_24dp"
             android:tint="@android:color/darker_gray"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
@@ -106,7 +100,8 @@
         android:text="@string/new_translate"
         android:textSize="@dimen/translate_text_size"
         android:textColor="@android:color/white"
-        android:background="@drawable/bg_gradient"/>
+        android:layout_margin="8dp"
+        />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -12,6 +12,7 @@
         android:textAlignment="center"
         android:text="About Us"
         android:textSize="30dp"
+        android:layout_margin="@dimen/title"
         android:textStyle="italic"
         />
 

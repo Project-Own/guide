@@ -76,7 +76,6 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
         mSpinnerLanguageFrom = (Spinner) v.findViewById(R.id.spinner_language_from);
         mSpinnerLanguageTo = (Spinner) v.findViewById(R.id.spinner_language_to);
         Button mButtonTranslate = (Button) v.findViewById(R.id.button_translate);         //      Translate button to translate text
-        ImageView mImageSwap = (ImageView) v.findViewById(R.id.image_swap);               //      Swap Language button to swap languages
         ImageView mImageListen = (ImageView) v.findViewById(R.id.image_listen);           //      Mic button for Speech to text
         mImageSpeak = (ImageView) v.findViewById(R.id.image_speak);
         ImageView mClearText = (ImageView) v.findViewById(R.id.clear_text);               //      Clear button to clear text fields
@@ -127,23 +126,7 @@ public class TranslateFragment extends Fragment implements TextToSpeech.OnInitLi
                     new TranslateText().execute(input);
                 }
             });
-            //  SWAP BUTTON
-            mImageSwap.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String temp = mLanguageCodeFrom;
-                    mLanguageCodeFrom = mLanguageCodeTo;
-                    mLanguageCodeTo = temp;
-                    int posFrom = mSpinnerLanguageFrom.getSelectedItemPosition();
-                    int posTo = mSpinnerLanguageTo.getSelectedItemPosition();
-                    mSpinnerLanguageFrom.setSelection(posTo);
-                    mSpinnerLanguageTo.setSelection(posFrom);
-                    String textFrom = mTextInput.getText().toString();
-                    String textTo = mTextTranslated.getText().toString();
-                    mTextInput.setText(textTo);
-                    mTextTranslated.setText(textFrom);
-                }
-            });
+
             //  CLEAR TEXT
             mClearText.setOnClickListener(new View.OnClickListener() {
                 @Override
