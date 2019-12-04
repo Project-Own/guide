@@ -52,6 +52,7 @@ DrawerLayout drawer;
         NavController navController = Navigation.findNavController(this, R.id.my_nav_host_fragment);
         mAppBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph())
                 .setDrawerLayout(drawer)
+                .setFallbackOnNavigateUpListener(this::onSupportNavigateUp)
                 .build();
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -88,9 +89,10 @@ DrawerLayout drawer;
 
         if(drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        }
+               return false;
+            }else {
             return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                     || super.onSupportNavigateUp();
-
+        }
     }
 }

@@ -28,8 +28,7 @@ public class ReviewFragment extends Fragment {
     EditText email;
     EditText review;
     EditText getReview;
-
-
+    private boolean isDisabled;
 
 
     public static ReviewFragment newInstance() {
@@ -49,7 +48,7 @@ public class ReviewFragment extends Fragment {
         ratingBar=view.findViewById(R.id.rating1);
         Firebase.setAndroidContext(getContext());
         String uniqueID= Settings.Secure.getString(getActivity().getContentResolver(),Settings.Secure.ANDROID_ID);
-        firebase=new Firebase("https://review-ff940.firebaseio.com/Users"+ uniqueID);
+        firebase=new Firebase("https://review1-cf41f.firebaseio.com/Users"+ uniqueID);
 
         return view;
     }
@@ -69,11 +68,16 @@ public class ReviewFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 submitfeedback();
-                name.getText().clear();
-                email.getText().clear();
-                review.getText().clear();
-                getReview.getText().clear();
-                ratingBar.setRating(0f);
+
+                if(!isDisabled) {
+                 name.getText().clear();
+                 email.getText().clear();
+                 review.getText().clear();
+                 getReview.getText().clear();
+                 ratingBar.setRating(0f);
+                    Toast.makeText(getContext(), "feedback sent", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 
@@ -92,19 +96,21 @@ public class ReviewFragment extends Fragment {
         reusername.setValue(username);
         if(username.isEmpty()){
             name.setError("this field is required");
-            button.setEnabled(false);
+            isDisabled = true;
         }
         else{
             name.setError(null);
+            isDisabled = false;
             button.setEnabled(true);
         }
         Firebase reuseremail=firebase.child("email");
         reuseremail.setValue(useremail);
         if(useremail.isEmpty()){
             email.setError("this field is required");
-            button.setEnabled(false);
+            isDisabled = true;
         }
         else{
+            isDisabled = false;
             email.setError(null);
             button.setEnabled(true);
         }
@@ -112,9 +118,10 @@ public class ReviewFragment extends Fragment {
         reuserreview.setValue(userreview);
         if(userreview.isEmpty()){
             review.setError("this field is required");
-            button.setEnabled(false);
+            isDisabled = true;
         }
         else{
+            isDisabled = false;
             review.setError(null);
             button.setEnabled(true);
         }
@@ -122,10 +129,9 @@ public class ReviewFragment extends Fragment {
         reuserreview1.setValue(userreview1);
         if(userreview1.isEmpty()){
             getReview.setError("this field is required");
-            button.setEnabled(false);
-            Toast.makeText(getContext(), "feedback sent", Toast.LENGTH_SHORT).show();
-        }
-        else{
+            isDisabled = true;
+         }
+        else{   isDisabled = false;
             getReview.setError(null);
             button.setEnabled(true);
         }
@@ -135,9 +141,10 @@ public class ReviewFragment extends Fragment {
         rerating.setValue(rating);
         if(userreview1.isEmpty()){
             getReview.setError("Rating is required");
-            button.setEnabled(false);
+            isDisabled = true;
         }
         else{
+            isDisabled = false;
             getReview.setError(null);
             button.setEnabled(true);
         }

@@ -86,10 +86,10 @@ public class RecommendationViewModel extends AndroidViewModel {
         recomendationsPlaces.add(new Recommendation("Siddhi Laxmi Temple", "", "", "", "", "A stone temple built in the 17th-century (currently - 2017/18- under reconstuction)"
                 , "siddhilaxmi"));
         recomendationsPlaces.add(new Recommendation("Pottery Square", "", "", "", "", "Watch Bhaktapur's famous pottery as it's made in this idyllic traditional square filled with potters and their wares. ", "potters",27.669874, 85.427764));
-        recomendationsPlaces.add(new Recommendation("Royal Curd", "", "", "", "", "Take a time out and eat some of Bhaktapur's famous curd", "kingcurd"));
+        recomendationsPlaces.add(new Recommendation("Royal Curd", "", "", "", "", "Take a time out and eat some of Bhaktapur's famous curd", "kingcurd",27.672072, 85.428103));
         recomendationsPlaces.add(new Recommendation("Side streets of Bhaktapur", "", "", "", "", "Spend hours wandering off down the side " +
                 " streets of the city enjoying local handicraft stores, " +
-                " artisans, local cafes and countless ancient buildings ", "alley"));
+                " artisans, local cafes and countless ancient buildings ", "alley",27.672072, 85.428103));
         recomendationsPlaces.add(new Recommendation("Taumadhi Square", "", "", "", "", "A huge square with the tallest temple in Nepal", "nightpolo",27.671142, 85.429272));
 
         recomendationsPlaces.add(new Recommendation("Dattatreya Square", "", "", "", "", "The oldest royal square in Nepal filled with things to see and do.", "datattreya",27.673488, 85.435055));

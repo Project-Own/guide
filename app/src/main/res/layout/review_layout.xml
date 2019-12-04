@@ -112,7 +112,9 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:textSize="18dp"
+        android:enabled="true"
         android:onClick="submitfeedback"
+
         android:textColor="@color/colorPrimary"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
