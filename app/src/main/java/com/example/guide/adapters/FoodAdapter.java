@@ -62,13 +62,15 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull FoodViewHolder holder, int position) {
-     //   holder.description.setText(foodList.get(position).getDescription());
+        holder.description.setText(foodList.get(position).getDescription());
+        holder.name.setText(foodList.get(position).getName());
+
         Glide.with(holder.itemView)
                 .load(context.getResources()
                         .getIdentifier(foodList.get(position).getImage(), "drawable", context.getPackageName()))
                 .into(holder.imageView);
         holder.bind(foodList.get(position));
-        holder.cardView.setOnTouchListener(new View.OnTouchListener() {
+        holder.itemView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 85, 15, 0.8f, 1);
@@ -96,7 +98,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
         FoodViewHolder(@NonNull View itemView) {
             super(itemView);
-        //    description = itemView.findViewById(R.id.places_recycleriew_list_text);
+            description = itemView.findViewById(R.id.places_recycler_list_description);
             imageView = itemView.findViewById(R.id.places_recycler_list_image);
             cardView = itemView.findViewById(R.id.places_recycler_list_cardview);
             name = itemView.findViewById(R.id.modalText);

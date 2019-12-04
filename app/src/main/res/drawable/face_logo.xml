@@ -7,6 +7,6 @@
         <bitmap
             android:gravity="center"
 
-            android:src="@drawable/nepal" />
+            android:src="@drawable/placeholder_logo" />
     </item>
 </layer-list>

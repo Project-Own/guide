@@ -80,13 +80,14 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
     @Override
     public void onBindViewHolder(@NonNull PlacesViewHolder holder, int position) {
         holder.name.setText(placesList.get(position).getName());
+        holder.description.setText(placesList.get(position).getDescription().substring(2));
         Glide.with(holder.itemView)
                 .load(context.getResources()
                         .getIdentifier(placesList.get(position).getImage(), "drawable", context.getPackageName()))
                 .into(holder.imageView);
         holder.bind(placesList.get(position));
 
-        holder.cardView.setOnTouchListener(new View.OnTouchListener() {
+        holder.itemView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 final SpringyAnimator scaleY = new SpringyAnimator(SpringAnimationType.SCALEXY, 1, 50, 0.8f, 1);
@@ -113,13 +114,14 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
         ImageView imageView;
         CardView cardView;
-        TextView name;
+        TextView name, description;
 
 
 
         PlacesViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            description = itemView.findViewById(R.id.places_recycler_list_description);
             imageView = itemView.findViewById(R.id.places_recycler_list_image);
             cardView = itemView.findViewById(R.id.places_recycler_list_cardview);
             name = itemView.findViewById(R.id.modalText);
